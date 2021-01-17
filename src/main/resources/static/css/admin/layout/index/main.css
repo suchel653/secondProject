@@ -1,0 +1,27 @@
+.body .main{
+    display: flex;
+    flex-direction: column;
+    /* background: grey; */
+  
+}
+
+.body .main .main1 .container{
+
+
+    width: 1200px;
+    min-height: 400px;
+    margin : 0 auto;
+   
+  
+}
+
+.body .main .main2 .container{
+
+    width: 1200px;
+    min-height: 400px;
+    margin : 0 auto;
+    margin-top: 50px;
+    
+    
+  
+}
