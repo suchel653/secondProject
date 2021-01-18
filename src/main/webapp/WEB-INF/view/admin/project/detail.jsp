@@ -38,7 +38,6 @@
                          </thead>
                          
                          <tbody>
-                         <c:forEach var="pj" items="${list }">
 							<tr>
 								<td>${pj.id}</td>
 								<td><a href="${pj.id }">${pj.title}</a></td>
@@ -51,7 +50,6 @@
 								<td>
 								</td>
 							</tr>
-						</c:forEach>
                          </tbody>
                         </table>
                     </div>

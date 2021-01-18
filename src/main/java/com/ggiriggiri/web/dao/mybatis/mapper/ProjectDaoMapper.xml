@@ -5,8 +5,18 @@
 
 <mapper namespace="com.ggiriggiri.web.dao.ProjectDao">
 
-
-		
-
-
+	<select id="getList" resultType="com.ggiriggiri.web.entity.Project">
+		select * from Project
+      	<if test="param3 !=null and param3 !=''">
+      	where BINARY ${param3} like '%${param4}%'
+      	</if>
+		order by regDate desc
+		limit #{param2} offset #{param1};
+	</select>
+	
+	<select id="get" resultType="com.ggiriggiri.web.entity.Project">
+		SELECT * FROM Project
+	      WHERE ID=${param1}
+	</select>
+	
 </mapper>
