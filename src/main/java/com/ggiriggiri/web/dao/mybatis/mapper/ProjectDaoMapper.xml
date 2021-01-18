@@ -18,7 +18,7 @@
 	<select id="get" resultType="com.ggiriggiri.web.entity.Project">
 		SELECT * FROM Project
 	      WHERE ID=${param1}
-	</select>
+	</select>                    
 	<!-- list / field  -->
 	
 	<!-- skill / language  -->
