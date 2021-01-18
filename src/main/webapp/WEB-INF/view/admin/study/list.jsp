@@ -29,26 +29,34 @@
                     <table class="list-table">
                         <thead>
                             <tr>
-                                <td>닉네임</td>
-                                <td>이름</td>
-                                <td>성별</td>
-                                <td>생일</td>
-                                <td>성격</td>
-                                <td>몸무게</td>
-                                <td>견종</td>
+                                <td>아이디</td>
+                                <td>제목</td>
+                                <td>필드</td>
+                                <td>스킬</td>
+                                <td>언어</td>
+                                <td>스터디장</td>
+                                <td>진행날짜</td>
+                          
+                                <td>인원</td>
+                                <td>상태</td>
+                                <td>등록일</td>
                             </tr>
                         </thead>
                 
                         <tbody>
                             <tr>
                               
-                                <td>현지</td> 
-                                <td>아띠</td>
-                                <td>여</td>
-                                <td>20.04.21</td>
-                                <td>활발</td>
-                                <td>3.8kg</td>
-                                <td>비숑</td>
+                                 <td>1</td>
+                                <td>C스터디에여</td>
+                                <td>기타</td>
+                                <td>기타</td>
+                                <td>C</td>
+                                <td>victor</td>
+                                <td>2020-12-31~2021-03-05</td>
+                            
+                                <td>3</td>
+                                <td>진행중</td>
+                                <td>2020-12-01</td>
                             </tr>
                         </tbody>
                     </table>
