@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    
 	<main id="main" class="main">
                 <h1 class="d-none">메인이다</h1>
                 <section>
@@ -9,14 +8,13 @@
                     <form>
                     
                         <div>
-                            <select name="f">
-                                <option value="title">제목</option>
-                                <option value="writerId">작성자</option>
-                                <option value="field">분야</option>
-                                <option value="skill">기술</option>
-                                <option value="language">언어</option>
+                            <select>
+                                <option>제목</option>
+                                <option>분야</option>
+                                <option>기술</option>
+                                <option>언어</option>
                             </select>
-                            <input type="text" name="q" value="">
+                            <input type="text">
                         </div>
                         <input type="submit" value="검색">
                     </form>
@@ -29,7 +27,7 @@
                             <tr>
                             <td>번호</td>
                             <td>제목</td>
-                            <td>작성자</td>
+                            <td>분야</td>
                             <td>기술</td>
                             <td>언어</td>
                             <td>등록일</td>
@@ -38,20 +36,6 @@
                          </thead>
                          
                          <tbody>
-                         <c:forEach var="pj" items="${list }">
-							<tr>
-								<td>${pj.id}</td>
-								<td><a href="${pj.id }">${pj.title}</a></td>
-								<td>${pj.leaderId }</td>
-								<td>${pj.content }</td>
-								<td>${pj.requirement }</td>
-								<td>
-								<fmt:formatDate value="${pj.regDate }" pattern="yyyy-MM-dd"/>
-								</td>
-								<td>
-								</td>
-							</tr>
-						</c:forEach>
                          </tbody>
                         </table>
                     </div>

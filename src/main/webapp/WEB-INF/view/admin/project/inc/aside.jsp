@@ -4,8 +4,9 @@
 	<aside class="aside">
 		<h1 class="d-none">페이지 목록</h1>
 		<ul>
-			<li><a href="list.html">목록</a></li>
-			<li><a href="dog-list.html">스킬</a></li>
-			<li><a href="matching-list.html">언어</a></li>
+			<li><a href="list">List</a></li>
+			<li><a href="field">Field</a></li>
+			<li><a href="skill">Skill</a></li>
+			<li><a href="language">Language</a></li>
 		</ul>
 	</aside>
