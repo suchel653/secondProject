@@ -5,6 +5,10 @@
 
 <mapper namespace="com.ggiriggiri.web.dao.StudyDao">
 
+ <select id="getList" resultType="com.ggiriggiri.web.entity.Study">
+
+      </select>
+
 
 		
 
