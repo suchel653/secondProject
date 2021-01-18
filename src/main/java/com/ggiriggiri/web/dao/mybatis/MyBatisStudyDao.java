@@ -13,9 +13,6 @@ import com.ggiriggiri.web.entity.Study;
 @Repository
 public class MyBatisStudyDao implements StudyDao{
 	
-	@Autowired
-	private SqlSession session;
-	
 	private StudyDao mapper;
 	
 	@Autowired
