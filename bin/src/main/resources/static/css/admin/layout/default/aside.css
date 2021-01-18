@@ -1,0 +1,4 @@
+.body .aside {
+    flex-basis: 200px;
+    flex-shrink: 0;
+  }

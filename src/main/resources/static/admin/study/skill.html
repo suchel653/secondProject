@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../../css/admin/default.css" type="text/css" rel="stylesheet" />
+    <style>
+        td{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <header id="header" class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>끼리끼리</h1>
+                </a>
+            </div>
+
+            <nav>
+                <h1 class="d-none">헤더 목록</h1>
+                <ul>
+                    <li>
+                        <a href="member/list">
+                            <span>MEMBER</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="study/list">
+                            <span>STUDY</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="project/list">
+                            <span>PROJECT</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contest/list">
+                            <span>CONTEST</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        </div>
+    </header>
+
+
+    <div class="body">
+        <div class="container">
+            <aside class="aside">
+                <h1 class="d-none">페이지 목록</h1>
+                <ul>
+                <li><a href="list.html">list</a></li>
+                <li><a href="dog-list.html">skill</a></li>
+                <li><a href="matching-list.html">language</a></li>
+
+                </ul>
+            </aside>
+
+            <main class="main">
+                <h1 class="d-none">Main Content</h1>
+
+                <section>
+                    <h1 class="d-none">skill</h1>
+
+                    <input class="button" type="button" value="+ Add Category">
+                    
+                    <table class="list-table">
+                        <thead>
+                            <tr>
+                                <td>번호</td>
+                                <td class="col-l">스킬명</td>
+                               
+                                <td>삭제</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td class="col-l"><input name="name" type="text" value="자유게시판"></td>
+                                
+                                <td><input name="check_delete" type="checkbox"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section>
+                    <h1 class="d-none">이벤트 버튼</h1>
+                    <input class="button" type="submit" value="저장">
+                    <input class="button" type="submit" value="삭제">
+                </section>
+                
+                <div class="pager">
+                    <div>
+                    <a href="#"><i class="fas fa-angle-double-left"></i></a>
+                    </div>
+                    <div>
+                    <a href="#"><i class="fas fa-angle-left"></i></a>
+                    </div>
+                    <ul>
+                    <li><a href="#">1</a></li>
+                    </ul>
+                    <div>
+                    <a href="#"><i class="fas fa-angle-right"></i></a>
+                    </div>
+                    <div>
+                    <a href="#"><i class="fas fa-angle-double-right"></i></a>
+                    </div>
+                </div>
+            </main>
+
+
+        </div>
+    </div>
+
+    <footer id="footer" class="footer">
+
+        <div class="container">
+            <h1>footer</h1>
+        </div>
+
+    </footer>
+</body>
+</html>
