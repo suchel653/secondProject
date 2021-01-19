@@ -6,6 +6,7 @@ import com.ggiriggiri.web.entity.Study;
 
 public interface StudySkillDao {
 	
+	
   
 
 }
