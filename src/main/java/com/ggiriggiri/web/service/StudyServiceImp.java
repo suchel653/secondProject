@@ -50,7 +50,15 @@ public class StudyServiceImp implements StudyService{
 	public List<Study> getList(int page, int size, String field, String query) {
 		int offset = (page-1)*10;
 		
-		return studyDao.getList(offset,size,field,query);
+		List<Study> list = studyDao.getList(offset,size,field,query);
+		
+		for(Study s :list) {
+			s.setLanguage(studyLanguageDao.getList(s.getId()));
+			s.setSkill(studySkillDao.getList(s.getId()));
+		}
+			
+		
+		return list;
 	}
 
 	@Override

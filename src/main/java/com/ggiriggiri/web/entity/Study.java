@@ -18,6 +18,7 @@ public class Study {
     private int filedId;
     
     private List<Language> language;
+    private List<Skill> skill;
     
 
     public Study() {
@@ -147,6 +148,15 @@ public class Study {
 		this.language = language;
 	}
 	
+	
+
+	public List<Skill> getSkill() {
+		return skill;
+	}
+
+	public void setSkill(List<Skill> skill) {
+		this.skill = skill;
+	}
 
 	@Override
 	public String toString() {
