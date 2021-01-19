@@ -6,7 +6,7 @@
 	<h1 class="d-none">Project - Field</h1>
 	
 	<section>
-		<h1 class="d-none">분야 리스트</h1>
+		<h1 class="d-none">필드 리스트</h1>
 
 		<form action="field" method="post">
 			<input class="button addBtn" type="button" value="+ Add">

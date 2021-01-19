@@ -6,7 +6,12 @@
 <mapper namespace="com.ggiriggiri.web.dao.StudyDao">
 
  <select id="getList" resultType="com.ggiriggiri.web.entity.Study">
-
+		select * from Study
+		<if test="param3 !=null">
+		where BINARY ${param3} like '%${param4}%'
+		</if>
+		order by regdate desc
+      limit #{param2} offset #{param1}
       </select>
 
 
