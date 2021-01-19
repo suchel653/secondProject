@@ -1,6 +1,7 @@
 package com.ggiriggiri.web.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class Contest {
 
@@ -12,13 +13,15 @@ public class Contest {
 	private Date endDate;
 	private int hit;
 	private Date regDate;
+	private List<ContestFile> contestFiles;
+	private List<ContestImage> contestImages;
 
 	public Contest() {
-		// TODO Auto-generated constructor stub
+
 	}
-	
+
 	public Contest(int id, String writerName, String title, String content, Date startDate, Date endDate, int hit,
-			Date regDate) {
+			Date regDate, List<ContestFile> contestFiles, List<ContestImage> contestImages) {
 		super();
 		this.id = id;
 		this.writerName = writerName;
@@ -28,12 +31,15 @@ public class Contest {
 		this.endDate = endDate;
 		this.hit = hit;
 		this.regDate = regDate;
+		this.contestFiles = contestFiles;
+		this.contestImages = contestImages;
 	}
 
 	@Override
 	public String toString() {
 		return "Contest [id=" + id + ", writerName=" + writerName + ", title=" + title + ", content=" + content
-				+ ", startDate=" + startDate + ", endDate=" + endDate + ", hit=" + hit + ", regDate=" + regDate + "]";
+				+ ", startDate=" + startDate + ", endDate=" + endDate + ", hit=" + hit + ", regDate=" + regDate
+				+ ", contestFiles=" + contestFiles + ", contestImages=" + contestImages + "]";
 	}
 
 	public int getId() {
@@ -99,5 +105,22 @@ public class Contest {
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
+
+	public List<ContestFile> getContestFiles() {
+		return contestFiles;
+	}
+
+	public void setContestFiles(List<ContestFile> contestFiles) {
+		this.contestFiles = contestFiles;
+	}
+
+	public List<ContestImage> getContestImages() {
+		return contestImages;
+	}
+
+	public void setContestImages(List<ContestImage> contestImages) {
+		this.contestImages = contestImages;
+	}
+
 	
 }
