@@ -1,6 +1,6 @@
 package com.ggiriggiri.web.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Study {
 	private int id;
