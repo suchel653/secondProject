@@ -1,11 +1,11 @@
-package com.ggiriggiri.web.service;
+package com.ggiriggiri.web.dao;
 
 import java.util.List;
 
 import com.ggiriggiri.web.entity.Skill;
 
-public interface SkillService {
-
+public interface SkillDao {
+	
 	int insert(Skill skill);
 
 	int update(Skill skill);
@@ -14,6 +14,6 @@ public interface SkillService {
 
 	Skill get(int id);
 
-	List<Skill> getList(int page, int size);
+	List<Skill> getList(int offset, int size);
 
 }
