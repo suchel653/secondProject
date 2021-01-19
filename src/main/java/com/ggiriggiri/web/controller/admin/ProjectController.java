@@ -30,7 +30,7 @@ public class ProjectController {
 		return "admin.project.list";
 	}
 	
-	@RequestMapping("{id}")
+	@RequestMapping("{id}") 
 	public String detail(Model model, @PathVariable("id") int id) {
 		
 		Project project = service.get(id);
