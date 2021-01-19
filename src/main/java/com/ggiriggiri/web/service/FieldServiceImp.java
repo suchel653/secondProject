@@ -7,42 +7,39 @@ import org.springframework.stereotype.Service;
 
 import com.ggiriggiri.web.dao.FieldDao;
 import com.ggiriggiri.web.entity.Field;
-import com.ggiriggiri.web.entity.Project;
 
 @Service
-public class FieldServiceImp implements FieldService{
-	
+public class FieldServiceImp implements FieldService {
+
 	@Autowired
 	private FieldDao fieldDao;
 
 	@Override
 	public int insert(Field field) {
-		return 0;
+		return fieldDao.insert(field);
 	}
 
 	@Override
 	public int update(Field field) {
-		return 0;
+		return fieldDao.update(field);
 	}
 
 	@Override
 	public int delete(int id) {
-		return 0;
+		return fieldDao.delete(id);
 	}
 
 	@Override
-	public Project get(int id) {
+	public Field get(int id) {
 		return null;
 	}
 
 	@Override
-	public List<Field> getList(int page, int size, String field, String query) {
-		return null;
-	}
+	public List<Field> getList(int page, int size) {
 
-	@Override
-	public int getCount(String field, String query) {
-		return 0;
+		int offset = (page - 1) * 10;
+
+		return fieldDao.getList(offset, size);
 	}
 
 }

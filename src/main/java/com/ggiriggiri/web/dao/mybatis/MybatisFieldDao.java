@@ -2,40 +2,46 @@ package com.ggiriggiri.web.dao.mybatis;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.ggiriggiri.web.dao.FieldDao;
 import com.ggiriggiri.web.entity.Field;
-import com.ggiriggiri.web.entity.Project;
 
-public class MybatisFieldDao implements FieldDao{
+@Repository
+public class MybatisFieldDao implements FieldDao {
+
+	private FieldDao mapper;
+
+	@Autowired
+	public MybatisFieldDao(SqlSession session) {
+		mapper = session.getMapper(FieldDao.class);
+	}
 
 	@Override
 	public int insert(Field field) {
-		return 0;
+		return mapper.insert(field);
 	}
 
 	@Override
 	public int update(Field field) {
-		return 0;
+		return mapper.update(field);
 	}
 
 	@Override
 	public int delete(int id) {
-		return 0;
+		return mapper.delete(id);
 	}
 
 	@Override
-	public Project get(int id) {
-		return null;
+	public Field get(int id) {
+		return mapper.get(id);
 	}
 
 	@Override
-	public List<Field> getList(int page, int size, String field, String query) {
-		return null;
-	}
-
-	@Override
-	public int getCount(String field, String query) {
-		return 0;
+	public List<Field> getList(int offset, int size) {
+		return mapper.getList(offset, size);
 	}
 
 }
