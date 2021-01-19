@@ -25,5 +25,53 @@ public class MyBatisStudyDao implements StudyDao{
 		
 	}
 
+	@Override
+	public List<Study> getList(int offset, int size, String field, String query) {
+		// TODO Auto-generated method stub
+		return mapper.getList(offset, size, field, query);
+	}
+
+	@Override
+	public int insert(Study study) {
+		// TODO Auto-generated method stub
+		return mapper.insert(study);
+	}
+
+	@Override
+	public int update(Study study) {
+		// TODO Auto-generated method stub
+		return mapper.update(study);
+	}
+
+	@Override
+	public int delete(int id) {
+		// TODO Auto-generated method stub
+		return mapper.delete(id);
+	}
+
+	@Override
+	public Study get(int id) {
+		// TODO Auto-generated method stub
+		return mapper.get(id);
+	}
+
+	@Override
+	public int getCount(String field, String query) {
+		// TODO Auto-generated method stub
+		return mapper.getCount(field, query);
+	}
+
+	@Override
+	public Study getPrev(Integer id) {
+		// TODO Auto-generated method stub
+		return mapper.getPrev(id);
+	}
+
+	@Override
+	public Study getNext(Integer id) {
+		// TODO Auto-generated method stub
+		return mapper.getNext(id);
+	}
+
 	
 }

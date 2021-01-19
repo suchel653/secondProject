@@ -38,7 +38,6 @@
                                 <td>언어</td>
                                 <td>스터디장</td>
                                 <td>진행날짜</td>
-                          
                                 <td>인원</td>
                                 <td>상태</td>
                                 <td>등록일</td>
@@ -46,12 +45,13 @@
                         </thead>
                 
                         <tbody>
+                        <c:forEach var ="s" items="${list}">
                             <tr>
                               
-                                 <td>1</td>
-                                <td>C스터디에여</td>
-                                <td>기타</td>
-                                <td>기타</td>
+                                <td>${s.id}</td>
+                                <td>${s.title}</td>
+                                <td>${s.fieldId}</td>
+                                <td>${s.skillId }</td>
                                 <td>C</td>
                                 <td>victor</td>
                                 <td>2020-12-31~2021-03-05</td>
@@ -60,6 +60,7 @@
                                 <td>진행중</td>
                                 <td>2020-12-01</td>
                             </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
 

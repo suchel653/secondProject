@@ -3,40 +3,47 @@ package com.ggiriggiri.web.entity;
 import java.util.Date;
 
 public class Project {
-	private int id; 
-	private String title; 
+	private int id;
+	private String title;
 	private String content; 
-	private int limitNumber; 
-	private String leaderId; 
-	private Date startDate; 
+	private int limitNumber;
+	private Date startDate;
 	private Date endDate;
-	private String requirement; 
-	private int status;
-	private Date regDate; 
-	private String image;
+	private String leaderId;
+	private String requirement;
+	private Date regDate;
+	private int statusId;
 	private int fieldId;
 	
 	public Project() {
-		this(0,null,null,0,null,null,null,null,0,null,null,0);
+		this(0,null,null,0,null,null,null,null,null,0,0);
 	}
 
-	public Project(int id, String title, String content, int limitNumber, String leaderId, Date startDate, Date endDate,
-			String requirement, int status, Date regDate, String image, int fieldId) {
+	
+	
+	public Project(int id, String title, String content, int limitNumber, Date startDate, Date endDate, String leaderId,
+			String requirement, Date regDate, int statusId, int fieldId) {
 		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.limitNumber = limitNumber;
-		this.leaderId = leaderId;
 		this.startDate = startDate;
 		this.endDate = endDate;
+		this.leaderId = leaderId;
 		this.requirement = requirement;
-		this.status = status;
 		this.regDate = regDate;
-		this.image = image;
+		this.statusId = statusId;
 		this.fieldId = fieldId;
 	}
 
 
+
+	@Override
+	public String toString() {
+		return "Project [id=" + id + ", title=" + title + ", content=" + content + ", limitNumber=" + limitNumber
+				+ ", startDate=" + startDate + ", endDate=" + endDate + ", leaderId=" + leaderId + ", requirement="
+				+ requirement + ", regDate=" + regDate + ", statusId=" + statusId + ", fieldId=" + fieldId + "]";
+	}
 
 	public int getId() {
 		return id;
@@ -70,14 +77,6 @@ public class Project {
 		this.limitNumber = limitNumber;
 	}
 
-	public String getLeaderId() {
-		return leaderId;
-	}
-
-	public void setLeaderId(String leaderId) {
-		this.leaderId = leaderId;
-	}
-
 	public Date getStartDate() {
 		return startDate;
 	}
@@ -94,20 +93,20 @@ public class Project {
 		this.endDate = endDate;
 	}
 
+	public String getLeaderId() {
+		return leaderId;
+	}
+
+	public void setLeaderId(String leaderId) {
+		this.leaderId = leaderId;
+	}
+
 	public String getRequirement() {
 		return requirement;
 	}
 
 	public void setRequirement(String requirement) {
 		this.requirement = requirement;
-	}
-
-	public int getStatus() {
-		return status;
-	}
-
-	public void setStatus(int status) {
-		this.status = status;
 	}
 
 	public Date getRegDate() {
@@ -118,12 +117,12 @@ public class Project {
 		this.regDate = regDate;
 	}
 
-	public String getImage() {
-		return image;
+	public int getStatusId() {
+		return statusId;
 	}
 
-	public void setImage(String image) {
-		this.image = image;
+	public void setStatusId(int statusId) {
+		this.statusId = statusId;
 	}
 
 	public int getFieldId() {
@@ -132,14 +131,6 @@ public class Project {
 
 	public void setFieldId(int fieldId) {
 		this.fieldId = fieldId;
-	}
-
-	@Override
-	public String toString() {
-		return "Project [id=" + id + ", title=" + title + ", content=" + content + ", limitNumber=" + limitNumber
-				+ ", leaderId=" + leaderId + ", startDate=" + startDate + ", endDate=" + endDate + ", requirement="
-				+ requirement + ", status=" + status + ", regDate=" + regDate + ", image=" + image + ", fieldId="
-				+ fieldId + "]";
 	}
 	
 	
