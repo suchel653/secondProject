@@ -1,10 +1,10 @@
-package com.ggiriggiri.web.service;
+package com.ggiriggiri.web.dao;
 
 import java.util.List;
 
 import com.ggiriggiri.web.entity.Language;
 
-public interface LanguageService {
+public interface LanguageDao {
 
 	int insert(Language language);
 
@@ -14,6 +14,6 @@ public interface LanguageService {
 
 	Language get(int id);
 
-	List<Language> getList(int page, int size);
+	List<Language> getList(int offset, int size);
 
 }
