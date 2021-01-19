@@ -12,6 +12,7 @@
 	
 	<select id="getList" resultType="com.ggiriggiri.web.entity.Field">
 		select * from Field
+		order by id desc
 		limit #{param2} offset #{param1};
 	</select>
 	

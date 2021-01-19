@@ -12,6 +12,7 @@
 	
 	<select id="getList" resultType="com.ggiriggiri.web.entity.Skill">
 		select * from Skill
+		order by id desc
 		limit #{param2} offset #{param1};
 	</select>
 	
