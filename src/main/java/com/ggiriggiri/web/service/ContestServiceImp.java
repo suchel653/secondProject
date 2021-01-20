@@ -55,7 +55,9 @@ public class ContestServiceImp implements ContestService{
 	@Override
 	public List<Contest> getList(int page, int size, String field, String query) {
 		
-		List<Contest> list = contestDao.getList(page, size, field, query);
+		int offset = size*(page-1);
+		
+		List<Contest> list = contestDao.getList(offset, size, field, query);
 		
 		for(Contest c : list) {
 			c.setContestFiles(contestFileDao.getList(c.getId()));

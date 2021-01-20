@@ -1,38 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <main id="main" class="main">
                 <h1 class="d-none">메인이다</h1>
-                <table>
-                    <th>
-                        <tr>이름</tr>
-                        <td>
-                           <input type="text" value="코코딩">
-                        </td>
-                    </th>
-                    <th>
-                        <tr>시작일</tr>
-                        <td>
-                            <input type="text" value="2020-02-10">
-                        </td>
-                    </th>
-                    <th>
-                        <tr>마감일</tr>
-                        <td>
-                            <input type="text" value="2020-12-10">
-                        </td>
-                    </th>
-                    <th>
-                        <tr>첨부파일</tr>
-                        <td></td>
-                    </th>
-                    <th>
-                        <tr>이미지</tr>
-                        <td></td>
-                    </th>
-                </table>
-                <div>
-                    <textarea>
-                        컨텐트
-                    </textarea>
-                </div>
+                <form method="post" enctype="multipart/form-data">
+	                <table>
+	                    <tr>
+	                        <th>이름</th>
+	                        <td>
+	                           <input type="text" value="${c.title }">
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <th>시작일</th>
+	                        <td>
+	                            <%-- <input type="text" name="startDate" value="<fmt:formatDate value="${c.startDate }" pattern="yyyy-MM-dd"/>"> --%>
+	                            <fmt:formatDate value="${c.startDate }" pattern="yyyy-MM-dd"/>
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <th>마감일</th>
+	                        <td>
+	                            <%-- <input type="text" name="endDate" value="<fmt:formatDate value="${c.endDate }" pattern="yyyy-MM-dd"/>"> --%>
+	                            <fmt:formatDate value="${c.endDate }" pattern="yyyy-MM-dd"/>
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <th>첨부파일</th>
+	                        <td></td>
+	                    </tr>
+	                    <tr>
+	                        <th>이미지</th>
+	                        <td></td>
+	                    </tr>
+	                    <tr>
+			                <td colspan="2">
+			                    <textarea name="content">
+			                        ${c.content}
+			                    </textarea>
+			                </td>
+		                </tr>
+	                </table>
+	                
+	                <div>
+	                	<input type="hidden" name="id" value="${c.id}" />
+	                    <input type="submit" value="저장" />
+	                    <a href="../${c.id }">취소</a>
+	                </div>
+                </form>
             </main>
