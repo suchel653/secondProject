@@ -1,6 +1,7 @@
 package com.ggiriggiri.web.entity;
 
-import java.sql.Date;
+
+import java.util.Date;
 import java.util.List;
 
 public class Study {
@@ -12,7 +13,7 @@ public class Study {
     private Date starDate;
     private Date endDate;
     private String requirement;
-    private int status;
+    private int statusId;
     private Date regDate;
     private String image;
     private int filedId;
@@ -26,7 +27,7 @@ public class Study {
 	}
 
 	public Study(int id, String title, String content, int limitNumber, int leaderId, Date starDate, Date endDate,
-			String requirement, int status, Date regDate, String image, int filedId) {
+			String requirement, int statusId, Date regDate, String image, int filedId) {
 		
 		this.id = id;
 		this.title = title;
@@ -36,7 +37,7 @@ public class Study {
 		this.starDate = starDate;
 		this.endDate = endDate;
 		this.requirement = requirement;
-		this.status = status;
+		this.statusId = statusId;
 		this.regDate = regDate;
 		this.image = image;
 		this.filedId = filedId;
@@ -106,12 +107,12 @@ public class Study {
 		this.requirement = requirement;
 	}
 
-	public int getStatus() {
-		return status;
+	public int getStatusId() {
+		return statusId;
 	}
 
-	public void setStatus(int status) {
-		this.status = status;
+	public void setStatusId(int statusId) {
+		this.statusId = statusId;
 	}
 
 	public Date getRegDate() {
@@ -162,7 +163,7 @@ public class Study {
 	public String toString() {
 		return "Study [id=" + id + ", title=" + title + ", content=" + content + ", limitNumber=" + limitNumber
 				+ ", leaderId=" + leaderId + ", starDate=" + starDate + ", endDate=" + endDate + ", requirement="
-				+ requirement + ", status=" + status + ", regDate=" + regDate + ", image=" + image + ", filedId="
+				+ requirement + ", statusId=" + statusId + ", regDate=" + regDate + ", image=" + image + ", filedId="
 				+ filedId + "]";
 	}
 	
