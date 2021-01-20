@@ -1,36 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <main id="main" class="main">
                 <h1 class="d-none">메인이다</h1>
                 <table>
-                    <th>
-                        <tr>이름</tr>
+                    <tr>
+                        <th>이름</th>
                         <td>
-                           코코딩
+                           ${c.title }
                         </td>
-                    </th>
-                    <th>
-                        <tr>시작일</tr>
+                    </tr>
+                    <tr>
+                        <th>시작일</th>
                         <td>
-                            2020-02-10
+                            <fmt:formatDate value="${c.startDate }" pattern="yyyy-MM-dd"/>	
                         </td>
-                    </th>
-                    <th>
-                        <tr>마감일</tr>
+                    </tr>
+                    <tr>
+                        <th>마감일</th>
                         <td>
-                            2020-12-10
+                            <fmt:formatDate value="${c.endDate }" pattern="yyyy-MM-dd"/>
                         </td>
-                    </th>
-                    <th>
-                        <tr>첨부파일</tr>
+                    </tr>
+                    <tr>
+                        <th>첨부파일</th>
                         <td></td>
-                    </th>
-                    <th>
-                        <tr>이미지</tr>
+                    </tr>
+                    <tr>
+                        <th>이미지</th>
                         <td></td>
-                    </th>
+                    </tr>
+                    <tr>
+		                <td colspan="2">
+		                    ${c.content }
+		                </td>
+	                </tr>
                 </table>
+                
                 <div>
-                    컨텐트
+                	<a href="list"><input type="button" value="목록"></a>
+                	<a href="${c.id}/edit"><input type="button" value="수정"></a>
                 </div>
             </main>

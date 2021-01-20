@@ -13,15 +13,26 @@
 	</select>
 	
 	<select id="getList" resultType="com.ggiriggiri.web.entity.Contest">
-		
+		select * from Contest
+		<if test="param3 != null">
+			where BINARY ${param3} like '%${param4}%'
+		</if>
+		order by regdate desc
+		limit ${param2} offset ${param1}
 	</select>
 	
 	<select id="getPrev" resultType="com.ggiriggiri.web.entity.Contest">
-		
+		select * from Contest where regdate &lt;
+			(select regdate from Contest where id=${id})
+			order by regdate desc
+			limit 1;
 	</select>
 	
 	<select id="getNext" resultType="com.ggiriggiri.web.entity.Contest">
-		
+		select * from Contest where regdate &gt;
+			(select regdate from Contest where id=${id})
+			order by regdate asc
+			limit 1;
 	</select>
 	
 	<select id="getCount" resultType="int">

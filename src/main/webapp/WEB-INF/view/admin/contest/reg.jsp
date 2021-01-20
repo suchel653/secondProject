@@ -2,37 +2,50 @@
     pageEncoding="UTF-8"%>
 <main id="main" class="main">
                 <h1 class="d-none">메인이다</h1>
-                <table>
-                    <th>
-                        <tr>이름</tr>
-                        <td>
-                            <input type="text">
-                        </td>
-                    </th>
-                    <th>
-                        <tr>시작일</tr>
-                        <td>
-                            <input type="text">
-                        </td>
-                    </th>
-                    <th>
-                        <tr>마감일</tr>
-                        <td>
-                            <input type="text">
-                        </td>
-                    </th>
-                    <th>
-                        <tr>첨부파일</tr>
-                        <td></td>
-                    </th>
-                    <th>
-                        <tr>이미지</tr>
-                        <td></td>
-                    </th>
-                </table>
-                <div>
-                    <textarea>
-                        
-                    </textarea>
-                </div>
+                <form>
+	                <table>
+	                    <tr>
+	                        <th>이름</th>
+	                        <td>
+	                            <input type="text" name="title">
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <th>시작일</th>
+	                        <td>
+	                            <input type="text" name="startDate">
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <th>마감일</th>
+	                        <td>
+	                            <input type="text" name="endDate">
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <th>첨부파일</th>
+	                        <td>
+	                        
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <th>이미지</th>
+	                        <td>
+	                        
+	                        </td>
+	                    </tr>
+		                <tr>
+		                	<td colspan="2">
+			                    <textarea>
+			                        
+			                    </textarea>
+		                    </td>
+		                </tr>
+	                </table>
+	                
+	                <div>
+                        <input type="submit" value="등록" />
+                        <a href="list">취소</a>
+                    </div>
+                </form>
             </main>
