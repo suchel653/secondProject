@@ -1,5 +1,6 @@
 package com.ggiriggiri.web.entity;
 
+
 import java.util.Date;
 import java.util.List;
 
@@ -9,34 +10,34 @@ public class Study {
     private String content;
     private int limitNumber;
     private int leaderId;
-    private Date starDate;
+    private Date startDate;
     private Date endDate;
     private String requirement;
-    private int status;
+    private int statusId;
     private Date regDate;
     private String image;
     private int filedId;
     
-    private List<Language> language;
-    private List<Skill> skill;
+    private List<StudyLanguageView> language;
+    private List<StudySkillView> skill;
     
 
     public Study() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Study(int id, String title, String content, int limitNumber, int leaderId, Date starDate, Date endDate,
-			String requirement, int status, Date regDate, String image, int filedId) {
+	public Study(int id, String title, String content, int limitNumber, int leaderId, Date startDate, Date endDate,
+			String requirement, int statusId, Date regDate, String image, int filedId) {
 		
 		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.limitNumber = limitNumber;
 		this.leaderId = leaderId;
-		this.starDate = starDate;
+		this.startDate = startDate;
 		this.endDate = endDate;
 		this.requirement = requirement;
-		this.status = status;
+		this.statusId = statusId;
 		this.regDate = regDate;
 		this.image = image;
 		this.filedId = filedId;
@@ -82,12 +83,12 @@ public class Study {
 		this.leaderId = leaderId;
 	}
 
-	public Date getStarDate() {
-		return starDate;
+	public Date getStartDate() {
+		return startDate;
 	}
 
-	public void setStarDate(Date starDate) {
-		this.starDate = starDate;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
 
 	public Date getEndDate() {
@@ -106,12 +107,12 @@ public class Study {
 		this.requirement = requirement;
 	}
 
-	public int getStatus() {
-		return status;
+	public int getStatusId() {
+		return statusId;
 	}
 
-	public void setStatus(int status) {
-		this.status = status;
+	public void setStatusId(int statusId) {
+		this.statusId = statusId;
 	}
 
 	public Date getRegDate() {
@@ -140,29 +141,31 @@ public class Study {
 	
 	
 
-	public List<Language> getLanguage() {
+	public List<StudyLanguageView> getLanguage() {
 		return language;
 	}
 
-	public void setLanguage(List<Language> language) {
+	public void setLanguage(List<StudyLanguageView> language) {
 		this.language = language;
 	}
 	
 	
 
-	public List<Skill> getSkill() {
+
+
+	public List<StudySkillView> getSkill() {
 		return skill;
 	}
 
-	public void setSkill(List<Skill> skill) {
+	public void setSkill(List<StudySkillView> skill) {
 		this.skill = skill;
 	}
 
 	@Override
 	public String toString() {
 		return "Study [id=" + id + ", title=" + title + ", content=" + content + ", limitNumber=" + limitNumber
-				+ ", leaderId=" + leaderId + ", starDate=" + starDate + ", endDate=" + endDate + ", requirement="
-				+ requirement + ", status=" + status + ", regDate=" + regDate + ", image=" + image + ", filedId="
+				+ ", leaderId=" + leaderId + ", startDate=" + startDate + ", endDate=" + endDate + ", requirement="
+				+ requirement + ", statusId=" + statusId + ", regDate=" + regDate + ", image=" + image + ", filedId="
 				+ filedId + "]";
 	}
 	

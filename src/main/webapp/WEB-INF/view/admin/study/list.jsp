@@ -46,19 +46,31 @@
                 
                         <tbody>
                         <c:forEach var ="s" items="${list}">
+                        
                             <tr>
                               
                                 <td>${s.id}</td>
                                 <td>${s.title}</td>
-                                <td>${s.fieldId}</td>
-                                <td>${s.skillId }</td>
-                                <td>C</td>
+                                <td>웹</td>
+                                
+                                <td>
+                        <c:forEach var="sk" items="${s.skill}"> 
+                                ${sk.skillName}
+                                </c:forEach> 
+                                </td>
+                                <td> 
+                               <c:forEach var="l" items="${s.language}"> 
+                                ${l.languageName} 
+                                </c:forEach>
+                                </td>
                                 <td>victor</td>
-                                <td>2020-12-31~2021-03-05</td>
-                            
-                                <td>3</td>
+                                <td>
+                             	 <fmt:formatDate value="${s.startDate}" pattern="yyyy-MM-dd"/>~
+                                <fmt:formatDate value="${s.endDate }" pattern="yyyy-MM-dd"/>
+                            	</td>
+                                <td>${s.limitNumber}</td>
                                 <td>진행중</td>
-                                <td>2020-12-01</td>
+                                <td> <fmt:formatDate value="${s.regDate}" pattern="yyyy-MM-dd"/></td>
                             </tr>
                             </c:forEach>
                         </tbody>

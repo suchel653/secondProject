@@ -25,7 +25,7 @@ public class MybatisContestDao implements ContestDao{
 	
 	@Override
 	public int insert(Contest contest) {
-
+		
 		return mapper.insert(contest);
 	}
 

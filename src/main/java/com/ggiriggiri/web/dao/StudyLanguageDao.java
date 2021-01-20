@@ -2,12 +2,14 @@ package com.ggiriggiri.web.dao;
 
 import java.util.List;
 
-import com.ggiriggiri.web.entity.Language;
+import com.ggiriggiri.web.entity.StudyLanguageView;
 
 public interface StudyLanguageDao {
 
+	List<StudyLanguageView> getViewList(int id);
+
 	
 
-	List<Language> getList(int id);
+	
 
 }
