@@ -6,8 +6,10 @@ import com.ggiriggiri.web.entity.Language;
 
 public interface StudyLanguageDao {
 
+	List<Language> getViewList(int id);
+
 	
 
-	List<Language> getList(int id);
+	
 
 }
