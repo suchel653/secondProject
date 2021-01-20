@@ -3,9 +3,9 @@ package com.ggiriggiri.web.entity;
 public class Field {
 	private int id;
 	private String name;
-	
+
 	public Field() {
-		this(0,null);
+		this(0, null);
 	}
 
 	public Field(int id, String name) {
@@ -33,6 +33,5 @@ public class Field {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
+
 }

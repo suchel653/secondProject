@@ -5,9 +5,6 @@
 	<ul>
 
 		<li><a href="/admin/study/list">목록</a></li>
-		<li><a href="/admin/study/field">필드 관리</a></li>
-		<li><a href="/admin/study/skill">스킬 관리</a></li>
-		<li><a href="/admin/study/language">언어 관리</a></li>
 
 
 

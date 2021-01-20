@@ -53,8 +53,9 @@ public class StudyServiceImp implements StudyService{
 		List<Study> list = studyDao.getList(offset,size,field,query);
 		for(Study s :list) {
 //			list=studyLanguageDao.getList(s.getId());
-			s.setSkill(); 
-			
+	
+			s.setSkill (studySkillDao.getViewList(s.getId()));
+			s.setLanguage (studyLanguageDao.getViewList(s.getId()));
 		
 		}
 			

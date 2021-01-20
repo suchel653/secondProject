@@ -29,6 +29,14 @@
 	                       </a>
 	                   </li>
 	                   <li>
+
+	                       <a href="/admin/category/field">
+
+	                          
+	                           <span>CATEGORY</span>
+	                       </a>
+	                   </li>
+	                   <li>
 	                       <a href="/admin/contest/list">
 	                          
 	                           <span>CONTEST</span>

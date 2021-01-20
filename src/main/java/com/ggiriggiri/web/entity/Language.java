@@ -4,9 +4,9 @@ public class Language {
 	private int id;
 	private String name;
 	private String image;
-	
+
 	public Language() {
-		this(0,null,null);
+		this(0, null, null);
 	}
 
 	public Language(int id, String name, String image) {
@@ -43,6 +43,5 @@ public class Language {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	
-	
+
 }

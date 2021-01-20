@@ -6,11 +6,13 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ggiriggiri.web.dao.StudyDao;
 import com.ggiriggiri.web.dao.StudySkillDao;
 
 import com.ggiriggiri.web.entity.Skill;
 import com.ggiriggiri.web.entity.Study;
 import com.ggiriggiri.web.entity.StudySkill;
+import com.ggiriggiri.web.entity.StudySkillView;
 
 
 @Repository 
@@ -18,12 +20,24 @@ public class MyBatisStudySkillDao implements StudySkillDao{
 	
 	@Autowired
 	private SqlSession session;
+	
+	private StudySkillDao mapper;
+	
+	@Autowired
+	public MyBatisStudySkillDao(SqlSession session) {
+		
+		this.session=session;
+		mapper = session.getMapper(StudySkillDao.class);
+	}
+
+
 
 	@Override
-	public List<StudySkill> getList() {
+	public List<StudySkillView> getViewList(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return mapper.getViewList(id);
 	}
+
 
 	
 

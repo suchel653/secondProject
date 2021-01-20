@@ -19,7 +19,7 @@ public class Study {
     private int filedId;
     
     private List<Language> language;
-    private List<Skill> skill;
+    private List<StudySkillView> skill;
     
 
     public Study() {
@@ -151,11 +151,13 @@ public class Study {
 	
 	
 
-	public List<Skill> getSkill() {
+
+
+	public List<StudySkillView> getSkill() {
 		return skill;
 	}
 
-	public void setSkill(List<Skill> skill) {
+	public void setSkill(List<StudySkillView> skill) {
 		this.skill = skill;
 	}
 

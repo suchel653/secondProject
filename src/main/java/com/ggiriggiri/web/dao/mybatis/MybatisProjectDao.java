@@ -11,13 +11,11 @@ import com.ggiriggiri.web.entity.Project;
 
 @Repository
 public class MybatisProjectDao implements ProjectDao {
-
-	@Autowired
-	private SqlSession session;
+	
 	private ProjectDao mapper;
 	
 	/* 생성자 */
-	@Autowired
+	@Autowired 
 	public MybatisProjectDao(SqlSession session) {
 		mapper = session.getMapper(ProjectDao.class);
 	}
