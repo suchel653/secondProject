@@ -35,18 +35,5 @@ public class StudyController {
 
 
 	
-	@RequestMapping("field")
-	public String field() {
-		return "admin.study.field";
-	}
-	
-	@RequestMapping("skill")
-	public String skill() {
-		return "admin.study.skill";
-	}
-	
-	@RequestMapping("language")
-	public String language() {
-		return "admin.study.language";
-	}
+
 }

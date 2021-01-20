@@ -7,18 +7,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ggiriggiri.web.dao.StudyLanguageDao;
-import com.ggiriggiri.web.entity.Language;
+
+import com.ggiriggiri.web.entity.StudyLanguageView;
 
 @Repository
 public class MybatisStudyLanguageDao implements StudyLanguageDao{
 	
 	@Autowired
 	private SqlSession session;
+	
+	private StudyLanguageDao mapper;
+	
+	@Autowired
+	public MybatisStudyLanguageDao(SqlSession session) {
+		
+		mapper = session.getMapper(StudyLanguageDao.class);
+	}
 
+	
+	
 	@Override
-	public List<Language> getViewList(int id) {
+	public List<StudyLanguageView> getViewList(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return mapper.getViewList(id);
 	}
 
 

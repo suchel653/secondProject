@@ -10,7 +10,7 @@ public class Study {
     private String content;
     private int limitNumber;
     private int leaderId;
-    private Date starDate;
+    private Date startDate;
     private Date endDate;
     private String requirement;
     private int statusId;
@@ -18,7 +18,7 @@ public class Study {
     private String image;
     private int filedId;
     
-    private List<Language> language;
+    private List<StudyLanguageView> language;
     private List<StudySkillView> skill;
     
 
@@ -26,7 +26,7 @@ public class Study {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Study(int id, String title, String content, int limitNumber, int leaderId, Date starDate, Date endDate,
+	public Study(int id, String title, String content, int limitNumber, int leaderId, Date startDate, Date endDate,
 			String requirement, int statusId, Date regDate, String image, int filedId) {
 		
 		this.id = id;
@@ -34,7 +34,7 @@ public class Study {
 		this.content = content;
 		this.limitNumber = limitNumber;
 		this.leaderId = leaderId;
-		this.starDate = starDate;
+		this.startDate = startDate;
 		this.endDate = endDate;
 		this.requirement = requirement;
 		this.statusId = statusId;
@@ -83,12 +83,12 @@ public class Study {
 		this.leaderId = leaderId;
 	}
 
-	public Date getStarDate() {
-		return starDate;
+	public Date getStartDate() {
+		return startDate;
 	}
 
-	public void setStarDate(Date starDate) {
-		this.starDate = starDate;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
 
 	public Date getEndDate() {
@@ -141,11 +141,11 @@ public class Study {
 	
 	
 
-	public List<Language> getLanguage() {
+	public List<StudyLanguageView> getLanguage() {
 		return language;
 	}
 
-	public void setLanguage(List<Language> language) {
+	public void setLanguage(List<StudyLanguageView> language) {
 		this.language = language;
 	}
 	
@@ -164,7 +164,7 @@ public class Study {
 	@Override
 	public String toString() {
 		return "Study [id=" + id + ", title=" + title + ", content=" + content + ", limitNumber=" + limitNumber
-				+ ", leaderId=" + leaderId + ", starDate=" + starDate + ", endDate=" + endDate + ", requirement="
+				+ ", leaderId=" + leaderId + ", startDate=" + startDate + ", endDate=" + endDate + ", requirement="
 				+ requirement + ", statusId=" + statusId + ", regDate=" + regDate + ", image=" + image + ", filedId="
 				+ filedId + "]";
 	}
