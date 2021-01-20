@@ -4,15 +4,14 @@ public class StudyLanguageView {
 	private int id;
 	private int studyId;
 	private String languageName;
-	private String languageImg;
 	
 	
-	public StudyLanguageView(int id, int studyId, String languageName, String languageImg) {
+	public StudyLanguageView(int id, int studyId, String languageName) {
 		
 		this.id = id;
 		this.studyId = studyId;
 		this.languageName = languageName;
-		this.languageImg = languageImg;
+		
 	}
 
 
@@ -46,20 +45,13 @@ public class StudyLanguageView {
 	}
 
 
-	public String getLanguageImg() {
-		return languageImg;
-	}
 
-
-	public void setLanguageImg(String languageImg) {
-		this.languageImg = languageImg;
-	}
 
 
 	@Override
 	public String toString() {
 		return "StudyLanguageView [id=" + id + ", studyId=" + studyId + ", languageName=" + languageName
-				+ ", languageImg=" + languageImg + "]";
+				+ "]";
 	}
 	
 	

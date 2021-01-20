@@ -54,18 +54,18 @@
                                 <td>웹</td>
                                 
                                 <td>
-                                <c:forEach var="sk" items="${s.skill}"> 
+                        <c:forEach var="sk" items="${s.skill}"> 
                                 ${sk.skillName}
-                                </c:forEach>
+                                </c:forEach> 
                                 </td>
                                 <td> 
-                                <c:forEach var="l" items="${s.language}"> 
-                                ${l.languageName}
+                               <c:forEach var="l" items="${s.language}"> 
+                                ${l.languageName} 
                                 </c:forEach>
                                 </td>
                                 <td>victor</td>
                                 <td>
-                              <fmt:formatDate value="${s.startDate}" pattern="yyyy-MM-dd"/>~
+                             	 <fmt:formatDate value="${s.startDate}" pattern="yyyy-MM-dd"/>~
                                 <fmt:formatDate value="${s.endDate }" pattern="yyyy-MM-dd"/>
                             	</td>
                                 <td>${s.limitNumber}</td>
