@@ -1,64 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공모전 목록</title>
-    <link href="../../css/admin/default.css" type="text/css" rel="stylesheet" />
-</head>
-<body>
-    <header id="header" class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="index.html">
-                    <h1>끼리끼리</h1>
-                </a>
-            </div>
-
-            <nav>
-                <h1 class="d-none">헤더 목록</h1>
-                <ul>
-                    <li>
-                        <a href="member/list">
-                            <span>MEMBER</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="study/list">
-                            <span>STUDY</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="project/notice/list">
-                           
-                            <span>PROJECT</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="contest/list">
-                           
-                            <span>CONTEST</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        </div>
-    </header>
-
-
-    <div class="body">
-        <div class="container">
-            <aside class="aside">
-                <h1 class="d-none">페이지 목록</h1>
-                <ul>
-                  <li><a href="list.html">목록</a></li>
-                  <li><a href="dog-list.html">스킬</a></li>
-                  <li><a href="matching-list.html">언어</a></li>
-
-                </ul>
-              </aside>
-            <main id="main" class="main">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<main id="main" class="main">
                 <h1 class="d-none">메인이다</h1>
                 <section>
                     <h1 class="d-none">검색폼</h1>
@@ -124,17 +67,3 @@
                     </div>
                   </div>
             </main>
-
-
-        </div>
-    </div>
-
-    <footer id="footer" class="footer">
-
-        <div class="container">
-            <h1>footer</h1>
-        </div>
-
-    </footer>
-</body>
-</html>

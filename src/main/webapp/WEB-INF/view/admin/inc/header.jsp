@@ -29,7 +29,9 @@
 	                       </a>
 	                   </li>
 	                   <li>
-	                       <a href="/admin/category/list">
+
+	                       <a href="/admin/category/field">
+
 	                          
 	                           <span>CATEGORY</span>
 	                       </a>

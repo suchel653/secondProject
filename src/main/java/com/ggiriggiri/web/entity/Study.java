@@ -1,6 +1,7 @@
 package com.ggiriggiri.web.entity;
 
-import java.sql.Date;
+import java.util.Date;
+import java.util.List;
 
 public class Study {
 	private int id;
@@ -15,6 +16,10 @@ public class Study {
     private Date regDate;
     private String image;
     private int filedId;
+    
+    private List<Language> language;
+    private List<Skill> skill;
+    
 
     public Study() {
 		// TODO Auto-generated constructor stub
@@ -131,6 +136,26 @@ public class Study {
 
 	public void setFiledId(int filedId) {
 		this.filedId = filedId;
+	}
+	
+	
+
+	public List<Language> getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(List<Language> language) {
+		this.language = language;
+	}
+	
+	
+
+	public List<Skill> getSkill() {
+		return skill;
+	}
+
+	public void setSkill(List<Skill> skill) {
+		this.skill = skill;
 	}
 
 	@Override
