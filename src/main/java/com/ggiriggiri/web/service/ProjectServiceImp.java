@@ -17,19 +17,19 @@ public class ProjectServiceImp implements ProjectService{
 	@Override
 	public int insert(Project project) {
 		// TODO Auto-generated method stub
-		return 0;
+		return projectDao.insert(project);
 	}
 
 	@Override
 	public int update(Project project) {
 		// TODO Auto-generated method stub
-		return 0;
+		return projectDao.update(project);
 	}
 
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return 0;
+		return projectDao.delete(id);
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class ProjectServiceImp implements ProjectService{
 
 	@Override
 	public int getCount(String field, String query) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return projectDao.getCount(field, query);
 	}
 }

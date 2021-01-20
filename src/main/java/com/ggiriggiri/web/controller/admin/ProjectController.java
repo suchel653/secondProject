@@ -24,8 +24,15 @@ public class ProjectController {
 			@RequestParam(name="f", defaultValue = "title") String field,
 			@RequestParam(name="q", defaultValue = "") String query,
 			Model model) {
+		
 		int size = 10;
 		List<Project> list = service.getList(page, size, field, query);
+		
+		int count = service.getCount(field,query);
+		int pageCount = (int)Math.ceil(count / (float)size);
+		
+		model.addAttribute("page", page);
+		model.addAttribute("pageCount", pageCount);
 		model.addAttribute("list", list);
 		return "admin.project.list";
 	}
@@ -40,21 +47,4 @@ public class ProjectController {
 		return "admin.project.detail";
 	}
 	
-	@RequestMapping("field")
-	public String field() {
-		
-		return "admin.project.field";
-	}
-	
-	@RequestMapping("skill")
-	public String skill() {
-		
-		return "admin.project.skill";
-	}
-		
-	@RequestMapping("language")
-	public String language() {
-		
-		return "admin.project.language";
-	}
 }
