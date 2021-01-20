@@ -2,15 +2,16 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script src="/js/admin/category/field.js"></script>
 <main id="main" class="main">
 	<h1 class="d-none">Category - Field</h1>
 
-	<section>
-		<h1 class="d-none">필드 리스트</h1>
+	<form method="post">
+		<section>
+			<h1 class="d-none">필드 리스트</h1>
 
-		<input class="button addBtn" type="button" value="+ Add">
+			<input class="button addBtn" type="button" value="+ Add">
 
-		<form action="field" method="post">
 
 			<table class="list-table">
 				<thead>
@@ -22,24 +23,25 @@
 				</thead>
 
 				<tbody>
-					<c:forEach var="fl" items="${list}">
-					<tr>
-						<td>${fl.id}</td>
-						<td>${fl.name}</td>
-						<td><input name="del" type="checkbox"></td>
-					</tr>
+					<c:forEach var="f" items="${list}">
+						<tr>
+							<td>${f.id}</td>
+							<td><input hidden type="text" name="id" value="${f.id}">
+								<input type="text" name="name" value="${f.name}"></td>
+							<td><input name="del" type="checkbox"></td>
+						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
-		</form>
-	</section>
+		</section>
 
-	<section>
-		<h1 class="d-none">이벤트 버튼</h1>
-		<input class="button" name="button" type="submit" value="저장">
-		<input class="button" name="button" type="submit" value="삭제">
-	</section>
-	
+		<section>
+			<h1 class="d-none">이벤트 버튼</h1>
+			<input class="button" name="button" type="submit" value="저장">
+			<input class="button" name="button" type="submit" value="삭제">
+		</section>
+
+	</form>
 	<div class="pager">
 		<div>
 			<a href="#"><i class="fas fa-angle-double-left"></i></a>

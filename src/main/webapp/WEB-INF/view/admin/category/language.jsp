@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script src="/js/admin/category/language.js"></script>
 <main id="main" class="main">
 	<h1 class="d-none">Category - Languages</h1>
 	
@@ -23,11 +24,14 @@
 				</thead>
 
 				<tbody>
-					<c:forEach var="ll" items="${list}">
+					<c:forEach var="l" items="${list}">
 					<tr>
-						<td>${ll.id}</td>
-						<td>${ll.name}</td>
-						<td>${ll.image}</td>
+						<td>${l.id}</td>
+						<td>
+							<input hidden type="text" name="id" value="${l.id}">
+							<input type="text" name="name" value="${l.name}">
+						</td>
+						<td>${l.image}</td>
 						<td><input name="del" type="checkbox"></td>
 					</tr>
 					</c:forEach>
