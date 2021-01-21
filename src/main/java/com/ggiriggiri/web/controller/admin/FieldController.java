@@ -34,8 +34,9 @@ public class FieldController {
 	}
 	
 	@PostMapping("")
-	public String list(@RequestBody Field field, Principal principal) {
-		System.out.println(field);
+	public String list(@RequestParam(name="new-name") String[] a, Principal principal) {
+		for(String aa : a)
+			System.out.println(aa);
 		return "redirect:field";
 	}
 }
