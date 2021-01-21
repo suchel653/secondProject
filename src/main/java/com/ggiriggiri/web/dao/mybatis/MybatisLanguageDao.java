@@ -45,8 +45,8 @@ public class MybatisLanguageDao implements LanguageDao {
 	}
 
 	@Override
-	public int deleteAll(int[] del) {
-		return mapper.deleteAll(del);
+	public int deleteAll(int[] ids) {
+		return mapper.deleteAll(ids);
 	}
 
 }

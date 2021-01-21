@@ -43,9 +43,9 @@ public class LanguageServiceImp implements LanguageService {
 	}
 
 	@Override
-	public int deleteAll(int[] del) {
+	public int deleteAll(int[] ids) {
 		
-		int result = languageDao.deleteAll(del);
+		int result = languageDao.deleteAll(ids);
 		
 		return result;
 	}

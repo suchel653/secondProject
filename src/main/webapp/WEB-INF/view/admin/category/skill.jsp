@@ -6,12 +6,11 @@
 <main id="main" class="main">
 	<h1 class="d-none">Category - Languages</h1>
 
-	<section>
-		<h1 class="d-none">스킬 리스트</h1>
+	<form action="skill" method="post">
+		<section>
+			<h1 class="d-none">스킬 리스트</h1>
 
-		<input class="button addBtn" type="button" value="+ Add">
-
-		<form action="language" method="post">
+			<input class="button addBtn" type="button" value="+ Add">
 
 			<table class="list-table">
 				<thead>
@@ -33,14 +32,14 @@
 					</c:forEach>
 				</tbody>
 			</table>
-		</form>
-	</section>
+		</section>
 
-	<section>
-		<h1 class="d-none">이벤트 버튼</h1>
-		<input class="button" name="button" type="submit" value="저장">
-		<input class="button" name="button" type="submit" value="삭제">
-	</section>
+		<section>
+			<h1 class="d-none">이벤트 버튼</h1>
+			<input class="button" name="action" type="submit" value="저장">
+			<input class="button" name="action" type="submit" value="삭제">
+		</section>
+	</form>
 
 	<div class="pager">
 		<div>

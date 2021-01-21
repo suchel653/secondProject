@@ -6,11 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.ggiriggiri.web.entity.Field;
 import com.ggiriggiri.web.entity.Language;
 import com.ggiriggiri.web.service.LanguageService;
 
@@ -21,7 +21,7 @@ public class LanguageController {
 	@Autowired
 	private LanguageService service;
 	
-	@RequestMapping("language")
+	@GetMapping("language")
 	public String list(@RequestParam(name="p", defaultValue = "1") int page, Model model) {
 		
 		int size = 10;
@@ -33,7 +33,8 @@ public class LanguageController {
 	
 	@PostMapping("language")
 	public String actions(String action, int[] del, String[] newNames, int[] changedIds, String[] changedNames) {
-
+		for(int i : del)
+			System.out.println(i);
 		switch (action) {
 		case "삭제":
 			service.deleteAll(del);

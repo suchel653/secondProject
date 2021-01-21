@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.ggiriggiri.web.entity.Field;
 import com.ggiriggiri.web.entity.Skill;
 import com.ggiriggiri.web.service.SkillService;
 
@@ -36,9 +35,6 @@ public class SkillContoroller {
 
 		switch (action) {
 		case "삭제":
-			System.out.println(action);
-			for (int i : del)
-				System.out.println(i);
 			service.deleteAll(del);
 			break;
 		case "저장":
@@ -68,5 +64,4 @@ public class SkillContoroller {
 
 		return "redirect:skill";
 	}
-
 }

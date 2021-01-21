@@ -12,7 +12,6 @@
 
 			<input class="button addBtn" type="button" value="+ Add">
 
-
 			<table class="list-table">
 				<thead>
 					<tr>
@@ -40,8 +39,8 @@
 			<input class="button" name="action" type="submit" value="저장">
 			<input class="button" name="action" type="submit" value="삭제">
 		</section>
-
 	</form>
+	
 	<div class="pager">
 		<div>
 			<a href="#"><i class="fas fa-angle-double-left"></i></a>
