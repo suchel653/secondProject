@@ -44,4 +44,9 @@ public class MybatisLanguageDao implements LanguageDao {
 		return mapper.getList(offset, size);
 	}
 
+	@Override
+	public int deleteAll(int[] del) {
+		return mapper.deleteAll(del);
+	}
+
 }

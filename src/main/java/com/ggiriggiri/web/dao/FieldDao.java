@@ -16,4 +16,6 @@ public interface FieldDao {
 
 	List<Field> getList(int offset, int size);
 
+	int deleteAll(int[] ids);
+
 }

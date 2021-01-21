@@ -6,7 +6,7 @@
 <main id="main" class="main">
 	<h1 class="d-none">Category - Field</h1>
 
-	<form method="post">
+	<form action="field" method="post">
 		<section>
 			<h1 class="d-none">필드 리스트</h1>
 
@@ -28,7 +28,7 @@
 							<td>${f.id}</td>
 							<td><input hidden type="text" name="id" value="${f.id}">
 								<input type="text" name="name" value="${f.name}"></td>
-							<td><input name="del" type="checkbox"></td>
+							<td><input name="del" type="checkbox" value="${f.id}"></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -37,8 +37,8 @@
 
 		<section>
 			<h1 class="d-none">이벤트 버튼</h1>
-			<input class="button" name="button" type="submit" value="저장">
-			<input class="button" name="button" type="submit" value="삭제">
+			<input class="button" name="action" type="submit" value="저장">
+			<input class="button" name="action" type="submit" value="삭제">
 		</section>
 
 	</form>

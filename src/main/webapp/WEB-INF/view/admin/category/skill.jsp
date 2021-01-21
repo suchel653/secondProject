@@ -5,7 +5,7 @@
 <script src="/js/admin/category/skill.js"></script>
 <main id="main" class="main">
 	<h1 class="d-none">Category - Languages</h1>
-	
+
 	<section>
 		<h1 class="d-none">스킬 리스트</h1>
 
@@ -24,14 +24,12 @@
 
 				<tbody>
 					<c:forEach var="s" items="${list}">
-					<tr>
-						<td>${s.id}</td>
-						<td>
-							<input hidden type="text" name="id" value="${s.id}">
-							<input type="text" name="name" value="${s.name}">
-						</td>
-						<td><input name="del" type="checkbox"></td>
-					</tr>
+						<tr>
+							<td>${s.id}</td>
+							<td><input hidden type="text" name="id" value="${s.id}">
+								<input type="text" name="name" value="${s.name}"></td>
+							<td><input name="del" type="checkbox" value="${s.id}"></td>
+						</tr>
 					</c:forEach>
 				</tbody>
 			</table>

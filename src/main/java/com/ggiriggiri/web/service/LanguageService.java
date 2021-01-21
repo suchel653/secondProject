@@ -16,4 +16,10 @@ public interface LanguageService {
 
 	List<Language> getList(int page, int size);
 
+	int deleteAll(int[] del);
+
+	int insertList(List<Language> list);
+
+	int updateList(List<Language> list);
+
 }

@@ -5,7 +5,7 @@
 <script src="/js/admin/category/language.js"></script>
 <main id="main" class="main">
 	<h1 class="d-none">Category - Languages</h1>
-	
+
 	<section>
 		<h1 class="d-none">언어 리스트</h1>
 
@@ -25,15 +25,13 @@
 
 				<tbody>
 					<c:forEach var="l" items="${list}">
-					<tr>
-						<td>${l.id}</td>
-						<td>
-							<input hidden type="text" name="id" value="${l.id}">
-							<input type="text" name="name" value="${l.name}">
-						</td>
-						<td>${l.image}</td>
-						<td><input name="del" type="checkbox"></td>
-					</tr>
+						<tr>
+							<td>${l.id}</td>
+							<td><input hidden type="text" name="id" value="${l.id}">
+								<input type="text" name="name" value="${l.name}"></td>
+							<td>${l.image}</td>
+							<td><input name="del" type="checkbox" value="${l.id}"></td>
+						</tr>
 					</c:forEach>
 				</tbody>
 			</table>

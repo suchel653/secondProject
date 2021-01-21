@@ -42,4 +42,32 @@ public class LanguageServiceImp implements LanguageService {
 		return languageDao.getList(offset, size);
 	}
 
+	@Override
+	public int deleteAll(int[] del) {
+		
+		int result = languageDao.deleteAll(del);
+		
+		return result;
+	}
+
+	@Override
+	public int insertList(List<Language> list) {
+		int result = 0;
+		for(Language l : list) {
+			languageDao.insert(l);
+			result++;
+		}
+		return result;
+	}
+
+	@Override
+	public int updateList(List<Language> list) {
+		int result = 0;
+		for(Language l : list) {
+			languageDao.update(l);
+			result++;
+		}
+		return result;
+	}
+
 }

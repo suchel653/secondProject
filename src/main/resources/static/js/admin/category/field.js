@@ -7,10 +7,9 @@ window.addEventListener("load", (e) => {
 	// 추가 버튼 이벤트
 	addBtn.onclick = () => {
 
-		console.log("hh");
 		let tr = `<td></td>
                   <td>
-                    <input type="text" name="new-name">
+                    <input type="text" name="newNames">
                   </td>
                   <td></td>`;
 
@@ -18,8 +17,12 @@ window.addEventListener("load", (e) => {
 
 	};
 	
-	// 저장 버튼 이벤트
-	
-	// 삭제 버튼 이벤트
+	// 수정 이벤트 발생 시
+	tbody.addEventListener("change", function(e) {
+		if (e.target.name != "newNames" && e.target.name != "del") {
+			e.target.name = "changedNames";
+			e.target.previousElementSibling.name = "changedIds";
+		}
+	})
 
 });

@@ -31,7 +31,7 @@ public class FieldServiceImp implements FieldService {
 
 	@Override
 	public Field get(int id) {
-		return null;
+		return fieldDao.get(id);
 	}
 
 	@Override
@@ -40,6 +40,36 @@ public class FieldServiceImp implements FieldService {
 		int offset = (page - 1) * 10;
 
 		return fieldDao.getList(offset, size);
+	}
+
+	@Override
+	public int deleteAll(int[] ids) {
+
+		int result = fieldDao.deleteAll(ids);
+
+		return result;
+	}
+
+	@Override
+	public int insertList(List<Field> list) {
+		int result = 0;
+		
+		for(Field f : list) {
+			fieldDao.insert(f);
+			result++;
+		}
+		return result;
+	}
+
+	@Override
+	public int updateList(List<Field> list) {
+		int result = 0;
+		
+		for(Field f : list) {
+			fieldDao.update(f);
+			result++;
+		}
+		return result;
 	}
 
 }
