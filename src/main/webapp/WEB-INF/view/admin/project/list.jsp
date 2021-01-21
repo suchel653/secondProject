@@ -50,11 +50,11 @@
 								</td>
 							</tr>
 							<tr>
-							
-							<c:forEach var="l" items="${pj.languages }">
-								<td></td>
-							</c:forEach>
-							
+								<td>언어 : 
+									<c:forEach var="l" items="${pj.languages }">
+								 	${l.languageName }/
+									</c:forEach>
+								</td>
 							</tr>
 						</c:forEach>
 						

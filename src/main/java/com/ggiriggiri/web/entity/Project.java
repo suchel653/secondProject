@@ -15,14 +15,12 @@ public class Project {
 	private Date regDate;
 	private int statusId;
 	private int fieldId;
-	private List<Language> languages;
+	private List<ProjectLanguageView> languages;
 	
 	public Project() {
 		this(0,null,null,0,null,null,null,null,null,0,0);
 	}
 
-	
-	
 	public Project(int id, String title, String content, int limitNumber, Date startDate, Date endDate, String leaderId,
 			String requirement, Date regDate, int statusId, int fieldId) {
 		this.id = id;
@@ -36,15 +34,6 @@ public class Project {
 		this.regDate = regDate;
 		this.statusId = statusId;
 		this.fieldId = fieldId;
-	}
-
-
-
-	@Override
-	public String toString() {
-		return "Project [id=" + id + ", title=" + title + ", content=" + content + ", limitNumber=" + limitNumber
-				+ ", startDate=" + startDate + ", endDate=" + endDate + ", leaderId=" + leaderId + ", requirement="
-				+ requirement + ", regDate=" + regDate + ", statusId=" + statusId + ", fieldId=" + fieldId + "]";
 	}
 
 	public int getId() {
@@ -135,10 +124,10 @@ public class Project {
 		this.fieldId = fieldId;
 	}
 
-	public List<Language> getLanguages() {
+	public List<ProjectLanguageView> getLanguages() {
 		return languages;
 	}
-	public void setLanguages(List<Language> languages) {
+	public void setLanguages(List<ProjectLanguageView> languages) {
 		this.languages = languages;
 	}
 	

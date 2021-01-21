@@ -16,6 +16,5 @@ public interface LanguageDao {
 
 	List<Language> getList(int offset, int size);
 
-	List<Language> getListByProjectId(int id); 
 		
 }
