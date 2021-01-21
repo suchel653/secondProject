@@ -1,30 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <main id="main" class="main">
                 <h1 class="d-none">메인이다</h1>
-                <section>
-                    <h1 class="d-none">검색폼</h1>
-                    <form>
-                        <div>
-                            <select>
-                                <option>닉네임</option>
-                            </select>
-                            <input type="text">
-                        </div>
-
-                        <label>견종</label>
-                        <select>
-                          <option>견종</option>
-                          <option>푸들</option>
-                          <option>비숑</option>
-                          <option>말티즈</option>
-                      </select>
-                        <input type="submit" value="검색">
-
-                    </form>
-                </section>
+                 <section>
+                <h1 class="d-none">검색 폼</h1>
+                <form action="list" method="get">
+                    <table border="1">
+                       <tr>
+                           <th>필드</th>
+                           <td> 
+                               <c:forEach var="f" items="${f}" varStatus="status">     
+                               		<input type="checkbox" name="f" value="${f.name}">${f.name}
+                               </c:forEach>
+                            </td>     
+                       </tr>
+                       
+                       <tr>
+                           <th>스킬</th>
+                           <td>                   
+                               <c:forEach var="s" items="${s}">      
+                               		<input type="checkbox" name="s" value="${s.name}">${s.name}
+                               </c:forEach>      
+                            </td>     
+                       </tr>
+                       <tr>
+                           <th>언어</th>
+                           <td>                   
+                               <c:forEach var="l" items="${l}">      
+                               		<input type="checkbox" name="l" value="${l.name}">${l.name}
+                               </c:forEach>      
+                            </td>     
+                       </tr>
+                    </table>
+                    <div>
+                       		<select name="t">
+								<option value="title">제목</option>
+							</select>
+							<input type="text" name="q" value="" />
+							<input type="submit" value="검색" />
+                    </div>
+                </form>
+            </section>
 
                 <section>
                     <h1 class="d-none">테이블</h1>
@@ -47,12 +65,10 @@
                         <tbody>
                         <c:forEach var ="s" items="${list}">
                         
-                            <tr>
-                              
+                            <tr>        
                                 <td>${s.id}</td>
                                 <td>${s.title}</td>
-                                <td>웹</td>
-                                
+                                <td>${s.fieldName}</td>
                                 <td>
                         <c:forEach var="sk" items="${s.skill}"> 
                                 ${sk.skillName}

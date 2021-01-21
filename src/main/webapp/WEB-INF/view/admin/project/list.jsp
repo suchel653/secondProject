@@ -38,6 +38,7 @@
                          </thead>
                          
                          <tbody>
+                         
                          <c:forEach var="pj" items="${list }">
 							<tr>
 								<td>${pj.id}</td>
@@ -48,7 +49,15 @@
 								<fmt:formatDate value="${pj.regDate }" pattern="yyyy-MM-dd"/>
 								</td>
 							</tr>
+							<tr>
+								<td>언어 : 
+									<c:forEach var="l" items="${pj.languages }">
+								 	${l.languageName }/
+									</c:forEach>
+								</td>
+							</tr>
 						</c:forEach>
+						
                          </tbody>
                         </table>
                     </div>

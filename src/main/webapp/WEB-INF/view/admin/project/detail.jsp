@@ -35,6 +35,11 @@
 								</td>
 								<td>${pj.content }</td>
 							</tr>
+							<tr>
+								<c:forEach var="l" items="${pj.languages }">
+								 <td>${l.languageName }</td>
+								</c:forEach>
+							</tr>
                          </tbody>
                         </table>
                     </div>

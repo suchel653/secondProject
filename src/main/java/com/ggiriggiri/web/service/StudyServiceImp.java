@@ -9,16 +9,17 @@ import com.ggiriggiri.web.dao.StudyDao;
 import com.ggiriggiri.web.dao.StudyLanguageDao;
 import com.ggiriggiri.web.dao.StudySkillDao;
 import com.ggiriggiri.web.entity.Study;
+import com.ggiriggiri.web.entity.StudyView;
 
 @Service
-public class StudyServiceImp implements StudyService{
+public class StudyServiceImp implements StudyService {
 
 	@Autowired
 	private StudyDao studyDao;
-	
+
 	@Autowired
 	private StudySkillDao studySkillDao;
-	
+
 	@Autowired
 	private StudyLanguageDao studyLanguageDao;
 
@@ -48,38 +49,42 @@ public class StudyServiceImp implements StudyService{
 
 	@Override
 	public List<Study> getList(int page, int size, String field, String query) {
-		int offset = (page-1)*10;
-		
-		List<Study> list = studyDao.getList(offset,size,field,query);
-		for(Study s :list) {
+		int offset = (page - 1) * 10;
+
+		List<Study> list = studyDao.getList(offset, size, field, query);
+		for (Study s : list) {
 //			list=studyLanguageDao.getList(s.getId());
-	
-			s.setSkill (studySkillDao.getViewList(s.getId()));
-			s.setLanguage (studyLanguageDao.getViewList(s.getId()));
-		
+
+			s.setSkill(studySkillDao.getViewList(s.getId()));
+			s.setLanguage(studyLanguageDao.getViewList(s.getId()));
+
 		}
-			
-		
+
 		return list;
 	}
 
 	@Override
 	public int getCount(String field, String query) {
 		// TODO Auto-generated method stub
-		return studyDao.getCount(field,query);
+		return studyDao.getCount(field, query);
 	}
 
 	@Override
-	public Study getPrev(Integer id) {
-		// TODO Auto-generated method stub
-		return studyDao.getPrev(id);
-	}
+	public List<StudyView> getViewList(int page, int size, String title, String query, String[] field, String[] skill,
+			String[] language) {
+		int offset = (page - 1) * 10;
 
-	@Override
-	public Study getNext(Integer id) {
-		// TODO Auto-generated method stub
-		return studyDao.getNext(id);
-	}
+		List<StudyView> list = studyDao.getViewList(offset, size, title, query,field);
 
+		for (StudyView s : list) {
+//			list=studyLanguageDao.getList(s.getId());
+
+			s.setSkill(studySkillDao.getViewList(s.getId()));
+			s.setLanguage(studyLanguageDao.getViewList(s.getId()));
+
+		}
+
+		return list;
+	}
 
 }
