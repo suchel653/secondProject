@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script src="/js/admin/category/skill.js"></script>
 <main id="main" class="main">
 	<h1 class="d-none">Category - Languages</h1>
 	
@@ -22,10 +23,13 @@
 				</thead>
 
 				<tbody>
-					<c:forEach var="sl" items="${list}">
+					<c:forEach var="s" items="${list}">
 					<tr>
-						<td>${sl.id}</td>
-						<td>${sl.name}</td>
+						<td>${s.id}</td>
+						<td>
+							<input hidden type="text" name="id" value="${s.id}">
+							<input type="text" name="name" value="${s.name}">
+						</td>
 						<td><input name="del" type="checkbox"></td>
 					</tr>
 					</c:forEach>
