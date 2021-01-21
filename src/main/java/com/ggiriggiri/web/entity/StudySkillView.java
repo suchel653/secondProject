@@ -1,26 +1,22 @@
 package com.ggiriggiri.web.entity;
 
-public class StudySkillView {
-	private int id;
-	private int studyId;
+public class StudySkillView extends StudySkill{
 	private String skillName;
 	public StudySkillView(int id, int studyId, String skillName) {
-		
-		this.id = id;
-		this.studyId = studyId;
-		this.skillName = skillName;
+		super(id,studyId,0);
+		this.skillName=skillName;
 	}
 	public int getId() {
-		return id;
+		return super.getId();
 	}
 	public void setId(int id) {
-		this.id = id;
+		super.setId(id);
 	}
 	public int getStudyId() {
-		return studyId;
+		return super.getStudyId();
 	}
 	public void setStudyId(int studyId) {
-		this.studyId = studyId;
+		super.setStudyId(studyId);
 	}
 	public String getSkillName() {
 		return skillName;
@@ -30,17 +26,6 @@ public class StudySkillView {
 	}
 	@Override
 	public String toString() {
-		return "StudySkillView [id=" + id + ", studyId=" + studyId + ", skillName=" + skillName + "]";
+		return super.toString()+" skillName=" + skillName + "]";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

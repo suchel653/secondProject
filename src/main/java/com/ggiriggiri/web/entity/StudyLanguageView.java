@@ -1,61 +1,31 @@
 package com.ggiriggiri.web.entity;
 
-public class StudyLanguageView {
-	private int id;
-	private int studyId;
+public class StudyLanguageView extends StudyLanguage{
 	private String languageName;
-	
-	
 	public StudyLanguageView(int id, int studyId, String languageName) {
-		
-		this.id = id;
-		this.studyId = studyId;
-		this.languageName = languageName;
-		
+		super(id,studyId,0);
+		this.languageName=languageName;
 	}
-
-
 	public int getId() {
-		return id;
+		return super.getId();
 	}
-
-
 	public void setId(int id) {
-		this.id = id;
+		super.setId(id);
 	}
-
-
 	public int getStudyId() {
-		return studyId;
+		return super.getStudyId();
 	}
-
-
 	public void setStudyId(int studyId) {
-		this.studyId = studyId;
+		super.setStudyId(studyId);
 	}
-
-
 	public String getLanguageName() {
 		return languageName;
 	}
-
-
 	public void setLanguageName(String languageName) {
 		this.languageName = languageName;
 	}
-
-
-
-
-
 	@Override
 	public String toString() {
-		return "StudyLanguageView [id=" + id + ", studyId=" + studyId + ", languageName=" + languageName
-				+ "]";
+		return super.toString()+" languageName=" + languageName + "]";
 	}
-	
-	
-	
-	
-
 }
