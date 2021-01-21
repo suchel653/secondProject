@@ -5,10 +5,18 @@
 
 <mapper namespace="com.ggiriggiri.web.dao.StudyDao">
 
- <select id="getList" resultType="com.ggiriggiri.web.entity.Study">
-		select * from Study
+ <select id="getViewList" resultType="com.ggiriggiri.web.entity.StudyView">
+		select * from StudyView
 		<if test="param3 !=null">
 		where BINARY ${param3} like '%${param4}%'
+		</if>
+		<if test="param5 !=null">
+			and fieldName in 
+		<foreach item="fd" index="index" collection="field"
+   			open="(" separator="," close=")">
+   			#{fd}
+   		</foreach>
+		
 		</if>
 		order by regdate desc
       limit #{param2} offset #{param1}

@@ -38,8 +38,9 @@ public class ProjectServiceImp implements ProjectService{
 
 	@Override
 	public Project get(int id) {
-		
-		return projectDao.get(id);
+		Project p = projectDao.get(id);
+		p.setLanguages(projectLanguageDao.getListByProjectId(p.getId()));
+		return p;
 	}
 
 	@Override

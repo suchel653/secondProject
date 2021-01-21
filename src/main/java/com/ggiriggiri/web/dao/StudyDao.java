@@ -3,6 +3,7 @@ package com.ggiriggiri.web.dao;
 import java.util.List;
 
 import com.ggiriggiri.web.entity.Study;
+import com.ggiriggiri.web.entity.StudyView;
 
 public interface StudyDao {
 
@@ -15,6 +16,8 @@ public interface StudyDao {
 	int getCount(String field, String query);
 	Study getPrev(Integer id);
 	Study getNext(Integer id);
+
+	List<StudyView> getViewList(int offset, int size, String title, String query, String[] field);
 
 
 
