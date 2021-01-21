@@ -54,5 +54,10 @@ public class MybatisProjectDao implements ProjectDao {
 	public int getCount(String field, String query) {
 		return mapper.getCount(field, query);
 	}
+
+	@Override
+	public List<Project> getList() {
+		return mapper.getList();
+	}
 	
 }

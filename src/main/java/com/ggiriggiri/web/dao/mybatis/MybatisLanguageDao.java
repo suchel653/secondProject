@@ -44,4 +44,9 @@ public class MybatisLanguageDao implements LanguageDao {
 		return mapper.getList(offset, size);
 	}
 
+	@Override
+	public List<Language> getListByProjectId(int id) {
+		return mapper.getListByProjectId(id);
+	}
+
 }

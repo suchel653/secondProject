@@ -1,6 +1,7 @@
 package com.ggiriggiri.web.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class Project {
 	private int id;
@@ -14,6 +15,7 @@ public class Project {
 	private Date regDate;
 	private int statusId;
 	private int fieldId;
+	private List<Language> languages;
 	
 	public Project() {
 		this(0,null,null,0,null,null,null,null,null,0,0);
@@ -132,6 +134,14 @@ public class Project {
 	public void setFieldId(int fieldId) {
 		this.fieldId = fieldId;
 	}
+
+	public List<Language> getLanguages() {
+		return languages;
+	}
+	public void setLanguages(List<Language> languages) {
+		this.languages = languages;
+	}
+	
 	
 	
 }

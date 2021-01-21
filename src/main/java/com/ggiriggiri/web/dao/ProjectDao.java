@@ -12,6 +12,7 @@ public interface ProjectDao {
 	
 	Project get(int id);
 	
+	List<Project> getList();
 	List<Project> getList(int offset, int size, String field, String query);
 	//List<ProjectView> getViewList(int offset, int size, String field, String query);
 	

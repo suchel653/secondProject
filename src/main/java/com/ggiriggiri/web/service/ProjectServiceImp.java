@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ggiriggiri.web.dao.LanguageDao;
 import com.ggiriggiri.web.dao.ProjectDao;
+import com.ggiriggiri.web.entity.Language;
 import com.ggiriggiri.web.entity.Project;
 
 @Service
@@ -13,7 +15,10 @@ public class ProjectServiceImp implements ProjectService{
 
 	@Autowired
 	private ProjectDao projectDao;
-
+	
+	@Autowired
+	private LanguageDao languageDao;
+	
 	@Override
 	public int insert(Project project) {
 		// TODO Auto-generated method stub
@@ -40,7 +45,14 @@ public class ProjectServiceImp implements ProjectService{
 	@Override
 	public List<Project> getList(int page, int size, String field, String query) {
 		int offset = (page-1)*10;
-		return projectDao.getList(offset, size, field, query);
+		
+		List<Project> list = projectDao.getList(offset, size, field, query);
+		
+		for(Project p : list) {
+			p.setLanguages(languageDao.getListByProjectId(p.getId()));
+		}
+			
+		return list;
 	}
 
 //	@Override
