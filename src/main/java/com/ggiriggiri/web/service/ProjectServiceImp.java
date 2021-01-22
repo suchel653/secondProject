@@ -9,6 +9,7 @@ import com.ggiriggiri.web.dao.ProjectDao;
 import com.ggiriggiri.web.dao.ProjectLanguageDao;
 import com.ggiriggiri.web.dao.ProjectSkillDao;
 import com.ggiriggiri.web.entity.Project;
+import com.ggiriggiri.web.entity.ProjectView;
 
 @Service
 public class ProjectServiceImp implements ProjectService{
@@ -57,6 +58,7 @@ public class ProjectServiceImp implements ProjectService{
 		
 		for(Project p : list) {
 			p.setLanguages(projectLanguageDao.getListByProjectId(p.getId()));
+			p.setSkills(projectSkilldao.getListByProjectId(p.getId()));
 		}
 			
 		return list;
@@ -72,5 +74,21 @@ public class ProjectServiceImp implements ProjectService{
 	public int getCount(String field, String query) {
 		
 		return projectDao.getCount(field, query);
+	}
+
+	@Override
+	public List<ProjectView> getViewList(int page, int size, String title, String query, String[] field, String[] skill,
+			String[] language) {
+		
+		int offset = (page-1)*10;
+		
+		List<ProjectView> list = projectDao.getViewList(offset, size, title, query,field);
+		
+		for(ProjectView p : list) {
+			p.setSkills(projectSkilldao.getListByProjectId(p.getId()));
+			p.setLanguages(projectLanguageDao.getListByProjectId(p.getId()));
+		}
+			
+		return list;
 	}
 }
