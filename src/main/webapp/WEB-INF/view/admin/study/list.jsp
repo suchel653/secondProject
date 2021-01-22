@@ -2,6 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<c:set var="fns" value = "${paramValues.f}" />
+<c:set var="sns" value = "${paramValues.s}" />
+<c:set var="lns" value = "${paramValues.l}" />
 <main id="main" class="main">
                 <h1 class="d-none">메인이다</h1>
                  <section>
@@ -11,8 +15,14 @@
                        <tr>
                            <th>필드</th>
                            <td> 
-                               <c:forEach var="f" items="${f}" varStatus="status">     
-                               		<input type="checkbox" name="f" value="${f.name}">${f.name}
+                               <c:forEach var="f" items="${f}" varStatus="status">
+	                               <c:set var="checked" value = "" />
+	                               <c:forEach var="fns" items="${paramValues.f}">
+	                               		<c:if test="${fns==f.name}">
+	                               			<c:set var="checked" value = "checked" />
+	                               		</c:if>
+	                               </c:forEach>
+                               		<input type="checkbox" ${checked} name="f" value="${f.name}">${f.name}
                                </c:forEach>
                             </td>     
                        </tr>
@@ -20,16 +30,28 @@
                        <tr>
                            <th>스킬</th>
                            <td>                   
-                               <c:forEach var="s" items="${s}">      
-                               		<input type="checkbox" name="s" value="${s.name}">${s.name}
+                               <c:forEach var="s" items="${s}">
+                               	   <c:set var="checked" value = "" />
+	                               <c:forEach var="sns" items="${paramValues.s}">
+	                               		<c:if test="${sns==s.name}">
+	                               			<c:set var="checked" value = "checked" />
+	                               		</c:if>
+	                               </c:forEach>      
+                               		<input type="checkbox" ${checked} name="s" value="${s.name}">${s.name}
                                </c:forEach>      
                             </td>     
                        </tr>
                        <tr>
                            <th>언어</th>
                            <td>                   
-                               <c:forEach var="l" items="${l}">      
-                               		<input type="checkbox" name="l" value="${l.name}">${l.name}
+                               <c:forEach var="l" items="${l}">   
+                                	<c:set var="checked" value = "" />
+	                               <c:forEach var="lns" items="${paramValues.l}">
+	                               		<c:if test="${lns==l.name}">
+	                               			<c:set var="checked" value = "checked" />
+	                               		</c:if>
+	                               </c:forEach>         
+                               		<input type="checkbox" ${checked} name="l" value="${l.name}">${l.name}
                                </c:forEach>      
                             </td>     
                        </tr>

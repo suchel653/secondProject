@@ -8,6 +8,15 @@
   		select * from StudySkillView where studyId=#{id}
      
    </select>
+   
+   <select id="getByStudyIds" resultType="int">
+   	select studyId from StudySkillView where skillName in 
+	<foreach item="sk" index="index" collection="skill"
+   			open="(" separator="," close=")">
+   			#{sk}
+   		</foreach>
+ group by studyId; 
+   </select>
     
     
     </mapper>

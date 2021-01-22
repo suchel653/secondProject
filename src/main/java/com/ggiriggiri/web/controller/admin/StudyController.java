@@ -64,9 +64,9 @@ public class StudyController {
 			System.out.println(s);
 		}
 		
-		List<Field> fdList = fdService.getList(1, 10);
-		List<Skill> skList = skService.getList(1, 10);
-		List<Language> lgList = lgService.getList(1, 10);
+		List<Field> fdList = fdService.getList(1, 100);
+		List<Skill> skList = skService.getList(1, 100);
+		List<Language> lgList = lgService.getList(1, 100);
 		
 		model.addAttribute("f", fdList);
 		model.addAttribute("s", skList);

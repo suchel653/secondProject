@@ -50,7 +50,7 @@ public class StudyServiceImp implements StudyService {
 	@Override
 	public List<Study> getList(int page, int size, String field, String query) {
 		int offset = (page - 1) * 10;
-
+		
 		List<Study> list = studyDao.getList(offset, size, field, query);
 		for (Study s : list) {
 //			list=studyLanguageDao.getList(s.getId());
@@ -72,6 +72,15 @@ public class StudyServiceImp implements StudyService {
 	@Override
 	public List<StudyView> getViewList(int page, int size, String title, String query, String[] field, String[] skill,
 			String[] language) {
+		int[] skStudyIds = null;
+		if(skill.length!=0)
+			skill=null;
+		skStudyIds = studySkillDao.getByStudyIds(skill);
+		//lgStudyIds = studyLanguageDao.getByStudyIds(language);
+		if(skStudyIds != null)
+			for(Integer id : skStudyIds)
+				System.out.println(id);
+		
 		int offset = (page - 1) * 10;
 
 		List<StudyView> list = studyDao.getViewList(offset, size, title, query,field);
