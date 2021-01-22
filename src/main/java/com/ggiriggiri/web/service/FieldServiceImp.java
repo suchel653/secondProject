@@ -35,6 +35,12 @@ public class FieldServiceImp implements FieldService {
 	}
 
 	@Override
+	public List<Field> getList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public List<Field> getList(int page, int size) {
 
 		int offset = (page - 1) * 10;
@@ -53,8 +59,8 @@ public class FieldServiceImp implements FieldService {
 	@Override
 	public int insertList(List<Field> list) {
 		int result = 0;
-		
-		for(Field f : list) {
+
+		for (Field f : list) {
 			fieldDao.insert(f);
 			result++;
 		}
@@ -64,8 +70,8 @@ public class FieldServiceImp implements FieldService {
 	@Override
 	public int updateList(List<Field> list) {
 		int result = 0;
-		
-		for(Field f : list) {
+
+		for (Field f : list) {
 			fieldDao.update(f);
 			result++;
 		}

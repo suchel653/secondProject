@@ -13,6 +13,8 @@ public interface FieldDao {
 	int delete(int id);
 
 	Field get(int id);
+	
+	List<Field> getList();
 
 	List<Field> getList(int offset, int size);
 
