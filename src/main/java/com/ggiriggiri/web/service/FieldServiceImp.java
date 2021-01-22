@@ -36,8 +36,7 @@ public class FieldServiceImp implements FieldService {
 
 	@Override
 	public List<Field> getList() {
-		// TODO Auto-generated method stub
-		return null;
+		return fieldDao.getList();
 	}
 
 	@Override
