@@ -46,19 +46,18 @@ public class StudyController {
 		int size = 10;
 		List<StudyView> list =service.getViewList(page,size,title,query,field,skill,language);
 	
-		System.out.println("field부분");
-		System.out.println("필드 길이 : "+field.length);
+		
 		for(String s : field) {
 			System.out.println(s);
 		}
 			
-		System.out.println("skill부분");
+	
 		for(String s : skill) {
 			
 			System.out.println(s);
 		}
 		
-		System.out.println("language부분");
+
 		for(String s : language) {
 			
 			System.out.println(s);

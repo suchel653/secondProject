@@ -72,22 +72,30 @@ public class StudyServiceImp implements StudyService {
 	@Override
 	public List<StudyView> getViewList(int page, int size, String title, String query, String[] field, String[] skill,
 			String[] language) {
-		int[] skStudyIds = null;
-		if(skill.length!=0)
-			skill=null;
-		skStudyIds = studySkillDao.getByStudyIds(skill);
-		//lgStudyIds = studyLanguageDao.getByStudyIds(language);
-		if(skStudyIds != null)
-			for(Integer id : skStudyIds)
-				System.out.println(id);
+		
+		int[] fdStudyIds = studyDao.getByStudyIds(field);
+		if(fdStudyIds.length==0)
+			return null;
+		int[] skStudyIds = studySkillDao.getByStudyIds(fdStudyIds,skill);
+		if(skStudyIds.length==0)
+			return null;
+		int[] ids = studyLanguageDao.getByStudyIds(skStudyIds,language);
+		if(ids.length==0)
+			return null;
+		for(int i=0; i<fdStudyIds.length; i++)
+			System.out.println("fieldIds:"+fdStudyIds[i]);
+		
+		for(int i=0; i<skStudyIds.length; i++)
+			System.out.println("skStudyIds:"+skStudyIds[i]);
+		
+		for(int i=0; i<ids.length; i++)
+			System.out.println("lgStudyIds:"+ids[i]);
 		
 		int offset = (page - 1) * 10;
 
-		List<StudyView> list = studyDao.getViewList(offset, size, title, query,field);
+		List<StudyView> list = studyDao.getViewList(ids,offset, size, title, query);
 
 		for (StudyView s : list) {
-//			list=studyLanguageDao.getList(s.getId());
-
 			s.setSkill(studySkillDao.getViewList(s.getId()));
 			s.setLanguage(studyLanguageDao.getViewList(s.getId()));
 

@@ -38,11 +38,18 @@ public class MyBatisStudySkillDao implements StudySkillDao{
 
 
 
+
 	@Override
-	public int[] getByStudyIds(String[] skill) {
-		// TODO Auto-generated method stub
-		return mapper.getByStudyIds(skill);
+	public int[] getByStudyIds(int[] fdStudyIds, String[] skill) {
+		
+		if(skill.length==0)
+			skill=null;
+		return mapper.getByStudyIds(fdStudyIds,skill);
 	}
+
+
+
+
 
 
 	

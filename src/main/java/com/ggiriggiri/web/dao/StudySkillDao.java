@@ -12,7 +12,9 @@ public interface StudySkillDao {
 
 	List<StudySkillView> getViewList(int id);
 
-	int[] getByStudyIds(String[] skill);
+	int[] getByStudyIds(int[] fdStudyIds, String[] skill);
+
+	
 
 	
 

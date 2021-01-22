@@ -8,6 +8,9 @@ public interface StudyLanguageDao {
 
 	List<StudyLanguageView> getViewList(int id);
 
+	int[] getByStudyIds(int[] skStudyIds, String[] language);
+
+
 	
 
 	
