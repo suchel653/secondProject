@@ -8,19 +8,45 @@
                 <h1 class="d-none">메인이다</h1>
                 <section>
                     <h1 class="d-none">검색폼</h1>
-                    <form>
+                    <form action="list" method="get">
+                    <table border="1">
+                       <tr>
+                           <th>필드</th>
+                           <td>                   
+                               <input type="checkbox" name="field" value="1">웹 개발
+                               <input type="checkbox" name="field" value="2">인공지능
+                               <input type="checkbox" name="field" value="3">블록체인
+                               <input type="checkbox" name="field" value="4">IOS
+                            </td>     
+                       </tr>
+                       
+                       <tr>
+                           <th>스킬</th>
+                           <td>                   
+                               <input type="checkbox" name="skill" value="1">Spring
+                               <input type="checkbox" name="skill" value="2">Django
+                               <input type="checkbox" name="skill" value="3">Vue
+                               <input type="checkbox" name="skill" value="4">React
+                            </td>     
+                       </tr>
+                       <tr>
+                           <th>언어</th>
+                           <td>                   
+                               <input type="checkbox" name="language" value="1">C
+                               <input type="checkbox" name="language" value="2">C++
+                               <input type="checkbox" name="language" value="3">Python
+                               <input type="checkbox" name="language" value="4">Java
+                            </td>     
+                       </tr>
+                    </table>
                     
-                        <div>
-                            <select name="f">
-                                <option value="title">제목</option>
-                                <option value="writerId">작성자</option>
-                                <option value="field">분야</option>
-                                <option value="skill">기술</option>
-                                <option value="language">언어</option>
-                            </select>
-                            <input type="text" name="q" value="">
-                        </div>
-                        <input type="submit" value="검색">
+                     <div>
+	                     <select name="f">
+						 <option value="title">제목</option>
+						 </select>
+						 <input type="text" name="q" value="" />
+						 <input type="submit" value="검색" />
+                    </div>
                     </form>
                 </section>
 
@@ -49,14 +75,7 @@
 								<fmt:formatDate value="${pj.regDate }" pattern="yyyy-MM-dd"/>
 								</td>
 							</tr>
-							<tr>
-								<td>언어 : 
-									<c:forEach var="l" items="${pj.languages }">
-								 	${l.languageName }/
-									</c:forEach>
-								</td>
-							</tr>
-						</c:forEach>
+							</c:forEach>
 						
                          </tbody>
                         </table>

@@ -16,6 +16,7 @@ public class Project {
 	private int statusId;
 	private int fieldId;
 	private List<ProjectLanguageView> languages;
+	private List<ProjectSkillView> skills;
 	
 	public Project() {
 		this(0,null,null,0,null,null,null,null,null,0,0);
@@ -129,6 +130,14 @@ public class Project {
 	}
 	public void setLanguages(List<ProjectLanguageView> languages) {
 		this.languages = languages;
+	}
+
+	public List<ProjectSkillView> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(List<ProjectSkillView> skills) {
+		this.skills = skills;
 	}
 	
 	

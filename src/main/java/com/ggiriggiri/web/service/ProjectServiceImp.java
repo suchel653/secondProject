@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ggiriggiri.web.dao.ProjectDao;
 import com.ggiriggiri.web.dao.ProjectLanguageDao;
+import com.ggiriggiri.web.dao.ProjectSkillDao;
 import com.ggiriggiri.web.entity.Project;
 
 @Service
@@ -17,6 +18,9 @@ public class ProjectServiceImp implements ProjectService{
 	
 	@Autowired
 	private ProjectLanguageDao projectLanguageDao;
+	
+	@Autowired
+	private ProjectSkillDao projectSkilldao;
 	
 	@Override
 	public int insert(Project project) {
@@ -39,7 +43,11 @@ public class ProjectServiceImp implements ProjectService{
 	@Override
 	public Project get(int id) {
 		
-		return projectDao.get(id);
+		Project p = projectDao.get(id);
+		p.setLanguages(projectLanguageDao.getListByProjectId(p.getId()));
+		p.setSkills(projectSkilldao.getListByProjectId(p.getId()));
+		
+		return p;
 	}
 
 	@Override
