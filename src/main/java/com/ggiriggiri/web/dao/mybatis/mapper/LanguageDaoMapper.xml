@@ -16,4 +16,25 @@
 		limit #{param2} offset #{param1};
 	</select>
 	
+	<insert id="insert" parameterType="com.ggiriggiri.web.entity.Language">
+		insert into Language(name)
+		values(#{name});
+	</insert>
+	
+	<update id="update" >
+		update Language
+		set
+			name = #{name}
+		where id = #{id}
+	</update>
+	
+	<delete id="deleteAll">
+   		delete from Language
+   		where id in
+   		<foreach item="id" index="index" collection="ids"
+   			open="(" separator="," close=")">
+   			#{id}
+   		</foreach>
+   	</delete>
+	
 </mapper>

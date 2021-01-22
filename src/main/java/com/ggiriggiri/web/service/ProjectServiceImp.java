@@ -42,7 +42,6 @@ public class ProjectServiceImp implements ProjectService{
 
 	@Override
 	public Project get(int id) {
-		
 		Project p = projectDao.get(id);
 		p.setLanguages(projectLanguageDao.getListByProjectId(p.getId()));
 		p.setSkills(projectSkilldao.getListByProjectId(p.getId()));

@@ -5,8 +5,8 @@ public class Language {
 	private String name;
 	private String image;
 
-	public Language() {
-		this(0, null, null);
+	public Language(int i, String newNames) {
+		this(0, newNames, null);
 	}
 
 	public Language(int id, String name, String image) {

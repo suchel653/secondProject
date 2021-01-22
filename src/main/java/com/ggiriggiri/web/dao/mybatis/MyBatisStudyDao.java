@@ -8,13 +8,12 @@ import org.springframework.stereotype.Repository;
 
 import com.ggiriggiri.web.dao.StudyDao;
 import com.ggiriggiri.web.entity.Study;
+import com.ggiriggiri.web.entity.StudyView;
 
 
 @Repository
 public class MyBatisStudyDao implements StudyDao{
 	
-	@Autowired
-	private SqlSession session;
 	
 	private StudyDao mapper;
 	
@@ -71,6 +70,15 @@ public class MyBatisStudyDao implements StudyDao{
 	public Study getNext(Integer id) {
 		// TODO Auto-generated method stub
 		return mapper.getNext(id);
+	}
+
+	@Override
+	public List<StudyView> getViewList(int offset, int size, String title, String query, String[] field) {
+		
+		if(field.length == 0)
+			field=null;
+			
+		return mapper.getViewList(offset, size, title, query, field);
 	}
 
 	
