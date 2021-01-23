@@ -46,19 +46,40 @@
 
 	<div class="pager">
 		<div>
-			<a href="#"><i class="fas fa-angle-double-left"></i></a>
+			<a href="?p=1"><i class="fas fa-angle-double-left"></i></a>
 		</div>
-		<div>
-			<a href="#"><i class="fas fa-angle-left"></i></a>
-		</div>
+
+		<c:if test="${startNum > 1 }">
+			<div>
+				<a href="?p=${startNum-5}"><i class="fas fa-angle-left"></i></a>
+			</div>
+		</c:if>
+		<c:if test="${startNum == 1}">
+			<div>
+				<a href=""><i class="fas fa-angle-left"></i></a>
+			</div>
+		</c:if>
+
 		<ul>
-			<li><a href="#">1</a></li>
+			<c:forEach var="i" begin="0" end="4">
+				<c:if test="${i+startNum <= pageCount}">
+					<li><a href="?p=${i+startNum}">${i+startNum}</a></li>
+				</c:if>
+			</c:forEach>
 		</ul>
+
+		<c:if test="${startNum+5 <= pageCount}">
+			<div>
+				<a href="?p=${startNum+5}"><i class="fas fa-angle-right"></i></a>
+			</div>
+		</c:if>
+		<c:if test="${startNum+5 > pageCount}">
+			<div>
+				<a href=""><i class="fas fa-angle-right"></i></a>
+			</div>
+		</c:if>
 		<div>
-			<a href="#"><i class="fas fa-angle-right"></i></a>
-		</div>
-		<div>
-			<a href="#"><i class="fas fa-angle-double-right"></i></a>
+			<a href="?p=${pageCount}"><i class="fas fa-angle-double-right"></i></a>
 		</div>
 	</div>
 

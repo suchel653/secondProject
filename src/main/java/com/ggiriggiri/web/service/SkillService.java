@@ -23,4 +23,6 @@ public interface SkillService {
 
 	int updateList(List<Skill> list);
 
+	int getCount();
+
 }

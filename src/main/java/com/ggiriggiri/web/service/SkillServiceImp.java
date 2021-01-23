@@ -71,4 +71,9 @@ public class SkillServiceImp implements SkillService {
 		return result;
 	}
 
+	@Override
+	public int getCount() {
+		return skillDao.getCount();		
+	}
+
 }

@@ -26,6 +26,12 @@ public class SkillContoroller {
 		int size = 10;
 		List<Skill> list = service.getList(page, size);
 		model.addAttribute("list", list);
+		
+		int count = service.getCount();
+		int pageCount = (int) Math.ceil(count/(float)size);
+
+		model.addAttribute("page", page);
+		model.addAttribute("pageCount",pageCount);
 
 		return "admin.category.skill";
 	}
