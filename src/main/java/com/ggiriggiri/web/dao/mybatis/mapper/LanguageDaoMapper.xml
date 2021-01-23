@@ -17,8 +17,8 @@
 	</select>
 	
 	<insert id="insert" parameterType="com.ggiriggiri.web.entity.Language">
-		insert into Language(name)
-		values(#{name});
+		insert into Language(name, image)
+		values(#{name}, #{image});
 	</insert>
 	
 	<update id="update" >

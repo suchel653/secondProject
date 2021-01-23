@@ -6,7 +6,7 @@
 <main id="main" class="main">
 	<h1 class="d-none">Category - Languages</h1>
 
-	<form action="language" method="post">
+	<form action="language" method="post" enctype="multipart/form-data">
 		<section>
 			<h1 class="d-none">언어 리스트</h1>
 
