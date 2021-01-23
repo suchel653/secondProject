@@ -8,7 +8,11 @@
                 <section>
                         <table border="1">
                         <thead>
+	                       
                            <tr>
+		                        <td>
+			                        <img src="${pj.image }" style="width:300px; height:300px;"></img>
+		                        </td>
 	                           <td>번호</td>
 	                           <td>제목</td>
 	                           <td>작성자</td>

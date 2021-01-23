@@ -73,12 +73,17 @@ public class MyBatisStudyDao implements StudyDao{
 	}
 
 	@Override
-	public List<StudyView> getViewList(int offset, int size, String title, String query, String[] field) {
-		
-		if(field.length == 0)
+	public List<StudyView> getViewList(int[] ids,int offset, int size, String title, String query) {
+		for(int i=0; i<ids.length; i++)
+			System.out.println(ids[i]);		
+		return mapper.getViewList(ids,offset, size, title, query);
+	}
+
+	@Override
+	public int[] getByStudyIds(String[] field) {
+		if(field.length==0)
 			field=null;
-			
-		return mapper.getViewList(offset, size, title, query, field);
+		return mapper.getByStudyIds(field);
 	}
 
 	

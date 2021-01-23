@@ -9,4 +9,24 @@
    </select>
     
     
+    <select id="getByStudyIds" resultType="int">
+		select studyId from StudyLanguageView
+		where studyId in
+				<foreach item="id" index="index" collection="skStudyIds"
+					open="(" separator="," close=")">
+					#{id}
+				</foreach>
+		<if test="language != null">
+				
+				and languageName in
+				<foreach item="lg" index="index" collection="language" open="("
+					separator="," close=")">
+					#{lg}
+				</foreach>
+			</if>
+			
+		group by studyId;
+
+	</select>
+    
     </mapper>

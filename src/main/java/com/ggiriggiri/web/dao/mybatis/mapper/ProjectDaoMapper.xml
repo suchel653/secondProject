@@ -27,6 +27,22 @@
       </if>
 	</select>  
 	
-                  
+    <select id="getViewList" resultType="com.ggiriggiri.web.entity.ProjectView">
+		select * from ProjectView
+      	<if test="param3 !=null and param3 !=''">
+      	where BINARY ${param3} like '%${param4}%'
+      	</if>
+      	
+      	<if test="param5 !=null">
+			and fieldName in 
+		<foreach item="fd" index="index" collection="field"
+   			open="(" separator="," close=")">
+   			#{fd}
+   		</foreach>
+		</if>
+      	
+		order by id desc
+		limit #{param2} offset #{param1};
+	</select>
 	
 </mapper>
