@@ -62,10 +62,17 @@ public class MybatisProjectDao implements ProjectDao {
 	}
 
 	@Override
-	public List<ProjectView> getViewList(int offset, int size, String title, String query, String[] field) {
-		if(field.length == 0)
+	public List<ProjectView> getViewList(int[] ids, int offset, int size, String title, String query) {
+		
+		return mapper.getViewList(ids, offset, size, title, query);
+	}
+
+	@Override
+	public int[] getByProjectIds(String[] field) {
+		if(field.length==0)
 			field=null;
-		return mapper.getViewList(offset, size, title, query, field);
+		
+		return mapper.getByProjectIds(field);
 	}
 	
 }

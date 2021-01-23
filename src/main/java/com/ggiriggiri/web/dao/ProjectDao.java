@@ -18,5 +18,7 @@ public interface ProjectDao {
 	//List<ProjectView> getViewList(int offset, int size, String field, String query);
 	
 	int getCount(String field, String query);
-	List<ProjectView> getViewList(int offset, int size, String title, String query, String[] field);
+	
+	int[] getByProjectIds(String[] field);
+	List<ProjectView> getViewList(int[] ids ,int offset, int size, String title, String query);
 }

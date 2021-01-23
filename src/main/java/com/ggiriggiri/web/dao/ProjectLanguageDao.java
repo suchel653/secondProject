@@ -7,5 +7,6 @@ import com.ggiriggiri.web.entity.ProjectLanguageView;
 public interface ProjectLanguageDao {
 
 	List<ProjectLanguageView> getListByProjectId(int id);
+	int[] getByProjectIds(int[] skProjectIds, String[] language);
 
 }

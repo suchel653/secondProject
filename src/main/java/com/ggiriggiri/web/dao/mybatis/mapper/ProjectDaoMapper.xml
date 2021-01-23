@@ -5,15 +5,15 @@
 
 <mapper namespace="com.ggiriggiri.web.dao.ProjectDao">
 
-	<!-- list / field  -->
-	<select id="getList" resultType="com.ggiriggiri.web.entity.Project">
+	<!-- list  -->
+	<!-- <select id="getList" resultType="com.ggiriggiri.web.entity.Project">
 		select * from Project
       	<if test="param3 !=null and param3 !=''">
       	where BINARY ${param3} like '%${param4}%'
       	</if>
 		order by id desc
 		limit #{param2} offset #{param1};
-	</select>
+	</select> -->
 	
 	<select id="get" resultType="com.ggiriggiri.web.entity.Project">
 		SELECT * FROM Project
@@ -29,20 +29,35 @@
 	
     <select id="getViewList" resultType="com.ggiriggiri.web.entity.ProjectView">
 		select * from ProjectView
-      	<if test="param3 !=null and param3 !=''">
-      	where BINARY ${param3} like '%${param4}%'
-      	</if>
-      	
-      	<if test="param5 !=null">
-			and fieldName in 
-		<foreach item="fd" index="index" collection="field"
-   			open="(" separator="," close=")">
-   			#{fd}
-   		</foreach>
+		<if test="title !=null">
+		where BINARY ${title} like '%${query}%'
 		</if>
-      	
+			and id in
+		<if test="ids != null">
+		<foreach item="id" index="index" collection="ids"
+   			open="(" separator="," close=")">
+   			#{id}
+   		</foreach>
+   		</if>
+   		
+   		<if test="ids == null">
+   			(0)
+   		</if>
 		order by id desc
-		limit #{param2} offset #{param1};
+      limit #{size} offset #{offset}
 	</select>
+	
+	<select id="getByProjectIds" resultType="int">
+	
+		select id from ProjectView
+		<if test="field != null and field !=''">
+			where fieldName in
+		<foreach item="fd" index="index" collection="field" 
+			open="(" separator="," close=")">
+			#{fd}
+		</foreach>
+		</if>
+	</select>
+	
 	
 </mapper>

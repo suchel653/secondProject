@@ -27,6 +27,7 @@
                          
                          <tbody>
 							<tr>
+								<td></td>
 								<td>${pj.id}</td>
 								<td>${pj.title}</td>
 								<td>${pj.leaderId }</td>
