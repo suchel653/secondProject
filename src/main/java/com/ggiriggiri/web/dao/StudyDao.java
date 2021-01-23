@@ -17,7 +17,12 @@ public interface StudyDao {
 	Study getPrev(Integer id);
 	Study getNext(Integer id);
 
-	List<StudyView> getViewList(int offset, int size, String title, String query, String[] field);
+
+
+	int[] getByStudyIds(String[] field);
+
+
+	List<StudyView> getViewList(int[] ids, int offset, int size, String title, String query);
 
 
 

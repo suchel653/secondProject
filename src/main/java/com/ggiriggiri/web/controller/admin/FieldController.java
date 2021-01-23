@@ -24,8 +24,9 @@ public class FieldController {
 	@GetMapping("field")
 	public String list(@RequestParam(name = "p", defaultValue = "1") int page, Model model) {
 
-		int size = 10;
+		int size = 15;
 		List<Field> list = service.getList(page, size);
+//		List<Field> list = service.getList();
 		model.addAttribute("list", list);
 
 		return "admin.category.field";
