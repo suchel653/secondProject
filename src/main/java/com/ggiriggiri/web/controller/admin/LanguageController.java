@@ -56,11 +56,7 @@ public class LanguageController {
 				for (int i = 0; i < newNames.length; i++) {
 					
 					//파일 저장시
-					System.out.println("filename : "+file.getOriginalFilename());
-					
-					String url = "/";
-					String realPath = request.getServletContext().getRealPath(url);
-					System.out.println("realPath : "+realPath);
+					String realPath = "C:/Work/Workspace2/secondProject/src/main/resources/static/images/language";
 					
 					File realPathFile = new File(realPath);
 					if(!realPathFile.exists())
@@ -68,17 +64,16 @@ public class LanguageController {
 					
 					String uploadedFilePath = realPath + File.separator + file.getOriginalFilename();
 					File uploadedFile = new File(uploadedFilePath);
-					System.out.println(uploadedFilePath);
 					
 					file.transferTo(uploadedFile);					
 					
-					
-					Language l = new Language(i, newNames[i], uploadedFilePath);
-					System.out.println(l.toString());
+					Language l = new Language(i, newNames[i], file.getOriginalFilename());
 					list.add(l);
+					
 				}
 				service.insertList(list);
 			}
+			
 			// 변경사항 저장
 			if (changedIds != null) {
 				List<Language> list = new ArrayList<>();

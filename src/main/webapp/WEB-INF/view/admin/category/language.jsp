@@ -28,7 +28,7 @@
 							<td>${l.id}</td>
 							<td><input hidden type="text" name="id" value="${l.id}">
 								<input type="text" name="name" value="${l.name}"></td>
-							<td><img src="${l.image}" width="40px" height="40px" /></td>
+							<td><img src="/images/language/${l.image}" width="40px" height="40px" /></td>
 							<td><input name="del" type="checkbox" value="${l.id}"></td>
 						</tr>
 					</c:forEach>
