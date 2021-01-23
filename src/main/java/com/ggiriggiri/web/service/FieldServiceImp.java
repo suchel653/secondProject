@@ -77,4 +77,9 @@ public class FieldServiceImp implements FieldService {
 		return result;
 	}
 
+	@Override
+	public int getCount() {
+		return fieldDao.getCount();
+	}
+
 }

@@ -23,11 +23,18 @@ public class FieldController {
 
 	@GetMapping("field")
 	public String list(@RequestParam(name = "p", defaultValue = "1") int page, Model model) {
-
-		int size = 15;
+		
+		// 출력할 목록
+		int size = 10;
 		List<Field> list = service.getList(page, size);
-//		List<Field> list = service.getList();
 		model.addAttribute("list", list);
+		
+		// 페이징
+		int count = service.getCount();
+		int pageCount = (int) Math.ceil(count/(float)size);
+
+		model.addAttribute("page", page);
+		model.addAttribute("pageCount",pageCount);
 
 		return "admin.category.field";
 

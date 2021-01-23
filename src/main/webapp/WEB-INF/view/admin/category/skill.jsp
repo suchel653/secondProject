@@ -3,6 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script src="/js/admin/category/skill.js"></script>
+<script src="https://kit.fontawesome.com/b280fc7aa7.js" crossorigin="anonymous"></script>
+<c:set var="startNum" value="${page-(page-1)%5}" />
+
 <main id="main" class="main">
 	<h1 class="d-none">Category - Languages</h1>
 
