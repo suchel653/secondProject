@@ -36,6 +36,12 @@ public class LanguageController {
 		List<Language> list = service.getList(page, size);
 		model.addAttribute("list", list);
 		
+		int count = service.getCount();
+		int pageCount = (int) Math.ceil(count/(float)size);
+
+		model.addAttribute("page", page);
+		model.addAttribute("pageCount",pageCount);
+		
 		return "admin.category.language";
 	}
 	

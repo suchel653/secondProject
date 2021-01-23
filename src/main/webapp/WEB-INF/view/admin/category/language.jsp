@@ -3,6 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script src="/js/admin/category/language.js"></script>
+<script src="https://kit.fontawesome.com/b280fc7aa7.js" crossorigin="anonymous"></script>
+<c:set var="startNum" value="${page-(page-1)%5}" />
+
 <main id="main" class="main">
 	<h1 class="d-none">Category - Languages</h1>
 
@@ -45,19 +48,40 @@
 
 	<div class="pager">
 		<div>
-			<a href="#"><i class="fas fa-angle-double-left"></i></a>
+			<a href="?p=1"><i class="fas fa-angle-double-left"></i></a>
 		</div>
-		<div>
-			<a href="#"><i class="fas fa-angle-left"></i></a>
-		</div>
+
+		<c:if test="${startNum > 1 }">
+			<div>
+				<a href="?p=${startNum-5}"><i class="fas fa-angle-left"></i></a>
+			</div>
+		</c:if>
+		<c:if test="${startNum == 1}">
+			<div>
+				<a href=""><i class="fas fa-angle-left"></i></a>
+			</div>
+		</c:if>
+
 		<ul>
-			<li><a href="#">1</a></li>
+			<c:forEach var="i" begin="0" end="4">
+				<c:if test="${i+startNum <= pageCount}">
+					<li><a href="?p=${i+startNum}">${i+startNum}</a></li>
+				</c:if>
+			</c:forEach>
 		</ul>
+
+		<c:if test="${startNum+5 <= pageCount}">
+			<div>
+				<a href="?p=${startNum+5}"><i class="fas fa-angle-right"></i></a>
+			</div>
+		</c:if>
+		<c:if test="${startNum+5 > pageCount}">
+			<div>
+				<a href=""><i class="fas fa-angle-right"></i></a>
+			</div>
+		</c:if>
 		<div>
-			<a href="#"><i class="fas fa-angle-right"></i></a>
-		</div>
-		<div>
-			<a href="#"><i class="fas fa-angle-double-right"></i></a>
+			<a href="?p=${pageCount}"><i class="fas fa-angle-double-right"></i></a>
 		</div>
 	</div>
 

@@ -16,6 +16,10 @@
 		limit #{param2} offset #{param1};
 	</select>
 	
+	<select id="getCount" resultType="int">
+		select count(id) from Language
+	</select>
+	
 	<insert id="insert" parameterType="com.ggiriggiri.web.entity.Language">
 		insert into Language(name, image)
 		values(#{name}, #{image});

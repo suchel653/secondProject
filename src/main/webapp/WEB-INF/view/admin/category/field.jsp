@@ -4,6 +4,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script src="/js/admin/category/field.js"></script>
 <script src="https://kit.fontawesome.com/b280fc7aa7.js" crossorigin="anonymous"></script>
+
+<c:set var="page" value="${param.p}" />
+<c:if test="${empty param.p}">
+	<c:set var="page" value="1" />
+</c:if>
 <c:set var="startNum" value="${page-(page-1)%5}" />
 
 <main id="main" class="main">

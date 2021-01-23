@@ -37,7 +37,7 @@ public class LanguageServiceImp implements LanguageService {
 	@Override
 	public List<Language> getList(int page, int size) {
 		
-		int offset = (page - 1) * 10;
+		int offset = (page - 1) * size;
 		
 		return languageDao.getList(offset, size);
 	}
@@ -68,6 +68,11 @@ public class LanguageServiceImp implements LanguageService {
 			result++;
 		}
 		return result;
+	}
+
+	@Override
+	public int getCount() {
+		return languageDao.getCount();
 	}
 
 }

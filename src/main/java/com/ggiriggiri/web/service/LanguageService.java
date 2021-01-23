@@ -22,4 +22,6 @@ public interface LanguageService {
 
 	int updateList(List<Language> list);
 
+	int getCount();
+
 }
