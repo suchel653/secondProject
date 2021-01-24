@@ -8,19 +8,42 @@
                 <h1 class="d-none">메인이다</h1>
                 <section>
                     <h1 class="d-none">검색폼</h1>
-                    <form>
+                    <form action="list" method="get">
+                    <table border="1">
+                       <tr>
+                           <th>필드</th>
+                           <td>       
+                           <c:forEach var="f" items="${f }">            
+                               <input type="checkbox" name="f" value="${f.name }">${f.name }
+                            </c:forEach>
+                            </td>     
+                       </tr>
+                       
+                       <tr>
+                           <th>스킬</th>
+                           <td>                   
+                               <c:forEach var="s" items="${s }">            
+                               <input type="checkbox" name="f" value="${s.name }">${s.name }
+                            </c:forEach>
+                            </td>     
+                       </tr>
+                       <tr>
+                           <th>언어</th>
+                           <td>
+                           	<c:forEach var="l" items="${l }">            
+                            	<input type="checkbox" name="l" value="${l.name }">${l.name }
+                           	</c:forEach>
+                            </td>     
+                       </tr>
+                    </table>
                     
-                        <div>
-                            <select name="f">
-                                <option value="title">제목</option>
-                                <option value="writerId">작성자</option>
-                                <option value="field">분야</option>
-                                <option value="skill">기술</option>
-                                <option value="language">언어</option>
-                            </select>
-                            <input type="text" name="q" value="">
-                        </div>
-                        <input type="submit" value="검색">
+                     <div>
+	                     <select name="t">
+						 <option value="title">제목</option>
+						 </select>
+						 <input type="text" name="q" value="" />
+						 <input type="submit" value="검색" />
+                    </div>
                     </form>
                 </section>
 
@@ -31,24 +54,49 @@
                             <tr>
                             <td>번호</td>
                             <td>제목</td>
-                            <td>작성자</td>
+                            <td>분야</td>
+                            <td>기술</td>
+                            <td>언어</td>
                             <td>요구사항</td>
+                            <td>인원</td>
+                            <td>진행일</td>
+                            <td>상태</td>
+                            <td>등록자</td>
                             <td>등록일</td>
                             </tr>
                          </thead>
                          
                          <tbody>
+                         
                          <c:forEach var="pj" items="${list }">
 							<tr>
 								<td>${pj.id}</td>
 								<td><a href="${pj.id }">${pj.title}</a></td>
-								<td>${pj.leaderId }</td>
+								<td>${pj.fieldName}</td>
+								<td>
+									<c:forEach var="sk" items="${pj.skills}"> 
+	                                ${sk.skillName}
+	                                </c:forEach> 
+                                </td>
+                                <td> 
+	                                <c:forEach var="l" items="${pj.languages}"> 
+	                                ${l.languageName} 
+	                                </c:forEach>
+	                                </td>
 								<td>${pj.requirement }</td>
+								<td>${pj.limitNumber}</td>
+								<td>
+	                             	 <fmt:formatDate value="${pj.startDate}" pattern="yyyy-MM-dd"/>~
+	                                <fmt:formatDate value="${pj.endDate }" pattern="yyyy-MM-dd"/>
+                            	</td>
+								<td>${pj.statusName }</td>
+								<td>${pj.leaderName }</td>
 								<td>
 								<fmt:formatDate value="${pj.regDate }" pattern="yyyy-MM-dd"/>
 								</td>
 							</tr>
-						</c:forEach>
+							</c:forEach>
+						
                          </tbody>
                         </table>
                     </div>
@@ -94,5 +142,6 @@
 					</div>
                     
                 </div>
+                
                 
             </main>

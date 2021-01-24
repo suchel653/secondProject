@@ -16,4 +16,8 @@ public interface SkillDao {
 
 	List<Skill> getList(int offset, int size);
 
+	int deleteAll(int[] ids);
+
+	int getCount();
+
 }

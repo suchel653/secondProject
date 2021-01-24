@@ -2,6 +2,7 @@ package com.ggiriggiri.web.service;
 
 import java.util.List;
 
+import com.ggiriggiri.web.entity.Field;
 import com.ggiriggiri.web.entity.Skill;
 
 public interface SkillService {
@@ -15,5 +16,13 @@ public interface SkillService {
 	Skill get(int id);
 
 	List<Skill> getList(int page, int size);
+
+	int deleteAll(int[] ids);
+
+	int insertList(List<Skill> list);
+
+	int updateList(List<Skill> list);
+
+	int getCount();
 
 }

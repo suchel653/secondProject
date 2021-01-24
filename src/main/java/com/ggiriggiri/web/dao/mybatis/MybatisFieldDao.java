@@ -40,8 +40,23 @@ public class MybatisFieldDao implements FieldDao {
 	}
 
 	@Override
+	public List<Field> getList() {
+		return mapper.getList();
+	}
+
+	@Override
 	public List<Field> getList(int offset, int size) {
 		return mapper.getList(offset, size);
+	}
+
+	@Override
+	public int deleteAll(int[] ids) {
+		return mapper.deleteAll(ids);
+	}
+
+	@Override
+	public int getCount() {
+		return mapper.getCount();
 	}
 
 }

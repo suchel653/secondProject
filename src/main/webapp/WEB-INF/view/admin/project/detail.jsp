@@ -4,11 +4,15 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 	<main id="main" class="main">
                 <h1 class="d-none">메인이다</h1>
+                
                 <section>
-                    <div class="">
                         <table border="1">
                         <thead>
+	                       
                            <tr>
+		                        <td>
+			                        <img src="${pj.image }" style="width:300px; height:300px;"></img>
+		                        </td>
 	                           <td>번호</td>
 	                           <td>제목</td>
 	                           <td>작성자</td>
@@ -27,8 +31,16 @@
 								<td>${pj.title}</td>
 								<td>${pj.leaderId }</td>
 								<td></td>
-								<td></td>
-								<td></td>
+								<td>
+									<c:forEach var="s" items="${pj.skills }">
+									 ${s.skillName } /
+									</c:forEach>
+								</td>
+								<td>
+									<c:forEach var="l" items="${pj.languages }">
+									 ${l.languageName } /
+									</c:forEach>
+								</td>
 								<td>${pj.requirement }</td>
 								<td>
 								<fmt:formatDate value="${pj.regDate }" pattern="yyyy-MM-dd"/>
@@ -37,25 +49,7 @@
 							</tr>
                          </tbody>
                         </table>
-                    </div>
                 </section>
                 
-                <div class="pager">
-                    <div>
-                    <a href="#"><i class="fas fa-angle-double-left"></i></a>
-                    </div>
-                    <div>
-                    <a href="#"><i class="fas fa-angle-left"></i></a>
-                    </div>
-                    <ul>
-                    <li><a href="#">1</a></li>
-                    </ul>
-                    <div>
-                    <a href="#"><i class="fas fa-angle-right"></i></a>
-                    </div>
-                    <div>
-                    <a href="#"><i class="fas fa-angle-double-right"></i></a>
-                    </div>
-                </div>
                 
             </main>

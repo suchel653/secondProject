@@ -3,17 +3,42 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.ggiriggiri.web.dao.SkillDao">
+<mapper namespace="com.ggiriggiri.web.dao.LanguageDao">
 
-	<select id="get" resultType="com.ggiriggiri.web.entity.Skill">
-		select * from Skill
+	<select id="get" resultType="com.ggiriggiri.web.entity.Language">
+		select * from Language
 	    where id=${param1}
 	</select>               
 	
-	<select id="getList" resultType="com.ggiriggiri.web.entity.Skill">
-		select * from Skill
+	<select id="getList" resultType="com.ggiriggiri.web.entity.Language">
+		select * from Language
 		order by id desc
 		limit #{param2} offset #{param1};
 	</select>
+	
+	<select id="getCount" resultType="int">
+		select count(id) from Language
+	</select>
+	
+	<insert id="insert" parameterType="com.ggiriggiri.web.entity.Language">
+		insert into Language(name, image)
+		values(#{name}, #{image});
+	</insert>
+	
+	<update id="update" >
+		update Language
+		set
+			name = #{name}
+		where id = #{id}
+	</update>
+	
+	<delete id="deleteAll">
+   		delete from Language
+   		where id in
+   		<foreach item="id" index="index" collection="ids"
+   			open="(" separator="," close=")">
+   			#{id}
+   		</foreach>
+   	</delete>
 	
 </mapper>

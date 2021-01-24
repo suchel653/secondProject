@@ -44,4 +44,14 @@ public class MybatisSkillDao implements SkillDao{
 		return mapper.getList(offset, size);
 	}
 
+	@Override
+	public int deleteAll(int[] ids) {
+		return mapper.deleteAll(ids);
+	}
+
+	@Override
+	public int getCount() {
+		return mapper.getCount();
+	}
+
 }

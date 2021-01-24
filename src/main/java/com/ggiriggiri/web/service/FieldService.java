@@ -14,7 +14,17 @@ public interface FieldService {
 	int delete(int id);
 
 	Field get(int id);
+	
+	List<Field> getList();
 
 	List<Field> getList(int page, int size);
+
+	int deleteAll(int[] ids);
+
+	int insertList(List<Field> list);
+
+	int updateList(List<Field> list);
+
+	int getCount();
 
 }

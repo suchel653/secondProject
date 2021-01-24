@@ -13,7 +13,34 @@
 	<select id="getList" resultType="com.ggiriggiri.web.entity.Field">
 		select * from Field
 		order by id desc
-		limit #{param2} offset #{param1};
+		<if test="param2 != null">
+			limit #{param2} offset #{param1};
+		</if>
 	</select>
+	
+	<select id="getCount" resultType="int">
+		select count(id) from Field
+	</select>
+	
+	<insert id="insert" parameterType="com.ggiriggiri.web.entity.Field">
+		insert into Field(name)
+		values(#{name});
+	</insert>
+	
+	<update id="update">
+		update Field
+		set
+			name = #{name}
+		where id = #{id}
+	</update>
+	
+	<delete id="deleteAll">
+   		delete from Field
+   		where id in
+   		<foreach item="id" index="index" collection="ids"
+   			open="(" separator="," close=")">
+   			#{id}
+   		</foreach>
+   	</delete>
 	
 </mapper>

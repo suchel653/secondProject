@@ -8,13 +8,12 @@ import org.springframework.stereotype.Repository;
 
 import com.ggiriggiri.web.dao.StudyDao;
 import com.ggiriggiri.web.entity.Study;
+import com.ggiriggiri.web.entity.StudyView;
 
 
 @Repository
 public class MyBatisStudyDao implements StudyDao{
 	
-	@Autowired
-	private SqlSession session;
 	
 	private StudyDao mapper;
 	
@@ -25,11 +24,11 @@ public class MyBatisStudyDao implements StudyDao{
 		
 	}
 
-	@Override
-	public List<Study> getList(int offset, int size, String field, String query) {
-		// TODO Auto-generated method stub
-		return mapper.getList(offset, size, field, query);
-	}
+//	@Override
+//	public List<Study> getList(int offset, int size, String field, String query) {
+//		// TODO Auto-generated method stub
+//		return mapper.getList(offset, size, field, query);
+//	}
 
 	@Override
 	public int insert(Study study) {
@@ -55,11 +54,11 @@ public class MyBatisStudyDao implements StudyDao{
 		return mapper.get(id);
 	}
 
-	@Override
-	public int getCount(String field, String query) {
-		// TODO Auto-generated method stub
-		return mapper.getCount(field, query);
-	}
+//	@Override
+//	public int getCount(String field, String query) {
+//		// TODO Auto-generated method stub
+//		return mapper.getCount(field, query);
+//	}
 
 	@Override
 	public Study getPrev(Integer id) {
@@ -71,6 +70,26 @@ public class MyBatisStudyDao implements StudyDao{
 	public Study getNext(Integer id) {
 		// TODO Auto-generated method stub
 		return mapper.getNext(id);
+	}
+
+	@Override
+	public List<StudyView> getViewList(int[] ids,int offset, int size, String title, String query) {
+		
+		return mapper.getViewList(ids,offset, size, title, query);
+	}
+
+	@Override
+	public int[] getByStudyIds(String[] field) {
+		if(field.length==0)
+			field=null;
+		return mapper.getByStudyIds(field);
+	}
+
+
+	@Override
+	public int getCount(int[] ids, String title, String query) {
+		// TODO Auto-generated method stub
+		return mapper.getCount(ids, title, query);
 	}
 
 	

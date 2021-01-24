@@ -1,6 +1,7 @@
 package com.ggiriggiri.web.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class Project {
 	private int id;
@@ -14,15 +15,16 @@ public class Project {
 	private Date regDate;
 	private int statusId;
 	private int fieldId;
+	private String image;
+	private List<ProjectLanguageView> languages;
+	private List<ProjectSkillView> skills;
 	
 	public Project() {
-		this(0,null,null,0,null,null,null,null,null,0,0);
+		this(0,null,null,0,null,null,null,null,null,0,0,null);
 	}
 
-	
-	
 	public Project(int id, String title, String content, int limitNumber, Date startDate, Date endDate, String leaderId,
-			String requirement, Date regDate, int statusId, int fieldId) {
+			String requirement, Date regDate, int statusId, int fieldId,String image) {
 		this.id = id;
 		this.title = title;
 		this.content = content;
@@ -34,15 +36,7 @@ public class Project {
 		this.regDate = regDate;
 		this.statusId = statusId;
 		this.fieldId = fieldId;
-	}
-
-
-
-	@Override
-	public String toString() {
-		return "Project [id=" + id + ", title=" + title + ", content=" + content + ", limitNumber=" + limitNumber
-				+ ", startDate=" + startDate + ", endDate=" + endDate + ", leaderId=" + leaderId + ", requirement="
-				+ requirement + ", regDate=" + regDate + ", statusId=" + statusId + ", fieldId=" + fieldId + "]";
+		this.image = image;
 	}
 
 	public int getId() {
@@ -132,6 +126,30 @@ public class Project {
 	public void setFieldId(int fieldId) {
 		this.fieldId = fieldId;
 	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public List<ProjectLanguageView> getLanguages() {
+		return languages;
+	}
+	public void setLanguages(List<ProjectLanguageView> languages) {
+		this.languages = languages;
+	}
+
+	public List<ProjectSkillView> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(List<ProjectSkillView> skills) {
+		this.skills = skills;
+	}
+	
 	
 	
 }
