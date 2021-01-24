@@ -7,19 +7,31 @@
                     <tr>
                         <th>이름</th>
                         <td>
-                           ${c.title }
+                           ${c.title}
                         </td>
                     </tr>
                     <tr>
                         <th>시작일</th>
                         <td>
-                            <fmt:formatDate value="${c.startDate }" pattern="yyyy-MM-dd"/>	
+                            <fmt:formatDate value="${c.startDate}" pattern="yyyy-MM-dd"/>	
                         </td>
                     </tr>
                     <tr>
                         <th>마감일</th>
                         <td>
-                            <fmt:formatDate value="${c.endDate }" pattern="yyyy-MM-dd"/>
+                            <fmt:formatDate value="${c.endDate}" pattern="yyyy-MM-dd"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>등록일</th>
+                        <td>
+                            <fmt:formatDate value="${c.regDate}" pattern="yyyy-MM-dd"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>조회수</th>
+                        <td>
+                            ${c.hit}
                         </td>
                     </tr>
                     <tr>
@@ -32,7 +44,7 @@
                     </tr>
                     <tr>
 		                <td colspan="2">
-		                    ${c.content }
+		                    ${c.content}
 		                </td>
 	                </tr>
                 </table>

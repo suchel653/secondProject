@@ -8,21 +8,25 @@
 	                    <tr>
 	                        <th>이름</th>
 	                        <td>
-	                           <input type="text" value="${c.title }">
+	                           <input type="text" name="title" value="${c.title }">
 	                        </td>
 	                    </tr>
 	                    <tr>
 	                        <th>시작일</th>
 	                        <td>
 	                            <%-- <input type="text" name="startDate" value="<fmt:formatDate value="${c.startDate }" pattern="yyyy-MM-dd"/>"> --%>
-	                            <fmt:formatDate value="${c.startDate }" pattern="yyyy-MM-dd"/>
+	                            <input type="text" name="startDate"
+	                            	value="<fmt:formatDate value="${c.startDate }" pattern="yyyy-MM-dd"/>"
+	                            >(yyyy-dd-mm)
 	                        </td>
 	                    </tr>
 	                    <tr>
 	                        <th>마감일</th>
 	                        <td>
 	                            <%-- <input type="text" name="endDate" value="<fmt:formatDate value="${c.endDate }" pattern="yyyy-MM-dd"/>"> --%>
-	                            <fmt:formatDate value="${c.endDate }" pattern="yyyy-MM-dd"/>
+	                            <input type="text" name="endDate"
+	                            	value="<fmt:formatDate value="${c.endDate }" pattern="yyyy-MM-dd"/>"
+	                            >(yyyy-dd-mm)
 	                        </td>
 	                    </tr>
 	                    <tr>
