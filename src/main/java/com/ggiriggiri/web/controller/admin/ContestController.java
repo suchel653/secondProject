@@ -1,6 +1,9 @@
 package com.ggiriggiri.web.controller.admin;
 
 import java.security.Principal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ggiriggiri.web.entity.Contest;
 import com.ggiriggiri.web.service.ContestService;
@@ -22,11 +26,22 @@ public class ContestController {
 	private ContestService service;
 	
 	@RequestMapping("list")
-	public String list(Model model) {
+	public String list(
+			@RequestParam(name = "p", defaultValue = "1") int page,
+			@RequestParam(name = "f", defaultValue = "title") String field,
+			@RequestParam(name = "q", defaultValue = "") String query,
+			Model model) {
 		
-		List<Contest> list = service.getList(1, 10, "title", "");
+		int size = 10;
+		
+		List<Contest> list = service.getList(page, size, field, query);
+		
+		int count = service.getCount(field, query);
+		
+		int pageCount = (int) Math.ceil(count / (float)size);
 		
 		model.addAttribute("list",list);
+		model.addAttribute("pageCount",pageCount);
 		
 		return "admin.contest.list";
 	}
@@ -38,14 +53,26 @@ public class ContestController {
 	}
 	
 	@PostMapping("reg")
-	public String reg(Contest contest) {
+	public String reg(
+			@RequestParam("startDate") String oldStartDate,
+			@RequestParam("endDate") String oldEndDate,
+			@RequestParam("title") String title,
+			@RequestParam("content") String content
+			) throws ParseException {
 	
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		Date startDate = sdf.parse(oldStartDate);
+		Date endDate = sdf.parse(oldEndDate);
+		
+		Contest contest = new Contest("aaa",title,content,startDate,endDate);
+		
 		service.insert(contest);
 		
-		return "admin.contest.list";
+		return "redirect:list";
 	}
 
-	@RequestMapping("{id}")
+	@GetMapping("{id}")
 	public String detail(Model model,@PathVariable("id") Integer id) {
 		
 		Contest c = service.get(id);
@@ -65,9 +92,32 @@ public class ContestController {
 	}
 	
 	@PostMapping("{id}/edit")
-	public String edit(Contest contest) {
+	public String edit(
+			@PathVariable("id") int id,
+			@RequestParam("startDate") String oldStartDate,
+			@RequestParam("endDate") String oldEndDate,
+			@RequestParam("title") String title,
+			@RequestParam("content") String content) throws ParseException {
 		
-		return "redirect:../"+contest.getId();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		Date startDate = sdf.parse(oldStartDate);
+		Date endDate = sdf.parse(oldEndDate);
+		
+		Contest contest = new Contest("aaa",title,content,startDate,endDate);
+		contest.setId(id);
+		
+		service.update(contest);
+		
+		return "redirect:../"+id;
+	}
+	
+	@GetMapping("{id}/del")
+	public String del(@PathVariable("id") int id) {
+		
+		service.delete(id);
+		
+		return "redirect../list";
 	}
 	
 	

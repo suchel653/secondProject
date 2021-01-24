@@ -42,34 +42,23 @@ public class StudyController {
 			@RequestParam(name="l", defaultValue = "") String[] language,
 			@RequestParam(name="t", defaultValue="title") String title, 
 			@RequestParam(name="q", defaultValue = "") String query,
+			@RequestParam(name="size", defaultValue="10") int size,
 			Model model) {
-		int size = 10;
+	
 		List<StudyView> list =service.getViewList(page,size,title,query,field,skill,language);
 	
-		
-		for(String s : field) {
-			System.out.println(s);
-		}
-			
-	
-		for(String s : skill) {
-			
-			System.out.println(s);
-		}
-		
-
-		for(String s : language) {
-			
-			System.out.println(s);
-		}
-		
-		List<Field> fdList = fdService.getList(1, 100);
+		int count = service.getCount(title,query,field,skill,language);
+		int pageCount = (int) Math.ceil(count/(float)size);
+		if(pageCount == 0)
+			pageCount=1;
+		List<Field> fdList = fdService.getList();
 		List<Skill> skList = skService.getList(1, 100);
 		List<Language> lgList = lgService.getList(1, 100);
 		
 		model.addAttribute("f", fdList);
 		model.addAttribute("s", skList);
 		model.addAttribute("l", lgList);
+		model.addAttribute("pageCount", pageCount);
 		
 		model.addAttribute("list",list);
 		return "admin.study.list";

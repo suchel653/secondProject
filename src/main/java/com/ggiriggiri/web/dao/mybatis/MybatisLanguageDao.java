@@ -49,4 +49,9 @@ public class MybatisLanguageDao implements LanguageDao {
 		return mapper.deleteAll(ids);
 	}
 
+	@Override
+	public int getCount() {
+		return mapper.getCount();
+	}
+
 }
