@@ -4,6 +4,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script src="https://kit.fontawesome.com/b280fc7aa7.js" crossorigin="anonymous"></script>
 <!-- <script src="/js/admin/project/list.js"></script> -->
+<c:set var="fds" value="${paramValues.f }"></c:set>
+<c:set var="sks" value="${paramValues.s }"></c:set>
+<c:set var="lns" value="${paramValues.l }"></c:set>
 	<main id="main" class="main">
                 <h1 class="d-none">메인이다</h1>
                 <section>
@@ -13,8 +16,14 @@
                        <tr>
                            <th>필드</th>
                            <td>       
-                           <c:forEach var="f" items="${f }">            
-                               <input type="checkbox" name="f" value="${f.name }">${f.name }
+                           <c:forEach var="f" items="${f }">
+	                           <c:set var="checked" value=""></c:set>
+		                           <c:forEach var="fds" items="${paramValues.f }">
+		                           	<c:if test="${fds==f.name }"> 
+		                           	<c:set var="checked" value="checked"></c:set>
+		                           </c:if>
+	                           </c:forEach>
+	                               <input type="checkbox" ${checked} name="f" value="${f.name }">${f.name }
                             </c:forEach>
                             </td>     
                        </tr>
@@ -22,16 +31,28 @@
                        <tr>
                            <th>스킬</th>
                            <td>                   
-                               <c:forEach var="s" items="${s }">            
-                               <input type="checkbox" name="f" value="${s.name }">${s.name }
+                               <c:forEach var="s" items="${s }">   
+                               <c:set var="checked" value=""></c:set>
+                               <c:forEach var="sks" items="${paramValues.s }">
+	                                <c:if test="${sks==s.name}">
+	                                	<c:set var="checked" value="checked"></c:set>
+	                                </c:if>
+                              	 </c:forEach>         
+                               <input type="checkbox" ${checked } name="s" value="${s.name }">${s.name }
                             </c:forEach>
                             </td>     
                        </tr>
                        <tr>
                            <th>언어</th>
                            <td>
-                           	<c:forEach var="l" items="${l }">            
-                            	<input type="checkbox" name="l" value="${l.name }">${l.name }
+                           	<c:forEach var="l" items="${l }">
+                           	<c:set var="checked" value=""></c:set>
+                           	<c:forEach var="lns" items="${paramValues.l }">
+                           		<c:if test="${lns==l.name }">
+                           			<c:set var="checked" value="checked"></c:set>
+                           		</c:if>
+                           	</c:forEach>            
+                            	<input type="checkbox" ${checked } name="l" value="${l.name }">${l.name }
                            	</c:forEach>
                             </td>     
                        </tr>
@@ -61,7 +82,7 @@
                             <td>인원</td>
                             <td>진행일</td>
                             <td>상태</td>
-                            <td>등록자</td>
+                            <td>작성자</td>
                             <td>등록일</td>
                             </tr>
                          </thead>

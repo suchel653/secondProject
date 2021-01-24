@@ -126,7 +126,7 @@
                         
                             <tr>        
                                 <td>${s.id}</td>
-                                <td><a href="${s.id}">${s.title}</a></td>
+                                <td><a href="${s.id}/detail">${s.title}</a></td>
                                 <td>${s.fieldName}</td>
                                 <td>
                                 	<c:forEach var="sk" items="${s.skill}" varStatus="st">

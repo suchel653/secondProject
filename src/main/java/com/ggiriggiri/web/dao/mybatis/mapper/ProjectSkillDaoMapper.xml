@@ -9,4 +9,24 @@
   		select * from ProjectSkillView where projectId=#{id}
    </select>
     
+    <select id="getByProjectIds" resultType="int">
+		select projectId from ProjectSkillView
+		where projectId in
+			<foreach item="id" index="index" collection="fdProjectIds"
+				open="(" separator="," close=")">
+				#{id}
+			</foreach>
+			<if test="skill != null">
+				
+				and skillName in
+				<foreach item="sk" index="index" collection="skill" open="("
+					separator="," close=")">
+					#{sk}
+				</foreach>
+			</if>
+			
+		group by projectId;
+
+	</select>
+    
     </mapper>

@@ -43,7 +43,7 @@ public class StudyServiceImp implements StudyService {
 
 	@Override
 	public Study get(int id) {
-		// TODO Auto-generated method stub
+	
 		return studyDao.get(id);
 	}
 
@@ -72,6 +72,7 @@ public class StudyServiceImp implements StudyService {
 	@Override
 	public List<StudyView> getViewList(int page, int size, String title, String query, String[] field, String[] skill,
 			String[] language) {
+
 		
 		int[] fdStudyIds = studyDao.getByStudyIds(field);
 		if(fdStudyIds.length==0)
@@ -120,6 +121,21 @@ public class StudyServiceImp implements StudyService {
 		
 
 		return studyDao.getCount(ids, title, query);
+	}
+
+	@Override
+	public StudyView getView(int id) {
+		
+		StudyView study = studyDao.getView(id);
+
+		
+			study.setSkill(studySkillDao.getViewList(study.getId()));
+			study.setLanguage(studyLanguageDao.getViewList(study.getId()));
+
+		
+
+		
+		return study;
 	}
 
 }

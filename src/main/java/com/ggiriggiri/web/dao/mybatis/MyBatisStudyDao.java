@@ -92,5 +92,11 @@ public class MyBatisStudyDao implements StudyDao{
 		return mapper.getCount(ids, title, query);
 	}
 
+	@Override
+	public StudyView getView(int id) {
+		// TODO Auto-generated method stub
+		return mapper.getView(id);
+	}
+
 	
 }

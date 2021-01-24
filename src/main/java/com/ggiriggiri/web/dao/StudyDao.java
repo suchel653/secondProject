@@ -12,6 +12,7 @@ public interface StudyDao {
 	int insert(Study study);
 	int update(Study study);
 	int delete(int id);
+StudyView getView(int id);
 	Study get(int id);
 	//int getCount(String field, String query);
 	Study getPrev(Integer id);
@@ -24,6 +25,9 @@ public interface StudyDao {
 
 	List<StudyView> getViewList(int[] ids, int offset, int size, String title, String query);
 	int getCount(int[] ids, String title, String query);
+	
+	
+	
 
 
 

@@ -149,6 +149,14 @@ public class Project {
 	public void setSkills(List<ProjectSkillView> skills) {
 		this.skills = skills;
 	}
+
+	@Override
+	public String toString() {
+		return "Project [id=" + id + ", title=" + title + ", content=" + content + ", limitNumber=" + limitNumber
+				+ ", startDate=" + startDate + ", endDate=" + endDate + ", leaderId=" + leaderId + ", requirement="
+				+ requirement + ", regDate=" + regDate + ", statusId=" + statusId + ", fieldId=" + fieldId + ", image="
+				+ image + ", languages=" + languages + ", skills=" + skills + "]";
+	}
 	
 	
 	

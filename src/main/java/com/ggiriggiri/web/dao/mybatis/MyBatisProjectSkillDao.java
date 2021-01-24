@@ -25,9 +25,21 @@ public class MyBatisProjectSkillDao implements ProjectSkillDao{
 		mapper = session.getMapper(ProjectSkillDao.class);
 	}
 
+	
 	@Override
 	public List<ProjectSkillView> getListByProjectId(int id) {
 		return mapper.getListByProjectId(id);
+	}
+
+	
+	
+	@Override
+	public int[] getByProjectIds(int[] fdProjectIds, String[] skill) {
+		
+		if(skill.length==0)
+			skill = null;
+		
+		return mapper.getByProjectIds(fdProjectIds, skill);
 	}
 
 

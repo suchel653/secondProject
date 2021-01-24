@@ -11,7 +11,7 @@
 	                       
                            <tr>
 		                        <td>
-			                        <img src="${pj.image }" style="width:300px; height:300px;"></img>
+			                      <%--   <img src="${s.image }" style="width:300px; height:300px;"></img> --%>
 		                        </td>
 	                            <td>번호</td>
 	                            <td>제목</td>
@@ -31,31 +31,31 @@
                          <tbody>
 							<tr>
 								<td></td>
-								<td>${pj.id}</td>
-								<td>${pj.title}</td>
-								<td>${pj.fieldName }</td>
+								<td>${s.id}</td>
+								<td>${s.title}</td>
+								<td>${s.fieldName }</td>
 								<td>
-									<c:forEach var="s" items="${pj.skills }">
+									<c:forEach var="s" items="${s.skill}">
 									 ${s.skillName } /
 									</c:forEach>
 								</td>
 								<td>
-									<c:forEach var="l" items="${pj.languages }">
+									<c:forEach var="l" items="${s.language }">
 									 ${l.languageName } /
 									</c:forEach>
 								</td>
-								<td>${pj.requirement }</td>
-								<td>${pj.limitNumber }</td>
+								<td>${s.requirement }</td>
+								<td>${s.limitNumber }</td>
 								<td>
-	                             	<fmt:formatDate value="${pj.startDate}" pattern="yyyy-MM-dd"/>~
-	                                <fmt:formatDate value="${pj.endDate }" pattern="yyyy-MM-dd"/>
+	                             	<fmt:formatDate value="${s.startDate}" pattern="yyyy-MM-dd"/>~
+	                                <fmt:formatDate value="${s.endDate }" pattern="yyyy-MM-dd"/>
                             	</td>
-								<td>${pj.statusName }</td>
-								<td>${pj.leaderName }</td>
+								<td>${s.statusName }</td>
+								<td>${s.leaderName }</td>
 								<td>
-									<fmt:formatDate value="${pj.regDate }" pattern="yyyy-MM-dd"/>
+									<fmt:formatDate value="${s.regDate }" pattern="yyyy-MM-dd"/>
 								</td>
-								<td>${pj.content }</td>
+								<td>${s.content }</td>
 							</tr>
                          </tbody>
                         </table>
