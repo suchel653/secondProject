@@ -5,7 +5,8 @@
 
 <mapper namespace="com.ggiriggiri.web.dao.ContestImageDao">
 	<insert id="insert" parameterType="com.ggiriggiri.web.entity.ContestImage">
-      
+		insert into ContestImage(contestId,name)
+		values(#{contestId},#{name})
    	</insert>
 
 	<select id="get" resultType="com.ggiriggiri.web.entity.ContestImage">
@@ -17,7 +18,7 @@
 	</select>
 	
 	<select id="getCount" resultType="int">
-	
+		
 	</select>
 	
 </mapper>

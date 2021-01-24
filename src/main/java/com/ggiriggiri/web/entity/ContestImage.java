@@ -7,7 +7,13 @@ public class ContestImage {
 	private String name;
 	
 	public ContestImage() {
-		// TODO Auto-generated constructor stub
+
+	}
+
+	public ContestImage(int contestId, String name) {
+		super();
+		this.contestId = contestId;
+		this.name = name;
 	}
 
 	public ContestImage(int id, int contestId, String name) {

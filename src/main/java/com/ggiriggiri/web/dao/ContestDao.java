@@ -24,4 +24,5 @@ public interface ContestDao {
 	
 	Contest getPrev(Integer id);
 	Contest getNext(Integer id);
+	Contest getLast();
 }

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <main id="main" class="main">
                 <h1 class="d-none">메인이다</h1>
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
 	                <table>
 	                    <tr>
 	                        <th>이름</th>
@@ -25,13 +25,13 @@
 	                    <tr>
 	                        <th>첨부파일</th>
 	                        <td>
-	                        
+	                        	<input multiple="multiple" type="file" name="files">
 	                        </td>
 	                    </tr>
 	                    <tr>
 	                        <th>이미지</th>
 	                        <td>
-	                        
+	                        	<input multiple="multiple" type="file"  name="imgs">
 	                        </td>
 	                    </tr>
 		                <tr>
