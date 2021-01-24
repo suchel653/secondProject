@@ -68,7 +68,7 @@ public class ProjectController {
 	@RequestMapping("{id}") 
 	public String detail(Model model, @PathVariable("id") int id) {
 		
-		Project project = service.get(id);
+		ProjectView project = service.getView(id);
 		
 		model.addAttribute("pj",project);
 		

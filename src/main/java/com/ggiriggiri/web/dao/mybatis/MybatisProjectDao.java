@@ -74,5 +74,10 @@ public class MybatisProjectDao implements ProjectDao {
 		
 		return mapper.getByProjectIds(field);
 	}
+
+	@Override
+	public ProjectView getView(int id) {
+		return mapper.getView(id);
+	}
 	
 }

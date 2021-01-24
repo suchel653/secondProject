@@ -17,10 +17,11 @@
                            <th>필드</th>
                            <td>       
                            <c:forEach var="f" items="${f }">
-	                           <c:set var="checkde" value=""></c:set>
+	                           <c:set var="checked" value=""></c:set>
 		                           <c:forEach var="fds" items="${paramValues.f }">
-		                           	<c:if test="${fds==f.name }"></c:if> 
-		                           <c:set var="checkde" value="checkde"></c:set>
+		                           	<c:if test="${fds==f.name }"> 
+		                           	<c:set var="checked" value="checked"></c:set>
+		                           </c:if>
 	                           </c:forEach>
 	                               <input type="checkbox" ${checked} name="f" value="${f.name }">${f.name }
                             </c:forEach>
@@ -33,10 +34,11 @@
                                <c:forEach var="s" items="${s }">   
                                <c:set var="checked" value=""></c:set>
                                <c:forEach var="sks" items="${paramValues.s }">
-                                <c:if test="${sks==s.name}"></c:if>
-                                	<c:set var="checked" value="checked"></c:set>
+	                                <c:if test="${sks==s.name}">
+	                                	<c:set var="checked" value="checked"></c:set>
+	                                </c:if>
                               	 </c:forEach>         
-                               <input type="checkbox" ${checked } name="f" value="${s.name }">${s.name }
+                               <input type="checkbox" ${checked } name="s" value="${s.name }">${s.name }
                             </c:forEach>
                             </td>     
                        </tr>
@@ -80,7 +82,7 @@
                             <td>인원</td>
                             <td>진행일</td>
                             <td>상태</td>
-                            <td>등록자</td>
+                            <td>작성자</td>
                             <td>등록일</td>
                             </tr>
                          </thead>
