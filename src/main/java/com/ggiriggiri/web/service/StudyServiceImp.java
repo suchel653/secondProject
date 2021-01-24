@@ -73,10 +73,12 @@ public class StudyServiceImp implements StudyService {
 	public List<StudyView> getViewList(int page, int size, String title, String query, String[] field, String[] skill,
 			String[] language) {
 		int[] skStudyIds = null;
-		if(skill.length!=0)
+		int[] lgStudyIds = null;
+		if(skill.length!=0 && language.length!=0)
 			skill=null;
+			language=null;
 		skStudyIds = studySkillDao.getByStudyIds(skill);
-		//lgStudyIds = studyLanguageDao.getByStudyIds(language);
+		lgStudyIds = studyLanguageDao.getByStudyIds(language);
 		if(skStudyIds != null)
 			for(Integer id : skStudyIds)
 				System.out.println(id);
