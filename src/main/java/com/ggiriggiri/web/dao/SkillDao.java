@@ -18,4 +18,6 @@ public interface SkillDao {
 
 	int deleteAll(int[] ids);
 
+	int getCount();
+
 }

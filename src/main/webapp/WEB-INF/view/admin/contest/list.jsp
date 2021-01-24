@@ -2,6 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
+<c:set var="page" value="${param.p}" />
+<c:if test="${empty param.p}">
+	<c:set var="page" value="1" />
+</c:if>
+<c:set var="startNum" value="${page - (page-1)%5}" />
 <main id="main" class="main">
                 <h1 class="d-none">메인이다</h1>
                 <section>
@@ -56,7 +61,7 @@
                                 </td>
                                 <td>${c.hit }</td>
                                	<td>
-                               		<a href="${c.id/del }"><input type="button" value="삭제"/></a>
+                               		<a href="${c.id}/del"><input type="button" value="삭제"/></a>
                                 </td>
                             </tr>
                         </c:forEach>

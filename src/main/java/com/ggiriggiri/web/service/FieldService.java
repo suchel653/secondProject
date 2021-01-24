@@ -25,4 +25,6 @@ public interface FieldService {
 
 	int updateList(List<Field> list);
 
+	int getCount();
+
 }

@@ -43,59 +43,99 @@ public class StudyServiceImp implements StudyService {
 
 	@Override
 	public Study get(int id) {
-		// TODO Auto-generated method stub
+	
 		return studyDao.get(id);
 	}
 
-	@Override
-	public List<Study> getList(int page, int size, String field, String query) {
-		int offset = (page - 1) * 10;
-		
-		List<Study> list = studyDao.getList(offset, size, field, query);
-		for (Study s : list) {
-//			list=studyLanguageDao.getList(s.getId());
+//	@Override
+//	public List<Study> getList(int page, int size, String field, String query) {
+//		int offset = (page - 1) * 10;
+//		
+//		List<Study> list = studyDao.getList(offset, size, field, query);
+//		for (Study s : list) {
+////			list=studyLanguageDao.getList(s.getId());
+//
+//			s.setSkill(studySkillDao.getViewList(s.getId()));
+//			s.setLanguage(studyLanguageDao.getViewList(s.getId()));
+//
+//		}
+//
+//		return list;
+//	}
 
-			s.setSkill(studySkillDao.getViewList(s.getId()));
-			s.setLanguage(studyLanguageDao.getViewList(s.getId()));
-
-		}
-
-		return list;
-	}
-
-	@Override
-	public int getCount(String field, String query) {
-		// TODO Auto-generated method stub
-		return studyDao.getCount(field, query);
-	}
+//	@Override
+//	public int getCount(String field, String query) {
+//		// TODO Auto-generated method stub
+//		return studyDao.getCount(field, query);
+//	}
 
 	@Override
 	public List<StudyView> getViewList(int page, int size, String title, String query, String[] field, String[] skill,
 			String[] language) {
-		int[] skStudyIds = null;
-		int[] lgStudyIds = null;
-		if(skill.length!=0 && language.length!=0)
-			skill=null;
-			language=null;
-		skStudyIds = studySkillDao.getByStudyIds(skill);
-		lgStudyIds = studyLanguageDao.getByStudyIds(language);
-		if(skStudyIds != null)
-			for(Integer id : skStudyIds)
-				System.out.println(id);
-		
-		int offset = (page - 1) * 10;
 
-		List<StudyView> list = studyDao.getViewList(offset, size, title, query,field);
+		
+		int[] fdStudyIds = studyDao.getByStudyIds(field);
+		if(fdStudyIds.length==0)
+			return null;
+		
+		int[] skStudyIds = studySkillDao.getByStudyIds(fdStudyIds,skill);
+		
+		
+		if(skStudyIds.length==0)
+			return null;
+		int[] ids = studyLanguageDao.getByStudyIds(skStudyIds,language);
+		
+		if(ids.length==0)
+			return null;
+
+		
+		int offset = (page - 1) * size;
+
+		List<StudyView> list = studyDao.getViewList(ids,offset, size, title, query);
 
 		for (StudyView s : list) {
-//			list=studyLanguageDao.getList(s.getId());
-
 			s.setSkill(studySkillDao.getViewList(s.getId()));
 			s.setLanguage(studyLanguageDao.getViewList(s.getId()));
 
 		}
 
 		return list;
+	}
+
+	@Override
+	public int getCount(String title, String query, String[] field, String[] skill, String[] language) {
+		int[] fdStudyIds = studyDao.getByStudyIds(field);
+		if(fdStudyIds.length==0)
+			return 0;
+		
+		int[] skStudyIds = studySkillDao.getByStudyIds(fdStudyIds,skill);
+		
+		
+		if(skStudyIds.length==0)
+			return 0;
+		int[] ids = studyLanguageDao.getByStudyIds(skStudyIds,language);
+		
+		if(ids.length==0)
+			return 0;
+
+		
+
+		return studyDao.getCount(ids, title, query);
+	}
+
+	@Override
+	public StudyView getView(int id) {
+		
+		StudyView study = studyDao.getView(id);
+
+		
+			study.setSkill(studySkillDao.getViewList(study.getId()));
+			study.setLanguage(studyLanguageDao.getViewList(study.getId()));
+
+		
+
+		
+		return study;
 	}
 
 }

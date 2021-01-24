@@ -18,4 +18,6 @@ public interface LanguageDao {
 
 	int deleteAll(int[] ids);
 
+	int getCount();
+
 }

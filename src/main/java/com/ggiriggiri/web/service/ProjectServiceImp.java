@@ -9,6 +9,7 @@ import com.ggiriggiri.web.dao.ProjectDao;
 import com.ggiriggiri.web.dao.ProjectLanguageDao;
 import com.ggiriggiri.web.dao.ProjectSkillDao;
 import com.ggiriggiri.web.entity.Project;
+import com.ggiriggiri.web.entity.ProjectView;
 
 @Service
 public class ProjectServiceImp implements ProjectService{
@@ -57,6 +58,7 @@ public class ProjectServiceImp implements ProjectService{
 		
 		for(Project p : list) {
 			p.setLanguages(projectLanguageDao.getListByProjectId(p.getId()));
+			p.setSkills(projectSkilldao.getListByProjectId(p.getId()));
 		}
 			
 		return list;
@@ -72,5 +74,47 @@ public class ProjectServiceImp implements ProjectService{
 	public int getCount(String field, String query) {
 		
 		return projectDao.getCount(field, query);
+	}
+
+	@Override
+	public List<ProjectView> getViewList(int page, int size, String title, String query, String[] field, String[] skill,
+			String[] language) {
+		
+		int[] fdProjectIds = projectDao.getByProjectIds(field);
+		if(fdProjectIds.length==0)
+			return null;
+		int[] skProjectIds = projectSkilldao.getByProjectIds(fdProjectIds,skill);
+		if(skProjectIds.length==0)
+			return null;
+		int[] ids = projectLanguageDao.getByProjectIds(skProjectIds,language);
+		if(ids.length==0)
+			return null;
+		
+		
+		int offset = (page-1)*10;
+		List<ProjectView> list = projectDao.getViewList(ids, offset, size, title, query);
+		
+		for(ProjectView p : list) {
+			p.setSkills(projectSkilldao.getListByProjectId(p.getId()));
+			p.setLanguages(projectLanguageDao.getListByProjectId(p.getId()));
+		}
+			
+		return list;
+	}
+
+	@Override
+	public ProjectView getView(int id) {
+		
+		ProjectView pv = projectDao.getView(id);
+		
+		Project p = projectDao.get(id);
+		
+		p.setLanguages(projectLanguageDao.getListByProjectId(p.getId()));
+		p.setSkills(projectSkilldao.getListByProjectId(p.getId()));
+		
+		System.out.println(p.toString());
+		System.out.println(pv.toString());
+		
+		return pv;
 	}
 }

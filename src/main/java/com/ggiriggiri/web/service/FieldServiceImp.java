@@ -42,7 +42,7 @@ public class FieldServiceImp implements FieldService {
 	@Override
 	public List<Field> getList(int page, int size) {
 
-		int offset = (page - 1) * 10;
+		int offset = (page - 1) * size;
 
 		return fieldDao.getList(offset, size);
 	}
@@ -75,6 +75,11 @@ public class FieldServiceImp implements FieldService {
 			result++;
 		}
 		return result;
+	}
+
+	@Override
+	public int getCount() {
+		return fieldDao.getCount();
 	}
 
 }

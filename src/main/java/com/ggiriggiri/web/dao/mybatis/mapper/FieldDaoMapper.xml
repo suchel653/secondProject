@@ -18,6 +18,10 @@
 		</if>
 	</select>
 	
+	<select id="getCount" resultType="int">
+		select count(id) from Field
+	</select>
+	
 	<insert id="insert" parameterType="com.ggiriggiri.web.entity.Field">
 		insert into Field(name)
 		values(#{name});

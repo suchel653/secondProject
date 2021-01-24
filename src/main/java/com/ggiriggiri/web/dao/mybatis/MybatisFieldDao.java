@@ -54,4 +54,9 @@ public class MybatisFieldDao implements FieldDao {
 		return mapper.deleteAll(ids);
 	}
 
+	@Override
+	public int getCount() {
+		return mapper.getCount();
+	}
+
 }

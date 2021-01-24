@@ -7,17 +7,20 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ggiriggiri.web.entity.Field;
 import com.ggiriggiri.web.entity.Language;
 import com.ggiriggiri.web.entity.Skill;
+import com.ggiriggiri.web.entity.Study;
 import com.ggiriggiri.web.entity.StudyView;
 import com.ggiriggiri.web.service.FieldService;
 import com.ggiriggiri.web.service.LanguageService;
 import com.ggiriggiri.web.service.SkillService;
 import com.ggiriggiri.web.service.StudyService;
+
 
 
 @Controller
@@ -42,42 +45,41 @@ public class StudyController {
 			@RequestParam(name="l", defaultValue = "") String[] language,
 			@RequestParam(name="t", defaultValue="title") String title, 
 			@RequestParam(name="q", defaultValue = "") String query,
+			@RequestParam(name="size", defaultValue="10") int size,
 			Model model) {
-		int size = 10;
+	
 		List<StudyView> list =service.getViewList(page,size,title,query,field,skill,language);
 	
-		System.out.println("field부분");
-		System.out.println("필드 길이 : "+field.length);
-		for(String s : field) {
-			System.out.println(s);
-		}
-			
-		System.out.println("skill부분");
-		for(String s : skill) {
-			
-			System.out.println(s);
-		}
-		
-		System.out.println("language부분");
-		for(String s : language) {
-			
-			System.out.println(s);
-		}
-		
-		List<Field> fdList = fdService.getList(1, 100);
+		int count = service.getCount(title,query,field,skill,language);
+		int pageCount = (int) Math.ceil(count/(float)size);
+		if(pageCount == 0)
+			pageCount=1;
+		List<Field> fdList = fdService.getList();
 		List<Skill> skList = skService.getList(1, 100);
 		List<Language> lgList = lgService.getList(1, 100);
 		
 		model.addAttribute("f", fdList);
 		model.addAttribute("s", skList);
 		model.addAttribute("l", lgList);
+		model.addAttribute("pageCount", pageCount);
 		
 		model.addAttribute("list",list);
 		return "admin.study.list";
 				
 	}
-	
-
+	 @RequestMapping("{id}/detail")
+	  public String detail(Model model,@PathVariable("id") Integer id) {
+	      
+		   StudyView study = service.getView(id);
+		   
+		   
+		      
+		      
+		      model.addAttribute("s", study);
+		   
+	      
+	      return "admin.study.detail";
+	   }
 
 	
 

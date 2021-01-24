@@ -4,6 +4,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script src="https://kit.fontawesome.com/b280fc7aa7.js" crossorigin="anonymous"></script>
 <!-- <script src="/js/admin/project/list.js"></script> -->
+<c:set var="fds" value="${paramValues.f }"></c:set>
+<c:set var="sks" value="${paramValues.s }"></c:set>
+<c:set var="lns" value="${paramValues.l }"></c:set>
 	<main id="main" class="main">
                 <h1 class="d-none">메인이다</h1>
                 <section>
@@ -12,36 +15,51 @@
                     <table border="1">
                        <tr>
                            <th>필드</th>
-                           <td>                   
-                               <input type="checkbox" name="field" value="1">웹 개발
-                               <input type="checkbox" name="field" value="2">인공지능
-                               <input type="checkbox" name="field" value="3">블록체인
-                               <input type="checkbox" name="field" value="4">IOS
+                           <td>       
+                           <c:forEach var="f" items="${f }">
+	                           <c:set var="checked" value=""></c:set>
+		                           <c:forEach var="fds" items="${paramValues.f }">
+		                           	<c:if test="${fds==f.name }"> 
+		                           	<c:set var="checked" value="checked"></c:set>
+		                           </c:if>
+	                           </c:forEach>
+	                               <input type="checkbox" ${checked} name="f" value="${f.name }">${f.name }
+                            </c:forEach>
                             </td>     
                        </tr>
                        
                        <tr>
                            <th>스킬</th>
                            <td>                   
-                               <input type="checkbox" name="skill" value="1">Spring
-                               <input type="checkbox" name="skill" value="2">Django
-                               <input type="checkbox" name="skill" value="3">Vue
-                               <input type="checkbox" name="skill" value="4">React
+                               <c:forEach var="s" items="${s }">   
+                               <c:set var="checked" value=""></c:set>
+                               <c:forEach var="sks" items="${paramValues.s }">
+	                                <c:if test="${sks==s.name}">
+	                                	<c:set var="checked" value="checked"></c:set>
+	                                </c:if>
+                              	 </c:forEach>         
+                               <input type="checkbox" ${checked } name="s" value="${s.name }">${s.name }
+                            </c:forEach>
                             </td>     
                        </tr>
                        <tr>
                            <th>언어</th>
-                           <td>                   
-                               <input type="checkbox" name="language" value="1">C
-                               <input type="checkbox" name="language" value="2">C++
-                               <input type="checkbox" name="language" value="3">Python
-                               <input type="checkbox" name="language" value="4">Java
+                           <td>
+                           	<c:forEach var="l" items="${l }">
+                           	<c:set var="checked" value=""></c:set>
+                           	<c:forEach var="lns" items="${paramValues.l }">
+                           		<c:if test="${lns==l.name }">
+                           			<c:set var="checked" value="checked"></c:set>
+                           		</c:if>
+                           	</c:forEach>            
+                            	<input type="checkbox" ${checked } name="l" value="${l.name }">${l.name }
+                           	</c:forEach>
                             </td>     
                        </tr>
                     </table>
                     
                      <div>
-	                     <select name="f">
+	                     <select name="t">
 						 <option value="title">제목</option>
 						 </select>
 						 <input type="text" name="q" value="" />
@@ -57,8 +75,14 @@
                             <tr>
                             <td>번호</td>
                             <td>제목</td>
-                            <td>작성자</td>
+                            <td>분야</td>
+                            <td>기술</td>
+                            <td>언어</td>
                             <td>요구사항</td>
+                            <td>인원</td>
+                            <td>진행일</td>
+                            <td>상태</td>
+                            <td>작성자</td>
                             <td>등록일</td>
                             </tr>
                          </thead>
@@ -69,8 +93,25 @@
 							<tr>
 								<td>${pj.id}</td>
 								<td><a href="${pj.id }">${pj.title}</a></td>
-								<td>${pj.leaderId }</td>
+								<td>${pj.fieldName}</td>
+								<td>
+									<c:forEach var="sk" items="${pj.skills}"> 
+	                                ${sk.skillName}
+	                                </c:forEach> 
+                                </td>
+                                <td> 
+	                                <c:forEach var="l" items="${pj.languages}"> 
+	                                ${l.languageName} 
+	                                </c:forEach>
+	                                </td>
 								<td>${pj.requirement }</td>
+								<td>${pj.limitNumber}</td>
+								<td>
+	                             	 <fmt:formatDate value="${pj.startDate}" pattern="yyyy-MM-dd"/>~
+	                                <fmt:formatDate value="${pj.endDate }" pattern="yyyy-MM-dd"/>
+                            	</td>
+								<td>${pj.statusName }</td>
+								<td>${pj.leaderName }</td>
 								<td>
 								<fmt:formatDate value="${pj.regDate }" pattern="yyyy-MM-dd"/>
 								</td>
@@ -122,5 +163,6 @@
 					</div>
                     
                 </div>
+                
                 
             </main>

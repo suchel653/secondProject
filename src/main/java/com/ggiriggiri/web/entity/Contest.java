@@ -20,6 +20,15 @@ public class Contest {
 
 	}
 
+	public Contest(String writerName, String title, String content, Date startDate, Date endDate) {
+		super();
+		this.writerName = writerName;
+		this.title = title;
+		this.content = content;
+		this.startDate = startDate;
+		this.endDate = endDate;
+	}
+
 	public Contest(int id, String writerName, String title, String content, Date startDate, Date endDate, int hit,
 			Date regDate, List<ContestFile> contestFiles, List<ContestImage> contestImages) {
 		super();

@@ -7,11 +7,13 @@ window.addEventListener("load", (e) => {
 	// 추가 버튼 이벤트
 	addBtn.onclick = () => {
 
-		let tr = `<td></td>
-                  <td>
-                    <input type="text" name="newNames">
-                  </td>
-                  <td></td>`;
+		let tr = `<tr>
+					  <td></td>
+	                  <td>
+	                    <input type="text" name="newNames">
+	                  </td>
+	                  <td></td>
+				  </tr>`;
 
 		tbody.insertAdjacentHTML('afterbegin', tr);
 

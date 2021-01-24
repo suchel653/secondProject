@@ -20,4 +20,6 @@ public interface FieldDao {
 
 	int deleteAll(int[] ids);
 
+	int getCount();
+
 }

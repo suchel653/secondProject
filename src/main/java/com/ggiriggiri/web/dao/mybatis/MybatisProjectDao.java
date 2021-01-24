@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ggiriggiri.web.dao.ProjectDao;
 import com.ggiriggiri.web.entity.Project;
+import com.ggiriggiri.web.entity.ProjectView;
 
 @Repository
 public class MybatisProjectDao implements ProjectDao {
@@ -58,6 +59,25 @@ public class MybatisProjectDao implements ProjectDao {
 	@Override
 	public List<Project> getList() {
 		return mapper.getList();
+	}
+
+	@Override
+	public List<ProjectView> getViewList(int[] ids, int offset, int size, String title, String query) {
+		
+		return mapper.getViewList(ids, offset, size, title, query);
+	}
+
+	@Override
+	public int[] getByProjectIds(String[] field) {
+		if(field.length==0)
+			field=null;
+		
+		return mapper.getByProjectIds(field);
+	}
+
+	@Override
+	public ProjectView getView(int id) {
+		return mapper.getView(id);
 	}
 	
 }

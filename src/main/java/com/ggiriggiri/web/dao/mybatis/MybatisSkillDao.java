@@ -49,4 +49,9 @@ public class MybatisSkillDao implements SkillDao{
 		return mapper.deleteAll(ids);
 	}
 
+	@Override
+	public int getCount() {
+		return mapper.getCount();
+	}
+
 }

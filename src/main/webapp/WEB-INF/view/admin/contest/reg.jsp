@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <main id="main" class="main">
                 <h1 class="d-none">메인이다</h1>
-                <form>
+                <form method="post">
 	                <table>
 	                    <tr>
 	                        <th>이름</th>
@@ -13,13 +13,13 @@
 	                    <tr>
 	                        <th>시작일</th>
 	                        <td>
-	                            <input type="text" name="startDate">
+	                            <input type="text" name="startDate">(yyyy-dd-mm)
 	                        </td>
 	                    </tr>
 	                    <tr>
 	                        <th>마감일</th>
 	                        <td>
-	                            <input type="text" name="endDate">
+	                            <input type="text" name="endDate">(yyyy-dd-mm)
 	                        </td>
 	                    </tr>
 	                    <tr>
@@ -36,7 +36,7 @@
 	                    </tr>
 		                <tr>
 		                	<td colspan="2">
-			                    <textarea>
+			                    <textarea name="content">
 			                        
 			                    </textarea>
 		                    </td>

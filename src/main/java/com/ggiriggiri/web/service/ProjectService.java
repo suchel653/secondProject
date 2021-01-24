@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.ggiriggiri.web.entity.Project;
+import com.ggiriggiri.web.entity.ProjectView;
+import com.ggiriggiri.web.entity.StudyView;
 
 @Service
 public interface ProjectService {
@@ -14,9 +16,11 @@ public interface ProjectService {
 	int delete(int id);
 	
 	Project get(int id);
+	ProjectView getView(int id);
 	
 	List<Project> getList(int page, int size, String field, String query);
-//	List<ProjectView> getViewList(int page, int size, String field, String query);
+	List<ProjectView> getViewList(int page, int size, String title, String query, String[] field, String[] skill,
+			String[] language);
 	
 	int getCount(String field, String query);
 }
