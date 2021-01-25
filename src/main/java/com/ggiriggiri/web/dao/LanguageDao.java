@@ -14,6 +14,8 @@ public interface LanguageDao {
 
 	Language get(int id);
 
+	List<Language> getList();
+
 	List<Language> getList(int offset, int size);
 
 	int deleteAll(int[] ids);

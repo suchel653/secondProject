@@ -5,7 +5,7 @@ import java.util.List;
 import com.ggiriggiri.web.entity.Skill;
 
 public interface SkillDao {
-	
+
 	int insert(Skill skill);
 
 	int update(Skill skill);
@@ -13,6 +13,8 @@ public interface SkillDao {
 	int delete(int id);
 
 	Skill get(int id);
+
+	List<Skill> getList();
 
 	List<Skill> getList(int offset, int size);
 

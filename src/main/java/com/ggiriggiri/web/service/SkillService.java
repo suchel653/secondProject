@@ -15,6 +15,8 @@ public interface SkillService {
 
 	Skill get(int id);
 
+	List<Skill> getList();
+	
 	List<Skill> getList(int page, int size);
 
 	int deleteAll(int[] ids);
