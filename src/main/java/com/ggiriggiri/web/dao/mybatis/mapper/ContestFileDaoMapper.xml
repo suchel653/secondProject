@@ -21,4 +21,8 @@
 	
 	</select>
 	
+	<delete id="delete">
+		delete from ContestFile where contestId=#{contestId}
+	</delete>
+	
 </mapper>

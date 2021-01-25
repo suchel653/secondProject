@@ -5,8 +5,8 @@
 
 <mapper namespace="com.ggiriggiri.web.dao.ContestDao">
 	<insert id="insert" parameterType="com.ggiriggiri.web.entity.Contest">
-		insert into Contest(title,content,startDate,endDate,writerName)
-		values(#{title},#{content},#{startDate},#{endDate},#{writerName})
+		insert into Contest(id,title,content,startDate,endDate,writerName)
+		values(#{id},#{title},#{content},#{startDate},#{endDate},#{writerName})
    	</insert>
 
 	<update id="update" parameterType="com.ggiriggiri.web.entity.Contest">

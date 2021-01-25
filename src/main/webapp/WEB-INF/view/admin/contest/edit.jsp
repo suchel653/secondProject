@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <main id="main" class="main">
                 <h1 class="d-none">메인이다</h1>
                 <form method="post" enctype="multipart/form-data">
@@ -31,11 +32,20 @@
 	                    </tr>
 	                    <tr>
 	                        <th>첨부파일</th>
-	                        <td></td>
+	                        <td>
+	                        <c:forEach var="f" items="${c.contestFiles}">
+                        		<!--<a download href="">${f.name} </a>  -->
+                        		${f.name }
+                        	</c:forEach>
+	                        </td>
 	                    </tr>
 	                    <tr>
 	                        <th>이미지</th>
-	                        <td></td>
+	                        <td>
+	                        <c:forEach var="img" items="${c.contestImages}">
+                        		<img src="/images/contestImg/${c.id}/${img.name}" />
+                        	</c:forEach>
+	                        </td>
 	                    </tr>
 	                    <tr>
 			                <td colspan="2">
