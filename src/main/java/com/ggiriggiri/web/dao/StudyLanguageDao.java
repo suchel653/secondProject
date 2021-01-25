@@ -11,6 +11,7 @@ public interface StudyLanguageDao {
 	int[] getByStudyIds(int[] skStudyIds, String[] language);
 
 
+
 	
 
 	

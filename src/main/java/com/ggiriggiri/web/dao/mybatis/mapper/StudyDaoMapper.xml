@@ -57,5 +57,10 @@
    		</if>
 		
       </select>
+      
+      <select id="getView" resultType="com.ggiriggiri.web.entity.StudyView">
+      	select * from StudyView 
+      	where id = ${id}
+      </select>
 
 </mapper>

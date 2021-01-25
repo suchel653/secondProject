@@ -7,17 +7,20 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ggiriggiri.web.entity.Field;
 import com.ggiriggiri.web.entity.Language;
 import com.ggiriggiri.web.entity.Skill;
+import com.ggiriggiri.web.entity.Study;
 import com.ggiriggiri.web.entity.StudyView;
 import com.ggiriggiri.web.service.FieldService;
 import com.ggiriggiri.web.service.LanguageService;
 import com.ggiriggiri.web.service.SkillService;
 import com.ggiriggiri.web.service.StudyService;
+
 
 
 @Controller
@@ -64,8 +67,19 @@ public class StudyController {
 		return "admin.study.list";
 				
 	}
-	
-
+	 @RequestMapping("{id}/detail")
+	  public String detail(Model model,@PathVariable("id") Integer id) {
+	      
+		   StudyView study = service.getView(id);
+		   
+		   
+		      
+		      
+		      model.addAttribute("s", study);
+		   
+	      
+	      return "admin.study.detail";
+	   }
 
 	
 

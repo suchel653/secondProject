@@ -20,5 +20,7 @@ public interface StudyService {
 	List<StudyView> getViewList(int page, int size, String title, String query, String[] field, String[] skill,
 			String[] language);
 	int getCount(String title, String query, String[] field, String[] skill, String[] language);
+	
+	StudyView getView(int id);
 
 }
