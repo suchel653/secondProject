@@ -61,8 +61,11 @@ public class LanguageController {
 				
 				for (int i = 0; i < newNames.length; i++) {
 					
-					//파일 저장시
-					String realPath = "C:/Work/Workspace2/secondProject/src/main/resources/static/images/language";
+//					String realPath = "C:/Work/Workspace2/secondProject/src/main/resources/static/images/language";
+					
+					String url = "/images/language";
+					String realPath = request.getServletContext().getRealPath(url);	
+					System.out.println(realPath);
 					
 					File realPathFile = new File(realPath);
 					if(!realPathFile.exists())
