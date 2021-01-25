@@ -35,12 +35,12 @@
 								<td>${pj.title}</td>
 								<td>${pj.fieldName }</td>
 								<td>
-									<c:forEach var="s" items="${pj.skills }">
+									<c:forEach var="s" items="${p.skills }">
 									 ${s.skillName } /
 									</c:forEach>
 								</td>
 								<td>
-									<c:forEach var="l" items="${pj.languages }">
+									<c:forEach var="l" items="${p.languages }">
 									 ${l.languageName } /
 									</c:forEach>
 								</td>
