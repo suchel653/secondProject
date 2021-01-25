@@ -107,13 +107,10 @@ public class ProjectServiceImp implements ProjectService{
 		
 		ProjectView pv = projectDao.getView(id);
 		
-		Project p = projectDao.get(id);
 		
-		p.setLanguages(projectLanguageDao.getListByProjectId(p.getId()));
-		p.setSkills(projectSkilldao.getListByProjectId(p.getId()));
+		pv.setLanguages(projectLanguageDao.getListByProjectId(pv.getId()));
+		pv.setSkills(projectSkilldao.getListByProjectId(pv.getId()));
 		
-		System.out.println(p.toString());
-		System.out.println(pv.toString());
 		
 		return pv;
 	}
