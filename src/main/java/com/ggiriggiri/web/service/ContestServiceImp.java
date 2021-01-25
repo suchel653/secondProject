@@ -108,6 +108,18 @@ public class ContestServiceImp implements ContestService{
 		
 		return contestImgDao.insert(contestImg);
 	}
+
+	@Override
+	public Contest getPrev(Integer id) {
+
+		return contestDao.getPrev(id);
+	}
+
+	@Override
+	public Contest getNext(Integer id) {
+
+		return contestDao.getNext(id);
+	}
 	
 	
 

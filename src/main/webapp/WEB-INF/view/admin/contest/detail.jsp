@@ -59,8 +59,38 @@
 	                </tr>
                 </table>
                 
+                <table>
+					<tbody>
+						<tr>
+							<th>다음글</th>
+							<td colspan="3">
+								<c:if test="${empty next}">
+								다음글이 없습니다.
+								</c:if>
+								<c:if test="${not empty next}">
+								<a href="${next.id}">${next.title}</a>
+								</c:if>
+							</td>
+						</tr>
+						
+						<tr>
+							<th>이전글</th>
+							<td colspan="3">
+								<c:if test="${empty prev}">
+								이전글이 없습니다.
+								</c:if>
+								<c:if test="${not empty prev}">
+								<a href="${prev.id}">${prev.title}</a>
+								</c:if>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+                
                 <div>
                 	<a href="list"><input type="button" value="목록"></a>
                 	<a href="${c.id}/edit"><input type="button" value="수정"></a>
                 </div>
+                
+                
             </main>

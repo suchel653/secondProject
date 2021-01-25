@@ -130,8 +130,12 @@ public class ContestController {
 	public String detail(Model model,@PathVariable("id") Integer id) {
 		
 		Contest c = service.get(id);
+		Contest prev = service.getPrev(id);
+		Contest next = service.getNext(id);
 		
 		model.addAttribute("c",c);
+		model.addAttribute("prev", prev);
+		model.addAttribute("next", next);
 		
 		return "admin.contest.detail";
 	}

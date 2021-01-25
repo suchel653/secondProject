@@ -23,4 +23,6 @@ public interface ContestService {
 	int getLastId();
 	int insertFile(ContestFile contestFile);
 	int insertImg(ContestImage contestImg);
+	Contest getPrev(Integer id);
+	Contest getNext(Integer id);
 }
