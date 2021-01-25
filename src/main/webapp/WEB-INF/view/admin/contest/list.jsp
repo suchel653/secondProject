@@ -6,20 +6,20 @@
 <c:if test="${empty param.p}">
 	<c:set var="page" value="1" />
 </c:if>
-<c:set var="startNum" value="${page - (page-1)%5}" />
+<c:set var="startNum" value="${page - (page-1)%10}" />
 <main id="main" class="main">
                 <h1 class="d-none">메인이다</h1>
                 <section>
                     <h1 class="d-none">검색폼</h1>
-                    <form>
+                    <form method="post">
                         <div>
-                            <select>
-                                <option>공모전 이름</option>
-                                <option>작성자</option>
-                                <option>시작일</option>
-                                <option>마감일</option>
+                            <select name="f">
+                                <option value="title">공모전 이름</option>
+                                <option value="writerName">작성자</option>
+                                <option value="startDate">시작일</option>
+                                <option value="endDate">마감일</option>
                             </select>
-                            <input type="text">
+                            <input type="text" name="q">
                         </div>
                         <input type="submit" value="검색">
 
@@ -72,7 +72,9 @@
                 <div>
 					<a href="reg">글쓰기</a>	
                 </div>
-
+				<div>
+					${page}/ ${pageCount} 페이지
+				</div>
                 <div class="pager">
                     <div>
                       <a href="#"><i class="fas fa-angle-double-left"></i></a>
@@ -81,7 +83,16 @@
                       <a href="#"><i class="fas fa-angle-left"></i></a>
                     </div>
                     <ul>
-                      <li><a href="#">1</a></li>
+	                <c:forEach var="i" begin="0" end="4" varStatus="st">
+						<c:set var="current" value="" />
+						<c:if test="${i+startNum == page }" >
+							<c:set var="current" value="orange bold" />
+						</c:if>
+						
+						<c:if test="${i+startNum <= pageCount }">
+							<li><a class="-text- ${current }" href="?p=${i+startNum}&f=${param.f }&q=${param.q}" >${i+startNum}</a></li>
+						</c:if>
+					</c:forEach>
                     </ul>
                     <div>
                       <a href="#"><i class="fas fa-angle-right"></i></a>

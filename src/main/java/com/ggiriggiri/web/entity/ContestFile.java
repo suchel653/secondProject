@@ -7,7 +7,13 @@ public class ContestFile {
 	private String name;
 
 	public ContestFile() {
-		// TODO Auto-generated constructor stub
+
+	}
+
+	public ContestFile(int contestId, String name) {
+		super();
+		this.contestId = contestId;
+		this.name = name;
 	}
 
 	public ContestFile(int id, int contestId, String name) {

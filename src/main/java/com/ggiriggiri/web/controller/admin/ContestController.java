@@ -1,10 +1,12 @@
 package com.ggiriggiri.web.controller.admin;
 
-import java.security.Principal;
+import java.io.File;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,8 +16,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.ggiriggiri.web.entity.Contest;
+import com.ggiriggiri.web.entity.ContestFile;
+import com.ggiriggiri.web.entity.ContestImage;
 import com.ggiriggiri.web.service.ContestService;
 
 @Controller
@@ -57,18 +63,66 @@ public class ContestController {
 			@RequestParam("startDate") String oldStartDate,
 			@RequestParam("endDate") String oldEndDate,
 			@RequestParam("title") String title,
-			@RequestParam("content") String content
-			) throws ParseException {
+			@RequestParam("content") String content,
+			MultipartHttpServletRequest mtfRequest
+			) throws ParseException, IllegalStateException, IOException{
 	
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
 		Date startDate = sdf.parse(oldStartDate);
 		Date endDate = sdf.parse(oldEndDate);
 		
-		Contest contest = new Contest("aaa",title,content,startDate,endDate);
+		int newId = service.getLastId()+1;
 		
+		Contest contest = new Contest(newId,"aaa",title,content,startDate,endDate);
 		service.insert(contest);
 		
+//		List<ContestFile> contestFileList = null;
+//		List<ContestImage> contestimgList = null;
+		
+		List<MultipartFile> fileList = mtfRequest.getFiles("files");
+		List<MultipartFile> imgList = mtfRequest.getFiles("imgs");
+		
+		String url = "/images/";
+		String realPath = mtfRequest.getServletContext().getRealPath(url);
+		
+		String filePath = realPath + "contestFile/"+newId;
+		String imgPath = realPath + "contestImg/"+newId;
+		
+		File realPathFile = new File(filePath);
+		File realPathImgFile = new File(imgPath);
+		
+		if (!realPathFile.exists())
+			realPathFile.mkdir();
+
+		if (!realPathImgFile.exists())
+			realPathImgFile.mkdir();
+
+		
+		for(MultipartFile mf : fileList) {
+			String file = filePath + File.separator + mf.getOriginalFilename();
+			mf.transferTo(new File(file));
+
+			ContestFile contestFile = new ContestFile(newId,mf.getOriginalFilename());
+			service.insertFile(contestFile);
+//			contestFileList.add(contestFile);
+			
+		}
+		
+		for(MultipartFile mf : imgList) {
+			String file = imgPath + File.separator + mf.getOriginalFilename();
+			mf.transferTo(new File(file));
+			
+			ContestImage contestImg = new ContestImage(newId,mf.getOriginalFilename());
+			service.insertImg(contestImg);
+//			contestimgList.add(contestImg);
+		}
+		
+//		contest.setContestFiles(contestFileList);
+//		contest.setContestImages(contestimgList);
+		
+		
+
 		return "redirect:list";
 	}
 
@@ -76,8 +130,12 @@ public class ContestController {
 	public String detail(Model model,@PathVariable("id") Integer id) {
 		
 		Contest c = service.get(id);
+		Contest prev = service.getPrev(id);
+		Contest next = service.getNext(id);
 		
 		model.addAttribute("c",c);
+		model.addAttribute("prev", prev);
+		model.addAttribute("next", next);
 		
 		return "admin.contest.detail";
 	}
@@ -104,8 +162,7 @@ public class ContestController {
 		Date startDate = sdf.parse(oldStartDate);
 		Date endDate = sdf.parse(oldEndDate);
 		
-		Contest contest = new Contest("aaa",title,content,startDate,endDate);
-		contest.setId(id);
+		Contest contest = new Contest(id,"aaa",title,content,startDate,endDate);
 		
 		service.update(contest);
 		
@@ -117,7 +174,7 @@ public class ContestController {
 		
 		service.delete(id);
 		
-		return "redirect../list";
+		return "redirect:../list";
 	}
 	
 	

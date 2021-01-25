@@ -9,6 +9,8 @@ import com.ggiriggiri.web.dao.ContestDao;
 import com.ggiriggiri.web.dao.ContestFileDao;
 import com.ggiriggiri.web.dao.ContestImageDao;
 import com.ggiriggiri.web.entity.Contest;
+import com.ggiriggiri.web.entity.ContestFile;
+import com.ggiriggiri.web.entity.ContestImage;
 
 @Service
 public class ContestServiceImp implements ContestService{
@@ -25,6 +27,12 @@ public class ContestServiceImp implements ContestService{
 
 		int result = contestDao.insert(contest);
 		
+//		for(ContestFile file : contest.getContestFiles())
+//			contestFileDao.insert(file);
+//		
+//		for(ContestImage img : contest.getContestImages())
+//			contestImgDao.insert(img);
+		
 		return result;
 	}
 
@@ -39,6 +47,9 @@ public class ContestServiceImp implements ContestService{
 	@Override
 	public int delete(int id) {
 
+		contestFileDao.delete(id);
+		contestImgDao.delete(id);
+		
 		int result = contestDao.delete(id);
 		
 		return 0;
@@ -48,6 +59,9 @@ public class ContestServiceImp implements ContestService{
 	public Contest get(int id) {
 
 		Contest c = contestDao.get(id);
+		
+		c.setContestFiles(contestFileDao.getList(id));
+		c.setContestImages(contestImgDao.getList(id));
 		
 		return c;
 	}
@@ -59,10 +73,10 @@ public class ContestServiceImp implements ContestService{
 		
 		List<Contest> list = contestDao.getList(offset, size, field, query);
 		
-		for(Contest c : list) {
-			c.setContestFiles(contestFileDao.getList(c.getId()));
-			c.setContestImages(contestImgDao.getList(c.getId()));
-		}
+//		for(Contest c : list) {
+//			c.setContestFiles(contestFileDao.getList(c.getId()));
+//			c.setContestImages(contestImgDao.getList(c.getId()));
+//		}
 				
 		return list;
 	}
@@ -74,5 +88,39 @@ public class ContestServiceImp implements ContestService{
 		
 		return count;
 	}
+
+	@Override
+	public int getLastId() {
+		
+		Contest contest = contestDao.getLast();
+		
+		return contest.getId();
+	}
+
+	@Override
+	public int insertFile(ContestFile contestFile) {
+		
+		return contestFileDao.insert(contestFile);
+	}
+
+	@Override
+	public int insertImg(ContestImage contestImg) {
+		
+		return contestImgDao.insert(contestImg);
+	}
+
+	@Override
+	public Contest getPrev(Integer id) {
+
+		return contestDao.getPrev(id);
+	}
+
+	@Override
+	public Contest getNext(Integer id) {
+
+		return contestDao.getNext(id);
+	}
+	
+	
 
 }
