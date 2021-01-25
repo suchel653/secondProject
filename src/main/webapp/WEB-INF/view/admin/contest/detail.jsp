@@ -36,11 +36,15 @@
                     </tr>
                     <tr>
                         <th>첨부파일</th>
-                        <td></td>
+                        <td>
+                        	
+                        </td>
                     </tr>
                     <tr>
                         <th>이미지</th>
-                        <td></td>
+                        <td>
+                        	
+                        </td>
                     </tr>
                     <tr>
 		                <td colspan="2">

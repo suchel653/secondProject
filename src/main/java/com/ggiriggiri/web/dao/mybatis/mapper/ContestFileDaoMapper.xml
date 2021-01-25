@@ -5,7 +5,8 @@
 
 <mapper namespace="com.ggiriggiri.web.dao.ContestFileDao">
 	<insert id="insert" parameterType="com.ggiriggiri.web.entity.ContestFile">
-      
+		insert into ContestFile(contestId,name)
+		values(#{contestId},#{name})
    	</insert>
 
 	<select id="get" resultType="com.ggiriggiri.web.entity.ContestFile">

@@ -5,8 +5,8 @@
 
 <mapper namespace="com.ggiriggiri.web.dao.ContestDao">
 	<insert id="insert" parameterType="com.ggiriggiri.web.entity.Contest">
-      insert into Contest(title,content,startDate,endDate,writerName)
-      values(#{title},#{content},#{startDate},#{endDate},#{writerName})
+		insert into Contest(title,content,startDate,endDate,writerName)
+		values(#{title},#{content},#{startDate},#{endDate},#{writerName})
    	</insert>
 
 	<update id="update" parameterType="com.ggiriggiri.web.entity.Contest">
@@ -57,5 +57,9 @@
 	<delete id="delete">
 		delete from Contest where id=#{id}
 	</delete>
+	
+	<select id="getLast" resultType="com.ggiriggiri.web.entity.Contest">
+		SELECT * FROM Contest WHERE ID = (SELECT MAX(ID) FROM Contest)
+	</select>
 	
 </mapper>

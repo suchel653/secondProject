@@ -83,4 +83,10 @@ public class MybatisContestDao implements ContestDao{
 		return mapper.getNext(id);
 	}
 
+	@Override
+	public Contest getLast() {
+
+		return mapper.getLast();
+	}
+
 }

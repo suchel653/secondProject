@@ -9,6 +9,8 @@ import com.ggiriggiri.web.dao.ContestDao;
 import com.ggiriggiri.web.dao.ContestFileDao;
 import com.ggiriggiri.web.dao.ContestImageDao;
 import com.ggiriggiri.web.entity.Contest;
+import com.ggiriggiri.web.entity.ContestFile;
+import com.ggiriggiri.web.entity.ContestImage;
 
 @Service
 public class ContestServiceImp implements ContestService{
@@ -24,6 +26,12 @@ public class ContestServiceImp implements ContestService{
 	public int insert(Contest contest) {
 
 		int result = contestDao.insert(contest);
+		
+		for(ContestFile file : contest.getContestFiles())
+			contestFileDao.insert(file);
+		
+		for(ContestImage img : contest.getContestImages())
+			contestImgDao.insert(img);
 		
 		return result;
 	}
@@ -74,5 +82,15 @@ public class ContestServiceImp implements ContestService{
 		
 		return count;
 	}
+
+	@Override
+	public int getLastId() {
+		
+		Contest contest = contestDao.getLast();
+		
+		return contest.getId();
+	}
+	
+	
 
 }
