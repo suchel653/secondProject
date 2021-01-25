@@ -5,8 +5,20 @@
 
 <mapper namespace="com.ggiriggiri.web.dao.ContestDao">
 	<insert id="insert" parameterType="com.ggiriggiri.web.entity.Contest">
-      
+      insert into Contest(title,content,startDate,endDate,writerName)
+      values(#{title},#{content},#{startDate},#{endDate},#{writerName})
    	</insert>
+
+	<update id="update" parameterType="com.ggiriggiri.web.entity.Contest">
+		update Contest
+ 		set
+ 			title = #{title},
+ 			content = #{content},
+ 			hit = #{hit},
+ 			startDate = #{startDate},
+ 			endDate = #{endDate}
+		where id = #{id}
+	</update>
 
 	<select id="get" resultType="com.ggiriggiri.web.entity.Contest">
 		select * from Contest where id=${id}
@@ -41,5 +53,9 @@
 			where BINARY ${param1} like '%${param2}%'
 		</if>
 	</select>
+	
+	<delete id="delete">
+		delete from Contest where id=#{id}
+	</delete>
 	
 </mapper>

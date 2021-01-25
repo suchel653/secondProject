@@ -32,5 +32,15 @@ public class MybatisProjectLanguageDao implements ProjectLanguageDao{
 		return mapper.getListByProjectId(id);
 	}
 
+
+	@Override
+	public int[] getByProjectIds(int[] skProjectIds, String[] language) {
+		
+		if(language.length==0)
+			language = null;
+		
+		return mapper.getByProjectIds(skProjectIds, language);
+	}
+
 	
 }

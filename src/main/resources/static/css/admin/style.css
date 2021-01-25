@@ -25,3 +25,9 @@ body {
 .d-none {
   display: none;
 }
+
+.current{
+  color: palevioletred;
+  font-weight: 700;
+  font-style: italic;
+}

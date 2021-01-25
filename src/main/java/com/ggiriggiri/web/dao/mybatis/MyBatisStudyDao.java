@@ -24,11 +24,11 @@ public class MyBatisStudyDao implements StudyDao{
 		
 	}
 
-	@Override
-	public List<Study> getList(int offset, int size, String field, String query) {
-		// TODO Auto-generated method stub
-		return mapper.getList(offset, size, field, query);
-	}
+//	@Override
+//	public List<Study> getList(int offset, int size, String field, String query) {
+//		// TODO Auto-generated method stub
+//		return mapper.getList(offset, size, field, query);
+//	}
 
 	@Override
 	public int insert(Study study) {
@@ -54,11 +54,11 @@ public class MyBatisStudyDao implements StudyDao{
 		return mapper.get(id);
 	}
 
-	@Override
-	public int getCount(String field, String query) {
-		// TODO Auto-generated method stub
-		return mapper.getCount(field, query);
-	}
+//	@Override
+//	public int getCount(String field, String query) {
+//		// TODO Auto-generated method stub
+//		return mapper.getCount(field, query);
+//	}
 
 	@Override
 	public Study getPrev(Integer id) {
@@ -74,8 +74,7 @@ public class MyBatisStudyDao implements StudyDao{
 
 	@Override
 	public List<StudyView> getViewList(int[] ids,int offset, int size, String title, String query) {
-		for(int i=0; i<ids.length; i++)
-			System.out.println(ids[i]);		
+		
 		return mapper.getViewList(ids,offset, size, title, query);
 	}
 
@@ -84,6 +83,19 @@ public class MyBatisStudyDao implements StudyDao{
 		if(field.length==0)
 			field=null;
 		return mapper.getByStudyIds(field);
+	}
+
+
+	@Override
+	public int getCount(int[] ids, String title, String query) {
+		// TODO Auto-generated method stub
+		return mapper.getCount(ids, title, query);
+	}
+
+	@Override
+	public StudyView getView(int id) {
+		// TODO Auto-generated method stub
+		return mapper.getView(id);
 	}
 
 	

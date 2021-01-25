@@ -16,6 +16,7 @@ public interface ProjectService {
 	int delete(int id);
 	
 	Project get(int id);
+	ProjectView getView(int id);
 	
 	List<Project> getList(int page, int size, String field, String query);
 	List<ProjectView> getViewList(int page, int size, String title, String query, String[] field, String[] skill,

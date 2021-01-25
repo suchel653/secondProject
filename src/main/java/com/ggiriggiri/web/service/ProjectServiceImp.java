@@ -80,9 +80,19 @@ public class ProjectServiceImp implements ProjectService{
 	public List<ProjectView> getViewList(int page, int size, String title, String query, String[] field, String[] skill,
 			String[] language) {
 		
-		int offset = (page-1)*10;
+		int[] fdProjectIds = projectDao.getByProjectIds(field);
+		if(fdProjectIds.length==0)
+			return null;
+		int[] skProjectIds = projectSkilldao.getByProjectIds(fdProjectIds,skill);
+		if(skProjectIds.length==0)
+			return null;
+		int[] ids = projectLanguageDao.getByProjectIds(skProjectIds,language);
+		if(ids.length==0)
+			return null;
 		
-		List<ProjectView> list = projectDao.getViewList(offset, size, title, query,field);
+		
+		int offset = (page-1)*10;
+		List<ProjectView> list = projectDao.getViewList(ids, offset, size, title, query);
 		
 		for(ProjectView p : list) {
 			p.setSkills(projectSkilldao.getListByProjectId(p.getId()));
@@ -90,5 +100,21 @@ public class ProjectServiceImp implements ProjectService{
 		}
 			
 		return list;
+	}
+
+	@Override
+	public ProjectView getView(int id) {
+		
+		ProjectView pv = projectDao.getView(id);
+		
+		Project p = projectDao.get(id);
+		
+		p.setLanguages(projectLanguageDao.getListByProjectId(p.getId()));
+		p.setSkills(projectSkilldao.getListByProjectId(p.getId()));
+		
+		System.out.println(p.toString());
+		System.out.println(pv.toString());
+		
+		return pv;
 	}
 }

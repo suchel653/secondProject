@@ -43,7 +43,7 @@ public class ProjectController {
 			Model model) {
 		
 		int size = 10;
-		List<ProjectView> list =service.getViewList(page,size,title,query,field,skill,language);
+		List<ProjectView> list = service.getViewList(page,size,title,query,field,skill,language);
 		
 		int count = service.getCount(title,query);
 		int pageCount = (int)Math.ceil(count / (float)size);
@@ -51,23 +51,27 @@ public class ProjectController {
 		model.addAttribute("page", page);
 		model.addAttribute("pageCount", pageCount);
 		
-		List<Field> fdList = fdService.getList(1, 10);
-		List<Skill> skList = skService.getList(1, 10);
-		List<Language> lgList = lgService.getList(1, 10);
+		List<Field> fdList = fdService.getList(1, 100);
+		List<Skill> skList = skService.getList(1, 100);
+		List<Language> lgList = lgService.getList(1, 100);
 		
 		model.addAttribute("f", fdList);
 		model.addAttribute("s", skList);
 		model.addAttribute("l", lgList);
+		
 		model.addAttribute("list", list);
 		
 		return "admin.project.list";
 	}
 	
+	
 	@RequestMapping("{id}") 
 	public String detail(Model model, @PathVariable("id") int id) {
 		
-		Project project = service.get(id);
+		ProjectView project = service.getView(id);
+		Project p = service.get(id);
 		
+		model.addAttribute("p",p);
 		model.addAttribute("pj",project);
 		
 		return "admin.project.detail";
