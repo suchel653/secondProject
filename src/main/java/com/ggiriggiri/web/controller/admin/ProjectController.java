@@ -69,7 +69,9 @@ public class ProjectController {
 	public String detail(Model model, @PathVariable("id") int id) {
 		
 		ProjectView project = service.getView(id);
+		Project p = service.get(id);
 		
+		model.addAttribute("p",p);
 		model.addAttribute("pj",project);
 		
 		return "admin.project.detail";

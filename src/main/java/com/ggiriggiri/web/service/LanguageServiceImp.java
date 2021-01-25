@@ -75,4 +75,9 @@ public class LanguageServiceImp implements LanguageService {
 		return languageDao.getCount();
 	}
 
+	@Override
+	public List<Language> getList() {
+		return languageDao.getList();
+	}
+
 }

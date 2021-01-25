@@ -36,6 +36,11 @@ public class SkillServiceImp implements SkillService {
 	}
 
 	@Override
+	public List<Skill> getList() {
+		return skillDao.getList();
+	}
+
+	@Override
 	public List<Skill> getList(int page, int size) {
 
 		int offset = (page - 1) * size;
@@ -73,7 +78,7 @@ public class SkillServiceImp implements SkillService {
 
 	@Override
 	public int getCount() {
-		return skillDao.getCount();		
+		return skillDao.getCount();
 	}
 
 }

@@ -10,10 +10,10 @@ import com.ggiriggiri.web.dao.SkillDao;
 import com.ggiriggiri.web.entity.Skill;
 
 @Repository
-public class MybatisSkillDao implements SkillDao{
-	
+public class MybatisSkillDao implements SkillDao {
+
 	private SkillDao mapper;
-	
+
 	@Autowired
 	public MybatisSkillDao(SqlSession session) {
 		mapper = session.getMapper(SkillDao.class);
@@ -37,6 +37,11 @@ public class MybatisSkillDao implements SkillDao{
 	@Override
 	public Skill get(int id) {
 		return mapper.get(id);
+	}
+
+	@Override
+	public List<Skill> getList() {
+		return mapper.getList();
 	}
 
 	@Override

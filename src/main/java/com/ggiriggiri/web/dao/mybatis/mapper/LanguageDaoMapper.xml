@@ -13,7 +13,9 @@
 	<select id="getList" resultType="com.ggiriggiri.web.entity.Language">
 		select * from Language
 		order by id desc
-		limit #{param2} offset #{param1};
+		<if test="param2 != null">
+			limit #{param2} offset #{param1};
+		</if>
 	</select>
 	
 	<select id="getCount" resultType="int">

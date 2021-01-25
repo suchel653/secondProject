@@ -38,6 +38,11 @@ public class MybatisLanguageDao implements LanguageDao {
 	public Language get(int id) {
 		return mapper.get(id);
 	}
+	
+	@Override
+	public List<Language> getList() {
+		return mapper.getList();
+	}
 
 	@Override
 	public List<Language> getList(int offset, int size) {
