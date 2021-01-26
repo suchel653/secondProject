@@ -11,7 +11,7 @@
 	                       
                            <tr>
 		                        <td>
-			                        <img src="${pj.image }" style="width:300px; height:300px;"></img>
+			                        <img src="/images/language/${pj.image }" style="width:300px; height:300px;"></img>
 		                        </td>
 	                            <td>번호</td>
 	                            <td>제목</td>
@@ -35,13 +35,19 @@
 								<td>${pj.title}</td>
 								<td>${pj.fieldName }</td>
 								<td>
-									<c:forEach var="s" items="${p.skills }">
-									 ${s.skillName } /
+									<c:forEach var="s" items="${pj.skills }" varStatus="st">
+									 ${s.skillName } 
+									<c:if test="${!st.last }">
+										/
+									 </c:if>
 									</c:forEach>
 								</td>
 								<td>
-									<c:forEach var="l" items="${p.languages }">
-									 ${l.languageName } /
+									<c:forEach var="l" items="${pj.languages }" varStatus="st">
+									 ${l.languageName } 
+									 <c:if test="${!st.last }">
+									 	/
+									 </c:if>
 									</c:forEach>
 								</td>
 								<td>${pj.requirement }</td>

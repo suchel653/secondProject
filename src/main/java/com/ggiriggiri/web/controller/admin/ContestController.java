@@ -2,11 +2,11 @@ package com.ggiriggiri.web.controller.admin;
 
 import java.io.File;
 import java.io.IOException;
-import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -65,7 +65,7 @@ public class ContestController {
 			@RequestParam("title") String title,
 			@RequestParam("content") String content,
 			MultipartHttpServletRequest mtfRequest
-			) throws ParseException, IllegalStateException, IOException {
+			) throws ParseException, IllegalStateException, IOException{
 	
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
@@ -75,36 +75,53 @@ public class ContestController {
 		int newId = service.getLastId()+1;
 		
 		Contest contest = new Contest(newId,"aaa",title,content,startDate,endDate);
+		service.insert(contest);
 		
-		List<ContestFile> contestFileList = null;
-		List<ContestImage> contestimgList = null;
+//		List<ContestFile> contestFileList = null;
+//		List<ContestImage> contestimgList = null;
 		
 		List<MultipartFile> fileList = mtfRequest.getFiles("files");
 		List<MultipartFile> imgList = mtfRequest.getFiles("imgs");
 		
-		String filePath = "C:/Users/1223s/Tool/test/file";
-		String imgPath = "C:/Users/1223s/Tool/test/img";
+		String url = "/images/";
+		String realPath = mtfRequest.getServletContext().getRealPath(url);
+		
+		String filePath = realPath + "contestFile/"+newId;
+		String imgPath = realPath + "contestImg/"+newId;
+		
+		File realPathFile = new File(filePath);
+		File realPathImgFile = new File(imgPath);
+		
+		if (!realPathFile.exists())
+			realPathFile.mkdir();
+
+		if (!realPathImgFile.exists())
+			realPathImgFile.mkdir();
+
 		
 		for(MultipartFile mf : fileList) {
-			String file = filePath  + File.separator + mf.getOriginalFilename();
+			String file = filePath + File.separator + mf.getOriginalFilename();
 			mf.transferTo(new File(file));
 
 			ContestFile contestFile = new ContestFile(newId,mf.getOriginalFilename());
-			contestFileList.add(contestFile);
+			service.insertFile(contestFile);
+//			contestFileList.add(contestFile);
+			
 		}
 		
 		for(MultipartFile mf : imgList) {
-			String file = imgPath  + File.separator + mf.getOriginalFilename();
+			String file = imgPath + File.separator + mf.getOriginalFilename();
 			mf.transferTo(new File(file));
 			
 			ContestImage contestImg = new ContestImage(newId,mf.getOriginalFilename());
-			contestimgList.add(contestImg);
+			service.insertImg(contestImg);
+//			contestimgList.add(contestImg);
 		}
 		
-		contest.setContestFiles(contestFileList);
-		contest.setContestImages(contestimgList);
+//		contest.setContestFiles(contestFileList);
+//		contest.setContestImages(contestimgList);
 		
-		service.insert(contest);
+		
 
 		return "redirect:list";
 	}
@@ -113,8 +130,12 @@ public class ContestController {
 	public String detail(Model model,@PathVariable("id") Integer id) {
 		
 		Contest c = service.get(id);
+		Contest prev = service.getPrev(id);
+		Contest next = service.getNext(id);
 		
 		model.addAttribute("c",c);
+		model.addAttribute("prev", prev);
+		model.addAttribute("next", next);
 		
 		return "admin.contest.detail";
 	}

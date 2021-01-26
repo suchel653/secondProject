@@ -95,13 +95,17 @@
 								<td><a href="${pj.id }">${pj.title}</a></td>
 								<td>${pj.fieldName}</td>
 								<td>
-									<c:forEach var="sk" items="${pj.skills}"> 
+									<c:forEach var="sk" items="${pj.skills}" varStatus="st"> 
 	                                ${sk.skillName}
+	                                <c:if test="${!st.last }">
+									 	/
+									 </c:if>
 	                                </c:forEach> 
                                 </td>
                                 <td> 
-	                                <c:forEach var="l" items="${pj.languages}"> 
+	                                <c:forEach var="l" items="${pj.languages}" varStatus="st"> 
 	                                ${l.languageName} 
+	                                <c:if test="${!st.last }">/</c:if>
 	                                </c:forEach>
 	                                </td>
 								<td>${pj.requirement }</td>
@@ -124,6 +128,7 @@
                 </section>
                 
                 <c:set var="startNum" value="${page-(page-1)%5 }"></c:set>
+                
                 <div class="pager">
                     <div>
 						<a href="?p=1&f=${param.f}&q=${param.q }"><i class="fas fa-angle-double-left"></i></a>
@@ -143,7 +148,7 @@
                     <ul>
 	                    <c:forEach var="i" begin="0" end="4">
 	                    <c:if test="${i+startNum <= pageCount}">
-	                    	<li><a href="?p=${i+startNum}&f=${param.f }&q=${param.q }">${i+startNum}</a></li>
+	                    	<li><a class="${i+startNum==page? 'current':'' }" href="?p=${i+startNum}&f=${param.f }&q=${param.q }">${i+startNum}</a></li>
 	                    </c:if>
 	                    </c:forEach>
                     </ul>

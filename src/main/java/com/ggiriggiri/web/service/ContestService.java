@@ -21,4 +21,8 @@ public interface ContestService {
 	
 	int getCount(String field,String query);
 	int getLastId();
+	int insertFile(ContestFile contestFile);
+	int insertImg(ContestImage contestImg);
+	Contest getPrev(Integer id);
+	Contest getNext(Integer id);
 }
