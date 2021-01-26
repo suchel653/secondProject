@@ -69,8 +69,8 @@
                 </section>
 
                 <section>
-                    <div class="">
-                        <table border="1">
+                    <div>
+                        <table class= "table" border="1">
                         <thead>
                             <tr>
                             <td>번호</td>
@@ -87,7 +87,7 @@
                             </tr>
                          </thead>
                          
-                         <tbody>
+                         <tbody class="tbody">
                          
                          <c:forEach var="pj" items="${list }">
 							<tr>
