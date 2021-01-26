@@ -2,12 +2,10 @@ window.addEventListener("load", (e) => {
 
 	const main = document.querySelector(".main");
 	const addBtn = main.querySelector(".addBtn");
-	const tbody = main.querySelector(".list-table tbody");
-	let count = 0;
+	const tbody = main.querySelector(".tbody");
 
 	// 추가 버튼 이벤트
 	addBtn.onclick = () => {
-		count++;
 
 		let tr = `<tr>
 					  <td></td>
@@ -23,13 +21,25 @@ window.addEventListener("load", (e) => {
 	};
 
 	// 수정 이벤트 발생 시
-	tbody.addEventListener("change", function(e) {
+	tbody.addEventListener("change", e => {
 		if (e.target.name != "newNames" && e.target.name != "del" && e.target.name != "file") {
 			e.target.name = "changedNames";
 			e.target.previousElementSibling.name = "changedIds";
 		}
 	});
 	
-	
+	tbody.addEventListener("click", (e) => {
+		console.log(e);
+		//console.log(e.target);
+		if(e.target.tagName == 'IMG'){
+			console.log("헤헤");
+			let td = `<td>
+	                    <input type="text" name="newNames">
+	                  </td>`;
+			e.target.insertAdjacentHTML('afterbegin', td);
+			e.target.parentElement.remove();
+			
+		}
+	});
 
 });

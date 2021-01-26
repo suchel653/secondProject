@@ -23,4 +23,6 @@ public interface ProjectService {
 			String[] language);
 	
 	int getCount(String field, String query);
+	ProjectView getPrev(int id);
+	ProjectView getNext(int id);
 }

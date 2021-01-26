@@ -2,70 +2,90 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-	<main id="main" class="main">
-                <h1 class="d-none">메인이다</h1>
-                
-                <section>
-                        <table border="1">
-                        <thead>
-	                       
-                           <tr>
-		                        <td>
-			                        <img src="/images/language/${pj.image }" style="width:300px; height:300px;"></img>
-		                        </td>
-	                            <td>번호</td>
-	                            <td>제목</td>
-	                            <td>분야</td>
-	                            <td>기술</td>
-	                            <td>언어</td>
-	                            <td>요구사항</td>
-	                            <td>인원</td>
-	                            <td>진행일</td>
-	                            <td>상태</td>
-	                            <td>작성자</td>
-	                            <td>등록일</td>
-	                            <td>내용</td>
-                           </tr>
-                         </thead>
-                         
-                         <tbody>
-							<tr>
-								<td></td>
-								<td>${pj.id}</td>
-								<td>${pj.title}</td>
-								<td>${pj.fieldName }</td>
-								<td>
-									<c:forEach var="s" items="${pj.skills }" varStatus="st">
-									 ${s.skillName } 
-									<c:if test="${!st.last }">
-										/
-									 </c:if>
-									</c:forEach>
-								</td>
-								<td>
-									<c:forEach var="l" items="${pj.languages }" varStatus="st">
-									 ${l.languageName } 
-									 <c:if test="${!st.last }">
-									 	/
-									 </c:if>
-									</c:forEach>
-								</td>
-								<td>${pj.requirement }</td>
-								<td>${pj.limitNumber }</td>
-								<td>
-	                             	<fmt:formatDate value="${pj.startDate}" pattern="yyyy-MM-dd"/>~
-	                                <fmt:formatDate value="${pj.endDate }" pattern="yyyy-MM-dd"/>
-                            	</td>
-								<td>${pj.statusName }</td>
-								<td>${pj.leaderName }</td>
-								<td>
-									<fmt:formatDate value="${pj.regDate }" pattern="yyyy-MM-dd"/>
-								</td>
-								<td>${pj.content }</td>
-							</tr>
-                         </tbody>
-                        </table>
-                </section>
-                
+
+	<main id="main" class="main detail">
+			<h1 class="d-none">메인이다</h1>
+			
+			<section>
+				<h1>${pj.title}</h1>
+
+				<div class="detail-container">
+					<img src="/images/language/${pj.image }" style="width:300px; height:300px;"></img>
+					<table border="1">
+						<tbody>
+						<tr>
+							<th>분야 : </th><td >${pj.fieldName }</td>
+						</tr>
+						<tr>
+							<th>기술 : </th>
+							<td>
+								<c:forEach var="s" items="${pj.skills }" varStatus="st">
+								${s.skillName } 
+								<c:if test="${!st.last }">
+									/
+								</c:if>
+								</c:forEach>
+							</td>
+						</tr>
+						<tr>
+							<th>언어 : </th>
+							<td>
+								<c:forEach var="l" items="${pj.languages }" varStatus="st">
+								${l.languageName } 
+								<c:if test="${!st.last }">
+									/
+								</c:if>
+								</c:forEach>
+							</td>
+						</tr>
+						<tr>
+							<th>인원 : </th>
+							<td >${pj.limitNumber }</td>
+						</tr>
+						<tr>
+							<th>요구사항 :</th>
+							<td >${pj.requirement }</td>
+						</tr>
+						<tr>
+							<th>진행일 : </th>
+							<td >
+								<fmt:formatDate value="${pj.startDate}" pattern="yyyy-MM-dd"/>~
+								<fmt:formatDate value="${pj.endDate }" pattern="yyyy-MM-dd"/>
+							</td>
+						</tr>
+						<tr>
+							<th>상태 : </th><td >${pj.statusName }</td>
+						</tr>
+						<tr>
+							<th>작성자 : </th><td >${pj.leaderName }</td>
+						</tr>
+						<tr>
+							<th>등록일  :</th>
+							<td >
+								<fmt:formatDate value="${pj.regDate }" pattern="yyyy-MM-dd"/>
+							</td>
+						</tr>
+						</tbody>
+						</table>
+					</div>
+					
+					<div class="content" >${pj.content }</div>
+			
+                <div class="btn prev-next-btn">
+	                <a class="button searchBtn" href="list">목록</a>
+	                <c:if test="${empty prev }">
+	                <a class="button searchBtn" >이전</a>
+	                </c:if>
+	                <c:if test="${not empty prev}">
+	                <a class="button searchBtn" href="${prev.id}">이전</a>
+	                </c:if>
+	                <c:if test="${empty next }">
+	                <a class="button searchBtn" >다음</a>
+	                </c:if>
+	                <c:if test="${not empty next }">
+	                <a class="button searchBtn" href="${next.id }">다음</a>
+	                </c:if>
+                </div>
+			</section>
                 
             </main>
