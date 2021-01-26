@@ -8,8 +8,10 @@
 }
 .table th,td{
 	 border-bottom: 1px solid #444444;
-    padding: 10px;
+	 padding:10px;
+
     text-align: center;
+    align-content: center;
 	
 }
 /* 테이블 헤드 */
