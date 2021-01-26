@@ -2,64 +2,90 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-	<main id="main" class="main">
-                <h1 class="d-none">메인이다</h1>
-                
-                <section>
-                        <table border="1">
-                        <thead>
-	                       
-                           <tr>
-		                        <td>
-			                     <img src="/images/language/${s.image}" style="width:300px; height:300px;"></img>
-		                        </td>
-	                            <td>번호</td>
-	                            <td>제목</td>
-	                            <td>분야</td>
-	                            <td>기술</td>
-	                            <td>언어</td>
-	                            <td>요구사항</td>
-	                            <td>인원</td>
-	                            <td>진행일</td>
-	                            <td>상태</td>
-	                            <td>작성자</td>
-	                            <td>등록일</td>
-	                            <td>내용</td>
-                           </tr>
-                         </thead>
-                         
-                         <tbody>
-							<tr>
-								<td></td>
-								<td>${s.id}</td>
-								<td>${s.title}</td>
-								<td>${s.fieldName }</td>
-								<td>
-									<c:forEach var="s" items="${s.skill}">
-									 ${s.skillName } /
-									</c:forEach>
-								</td>
-								<td>
-									<c:forEach var="l" items="${s.language }">
-									 ${l.languageName } /
-									</c:forEach>
-								</td>
-								<td>${s.requirement }</td>
-								<td>${s.limitNumber }</td>
-								<td>
-	                             	<fmt:formatDate value="${s.startDate}" pattern="yyyy-MM-dd"/>~
-	                                <fmt:formatDate value="${s.endDate }" pattern="yyyy-MM-dd"/>
-                            	</td>
-								<td>${s.statusName }</td>
-								<td>${s.leaderName }</td>
-								<td>
-									<fmt:formatDate value="${s.regDate }" pattern="yyyy-MM-dd"/>
-								</td>
-								<td>${s.content }</td>
-							</tr>
-                         </tbody>
-                        </table>
-                </section>
-                
+
+	<main id="main" class="main detail">
+			<h1 class="d-none">메인이다</h1>
+			
+			<section>
+				<h1>${s.title}</h1>
+
+				<div class="detail-container">
+					<img src="/images/language/${s.image }" style="width:300px; height:300px;"></img>
+					<table border="1">
+						<tbody>
+						<tr>
+							<th>분야 : </th><td >${s.fieldName }</td>
+						</tr>
+						<tr>
+							<th>기술 : </th>
+							<td>
+								<c:forEach var="s" items="${s.skill }" varStatus="st">
+								${s.skillName } 
+								<c:if test="${!st.last }">
+									/
+								</c:if>
+								</c:forEach>
+							</td>
+						</tr>
+						<tr>
+							<th>언어 : </th>
+							<td>
+								<c:forEach var="l" items="${s.language }" varStatus="st">
+								${l.languageName } 
+								<c:if test="${!st.last }">
+									/
+								</c:if>
+								</c:forEach>
+							</td>
+						</tr>
+						<tr>
+							<th>인원 : </th>
+							<td >${s.limitNumber }</td>
+						</tr>
+						<tr>
+							<th>요구사항 :</th>
+							<td >${s.requirement }</td>
+						</tr>
+						<tr>
+							<th>진행일 : </th>
+							<td >
+								<fmt:formatDate value="${s.startDate}" pattern="yyyy-MM-dd"/>~
+								<fmt:formatDate value="${s.endDate }" pattern="yyyy-MM-dd"/>
+							</td>
+						</tr>
+						<tr>
+							<th>상태 : </th><td >${s.statusName }</td>
+						</tr>
+						<tr>
+							<th>작성자 : </th><td >${s.leaderName }</td>
+						</tr>
+						<tr>
+							<th>등록일  :</th>
+							<td >
+								<fmt:formatDate value="${s.regDate }" pattern="yyyy-MM-dd"/>
+							</td>
+						</tr>
+						</tbody>
+						</table>
+					</div>
+					
+					<div class="content" >${s.content }</div>
+			
+                <div class="btn prev-next-btn">
+	                <a class="button searchBtn" href="list">목록</a>
+	                <c:if test="${empty prev }">
+	                <a class="button searchBtn" >이전</a>
+	                </c:if>
+	                <c:if test="${not empty prev}">
+	                <a class="button searchBtn" href="${prev.id}">이전</a>
+	                </c:if>
+	                <c:if test="${empty next }">
+	                <a class="button searchBtn" >다음</a>
+	                </c:if>
+	                <c:if test="${not empty next }">
+	                <a class="button searchBtn" href="${next.id }">다음</a>
+	                </c:if>
+                </div>
+			</section>
                 
             </main>
