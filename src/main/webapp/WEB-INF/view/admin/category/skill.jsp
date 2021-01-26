@@ -39,8 +39,8 @@
 
 		<section>
 			<h1 class="d-none">이벤트 버튼</h1>
-			<input class="button" name="action" type="submit" value="저장">
-			<input class="button" name="action" type="submit" value="삭제">
+			<input class="button saveBtn" name="action" type="submit" value="저장">
+			<input class="button delBtn" name="action" type="submit" value="삭제">
 		</section>
 	</form>
 

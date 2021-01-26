@@ -11,7 +11,7 @@
 	                       
                            <tr>
 		                        <td>
-			                      <%--   <img src="${s.image }" style="width:300px; height:300px;"></img> --%>
+			                     <img src="/images/language/${s.image}" style="width:300px; height:300px;"></img>
 		                        </td>
 	                            <td>번호</td>
 	                            <td>제목</td>

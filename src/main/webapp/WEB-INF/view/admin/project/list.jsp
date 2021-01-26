@@ -63,14 +63,14 @@
 						 <option value="title">제목</option>
 						 </select>
 						 <input type="text" name="q" value="" />
-						 <input type="submit" value="검색" />
+						 <input class="button searchBtn" type="submit" value="검색" />
                     </div>
                     </form>
                 </section>
 
                 <section>
-                    <div class="">
-                        <table border="1">
+                    <div>
+                        <table class= "table" border="1">
                         <thead>
                             <tr>
                             <td>번호</td>
@@ -87,7 +87,7 @@
                             </tr>
                          </thead>
                          
-                         <tbody>
+                         <tbody class="tbody">
                          
                          <c:forEach var="pj" items="${list }">
 							<tr>

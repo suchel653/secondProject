@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+/* 테이블 */
+.table{
+	width : 100%;
+	border-top: 1px solid #444444;
+	border-collapse: collapse;
+}
+.table th,td{
+	 border-bottom: 1px solid #444444;
+    padding: 10px;
+    text-align: center;
+	
+}
+/* 테이블 헤드 */
+.table thead {
+	background-color:#cacafa;
+	color: #ffffff;
+}
+/* 테이블 바디 */
+.tbody tr:nth-child(2n){
+    background-color: #e8e8ff;
+}
+.tbody tr:nth-child(2n+1){
+    background-color: #f2f2ff;
+}
