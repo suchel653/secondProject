@@ -11,6 +11,7 @@
   justify-content:flex-end;
   margin-left:100px;
   margin-top: 20px;
+  text-decoration:none;
   
 }
 .detail section h1 {
@@ -24,21 +25,21 @@
   height: 300px;
 }
 .detail section table {
-	height: 300px;
 	margin-left:70px;
 }
 .detail section table tr{
 	display:flex;
+	align-items:center;
 	width:400px;
 	border: 2px solid #dcdcdc;
 	border-radius:5px;
-	margin: 10px;
-	padding:5px;
+	margin-top: 10px;
 	background:#F0FFF0;
 }
 .detail table th{
 	font-weight: 600;
 	padding-left: 5px;
+	text-decoration: none;
 	
 }
 .detail table td{
@@ -53,4 +54,16 @@
 	margin-left: 80px;
 	margin-top:10px;
 	padding: 5px;
+}
+
+.prev-next-btn{
+	display:flex;
+	justify-content:flex-end;
+	margin-bottom:20px;
+	margin-top:20px;
+	margin-right: 60px;
+}
+.prev-next-btn a{
+	margin-left: 20px;
+	
 }
