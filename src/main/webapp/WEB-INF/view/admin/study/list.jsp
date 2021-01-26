@@ -104,11 +104,11 @@
             </section>
 
                 <section>
-                    <h1 class="d-none">테이블</h1>
-                    <table class="list-table" border="1">
+                    
+                    <table class="table" border="1">
                         <thead>
                             <tr>
-                                <td>아이디</td>
+                              <!--   <td>아이디</td> -->
                                 <td>제목</td>
                                 <td>필드</td>
                                 <td>스킬</td>
@@ -121,11 +121,11 @@
                             </tr>
                         </thead>
                 
-                        <tbody>
+                        <tbody class="tbody">
                         <c:forEach var ="s" items="${list}">
                         
                             <tr>        
-                                <td>${s.id}</td>
+                               <%--  <td>${s.id}</td> --%>
                                 <td><a href="${s.id}/detail">${s.title}</a></td>
                                 <td>${s.fieldName}</td>
                                 <td>
