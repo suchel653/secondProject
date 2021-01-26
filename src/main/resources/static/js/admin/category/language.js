@@ -22,24 +22,38 @@ window.addEventListener("load", (e) => {
 
 	// 수정 이벤트 발생 시
 	tbody.addEventListener("change", e => {
+
 		if (e.target.name != "newNames" && e.target.name != "del" && e.target.name != "file") {
-			e.target.name = "changedNames";
+			console.log(e.target.tagName);
 			e.target.previousElementSibling.name = "changedIds";
+			if (e.target.tagName != 'IMG' && e.target.tagName != 'INPUT') {
+				e.target.name = "changedNames";
+			}
 		}
+
 	});
-	
+
 	tbody.addEventListener("click", (e) => {
-		console.log(e);
-		//console.log(e.target);
-		if(e.target.tagName == 'IMG'){
-			console.log("헤헤");
-			let td = `<td>
-	                    <input type="text" name="newNames">
-	                  </td>`;
-			e.target.insertAdjacentHTML('afterbegin', td);
+		console.log(e.target.tagName);
+
+		if (e.target.tagName == 'IMG') {
+
+			if (!confirm('이미지를 변경하시겠습니까?'))
+				return;
+
+			let changedId = e.target.previousElementSibling.value;
+			let addNodes = `<td>
+							</td>
+								<td>
+								<input hidden type="text" name="changeFileIds" value="${changedId}"/>
+								<input type="file" name="chagedFile" />
+							</td>`;
+			e.target.parentElement.insertAdjacentHTML('afterend', addNodes);
+			e.target.parentElement.nextElementSibling.remove();
 			e.target.parentElement.remove();
-			
+
 		}
+
 	});
 
 });
