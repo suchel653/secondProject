@@ -47,27 +47,6 @@ public class StudyServiceImp implements StudyService {
 		return studyDao.get(id);
 	}
 
-//	@Override
-//	public List<Study> getList(int page, int size, String field, String query) {
-//		int offset = (page - 1) * 10;
-//		
-//		List<Study> list = studyDao.getList(offset, size, field, query);
-//		for (Study s : list) {
-////			list=studyLanguageDao.getList(s.getId());
-//
-//			s.setSkill(studySkillDao.getViewList(s.getId()));
-//			s.setLanguage(studyLanguageDao.getViewList(s.getId()));
-//
-//		}
-//
-//		return list;
-//	}
-
-//	@Override
-//	public int getCount(String field, String query) {
-//		// TODO Auto-generated method stub
-//		return studyDao.getCount(field, query);
-//	}
 
 	@Override
 	public List<StudyView> getViewList(int page, int size, String title, String query, String[] field, String[] skill,
@@ -136,6 +115,18 @@ public class StudyServiceImp implements StudyService {
 
 		
 		return study;
+	}
+
+	@Override
+	public StudyView getPrev(int id) {
+		// TODO Auto-generated method stub
+		return studyDao.getPrev(id);
+	}
+
+	@Override
+	public StudyView getNext(int id) {
+		// TODO Auto-generated method stub
+		return studyDao.getNext(id);
 	}
 
 }

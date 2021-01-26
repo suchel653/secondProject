@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ggiriggiri.web.entity.Field;
 import com.ggiriggiri.web.entity.Language;
+import com.ggiriggiri.web.entity.ProjectView;
 import com.ggiriggiri.web.entity.Skill;
 import com.ggiriggiri.web.entity.Study;
 import com.ggiriggiri.web.entity.StudyView;
@@ -67,15 +68,16 @@ public class StudyController {
 		return "admin.study.list";
 				
 	}
-	 @RequestMapping("{id}/detail")
+	 @RequestMapping("{id}")
 	  public String detail(Model model,@PathVariable("id") Integer id) {
 	      
-		   StudyView study = service.getView(id);
-		   
-		   
-		      
-		      
-		      model.addAttribute("s", study);
+		    StudyView study = service.getView(id);
+		    StudyView prev = service.getPrev(id);
+		    StudyView next = service.getNext(id);
+			
+			model.addAttribute("prev",prev);
+			model.addAttribute("next",next);
+			model.addAttribute("s",study);
 		   
 	      
 	      return "admin.study.detail";
