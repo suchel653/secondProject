@@ -4,8 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script src="/js/admin/category/language.js"></script>
 <script src="https://kit.fontawesome.com/b280fc7aa7.js" crossorigin="anonymous"></script>
-<c:set var="startNum" value="${page-(page-1)%5}" />
 
+<c:set var="startNum" value="${page-(page-1)%5}" />
 <main id="main" class="main">
 	<h1 class="d-none">Category - Languages</h1>
 
@@ -41,8 +41,8 @@
 
 		<section>
 			<h1 class="d-none">이벤트 버튼</h1>
-			<input class="button" name="action" type="submit" value="저장">
-			<input class="button" name="action" type="submit" value="삭제">
+			<input class="button saveBtn" name="action" type="submit" value="저장">
+			<input class="button delBtn" name="action" type="submit" value="삭제">
 		</section>
 	</form>
 

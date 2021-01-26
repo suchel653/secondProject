@@ -63,7 +63,7 @@
 						 <option value="title">제목</option>
 						 </select>
 						 <input type="text" name="q" value="" />
-						 <input type="submit" value="검색" />
+						 <input class="button searchBtn" type="submit" value="검색" />
                     </div>
                     </form>
                 </section>
