@@ -5,62 +5,63 @@
 
 <mapper namespace="com.ggiriggiri.web.dao.StudyDao">
 
- <select id="getViewList" resultType="com.ggiriggiri.web.entity.StudyView">
+	<select id="getViewList"
+		resultType="com.ggiriggiri.web.entity.StudyView">
 		select * from StudyView
 		<if test="title !=null">
-		where BINARY ${title} like '%${query}%'
+			where BINARY ${title} like '%${query}%'
 		</if>
-		
-			and id in
-		<if test="ids != null">
-		<foreach item="id" index="index" collection="ids"
-   			open="(" separator="," close=")">
-   			#{id}
-   		</foreach>
-   		</if>
-   		
-   		<if test="ids == null">
-   			(0)
-   		</if>
-		order by regdate desc
-      limit #{size} offset #{offset}
-      </select>
-      
-      
-      <select id="getByStudyIds" resultType="int">
-      	select id from StudyView 
-      	<if test="field !=null">
-			where fieldName in 
-		<foreach item="fd" index="index" collection="field"
-   			open="(" separator="," close=")">
-   			#{fd}
-   		</foreach>
-   		</if>
-      </select>
 
-<select id="getCount" resultType="int">
+		and id in
+		<if test="ids != null">
+			<foreach item="id" index="index" collection="ids" open="("
+				separator="," close=")">
+				#{id}
+			</foreach>
+		</if>
+
+		<if test="ids == null">
+			(0)
+		</if>
+		order by regdate desc
+		limit #{size} offset #{offset}
+	</select>
+
+
+	<select id="getByStudyIds" resultType="int">
+		select id from StudyView
+		<if test="field !=null">
+			where fieldName in
+			<foreach item="fd" index="index" collection="field" open="("
+				separator="," close=")">
+				#{fd}
+			</foreach>
+		</if>
+	</select>
+
+	<select id="getCount" resultType="int">
 		select count(id) from StudyView
 		<if test="title !=null">
-		where BINARY ${title} like '%${query}%'
+			where BINARY ${title} like '%${query}%'
 		</if>
-		
-			and id in
+
+		and id in
 		<if test="ids != null">
-		<foreach item="id" index="index" collection="ids"
-   			open="(" separator="," close=")">
-   			#{id}
-   		</foreach>
-   		</if>
-   		
-   		<if test="ids == null">
-   			(0)
-   		</if>
-		
-      </select>
-      
-      <select id="getView" resultType="com.ggiriggiri.web.entity.StudyView">
-      	select * from StudyView 
-      	where id = ${id}
-      </select>
+			<foreach item="id" index="index" collection="ids" 
+			open="(" separator="," close=")">
+				#{id}
+			</foreach>
+		</if>
+
+		<if test="ids == null">
+			(0)
+		</if>
+	</select>
+
+	<select id="getView"
+		resultType="com.ggiriggiri.web.entity.StudyView">
+		select * from StudyView
+		where id = ${id}
+	</select>
 
 </mapper>
