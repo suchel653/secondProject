@@ -15,7 +15,7 @@
 
 			<input class="button addBtn" type="button" value="+ Add">
 
-			<table class="list-table">
+			<table class="table">
 				<thead>
 					<tr>
 						<td>번호</td>
@@ -24,7 +24,7 @@
 					</tr>
 				</thead>
 
-				<tbody>
+				<tbody class="tbody">
 					<c:forEach var="s" items="${list}">
 						<tr>
 							<td>${s.id}</td>

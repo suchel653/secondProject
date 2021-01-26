@@ -2,7 +2,7 @@ window.addEventListener("load", (e) => {
 
 	const main = document.querySelector(".main");
 	const addBtn = main.querySelector(".addBtn");
-	const tbody = main.querySelector(".list-table tbody");
+	const tbody = main.querySelector(".tbody");
 
 	// 추가 버튼 이벤트
 	addBtn.onclick = () => {
