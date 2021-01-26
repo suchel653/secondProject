@@ -8,6 +8,12 @@
 <!-- 루트로부터 시작되는 페이지이기 때문에 앞에 home을 붙여서 구분함. 
 	*.* = > 모든 경로 지정 되기때문
  -->
+ 
+  <definition name="home.admin.login" template="/WEB-INF/view/admin/login.jsp">
+    <put-attribute name="title" value="Tiles tutorial homepage" />
+   
+  </definition>
+  
   <definition name="home.admin.index" template="/WEB-INF/view/admin/index.jsp">
     <put-attribute name="title" value="Tiles tutorial homepage" />
     <put-attribute name="header" value="/WEB-INF/view/admin/inc/header.jsp" />
