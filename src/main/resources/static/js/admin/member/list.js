@@ -13,7 +13,7 @@ window.addEventListener("load",function(){
 		let id = e.target.parentElement.previousElementSibling.innerText;
 		console.log(id);
 		
-		win = open("/admin/member/"+id,"_blank","width = 800px, height = 700px");
+		win = open("/admin/member/"+id,"_blank","width = 900px, height = 700px");
 		
 	});
 });

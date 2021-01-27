@@ -8,17 +8,19 @@ public class Member {
 	private String nickname;
 	private String password;
 	private Date regDate;
+	private Profile profile;
 	
 	public Member() {
 	}
 	
-	public Member(int id, String email, String nickname, String password, Date regDate) {
+	public Member(int id, String email, String nickname, String password, Date regDate, Profile profile) {
 		super();
 		this.id = id;
 		this.email = email;
 		this.nickname = nickname;
 		this.password = password;
 		this.regDate = regDate;
+		this.profile = profile;
 	}
 
 	public int getId() {
@@ -61,10 +63,20 @@ public class Member {
 		this.regDate = regDate;
 	}
 
+	public Profile getProfile() {
+		return profile;
+	}
+
+	public void setProfile(Profile profile) {
+		this.profile = profile;
+	}
+
 	@Override
 	public String toString() {
 		return "Member [id=" + id + ", email=" + email + ", nickname=" + nickname + ", password=" + password
-				+ ", regDate=" + regDate + "]";
+				+ ", regDate=" + regDate + ", profile=" + profile + "]";
 	}
+
+	
 	
 }
