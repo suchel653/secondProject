@@ -40,9 +40,9 @@ public class ProjectController {
 			@RequestParam(name="l", defaultValue = "") String[] language,
 			@RequestParam(name="t", defaultValue="title") String title, 
 			@RequestParam(name="q", defaultValue = "") String query,
+			@RequestParam(name="size", defaultValue = "10") int size,
 			Model model) {
 		
-		int size = 10;
 		List<ProjectView> list = service.getViewList(page,size,title,query,field,skill,language);
 		
 		int count = service.getCount(title,query);
@@ -69,7 +69,11 @@ public class ProjectController {
 	public String detail(Model model, @PathVariable("id") int id) {
 		
 		ProjectView project = service.getView(id);
+		ProjectView prev = service.getPrev(id);
+		ProjectView next = service.getNext(id);
 		
+		model.addAttribute("prev",prev);
+		model.addAttribute("next",next);
 		model.addAttribute("pj",project);
 		
 		return "admin.project.detail";

@@ -20,8 +20,8 @@
                                 <option value="endDate">마감일</option>
                             </select>
                             <input type="text" name="q">
+	                        <input type="submit" value="검색">
                         </div>
-                        <input type="submit" value="검색">
 
                     </form>
                 </section>

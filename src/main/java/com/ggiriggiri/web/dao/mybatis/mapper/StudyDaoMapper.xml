@@ -63,5 +63,19 @@
 		select * from StudyView
 		where id = ${id}
 	</select>
+	
+		<select id="getPrev" resultType="com.ggiriggiri.web.entity.StudyView">
+		select * from StudyView where id &lt;
+			(select id from StudyView where id=#{id})
+			order by id desc
+			limit 1;
+	</select>
+	
+	<select id="getNext" resultType="com.ggiriggiri.web.entity.StudyView">
+		select * from StudyView where id &gt;
+			(select id from StudyView where id=#{id})
+			order by id asc
+			limit 1;
+	</select>
 
 </mapper>

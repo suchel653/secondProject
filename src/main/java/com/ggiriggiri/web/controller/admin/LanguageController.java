@@ -40,30 +40,28 @@ public class LanguageController {
 		model.addAttribute("pageCount", pageCount);
 
 		return "admin.category.language";
+
 	}
 
 	@PostMapping("language")
 	public String actions(String action, int[] del, String[] newNames, int[] changedIds, String[] changedNames,
-			MultipartFile[] file, HttpServletRequest request) throws IllegalStateException, IOException {
+			MultipartFile[] file, int[] changedFileIds, MultipartFile[] changedFile, HttpServletRequest request)
+			throws IllegalStateException, IOException {
 
 		switch (action) {
 		case "삭제":
 			service.deleteAll(del);
 			break;
 		case "저장":
-			// 삽입
+			// 새로운 레코드 저장시
 			if (newNames != null) {
 
 				List<Language> list = new ArrayList<>();
 
 				for (int i = 0; i < newNames.length; i++) {
 
-//					String realPath = "C:/Work/Workspace2/secondProject/src/main/resources/static/images/language";
-
 					String url = "/images/language";
 					String realPath = request.getServletContext().getRealPath(url);
-					System.out.println(realPath);
-					System.out.println("file : " + file);
 
 					File realPathFile = new File(realPath);
 					if (!realPathFile.exists())
@@ -84,15 +82,50 @@ public class LanguageController {
 
 			}
 
-			// 변경사항 저장
-			if (changedIds != null) {
+			// 이름 변경시
+			if (changedNames != null) {
 				List<Language> list = new ArrayList<>();
-				for (int i = 0; i < changedIds.length; i++) {
+
+				for (int i = 0; i < changedNames.length; i++) {
 					Language l = service.get(changedIds[i]);
 					l.setName(changedNames[i]);
 					list.add(l);
 				}
+
 				service.updateList(list);
+
+			}
+
+			// 이미지 변경시
+			if (changedFile != null) {
+				System.out.println("이미지 변경");
+				List<Language> list = new ArrayList<>();
+
+				for (int i = 0; i < changedFile.length; i++) {
+
+					String url = "/images/language";
+					String realPath = request.getServletContext().getRealPath(url);
+
+					File realPathFile = new File(realPath);
+					if (!realPathFile.exists())
+						realPathFile.mkdir();
+
+					String uploadedFilePath = realPath + File.separator + changedFile[i].getOriginalFilename();
+					File uploadedFile = new File(uploadedFilePath);
+
+					changedFile[i].transferTo(uploadedFile);
+
+					Language l = service.get(changedFileIds[i]);
+					System.out.println(l);
+					l.setImage(changedFile[i].getOriginalFilename());
+					System.out.println(l);
+
+					list.add(l);
+
+				}
+
+				service.updateList(list);
+
 			}
 
 			break;
@@ -100,7 +133,7 @@ public class LanguageController {
 		}
 
 		return "redirect:language";
-		
+
 	}
 
 }

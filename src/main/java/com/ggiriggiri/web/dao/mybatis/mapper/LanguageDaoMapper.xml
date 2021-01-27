@@ -27,10 +27,11 @@
 		values(#{name}, #{image});
 	</insert>
 	
-	<update id="update" >
+	<update id="update">
 		update Language
 		set
-			name = #{name}
+			name = #{name},
+			image = #{image}
 		where id = #{id}
 	</update>
 	
