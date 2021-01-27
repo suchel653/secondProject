@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.ggiriggiri.web.entity.Language;
 import com.ggiriggiri.web.service.LanguageService;
@@ -40,41 +41,39 @@ public class LanguageController {
 		model.addAttribute("pageCount", pageCount);
 
 		return "admin.category.language";
+
 	}
 
 	@PostMapping("language")
 	public String actions(String action, int[] del, String[] newNames, int[] changedIds, String[] changedNames,
-			MultipartFile[] file, HttpServletRequest request) throws IllegalStateException, IOException {
+			MultipartFile[] files, int[] changedFileIds, MultipartHttpServletRequest mtfRequest, HttpServletRequest request)
+			throws IllegalStateException, IOException {
 
 		switch (action) {
 		case "삭제":
 			service.deleteAll(del);
 			break;
 		case "저장":
-			// 삽입
+			// 새로운 레코드 저장시
 			if (newNames != null) {
 
 				List<Language> list = new ArrayList<>();
 
 				for (int i = 0; i < newNames.length; i++) {
 
-//					String realPath = "C:/Work/Workspace2/secondProject/src/main/resources/static/images/language";
-
 					String url = "/images/language";
 					String realPath = request.getServletContext().getRealPath(url);
-					System.out.println(realPath);
-					System.out.println("file : " + file);
 
 					File realPathFile = new File(realPath);
 					if (!realPathFile.exists())
 						realPathFile.mkdir();
 
-					String uploadedFilePath = realPath + File.separator + file[i].getOriginalFilename();
+					String uploadedFilePath = realPath + File.separator + files[i].getOriginalFilename();
 					File uploadedFile = new File(uploadedFilePath);
 
-					file[i].transferTo(uploadedFile);
+					files[i].transferTo(uploadedFile);
 
-					Language l = new Language(i, newNames[i], file[i].getOriginalFilename());
+					Language l = new Language(i, newNames[i], files[i].getOriginalFilename());
 
 					list.add(l);
 
@@ -84,15 +83,49 @@ public class LanguageController {
 
 			}
 
-			// 변경사항 저장
-			if (changedIds != null) {
+			// 이름 변경시
+			if (changedNames != null) {
 				List<Language> list = new ArrayList<>();
-				for (int i = 0; i < changedIds.length; i++) {
+
+				for (int i = 0; i < changedNames.length; i++) {
 					Language l = service.get(changedIds[i]);
 					l.setName(changedNames[i]);
 					list.add(l);
 				}
+
 				service.updateList(list);
+
+			}
+			
+			List<MultipartFile> imgList = mtfRequest.getFiles("chagedFile");
+			
+			// 이미지 변경시
+			if (imgList != null) {
+				List<Language> list = new ArrayList<>();
+
+				for (int i = 0; i < imgList.size(); i++) {
+
+					String url = "/images/language";
+					String realPath = request.getServletContext().getRealPath(url);
+
+					File realPathFile = new File(realPath);
+					if (!realPathFile.exists())
+						realPathFile.mkdir();
+
+					String uploadedFilePath = realPath + File.separator + imgList.get(i).getOriginalFilename();
+					File uploadedFile = new File(uploadedFilePath);
+
+					imgList.get(i).transferTo(uploadedFile);
+
+					Language l = service.get(changedFileIds[i]);
+					l.setImage(imgList.get(i).getOriginalFilename());
+
+					list.add(l);
+
+				}
+
+				service.updateList(list);
+
 			}
 
 			break;
@@ -100,7 +133,7 @@ public class LanguageController {
 		}
 
 		return "redirect:language";
-		
+
 	}
 
 }

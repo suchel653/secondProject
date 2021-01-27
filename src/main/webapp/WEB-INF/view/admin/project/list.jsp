@@ -11,7 +11,7 @@
                 <h1 class="d-none">메인이다</h1>
                 <section>
                     <h1 class="d-none">검색폼</h1>
-                    <form action="list" method="get">
+                    <form action="list" method="get" class="search-form">
                     <table border="1">
                        <tr>
                            <th>필드</th>
@@ -58,12 +58,15 @@
                        </tr>
                     </table>
                     
-                     <div>
+                     <div class="search-query">
 	                     <select name="t">
 						 <option value="title">제목</option>
 						 </select>
 						 <input type="text" name="q" value="" />
-						 <input class="button searchBtn" type="submit" value="검색" />
+						 <select name="size">
+						 	<option value="10">10개</option>
+						 </select>
+						 <input class="button searchBtn search-btn" type="submit" value="검색" />
                     </div>
                     </form>
                 </section>

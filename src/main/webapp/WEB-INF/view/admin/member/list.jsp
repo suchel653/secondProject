@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<script src="/js/admin/member/list.js"></script>    
 			<main id="main" class="main">
                 <h1 class="d-none">메인이다</h1>
                 <section>
@@ -35,7 +36,7 @@
                         <c:forEach var="m" items="${list }">
                             <tr>
                                 <td>${m.id }</td> 
-                                <td>${m.nickname }</td>
+                                <td><a href="${m.id }/detail" class="detail">${m.nickname }</a></td>
                                 <td>${m.email }</td>
                                 <td>
                                 	<fmt:formatDate value="${m.regDate }" pattern="yyyy-MM-dd"/>	
