@@ -60,11 +60,11 @@
 				                    </tr>
 				                    <tr>
 				                    	 <th>분야:</th>
-				                    	 <td>Spring Boot</td>
+				                    	 <td>웹</td>
 				                    </tr>
 				                    <tr>
 				                    	 <th>기술:</th>
-				                    	 <td></td>
+				                    	 <td>Spring Boot</td>
 				                    </tr>
 				                    <tr>
 				                    	 <th>언어:</th>
