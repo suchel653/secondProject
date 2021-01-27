@@ -21,11 +21,12 @@
 	                   <li>
 	                   	   <a href="/admin/member/list">공모전</a>
 	                   </li>
+	                   
 	                   <li>
 	                   	   <a href="/admin/member/list">마이페이지</a>
 	                   </li>
 	                   <li>
-	                   	   <a href="/admin/member/list">나의활동</a>
+	                   	   <a href="/customer/activity/index">나의활동</a>
 	                   </li>
 	               </ul>
 	           </nav>

@@ -76,7 +76,7 @@ public class StudyServiceImp implements StudyService {
 			s.setSkill(studySkillDao.getViewList(s.getId()));
 			s.setLanguage(studyLanguageDao.getViewList(s.getId()));
 
-		}
+		} 
 
 		return list;
 	}
