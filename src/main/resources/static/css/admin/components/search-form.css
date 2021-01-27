@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+/*
+	form class = search-form
+	검색 div class = search-query 
+	submit class = search-btn
+*/
+
+.search-form{
+    display: flex;
+    flex-direction: column;
+    margin-bottom:20px;
+}
+
+.search-form table:first-child{
+	border: 5px solid transparent;
+	background-image: linear-gradient(white, white), linear-gradient(to right, #ebee48be, #eb7bd0aa, #20b5f0aa);
+	background-origin: border-box;
+	background-clip: content-box, border-box;
+	border-radius: 20px;
+}
+
+.search-form th{
+	width: 50px;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    vertical-align:middle;
+    background-image: linear-gradient(white, white), linear-gradient(to right, #ebee48be, #eb7bd0aa, #20b5f0aa);
+   	background-origin:content-box;
+    background-clip: content-box;
+}
+
+.search-form td{
+	text-align:left;
+}
+
+.search-query{
+    margin-top: 20px;
+    width: 50%;
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.search-query *{
+    width: 15%;
+    transition: 0.5s; 
+}
+
+.search-query select,
+.search-query input[type="text"]{
+	height:35px;
+	border-radius: 10px;
+    
+}
+
+.search-query input:nth-child(2){
+    width: 60%;
+    flex-grow: 1;
+    margin: 0 10px;
+   
+}
+
+.search-query select:hover,
+.search-query input[type="text"]:hover{
+	border: 2px solid transparent;
+	background-image: linear-gradient(white, white), linear-gradient(to right, #ebee48be, #eb7bd0aa, #20b5f0aa);
+	background-origin: border-box;
+	background-clip: content-box, border-box;
+}
+
+.search-query .search-btn{
+    margin-top: 5px;
+}
