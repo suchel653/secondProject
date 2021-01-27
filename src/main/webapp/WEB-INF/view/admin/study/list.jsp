@@ -38,7 +38,7 @@
                 <h1 class="d-none">메인이다</h1>
                  <section>
                 <h1 class="d-none">검색 폼</h1>
-                <form action="list" method="get">
+                <form action="list" method="get" class="search-form">
                     <table border="1">
                        <tr>
                            <th>필드</th>
@@ -85,7 +85,7 @@
                             </td>     
                        </tr>
                     </table>
-                    <div>
+                    <div class="search-query">
                        		<select name="t">
 								<option value="title">제목</option>
 							</select>
@@ -98,7 +98,7 @@
 								<option value="100" ${param.size==100?"selected":""}>100개</option>
 						
 							</select>
-							<input type="submit" value="검색" />
+							<input class="button searchBtn search-btn" type="submit" value="검색" />
                     </div>
                 </form>
             </section>
