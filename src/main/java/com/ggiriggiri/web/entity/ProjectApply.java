@@ -5,19 +5,18 @@ import java.util.Date;
 public class ProjectApply {
 	private int id; 
 	private int projectId;
-	private String memberId; 
-	private String regDate; 
+	private int memberId; 
+	private Date regDate; 
 	private String comment; 
 	private int resultStatus; 
 	private Date resultDate;
 	
 	public ProjectApply() {
-		this(0,0,null,null,null,0,null);
 	}
 	
 	
 
-	public ProjectApply(int id, int projectId, String memberId, String regDate, String comment, int resultStatus,
+	public ProjectApply(int id, int projectId, int memberId, Date regDate, String comment, int resultStatus,
 			Date resultDate) {
 		this.id = id;
 		this.projectId = projectId;
@@ -27,7 +26,6 @@ public class ProjectApply {
 		this.resultStatus = resultStatus;
 		this.resultDate = resultDate;
 	}
-
 
 
 	@Override
@@ -54,19 +52,19 @@ public class ProjectApply {
 		this.projectId = projectId;
 	}
 
-	public String getMemberId() {
+	public int getMemberId() {
 		return memberId;
 	}
 
-	public void setMemberId(String memberId) {
+	public void setMemberId(int memberId) {
 		this.memberId = memberId;
 	}
 
-	public String getRegDate() {
+	public Date getRegDate() {
 		return regDate;
 	}
 
-	public void setRegDate(String regDate) {
+	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
 

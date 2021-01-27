@@ -1,19 +1,20 @@
 package com.ggiriggiri.web.entity;
 
+import java.util.Date;
+
 public class ProjectBoard {
 	private int id;
 	private int projectId;
-	private String writerId;
-	private String regDate;
+	private int writerId;
+	private Date regDate;
 	private String title;
 	private String content;
 	
 	public ProjectBoard() {
-		this(0,0,null,null,null,null);
 	}
 
 	
-	public ProjectBoard(int id, int projectId, String writerId, String regDate, String title, String content) {
+	public ProjectBoard(int id, int projectId, int writerId, Date regDate, String title, String content) {
 		this.id = id;
 		this.projectId = projectId;
 		this.writerId = writerId;
@@ -22,8 +23,6 @@ public class ProjectBoard {
 		this.content = content;
 	}
 	
-	
-
 
 	@Override
 	public String toString() {
@@ -48,19 +47,19 @@ public class ProjectBoard {
 		this.projectId = projectId;
 	}
 
-	public String getWriterId() {
+	public int getWriterId() {
 		return writerId;
 	}
 
-	public void setWriterId(String writerId) {
+	public void setWriterId(int writerId) {
 		this.writerId = writerId;
 	}
 
-	public String getRegDate() {
+	public Date getRegDate() {
 		return regDate;
 	}
 
-	public void setRegDate(String regDate) {
+	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
 
