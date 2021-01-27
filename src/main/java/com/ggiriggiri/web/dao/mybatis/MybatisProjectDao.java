@@ -79,5 +79,15 @@ public class MybatisProjectDao implements ProjectDao {
 	public ProjectView getView(int id) {
 		return mapper.getView(id);
 	}
+
+	@Override
+	public ProjectView getPrev(int id) {
+		return mapper.getPrev(id);
+	}
+
+	@Override
+	public ProjectView getNext(int id) {
+		return mapper.getNext(id);
+	}
 	
 }

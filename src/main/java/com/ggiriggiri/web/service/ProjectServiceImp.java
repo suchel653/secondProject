@@ -83,15 +83,17 @@ public class ProjectServiceImp implements ProjectService{
 		int[] fdProjectIds = projectDao.getByProjectIds(field);
 		if(fdProjectIds.length==0)
 			return null;
+		
 		int[] skProjectIds = projectSkilldao.getByProjectIds(fdProjectIds,skill);
 		if(skProjectIds.length==0)
 			return null;
+		
 		int[] ids = projectLanguageDao.getByProjectIds(skProjectIds,language);
 		if(ids.length==0)
 			return null;
 		
 		
-		int offset = (page-1)*10;
+		int offset = (page-1) * size;
 		List<ProjectView> list = projectDao.getViewList(ids, offset, size, title, query);
 		
 		for(ProjectView p : list) {
@@ -113,5 +115,16 @@ public class ProjectServiceImp implements ProjectService{
 		
 		
 		return pv;
+	}
+
+	@Override
+	public ProjectView getPrev(int id) {
+		
+		return projectDao.getPrev(id);
+	}
+
+	@Override
+	public ProjectView getNext(int id) {
+		return projectDao.getNext(id);
 	}
 }

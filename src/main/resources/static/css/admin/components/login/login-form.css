@@ -1,0 +1,28 @@
+.login{
+    display: flex;
+  
+}
+
+.login-form{
+    display:inline-block;
+    margin : 400px;
+    margin-left: 450px;
+}
+
+.id{
+    margin-right: 16px;
+
+}
+
+.pwd{
+    margin-top: 8px;
+}
+
+.btn{
+    margin-left: 10px;
+}
+
+.kakao-login{
+	margin-top : 20px;
+	padding-left : 40px;
+}

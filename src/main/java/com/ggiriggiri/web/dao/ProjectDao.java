@@ -22,4 +22,7 @@ public interface ProjectDao {
 	
 	int[] getByProjectIds(String[] field);
 	List<ProjectView> getViewList(int[] ids ,int offset, int size, String title, String query);
+	
+	ProjectView getPrev(int id);
+	ProjectView getNext(int id);
 }

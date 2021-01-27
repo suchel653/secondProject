@@ -22,5 +22,7 @@ public interface StudyService {
 	int getCount(String title, String query, String[] field, String[] skill, String[] language);
 	
 	StudyView getView(int id);
+	StudyView getPrev(int id);
+	StudyView getNext(int id);
 
 }

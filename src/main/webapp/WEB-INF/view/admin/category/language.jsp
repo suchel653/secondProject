@@ -4,6 +4,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script src="/js/admin/category/language.js"></script>
 <script src="https://kit.fontawesome.com/b280fc7aa7.js" crossorigin="anonymous"></script>
+<!-- <script type="text/javascript">
+   $("img").click(function() {
+      $(this).replaceWith($("<input type="file" name="file" />"));
+   });
+</script> -->
 
 <c:set var="startNum" value="${page-(page-1)%5}" />
 <main id="main" class="main">
@@ -15,7 +20,7 @@
 
 			<input class="button addBtn" type="button" value="+ Add">
 
-			<table class="list-table">
+			<table class="table">
 				<thead>
 					<tr>
 						<td>번호</td>
@@ -25,13 +30,14 @@
 					</tr>
 				</thead>
 
-				<tbody>
+				<tbody class="tbody">
 					<c:forEach var="l" items="${list}">
 						<tr>
 							<td>${l.id}</td>
 							<td><input hidden type="text" name="id" value="${l.id}">
 								<input type="text" name="name" value="${l.name}"></td>
-							<td><img src="/images/language/${l.image}" width="40px" height="40px" name="image" /></td>
+							<td><input hidden type="text" name="id" value="${l.id}">
+								<img src="/images/language/${l.image}" width="40px" height="40px" name="image"/></td>
 							<td><input name="del" type="checkbox" value="${l.id}"></td>
 						</tr>
 					</c:forEach>
