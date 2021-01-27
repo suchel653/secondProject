@@ -13,17 +13,16 @@
 	               <h1 class="d-none">헤더 목록</h1>
 	               <ul>
 	                   <li>
-	                   	   <a href="/admin/member/list">프로젝트</a>
+	                   	   <a href="/customer/project/list">프로젝트</a>
 	                   </li>
 	                   <li>
-	                   	   <a href="/admin/member/list">스터디</a>
+	                   	   <a href="/customer/study/list">스터디</a>
 	                   </li>
 	                   <li>
-	                   	   <a href="/admin/member/list">공모전</a>
+	                   	   <a href="/customer/contest/list">공모전</a>
 	                   </li>
-	                   
 	                   <li>
-	                   	   <a href="/admin/member/list">마이페이지</a>
+	                   	   <a href="/customer/mypage/list">마이페이지</a>
 	                   </li>
 	                   <li>
 	                   	   <a href="/customer/activity/index">나의활동</a>
