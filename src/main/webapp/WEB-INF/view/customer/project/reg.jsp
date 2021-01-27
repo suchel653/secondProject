@@ -11,12 +11,12 @@
     <table border="1">
       <tbody>
         <tr>
-            <select style="width: 900px; height: 30px;">
-            <option value=""  selected disabled hidden>필드선택</option>
-            <option value="웹">웹</option>
-            <option value="게임">게임</option>
-        </select> 
-    </tr>
+	         <select style="width: 900px; height: 30px;">
+	            <option value=""  selected disabled hidden>필드선택</option>
+	            <option value="웹">웹</option>
+	            <option value="게임">게임</option>
+	        </select> 
+    	</tr>
     <tr>
         <th>스킬선택</th>
         <td>
