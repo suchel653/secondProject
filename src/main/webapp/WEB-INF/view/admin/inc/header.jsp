@@ -14,7 +14,7 @@
 	               <ul>
 	                   <li>
 	                   	   <a href="/admin/member/list">
-	                           <i class="fas fa-address-card"><span>MEMBER</span></i> 
+	                           <i class="fas fa-address-card">MEMBER</i> 
 	                       </a>
 	                   </li>
 	                   <li>
