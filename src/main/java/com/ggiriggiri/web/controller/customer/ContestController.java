@@ -41,16 +41,16 @@ public class ContestController {
 		return "customer.contest.list";
 	}
 	
-	@GetMapping("{id}")
-	public String detail(Model model,@PathVariable("id") Integer id) {
+	@GetMapping("detail")
+	public String detail(/* Model model,@PathVariable("id") Integer id */) {
 		
-		Contest c = service.get(id);
-		Contest prev = service.getPrev(id);
-		Contest next = service.getNext(id);
-		
-		model.addAttribute("c",c);
-		model.addAttribute("prev", prev);
-		model.addAttribute("next", next);
+		/*
+		 * Contest c = service.get(id); Contest prev = service.getPrev(id); Contest next
+		 * = service.getNext(id);
+		 * 
+		 * model.addAttribute("c",c); model.addAttribute("prev", prev);
+		 * model.addAttribute("next", next);
+		 */
 		
 		return "customer.contest.detail";
 	}
