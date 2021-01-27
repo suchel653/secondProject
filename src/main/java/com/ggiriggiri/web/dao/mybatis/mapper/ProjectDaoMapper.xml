@@ -15,6 +15,11 @@
 		limit #{param2} offset #{param1};
 	</select> -->
 	
+	
+	<delete id="delete">
+		delete from Project where id=#{id};
+	</delete>
+	
 	<select id="get" resultType="com.ggiriggiri.web.entity.Project">
 		SELECT * FROM Project
 	      WHERE ID=${param1};
