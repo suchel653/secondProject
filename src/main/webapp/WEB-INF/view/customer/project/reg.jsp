@@ -10,8 +10,7 @@
     <table border="1">
       <tbody>
         <tr>
-            <select 
-            style="width: 900px; height: 30px;">
+            <select style="width: 900px; height: 30px;">
             <option value=""  selected disabled hidden>필드선택</option>
             <option value="웹">웹</option>
             <option value="게임">게임</option>
@@ -40,7 +39,14 @@
 
      <tr>
         <th>첨부파일</th>
-        <td><input type="file"></td>
+        <td><input type="file" name="files"></td>
+        
+ 
+     </tr>
+
+     <tr>
+        <th>이미지파일</th>
+        <td><input type="file" name="image"></td>
         
  
      </tr>
