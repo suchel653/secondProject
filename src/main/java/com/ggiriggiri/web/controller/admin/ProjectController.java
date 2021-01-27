@@ -1,14 +1,20 @@
 package com.ggiriggiri.web.controller.admin;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ggiriggiri.web.entity.Contest;
 import com.ggiriggiri.web.entity.Field;
 import com.ggiriggiri.web.entity.Language;
 import com.ggiriggiri.web.entity.Project;
@@ -65,7 +71,8 @@ public class ProjectController {
 	}
 	
 	
-	@RequestMapping("{id}") 
+	
+	@GetMapping("{id}") 
 	public String detail(Model model, @PathVariable("id") int id) {
 		
 		ProjectView project = service.getView(id);
@@ -77,6 +84,16 @@ public class ProjectController {
 		model.addAttribute("pj",project);
 		
 		return "admin.project.detail";
+	}
+	
+	
+	
+	@GetMapping("{id}/del") 
+	public String delete(@PathVariable("id") int id) {
+		
+		service.delete(id);
+		
+		return "redirect:../list";
 	}
 	
 }

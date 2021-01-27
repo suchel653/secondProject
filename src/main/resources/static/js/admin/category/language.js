@@ -12,7 +12,7 @@ window.addEventListener("load", (e) => {
 	                  <td>
 	                    <input type="text" name="newNames">
 	                  </td>
-					  <td><input type="file" name="file" /></td>
+					  <td><input type="file" name="files" /></td>
 	                  <td></td>
 				  </tr>`;
 
@@ -22,19 +22,15 @@ window.addEventListener("load", (e) => {
 
 	// 수정 이벤트 발생 시
 	tbody.addEventListener("change", e => {
-
-		if (e.target.name != "newNames" && e.target.name != "del" && e.target.name != "file") {
-			console.log(e.target.tagName);
+		if (e.target.name != "newNames" && e.target.name != "del" && e.target.type == "text") {
 			e.target.previousElementSibling.name = "changedIds";
-			if (e.target.tagName != 'IMG' && e.target.tagName != 'INPUT') {
-				e.target.name = "changedNames";
-			}
+			e.target.name = "changedNames";
 		}
 
 	});
 
-	tbody.addEventListener("click", (e) => {
-		console.log(e.target.tagName);
+	tbody.addEventListener("click", e => {
+		console.log(e.target);
 
 		if (e.target.tagName == 'IMG') {
 
@@ -45,8 +41,8 @@ window.addEventListener("load", (e) => {
 			let addNodes = `<td>
 							</td>
 								<td>
-								<input hidden type="text" name="changeFileIds" value="${changedId}"/>
-								<input type="file" name="chagedFile" />
+								<input hidden type="text" name="changedFileIds" value="${changedId}"/>
+								<input multiple="multiple" type="file" name="chagedFile" />
 							</td>`;
 			e.target.parentElement.insertAdjacentHTML('afterend', addNodes);
 			e.target.parentElement.nextElementSibling.remove();

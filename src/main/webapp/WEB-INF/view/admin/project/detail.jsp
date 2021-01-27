@@ -6,7 +6,11 @@
 	<main id="main" class="main detail">
 			<h1 class="d-none">메인이다</h1>
 			
+			<div class="del-btn">
+				<a href="${pj.id }/del" class="button delBtn">삭제</a>
+			</div>
 			<section>
+			
 				<h1>${pj.title}</h1>
 
 				<div class="detail-container">

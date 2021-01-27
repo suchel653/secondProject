@@ -105,28 +105,28 @@
 
                 <section>
                     <h1 class="d-none">테이블</h1>
-                    <table class="list-table" border="1">
+                    <table class="table" border="1">
                         <thead>
                             <tr>
-                                <td>아이디</td>
+                                
                                 <td>제목</td>
                                 <td>필드</td>
                                 <td>스킬</td>
                                 <td>언어</td>
                                 <td>스터디장</td>
-                                <td>진행날짜</td>
-                                <td>인원</td>
+                                
+                                
                                 <td>상태</td>
                                 <td>등록일</td>
                             </tr>
                         </thead>
                 
-                        <tbody>
+                        <tbody class="tbody">
                         <c:forEach var ="s" items="${list}">
                         
                             <tr>        
-                                <td>${s.id}</td>
-                                <td><a href="${s.id}/detail">${s.title}</a></td>
+                             
+                                <td><a href="${s.id}">${s.title}</a></td>
                                 <td>${s.fieldName}</td>
                                 <td>
                                 	<c:forEach var="sk" items="${s.skill}" varStatus="st">
@@ -146,11 +146,8 @@
                                 	</c:forEach>
                                 </td>
                                 <td>${s.leaderName}</td>
-                                <td>
-                             	 <fmt:formatDate value="${s.startDate}" pattern="yyyy-MM-dd"/>~
-                                <fmt:formatDate value="${s.endDate }" pattern="yyyy-MM-dd"/>
-                            	</td>
-                                <td>${s.limitNumber}</td>
+                             
+                             
                                 <td>${s.statusName}</td>
                                 <td> <fmt:formatDate value="${s.regDate}" pattern="yyyy-MM-dd"/></td>
                             </tr>

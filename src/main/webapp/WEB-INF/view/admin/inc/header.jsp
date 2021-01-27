@@ -13,33 +13,28 @@
 	               <h1 class="d-none">헤더 목록</h1>
 	               <ul>
 	                   <li>
-	                       <a href="/admin/member/list">
-	                           <span>MEMBER</span>
+	                   	   <a href="/admin/member/list">
+	                           <i class="fas fa-address-card"><span>MEMBER</span></i> 
 	                       </a>
 	                   </li>
 	                   <li>
 	                       <a href="/admin/study/list">
-	                           <span>STUDY</span>
+	                           <i class="fas fa-book-open"></i> STUDY
 	                       </a>
 	                   </li>
 	                   <li>
 	                       <a href="/admin/project/list">
-	                          
-	                           <span>PROJECT</span>
+	                           <i class="far fa-chart-bar"></i> PROJECT
 	                       </a>
 	                   </li>
 	                   <li>
-
 	                       <a href="/admin/category/field">
-
-	                          
-	                           <span>CATEGORY</span>
+	                           <i class="fas fa-sitemap"></i> CATEGORY
 	                       </a>
 	                   </li>
 	                   <li>
 	                       <a href="/admin/contest/list">
-	                          
-	                           <span>CONTEST</span>
+	                           <i class="fas fa-thumbs-up"></i> CONTEST
 	                       </a>
 	                   </li>
 	               </ul>

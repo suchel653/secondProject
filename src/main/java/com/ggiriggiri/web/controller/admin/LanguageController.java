@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.ggiriggiri.web.entity.Language;
 import com.ggiriggiri.web.service.LanguageService;
@@ -45,7 +46,7 @@ public class LanguageController {
 
 	@PostMapping("language")
 	public String actions(String action, int[] del, String[] newNames, int[] changedIds, String[] changedNames,
-			MultipartFile[] file, int[] changedFileIds, MultipartFile[] changedFile, HttpServletRequest request)
+			MultipartFile[] files, int[] changedFileIds, MultipartHttpServletRequest mtfRequest, HttpServletRequest request)
 			throws IllegalStateException, IOException {
 
 		switch (action) {
@@ -67,12 +68,12 @@ public class LanguageController {
 					if (!realPathFile.exists())
 						realPathFile.mkdir();
 
-					String uploadedFilePath = realPath + File.separator + file[i].getOriginalFilename();
+					String uploadedFilePath = realPath + File.separator + files[i].getOriginalFilename();
 					File uploadedFile = new File(uploadedFilePath);
 
-					file[i].transferTo(uploadedFile);
+					files[i].transferTo(uploadedFile);
 
-					Language l = new Language(i, newNames[i], file[i].getOriginalFilename());
+					Language l = new Language(i, newNames[i], files[i].getOriginalFilename());
 
 					list.add(l);
 
@@ -95,13 +96,14 @@ public class LanguageController {
 				service.updateList(list);
 
 			}
-
+			
+			List<MultipartFile> imgList = mtfRequest.getFiles("chagedFile");
+			
 			// 이미지 변경시
-			if (changedFile != null) {
-				System.out.println("이미지 변경");
+			if (imgList != null) {
 				List<Language> list = new ArrayList<>();
 
-				for (int i = 0; i < changedFile.length; i++) {
+				for (int i = 0; i < imgList.size(); i++) {
 
 					String url = "/images/language";
 					String realPath = request.getServletContext().getRealPath(url);
@@ -110,15 +112,13 @@ public class LanguageController {
 					if (!realPathFile.exists())
 						realPathFile.mkdir();
 
-					String uploadedFilePath = realPath + File.separator + changedFile[i].getOriginalFilename();
+					String uploadedFilePath = realPath + File.separator + imgList.get(i).getOriginalFilename();
 					File uploadedFile = new File(uploadedFilePath);
 
-					changedFile[i].transferTo(uploadedFile);
+					imgList.get(i).transferTo(uploadedFile);
 
 					Language l = service.get(changedFileIds[i]);
-					System.out.println(l);
-					l.setImage(changedFile[i].getOriginalFilename());
-					System.out.println(l);
+					l.setImage(imgList.get(i).getOriginalFilename());
 
 					list.add(l);
 
