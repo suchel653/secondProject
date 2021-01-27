@@ -70,7 +70,7 @@
 
                 </section>
                 <div>
-					<a href="reg">글쓰기</a>	
+					<a href="reg"><input type="button" class="button" vlaue="글쓰기" ></a>	
                 </div>
 				<div>
 					${page}/ ${pageCount} 페이지

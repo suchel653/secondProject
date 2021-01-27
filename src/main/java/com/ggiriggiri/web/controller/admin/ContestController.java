@@ -24,7 +24,7 @@ import com.ggiriggiri.web.entity.ContestFile;
 import com.ggiriggiri.web.entity.ContestImage;
 import com.ggiriggiri.web.service.ContestService;
 
-@Controller
+@Controller("adminContestController")
 @RequestMapping("/admin/contest/")
 public class ContestController {
 	
