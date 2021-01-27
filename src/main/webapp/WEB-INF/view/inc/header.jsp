@@ -9,7 +9,7 @@
 	               </a>
 	           </div>
 	
-	           <nav>
+	           <nav class="header-list">
 	               <h1 class="d-none">헤더 목록</h1>
 	               <ul>
 	                   <li>
@@ -27,6 +27,19 @@
 	                   <li>
 	                   	   <a href="/admin/member/list">나의활동</a>
 	                   </li>
+	               </ul>
+	           </nav>
+	           
+	           <nav class="member-list">
+	               <h1 class="d-none">멤버</h1>
+	               <ul>
+	                   <li>
+	                   	   <a href="/admin/member/list">asd님</a>
+	                   </li>
+	                   <li>
+	                   	   <a href="/admin/member/list">회원가입</a>
+	                   </li>
+	        
 	               </ul>
 	           </nav>
 	       </div>
