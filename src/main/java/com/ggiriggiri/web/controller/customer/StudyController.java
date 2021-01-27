@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/customer/study/")
-public class CustomerStudyController {
+public class StudyController {
 	
 	@RequestMapping("list")
 	public String list() {

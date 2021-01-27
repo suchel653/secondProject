@@ -24,7 +24,7 @@ import com.ggiriggiri.web.service.StudyService;
 
 
 
-@Controller
+@Controller("adminStudyController")
 @RequestMapping("/admin/study/")
 public class StudyController {
 	@Autowired

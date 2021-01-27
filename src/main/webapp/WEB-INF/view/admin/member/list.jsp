@@ -32,7 +32,7 @@
                             </tr>
                         </thead>
                 
-                        <tbody class="member-list">
+                        <tbody class="member-list tbody">
                         <c:forEach var="m" items="${list }">
                             <tr>
                                 <td>${m.id }</td> 
