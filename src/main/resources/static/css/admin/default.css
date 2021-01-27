@@ -3,7 +3,7 @@
 @import url("layout/default.css");
 @import url("content-layout/default.css");
 @import url("components/button.css");
-@import url("components/detail-table.css");
-@import url("components/list.css");
+@import url("contents/detail-table.css");
+@import url("contents/list.css");
 
 
