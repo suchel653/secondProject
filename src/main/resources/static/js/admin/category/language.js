@@ -23,11 +23,8 @@ window.addEventListener("load", (e) => {
 	// 수정 이벤트 발생 시
 	tbody.addEventListener("change", e => {
 		if (e.target.name != "newNames" && e.target.name != "del" && e.target.type == "text") {
-			// e.target.name != "file" && e.target.name != "changedFileIds"
 			e.target.previousElementSibling.name = "changedIds";
-			if (e.target.tagName != 'IMG' && e.target.tagName != 'INPUT') {
-				e.target.name = "changedNames";
-			}
+			e.target.name = "changedNames";
 		}
 
 	});
