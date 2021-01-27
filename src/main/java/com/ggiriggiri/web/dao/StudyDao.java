@@ -12,11 +12,11 @@ public interface StudyDao {
 	int insert(Study study);
 	int update(Study study);
 	int delete(int id);
-StudyView getView(int id);
+	StudyView getView(int id);
 	Study get(int id);
-	//int getCount(String field, String query);
-	Study getPrev(Integer id);
-	Study getNext(Integer id);
+	
+	StudyView getPrev(int id);
+	StudyView getNext(int id);
 
 
 
