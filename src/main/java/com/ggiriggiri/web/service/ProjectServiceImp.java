@@ -71,9 +71,18 @@ public class ProjectServiceImp implements ProjectService{
 //	}
 
 	@Override
-	public int getCount(String field, String query) {
+	public int getCount(String title, String query, String[] field, String[] skill, String[] language) {
+		int[] fdProjectIds = projectDao.getByProjectIds(field);
+		if(fdProjectIds.length==0)
+			return 0;
+		int[] skProjectIds = projectSkilldao.getByProjectIds(fdProjectIds,skill);
+		if(skProjectIds.length==0)
+			return 0;
+		int[] ids = projectLanguageDao.getByProjectIds(skProjectIds, language);
+		if(ids.length==0)
+			return 0;
 		
-		return projectDao.getCount(field, query);
+		return projectDao.getCount(ids,title,query);
 	}
 
 	@Override
