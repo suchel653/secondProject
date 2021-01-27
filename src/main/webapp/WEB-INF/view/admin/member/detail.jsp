@@ -5,8 +5,8 @@
 <main id="main" class="main detail">
                 <h1 class="d-none">메인이다</h1>
                 <section>
-				<h1>${m.nickname}</h1>
-				<nav>
+				<h1>${m.nickname}님의 프로필입니다.</h1>
+				<nav >
 					<ul>
 						<li><a href="${m.id }" >기본정보</a></li>
 						<li><a href="${m.id }/exper" >경력사항</a></li>

@@ -7,22 +7,22 @@
                 <h1 class="d-none">메인이다</h1>
                 <section>
                     <h1 class="d-none">검색폼</h1>
-                    <form>
-                        <div>
+                    <form class="search-form">
+                        <div class="search-query">
                             <select>
                                 <option>닉네임</option>
                                 <option>이메일</option>
                             </select>
                             <input type="text">
+                        <input class="button searchBtn search-btn"  type="submit" value="검색">
                         </div>
-                        <input type="submit" value="검색">
 
                     </form>
                 </section>
 
                 <section>
                     <h1 class="d-none">테이블</h1>
-                    <table >
+                    <table class="list-table table">
                         <thead>
                             <tr>
                                 <td>회원번호</td>
@@ -32,7 +32,7 @@
                             </tr>
                         </thead>
                 
-                        <tbody class="member-list">
+                        <tbody class="member-list tbody">
                         <c:forEach var="m" items="${list }">
                             <tr>
                                 <td>${m.id }</td> 

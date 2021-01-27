@@ -19,7 +19,7 @@ import com.ggiriggiri.web.service.StudyService;
 
 @Controller
 @RequestMapping("/customer/study/")
-public class CustomerStudyController {
+public class StudyController {
 	
 	@Autowired
 	private StudyService service;
