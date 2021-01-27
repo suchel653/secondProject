@@ -18,6 +18,7 @@
 	background-origin: border-box;
 	background-clip: content-box, border-box;
 	border-radius: 20px;
+	min-height:180px;
 }
 
 .search-form th{
@@ -32,6 +33,8 @@
 
 .search-form td{
 	text-align:left;
+	border-bottom: 1px solid black;
+	vertical-align:middle;
 }
 
 .search-query{
