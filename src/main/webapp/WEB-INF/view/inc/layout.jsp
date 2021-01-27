@@ -6,8 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/css/admin/default.css" type="text/css" rel="stylesheet" />
-<script src="https://kit.fontawesome.com/b280fc7aa7.js" crossorigin="anonymous"></script>
+<link href="/css/customer/default-layout.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	 <!-- header 부분 -->
@@ -15,15 +14,19 @@
 
 	<!-- --------------------------- <body> --------------------------------------- -->
 	<div id="body" class="body">
-		<div class="container">
+	
+		
 
 			
 			<!-- --------------------------- main --------------------------------------- -->
 
 
 			<tiles:insertAttribute name="main" />
-		</div>
+	
 	</div>
+	
+	 <!-- footer 부분 -->
+	<tiles:insertAttribute name="footer" />
 
 </body>
 </html>

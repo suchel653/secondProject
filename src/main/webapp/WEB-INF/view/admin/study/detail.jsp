@@ -73,8 +73,25 @@
 					
 					<div class="content" colspan="2">${s.content }</td></div>
 			
+			
+			 <div class="btn prev-next-btn">
+	                <a class="button searchBtn" href="list">목록</a>
+	                <c:if test="${empty prev }">
+	                <a class="button searchBtn" >이전</a>
+	                </c:if>
+	                <c:if test="${not empty prev}">
+	                <a class="button searchBtn" href="${prev.id}">이전</a>
+	                </c:if>
+	                <c:if test="${empty next }">
+	                <a class="button searchBtn" >다음</a>
+	                </c:if>
+	                <c:if test="${not empty next }">
+	                <a class="button searchBtn" href="${next.id }">다음</a>
+	                </c:if>
+                </div>
 			</section>
                 
+               
                 
 
                 

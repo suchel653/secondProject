@@ -1,14 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
- <section>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<main id="main" class="main">
     <h1>프로젝트 등록</h1>
+ <section>
 
     <table border="1">
       <tbody>
@@ -36,7 +33,7 @@
     </tr>
     <tr>
        <th>제목</th>
-       <td><input type="text" style="width: 825px"></td>
+       <td><input type="text"  style="width: 825px"></td>
    
 
     </tr>
@@ -53,17 +50,18 @@
                 style="width: 900px; height: 500px; "></textarea>
         </td>
     </tr>
-  <tr>
+ 
+   <tr>
         <td colspan="4">
             <textarea 
                 style="width: 900px; height: 100px; " placeholder="요구조건"></textarea>
         </td>
     </tr>
+ 
     
 </tbody>
 
     </table>
     </section>
 
-</body>
-</html>
+</main>

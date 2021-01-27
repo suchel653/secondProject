@@ -22,7 +22,7 @@ public interface ProjectService {
 	List<ProjectView> getViewList(int page, int size, String title, String query, String[] field, String[] skill,
 			String[] language);
 	
-	int getCount(String field, String query);
+	int getCount(String title, String query, String[] field, String[] skill, String[] language);
 	ProjectView getPrev(int id);
 	ProjectView getNext(int id);
 }
