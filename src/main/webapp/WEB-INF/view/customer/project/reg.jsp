@@ -4,6 +4,7 @@
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <main id="main" class="main">
+ <div class="container">
     <h1>프로젝트 등록</h1>
  <section>
 
@@ -63,5 +64,5 @@
 
     </table>
     </section>
-
+</div>
 </main>
