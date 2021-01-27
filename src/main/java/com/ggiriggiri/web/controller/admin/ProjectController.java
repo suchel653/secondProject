@@ -51,7 +51,9 @@ public class ProjectController {
 		
 		List<ProjectView> list = service.getViewList(page,size,title,query,field,skill,language);
 		
-		int count = service.getCount(title,query);
+		
+		
+		int count = service.getCount(title, query, field, skill, language);
 		int pageCount = (int)Math.ceil(count / (float)size);
 		
 		model.addAttribute("page", page);

@@ -7,11 +7,16 @@
 <c:set var="fds" value="${paramValues.f }"></c:set>
 <c:set var="sks" value="${paramValues.s }"></c:set>
 <c:set var="lns" value="${paramValues.l }"></c:set>
+
 	<main id="main" class="main">
+	
                 <h1 class="d-none">메인이다</h1>
+                
                 <section>
                     <h1 class="d-none">검색폼</h1>
+                    
                     <form action="list" method="get" class="search-form">
+                    
                     <table border="1">
                        <tr>
                            <th>필드</th>
@@ -69,6 +74,7 @@
 						 <input class="button searchBtn search-btn" type="submit" value="검색" />
                     </div>
                     </form>
+                    
                 </section>
 
                 <section>

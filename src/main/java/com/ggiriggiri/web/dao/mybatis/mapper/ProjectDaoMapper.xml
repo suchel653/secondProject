@@ -68,8 +68,8 @@
 	
 	<select id="getCount" resultType="int">
 		SELECT count(id) FROM ProjectView
-		<if test="param1 != null and param1 !=''">
-      	where BINARY ${param1} like '%${param2}%'
+		<if test="title != null and title !=''">
+      	where BINARY ${title} like '%${query}%'
       </if>
 	</select>  
 	

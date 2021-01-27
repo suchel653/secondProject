@@ -1,23 +1,29 @@
 package com.ggiriggiri.web.entity;
 
+import java.util.Date;
+
 public class ProjectComment {
 	private int id;
 	private String content;
-	private String regDate;
+	private Date regDate;
 	private int projectId;
-	private String writerId;
+	private int writerId;
 	
 	public ProjectComment() {
-		this(0,null,null,0,null);
+		// TODO Auto-generated constructor stub
 	}
+	
+	
 
-	public ProjectComment(int id, String content, String regDate, int projectId, String writerId) {
+	public ProjectComment(int id, String content, Date regDate, int projectId, int writerId) {
 		this.id = id;
 		this.content = content;
 		this.regDate = regDate;
 		this.projectId = projectId;
 		this.writerId = writerId;
 	}
+
+
 
 	@Override
 	public String toString() {
@@ -41,11 +47,11 @@ public class ProjectComment {
 		this.content = content;
 	}
 
-	public String getRegDate() {
+	public Date getRegDate() {
 		return regDate;
 	}
 
-	public void setRegDate(String regDate) {
+	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
 
@@ -57,11 +63,11 @@ public class ProjectComment {
 		this.projectId = projectId;
 	}
 
-	public String getWriterId() {
+	public int getWriterId() {
 		return writerId;
 	}
 
-	public void setWriterId(String writerId) {
+	public void setWriterId(int writerId) {
 		this.writerId = writerId;
 	}
 	
