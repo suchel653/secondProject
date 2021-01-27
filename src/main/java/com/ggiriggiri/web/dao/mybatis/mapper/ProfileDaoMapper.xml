@@ -5,6 +5,6 @@
 
 <mapper namespace="com.ggiriggiri.web.dao.ProfileDao">
 	<select id="get" resultType="com.ggiriggiri.web.entity.Profile">
-		select * from Profile where id=#{id}
+		select * from Profile where memberId=#{id}
 	</select>
 </mapper>

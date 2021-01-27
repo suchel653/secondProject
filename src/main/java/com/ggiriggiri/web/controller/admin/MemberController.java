@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ggiriggiri.web.entity.Member;
+import com.ggiriggiri.web.entity.Profile;
 import com.ggiriggiri.web.service.MemberService;
 
 @Controller
@@ -73,9 +74,36 @@ public class MemberController {
 	public String detail(@PathVariable("id") Integer id,Model model) {
 		
 		Member m = service.get(id);
+		Profile p = m.getProfile();
 		
 		model.addAttribute("m",m);
-		return "admin.member.detail";
+		model.addAttribute("p",p);
+		
+		return "admin.member.popup.detail";
+	}
+	
+	@GetMapping("{id}/project")
+	public String detailProject(@PathVariable("id") Integer id,Model model) {
+		
+		Member m = service.get(id);
+		Profile p = m.getProfile();
+		
+		model.addAttribute("m",m);
+		model.addAttribute("p",p);
+		
+		return "admin.member.popup.project";
+	}
+	
+	@GetMapping("{id}/exper")
+	public String detailExper(@PathVariable("id") Integer id,Model model) {
+		
+		Member m = service.get(id);
+		Profile p = m.getProfile();
+		
+		model.addAttribute("m",m);
+		model.addAttribute("p",p);
+		
+		return "admin.member.popup.exper";
 	}
 
 }

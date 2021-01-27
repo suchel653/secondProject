@@ -27,9 +27,9 @@
     <put-attribute name="header" value="/WEB-INF/view/admin/inc/header.jsp" />
   </definition>
  
-  <definition name="admin.member.detail" template="/WEB-INF/view/admin/member/inc/layout.jsp">
+  <definition name="admin.member.popup.*" template="/WEB-INF/view/admin/member/inc/layout.jsp">
    
-    <put-attribute name="main" value="/WEB-INF/view/admin/member/detail.jsp" />
+    <put-attribute name="main" value="/WEB-INF/view/admin/member/{1}.jsp" />
   
   </definition>
   <definition name="admin.*.*" template="/WEB-INF/view/admin/inc/layout.jsp">
