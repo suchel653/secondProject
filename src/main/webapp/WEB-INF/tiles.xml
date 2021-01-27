@@ -27,9 +27,9 @@
     <put-attribute name="header" value="/WEB-INF/view/admin/inc/header.jsp" />
   </definition>
  
-  <definition name="admin.member.detail" template="/WEB-INF/view/admin/member/inc/layout.jsp">
+  <definition name="admin.member.popup.*" template="/WEB-INF/view/admin/member/inc/layout.jsp">
    
-    <put-attribute name="main" value="/WEB-INF/view/admin/member/detail.jsp" />
+    <put-attribute name="main" value="/WEB-INF/view/admin/member/{1}.jsp" />
   
   </definition>
   <definition name="admin.*.*" template="/WEB-INF/view/admin/inc/layout.jsp">
@@ -39,5 +39,14 @@
     <put-attribute name="main" value="/WEB-INF/view/admin/{1}/{2}.jsp" />
   
   </definition>
+  
+  <definition name="customer.*.*" template="/WEB-INF/view/customer/inc/layout.jsp">
+    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="header" value="/WEB-INF/view/customer/inc/header.jsp" />
+    <put-attribute name="main" value="/WEB-INF/view/customer/{1}/{2}.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/view/customer/inc/footer.jsp" />
+    
+  </definition>
+
 
 </tiles-definitions>
