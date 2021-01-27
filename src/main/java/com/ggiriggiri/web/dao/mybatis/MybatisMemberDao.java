@@ -48,4 +48,9 @@ public class MybatisMemberDao implements MemberDao{
 		return mapper.getList(offset, size, field, query);
 	}
 
+	@Override
+	public Member get(int id) {
+		return mapper.get(id);
+	}
+
 }

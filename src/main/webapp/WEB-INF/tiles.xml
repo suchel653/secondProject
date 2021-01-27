@@ -19,6 +19,11 @@
     <put-attribute name="header" value="/WEB-INF/view/admin/inc/header.jsp" />
   </definition>
  
+  <definition name="admin.member.detail" template="/WEB-INF/view/admin/member/inc/layout.jsp">
+   
+    <put-attribute name="main" value="/WEB-INF/view/admin/member/detail.jsp" />
+  
+  </definition>
   <definition name="admin.*.*" template="/WEB-INF/view/admin/inc/layout.jsp">
     <put-attribute name="title" value="Tiles tutorial homepage" />
     <put-attribute name="header" value="/WEB-INF/view/admin/inc/header.jsp" />

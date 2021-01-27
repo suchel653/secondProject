@@ -11,8 +11,8 @@
                 <h1 class="d-none">메인이다</h1>
                 <section>
                     <h1 class="d-none">검색폼</h1>
-                    <form method="post">
-                        <div>
+                    <form method="post" class="search-form">
+                        <div class="search-query">
                             <select name="f">
                                 <option value="title">공모전 이름</option>
                                 <option value="writerName">작성자</option>
@@ -20,7 +20,7 @@
                                 <option value="endDate">마감일</option>
                             </select>
                             <input type="text" name="q">
-	                        <input type="submit" value="검색">
+	                        <input class="button searchBtn search-btn" type="submit" value="검색">
                         </div>
 
                     </form>
@@ -28,7 +28,7 @@
 
                 <section>
                     <h1 class="d-none">테이블</h1>
-                    <table class="list-table">
+                    <table class="list-table table">
                         <thead>
                             <tr>
                                 <td>번호</td>
@@ -42,7 +42,7 @@
                             </tr>
                         </thead>
                 
-                        <tbody>
+                        <tbody class="tbody">
                         <c:forEach var="c" items="${list }">
                             <tr>
                                 <td>${c.id}</td> 

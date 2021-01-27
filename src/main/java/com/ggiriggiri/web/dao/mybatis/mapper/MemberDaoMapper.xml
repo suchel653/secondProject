@@ -16,4 +16,7 @@
 		insert into Member(email, password, nickname)
 		values(#{email},#{password},#{nickname});	
 	</insert>
+	<select id="get" resultType="com.ggiriggiri.web.entity.Member">
+		select * from Member where id=#{id}
+	</select>
 </mapper>

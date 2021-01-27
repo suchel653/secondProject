@@ -1,14 +1,19 @@
 window.addEventListener("load",function(){
-	const listTable = document.querySelector(".list-table");
-	const detail = listTable.querySelector(".detail");
+	const memberList = document.querySelector(".member-list");
 	
 	let win;
 	
-	detail.addEventListener("click",(e)=>{
+	memberList.addEventListener("click",(e)=>{
 		e.preventDefault();
+		if(!e.target.classList.contains("detail"))
+			return;
+			
+		console.log(e.target.tagName);	
 		
-		let id = e.target.value;
+		let id = e.target.parentElement.previousElementSibling.innerText;
+		console.log(id);
 		
-		win = open("/admin/member/"+id+"/detail","width = 800px, height = 700px");
+		win = open("/admin/member/"+id,"_blank","width = 800px, height = 700px");
+		
 	});
 });

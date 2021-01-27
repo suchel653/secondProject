@@ -24,7 +24,7 @@
 .search-form th{
 	width: 50px;
     font-weight: bold;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid gray;
     vertical-align:middle;
     background-image: linear-gradient(white, white), linear-gradient(to right, #ebee48be, #eb7bd0aa, #20b5f0aa);
    	background-origin:content-box;
@@ -33,7 +33,7 @@
 
 .search-form td{
 	text-align:left;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid gray;
 	vertical-align:middle;
 }
 
@@ -44,10 +44,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 
 .search-query *{
-    width: 15%;
+    min-width: 15%;
     transition: 0.5s; 
 }
 
@@ -59,8 +60,7 @@
 }
 
 .search-query input:nth-child(2){
-    width: 60%;
-    flex-grow: 1;
+    width: 40%;
     margin: 0 10px;
    
 }
@@ -74,5 +74,5 @@
 }
 
 .search-query .search-btn{
-    margin-top: 5px;
+    margin-left: 5px;
 }

@@ -68,5 +68,14 @@ public class MemberController {
 		mailSender.send(message);
 		
 	}
+	
+	@GetMapping("{id}")
+	public String detail(@PathVariable("id") Integer id,Model model) {
+		
+		Member m = service.get(id);
+		
+		model.addAttribute("m",m);
+		return "admin.member.detail";
+	}
 
 }

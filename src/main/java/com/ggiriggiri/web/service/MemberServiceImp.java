@@ -39,4 +39,9 @@ public class MemberServiceImp implements MemberService{
 		return memberDao.getList(offset, size, field, query);
 	}
 
+	@Override
+	public Member get(int id) {
+		return memberDao.get(id);
+	}
+
 }

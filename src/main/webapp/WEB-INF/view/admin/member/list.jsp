@@ -22,7 +22,7 @@
 
                 <section>
                     <h1 class="d-none">테이블</h1>
-                    <table class="list-table">
+                    <table >
                         <thead>
                             <tr>
                                 <td>회원번호</td>
@@ -32,11 +32,11 @@
                             </tr>
                         </thead>
                 
-                        <tbody>
+                        <tbody class="member-list">
                         <c:forEach var="m" items="${list }">
                             <tr>
                                 <td>${m.id }</td> 
-                                <td><a href="${m.id }/detail" class="detail">${m.nickname }</a></td>
+                                <td><a href="${m.id }" class="detail">${m.nickname }</a></td>
                                 <td>${m.email }</td>
                                 <td>
                                 	<fmt:formatDate value="${m.regDate }" pattern="yyyy-MM-dd"/>	
