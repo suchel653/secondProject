@@ -28,8 +28,6 @@ public class ActivityController {
 //		model.addAttribute("wsv",ongoingStudyView);
 //		model.addAttribute("esv",ongoingStudyView);
 		
-		
-		
 		return "customer.activity.index";
 	}
 
