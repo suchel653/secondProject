@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <main id="main" class="main detail">
                 <h1 class="d-none">메인이다</h1>
                 <section>
@@ -11,6 +12,7 @@
 						<li><a href="${m.id }" >기본정보</a></li>
 						<li><a href="${m.id }/exper" >경력사항</a></li>
 						<li><a href="${m.id }/project" >참여 프로젝트</a></li>
+						<li><a href="${m.id }/study" >참여 스터디</a></li>
 					</ul>
 				</nav>
 				<div class="detail-container">

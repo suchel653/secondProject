@@ -6,6 +6,10 @@ import org.springframework.stereotype.Repository;
 
 import com.ggiriggiri.web.dao.StudyApplyDao;
 
+import com.ggiriggiri.web.entity.StudyApply;
+
+
+
 @Repository
 public class MybatisStudyApplyDao implements StudyApplyDao{
 
@@ -17,8 +21,14 @@ public class MybatisStudyApplyDao implements StudyApplyDao{
 	}
 	
 	@Override
+	public int insertStudyApply(StudyApply studyApply) {
+		// TODO Auto-generated method stub
+		return mapper.insertStudyApply(studyApply);
+	}
+	@Override
 	public int[] getByStudyIds(int memberId, int resultStatus) {
 		return mapper.getByStudyIds(memberId, resultStatus);
+
 	}
 
 }

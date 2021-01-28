@@ -93,6 +93,10 @@
 				</div>
 			</form>
 		</section>
+		
+			<div class="regBtn">
+						<a href="reg">등록하기</a>
+					</div>
 
 		<section>
 			<h1 class="d-none">리스트</h1>
@@ -141,16 +145,43 @@
 		</section>
 
 
-		<div class="pager">
-			<div>
-				<a href=""><i class="fas fa-angle-left"></i></a>
-			</div>
-			<ul>
-				<li><a class="" href="">1</a></li>
-			</ul>
-			<div>
-				<a href=""><i class="fas fa-angle-right"></i></a>
-			</div>
-		</div>
-	</div>
+		<c:set var = "startNum" value="${page-(page-1)%5}"/>
+                
+                <div class="pager">
+                    <div>
+                      <a href="?p=${1}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}"><i class="fas fa-angle-double-left"></i></a>
+                    </div>
+                    <div>
+                    <c:if test="${startNum>1}">
+                    	 <a href="?p=${startNum-5}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}"><i class="fas fa-angle-left"></i></a>
+                    </c:if>
+                    
+                    <c:if test="${startNum<=1}">
+                    	<a href="?p=${1}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}"><i class="fas fa-angle-left"></i></a>
+                    </c:if>
+                     
+                    </div>
+                    
+                    <ul>
+	                    <c:forEach var="i" begin="0" end="4">
+	                    	
+	                    	<c:if test="${i+startNum <= pageCount}">
+	                      		<li><a class="${i+startNum==page?"current":""}" href="?p=${i+startNum}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}">${i+startNum}</a></li>
+	                    	</c:if>
+	                    </c:forEach>
+                    </ul>
+                    <div>
+                    <c:if test="${startNum+5<=pageCount}">
+                    	<a href="?p=${startNum+5}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}"><i class="fas fa-angle-right"></i></a>
+                    </c:if>
+                    
+                    <c:if test="${startNum+5>pageCount}">
+                    	<a href="?p=${pageCount}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}"><i class="fas fa-angle-right"></i></a>
+                    </c:if>
+                    
+                    </div>
+                    <div>
+                      <a href="?p=${pageCount}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}"><i class="fas fa-angle-double-right"></i></a>
+                    </div>
+                  </div>
 </main>

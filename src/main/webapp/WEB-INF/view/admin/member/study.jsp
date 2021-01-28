@@ -15,7 +15,7 @@
     <table class="list-table table">
         <thead>
             <tr>
-                <td>프로젝트 이름</td>
+                <td>스터디 이름</td>
                 <td>주요내용</td>
                 <td>시작일</td>
                 <td>마감일</td>
@@ -24,17 +24,17 @@
         </thead>
 
         <tbody class="tbody">
-        	<c:forEach var="p" items="${p.projectList }">
+        	<c:forEach var="s" items="${p.studyList }">
             <tr>
-                <td>${p.title }</td>
-                <td>${p.content }</td>
+                <td>${s.title }</td>
+                <td>${s.content }</td>
                 <td>
-                	<fmt:formatDate value="${p.startDate }" pattern="yyyy-MM-dd"/>	
+                	<fmt:formatDate value="${s.startDate }" pattern="yyyy-MM-dd"/>
                 </td>
                 <td>
-                	<fmt:formatDate value="${p.endDate }" pattern="yyyy-MM-dd"/>
+                	<fmt:formatDate value="${s.endDate }" pattern="yyyy-MM-dd"/>
                 </td>
-                <td>${p.status }</td>
+                <td>${s.status }</td>
             </tr>
             </c:forEach>
         </tbody>
