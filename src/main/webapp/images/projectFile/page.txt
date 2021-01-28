@@ -1,0 +1,22 @@
+프로젝트, 스터디
+-list
+-reg
+-detail
+-apply
+
+
+공모전
+-list
+-detail
+
+마이페이지
+-index 
+-edit
+-reg
+-delete
+
+나의 활동
+-index(모집중 , 진행중, 진행완료) / (등록한 지원결과 알아서 해라)
+-group,team
+-detail(project, study)
+-edit(project, study)

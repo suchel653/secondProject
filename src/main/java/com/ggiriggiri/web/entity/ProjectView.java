@@ -12,9 +12,10 @@ public class ProjectView extends Project{
 	}
 
 	
+
 	public ProjectView(int id, String title, String content, int limitNumber, Date startDate, Date endDate,
-			String leaderId, String requirement, Date regDate, int statusId, int fieldId, String image,
-			String leaderName, String fieldName, String statusName) {
+			int leaderId, String requirement, Date regDate, int statusId, int fieldId, String image, String leaderName,
+			String fieldName, String statusName) {
 		super(id, title, content, limitNumber, startDate, endDate, leaderId, requirement, regDate, statusId, fieldId,
 				image);
 		this.leaderName = leaderName;
@@ -22,7 +23,7 @@ public class ProjectView extends Project{
 		this.statusName = statusName;
 	}
 
-
+	
 	public String getLeaderName() {
 		return leaderName;
 	}

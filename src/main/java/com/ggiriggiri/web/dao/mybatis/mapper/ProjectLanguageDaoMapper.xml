@@ -5,6 +5,10 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
       <mapper namespace="com.ggiriggiri.web.dao.ProjectLanguageDao">
       
+      <insert id="insert" parameterType="com.ggiriggiri.web.entity.ProjectLanguage">
+    	insert into ProjectLanguage(projectId,languageId) value(${projectId},${languageId});
+    </insert>
+      
 	  <select id="getListByProjectId" resultType="com.ggiriggiri.web.entity.ProjectLanguageView">
 	  		select * from ProjectLanguageView where projectId=#{id}
 	     

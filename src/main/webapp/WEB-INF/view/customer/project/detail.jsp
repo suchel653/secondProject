@@ -15,7 +15,7 @@
             </div>
             
             <div>
-              <img src="/images/language/${pv.image }" ></img>
+              <img src="/images/projectImg/${pv.image }" style="width:300px; height:300px;"></img>
               <table border="1">
                 <tbody>
                 <tr>
@@ -44,8 +44,19 @@
 				 </td>
                 </tr>
                 <tr>
+                  <th>첨부파일 : </th>
+                  <td>
+					<c:forEach var="f" items="${pv.files }" varStatus="st">
+					<a download href="/images/projectFile/${f.name }">${f.name }</a> 
+					<c:if test="${!st.last }">
+						/
+					</c:if>
+					</c:forEach>
+				 </td>
+                </tr>
+                <tr>
                   <th>인원 : </th>
-                  <td>${pj.limitNumber }</td>
+                  <td>${pv.limitNumber }</td>
                 </tr>
                 <tr>
                   <th>요구사항 :</th>

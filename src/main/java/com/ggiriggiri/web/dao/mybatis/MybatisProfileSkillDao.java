@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.ggiriggiri.web.dao.ContestDao;
 import com.ggiriggiri.web.dao.ProfileSkillDao;
 import com.ggiriggiri.web.entity.ProfileSkillView;
+import com.ggiriggiri.web.entity.ProjectSkill;
 
 @Repository
 public class MybatisProfileSkillDao implements ProfileSkillDao{
@@ -28,5 +29,7 @@ public class MybatisProfileSkillDao implements ProfileSkillDao{
 
 		return mapper.getViewListByProfileId(profileId);
 	}
+
+	
 
 }

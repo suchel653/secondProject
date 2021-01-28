@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ggiriggiri.web.dao.ProjectSkillDao;
+import com.ggiriggiri.web.entity.ProjectSkill;
 import com.ggiriggiri.web.entity.ProjectSkillView;
 
 
@@ -40,6 +41,13 @@ public class MyBatisProjectSkillDao implements ProjectSkillDao{
 			skill = null;
 		
 		return mapper.getByProjectIds(fdProjectIds, skill);
+	}
+
+
+	@Override
+	public int insert(ProjectSkill projectSkill) {
+		// TODO Auto-generated method stub
+		return mapper.insert(projectSkill);
 	}
 
 
