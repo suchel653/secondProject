@@ -27,7 +27,8 @@ public class ActivityController {
 		model.addAttribute("osv",ongoingStudyView);
 //		model.addAttribute("wsv",ongoingStudyView);
 //		model.addAttribute("esv",ongoingStudyView);
-		
+		for(StudyView sv : ongoingStudyView)
+			System.out.println(sv);
 		return "customer.activity.index";
 	}
 
