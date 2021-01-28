@@ -24,5 +24,6 @@ public interface StudyService {
 	StudyView getView(int id);
 	StudyView getPrev(int id);
 	StudyView getNext(int id);
+	List<StudyView> getOngoingViewList(int memberId);
 
 }

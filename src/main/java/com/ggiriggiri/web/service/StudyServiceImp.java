@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ggiriggiri.web.dao.StudyApplyDao;
 import com.ggiriggiri.web.dao.StudyDao;
 import com.ggiriggiri.web.dao.StudyLanguageDao;
 import com.ggiriggiri.web.dao.StudySkillDao;
@@ -22,28 +23,27 @@ public class StudyServiceImp implements StudyService {
 
 	@Autowired
 	private StudyLanguageDao studyLanguageDao;
+	
+	@Autowired
+	private StudyApplyDao studyApplyDao;
 
 	@Override
 	public int insert(Study study) {
-		// TODO Auto-generated method stub
 		return studyDao.insert(study);
 	}
 
 	@Override
 	public int update(Study study) {
-		// TODO Auto-generated method stub
 		return studyDao.update(study);
 	}
 
 	@Override
 	public int delete(int id) {
-		// TODO Auto-generated method stub
 		return studyDao.delete(id);
 	}
 
 	@Override
 	public Study get(int id) {
-	
 		return studyDao.get(id);
 	}
 
@@ -119,14 +119,22 @@ public class StudyServiceImp implements StudyService {
 
 	@Override
 	public StudyView getPrev(int id) {
-		// TODO Auto-generated method stub
 		return studyDao.getPrev(id);
 	}
 
 	@Override
 	public StudyView getNext(int id) {
-		// TODO Auto-generated method stub
 		return studyDao.getNext(id);
+	}
+
+	@Override
+	public List<StudyView> getOngoingViewList(int memberId) {
+		
+		int[] studyIds = studyApplyDao.getByStudyIds(memberId,1);
+		
+		List<StudyView> list = studyDao.getViewList(studyIds,0,0,"title","");
+		
+		return list;
 	}
 
 }

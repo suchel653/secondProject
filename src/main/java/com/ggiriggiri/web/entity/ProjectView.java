@@ -6,24 +6,27 @@ public class ProjectView extends Project{
 	private String leaderName;
 	private String fieldName;
 	private String statusName;
-	
+	private int memberCount;
 	public ProjectView() {
 		super();
 	}
 
 	
-
 	public ProjectView(int id, String title, String content, int limitNumber, Date startDate, Date endDate,
 			int leaderId, String requirement, Date regDate, int statusId, int fieldId, String image, String leaderName,
-			String fieldName, String statusName) {
+			String fieldName, String statusName, int memberCount) {
 		super(id, title, content, limitNumber, startDate, endDate, leaderId, requirement, regDate, statusId, fieldId,
 				image);
 		this.leaderName = leaderName;
 		this.fieldName = fieldName;
 		this.statusName = statusName;
+		this.memberCount = memberCount;
 	}
 
-	
+
+
+
+
 	public String getLeaderName() {
 		return leaderName;
 	}
@@ -46,6 +49,16 @@ public class ProjectView extends Project{
 
 	public void setStatusName(String statusName) {
 		this.statusName = statusName;
+	}
+
+
+	public int getMemberCount() {
+		return memberCount;
+	}
+
+
+	public void setMemberCount(int memberCount) {
+		this.memberCount = memberCount;
 	}
 
 
