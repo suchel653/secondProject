@@ -89,5 +89,12 @@ public class MyBatisStudyDao implements StudyDao{
 		return mapper.getView(id);
 	}
 
+
+	@Override
+	public List<StudyView> getViewListByStatusId(int[] ids, int leaderId, int statusId) {
+		// TODO Auto-generated method stub
+		return mapper.getViewListByStatusId(ids,leaderId,statusId);
+	}
+
 	
 }

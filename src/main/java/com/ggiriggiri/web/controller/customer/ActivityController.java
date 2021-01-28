@@ -20,13 +20,13 @@ public class ActivityController {
 	@RequestMapping("index")
 	public String index(Model model) {
 		
-		int memberId = 4;
-		List<StudyView> ongoingStudyView = studyService.getOngoingViewList(4);
-//		List<StudyView> waitingStudyView = studyService.getWaitingViewList(4);
-//		List<StudyView> endedStudyView = studyService.getEndedViewList(4);
+		int memberId = 1;
+		List<StudyView> ongoingStudyView = studyService.getOngoingViewList(memberId);
+		List<StudyView> waitingStudyView = studyService.getWaitingViewList(memberId);
+		List<StudyView> endedStudyView = studyService.getEndedViewList(memberId);
 		model.addAttribute("osv",ongoingStudyView);
-//		model.addAttribute("wsv",ongoingStudyView);
-//		model.addAttribute("esv",ongoingStudyView);
+		model.addAttribute("wsv",waitingStudyView);
+		model.addAttribute("esv",endedStudyView);
 		for(StudyView sv : ongoingStudyView)
 			System.out.println(sv);
 		return "customer.activity.index";

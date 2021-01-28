@@ -11,7 +11,8 @@ import com.ggiriggiri.web.entity.StudyApply;
 
 
 @Repository
-public class MybatisStudyApplyDao implements StudyApplyDao{
+public class MybatisStudyApplyDao implements StudyApplyDao {
+
 
 	private StudyApplyDao mapper;
 	
