@@ -25,4 +25,5 @@ public interface ProjectService {
 	int getCount(String title, String query, String[] field, String[] skill, String[] language);
 	ProjectView getPrev(int id);
 	ProjectView getNext(int id);
+	int getLastId();
 }

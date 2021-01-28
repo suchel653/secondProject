@@ -15,6 +15,10 @@
 		limit #{param2} offset #{param1};
 	</select> -->
 	
+	<insert id="insert" parameterType="com.ggiriggiri.web.entity.Project">
+		insert into Project(id,title,content,startDate,endDate,limitNumber,image,requirement,fieldId,leaderId)
+		values(#{id},#{title},#{content},#{startDate},#{endDate},#{limitNumber},#{image},#{requirement},#{fieldId},#{leaderId})
+   	</insert>
 	
 	<delete id="delete">
 		delete from Project where id=#{id};
@@ -85,5 +89,8 @@
 			(select id from ProjectView where id=#{id})
 			order by id asc
 			limit 1;
+	</select>
+	<select id="getLast" resultType="com.ggiriggiri.web.entity.Project">
+		SELECT * FROM Project WHERE ID = (SELECT MAX(ID) FROM Project)
 	</select>
 </mapper>

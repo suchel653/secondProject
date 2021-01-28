@@ -8,6 +8,7 @@
     <h1>프로젝트 등록</h1>
  <section>
 
+<form action="reg" method="post" enctype="multipart/form-data">
     <table border="1">
       <tbody>
         <tr>
@@ -33,14 +34,36 @@
     </tr>
     <tr>
        <th>제목</th>
-       <td><input type="text"  style="width: 825px"></td>
+       <td><input type="text" naem="title"></td>
    
 
     </tr>
+    
+    <tr>
+         <th>인원수</th>
+         <td>
+             <input type="text" name="limitNumber">명
+         </td>
+     </tr>
+     
+     <tr>
+         <th>시작일</th>
+         <td>
+             <input type="text" name="startDate" placeholder="yyyy-dd-mm">
+         </td>
+     </tr>
 
+	<tr>
+         <th>마감일</th>
+         <td>
+             <input type="text" name="endDate" placeholder="yyyy-dd-mm">
+         </td>
+     </tr>
+     
+     
      <tr>
         <th>첨부파일</th>
-        <td><input type="file" name="files"></td>
+        <td><input multiple="multiple" type="file" name="files"></td>
         
  
      </tr>
@@ -49,26 +72,26 @@
         <th>이미지파일</th>
         <td><input type="file" name="image"></td>
         
- 
      </tr>
      <tr>
         <td colspan="4">
-            <textarea 
-                style="width: 900px; height: 500px; "></textarea>
+            <textarea name="content"></textarea>
         </td>
     </tr>
  
    <tr>
         <td colspan="4">
-            <textarea 
-                style="width: 900px; height: 100px; " placeholder="요구조건"></textarea>
+            <textarea name="requirement" placeholder="요구조건"></textarea>
         </td>
     </tr>
- 
     
 </tbody>
-
     </table>
+	    <div class="buttons">
+			<input type="submit" value="등록"/>
+			<a href="list">뒤로가기</a>
+		</div>
+    </form>
     </section>
 </div>
 </main>

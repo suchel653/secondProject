@@ -1,5 +1,8 @@
 package com.ggiriggiri.web.controller.customer;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +13,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.ggiriggiri.web.entity.Field;
 import com.ggiriggiri.web.entity.Language;
+import com.ggiriggiri.web.entity.Project;
 import com.ggiriggiri.web.entity.ProjectView;
 import com.ggiriggiri.web.entity.Skill;
 import com.ggiriggiri.web.service.FieldService;
@@ -85,6 +90,31 @@ public class ProjectController {
 	public String reg() {
 		return "customer.project.reg";
 		
+	}
+	
+	@PostMapping("reg")
+	public String reg(@RequestParam("limitNumber") int limitNumber,
+			@RequestParam("startDate") String oldStartDate,
+			@RequestParam("endDate") String oldEndDate,
+			@RequestParam("title") String title,
+			@RequestParam("content") String content,
+			@RequestParam("requirement") String requirement,
+			@RequestParam("field") int fieldId,
+			@RequestParam("image") String image,
+			MultipartHttpServletRequest mtfRequest) throws ParseException {
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		Date startDate = sdf.parse(oldStartDate);
+		Date endDate = sdf.parse(oldEndDate);
+		
+		int newId = service.getLastId()+1;
+		
+		Project project = new Project(newId,title,content,startDate,endDate,limitNumber,image,requirement,fieldId);
+		service.insert(project);
+		
+		
+		return "redirect:list";
 	}
 	
 }
