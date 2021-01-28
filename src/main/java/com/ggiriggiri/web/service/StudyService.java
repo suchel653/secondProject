@@ -3,6 +3,7 @@ package com.ggiriggiri.web.service;
 import java.util.List;
 
 import com.ggiriggiri.web.entity.Study;
+import com.ggiriggiri.web.entity.StudyApply;
 import com.ggiriggiri.web.entity.StudyView;
 
 
@@ -24,5 +25,6 @@ public interface StudyService {
 	StudyView getView(int id);
 	StudyView getPrev(int id);
 	StudyView getNext(int id);
+	int insertStudyApply(StudyApply studyApply);
 
 }

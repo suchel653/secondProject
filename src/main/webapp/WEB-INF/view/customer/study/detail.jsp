@@ -2,60 +2,75 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<script src="/js/customer/study/apply.js"></script>
 
 	<main id="main" class="main">
         <h1 class="d-none">메인이다</h1>
         
         <div class="container">
           <section>
-          <h1 class="d-none">메인이다</h1>
+        
           
             <div class="title">
-              <h1>Spring Boot 기반 플젝 파티원 구함</h1>
+              <h1>${s.title}</h1>
             </div>
             
             <div>
-              <img src="../images/img1.jpg" ></img>
+              <img src="/images/language/${s.image }" ></img>
               <table border="1">
                 <tbody>
                 <tr>
-                  <th>분야 : </th><td >웹</td>
+                  <th>분야 : </th><td >${s.fieldName }</td>
                 </tr>
                 <tr>
                   <th>기술 : </th>
-                  <td>
-                    Spring Boot
-                  </td>
+                  <td >
+								<c:forEach var="s" items="${s.skill }" varStatus="st">
+								${s.skillName } 
+								<c:if test="${!st.last }">
+									/
+								</c:if>
+								</c:forEach>
+							</td>
                 </tr>
                 <tr>
                   <th>언어 : </th>
-                  <td>
-                    Java
-                  </td>
+                  	<td>
+								<c:forEach var="l" items="${s.language }" varStatus="st">
+								${l.languageName } 
+								<c:if test="${!st.last }">
+									/
+								</c:if>
+								</c:forEach>
+							</td>
                 </tr>
                 <tr>
                   <th>인원 : </th>
-                  <td >	3 / 5</td>
+                  <td >${s.limitNumber}</td>
                 </tr>
                 <tr>
                   <th>요구사항 :</th>
-                  <td> </td>
+                  <td>${s.requirement }</td>
                 </tr>
                 <tr>
                   <th>진행일 : </th>
                   <td >
+                  <fmt:formatDate value="${s.startDate}" pattern="yyyy-MM-dd"/>~
+					<fmt:formatDate value="${s.endDate }" pattern="yyyy-MM-dd"/>
                   </td>
                 </tr>
                 <tr>
-                  <th>상태 : </th><td ></td>
+                  <th>상태 : </th>
+                  <td >${s.statusName }</td>
                 </tr>
                 <tr>
-                  <th>작성자 : </th><td ></td>
+                  <th>작성자 : </th>
+                  <td >${s.leaderName }</td>
                 </tr>
                 <tr>
                   <th>등록일 :</th>
                   <td >
-                    <fmt:formatDate value="${pj.regDate }" pattern="yyyy-MM-dd"/>
+                    <fmt:formatDate value="${s.regDate }" pattern="yyyy-MM-dd"/>
                   </td>
                 </tr>
                 </tbody>
@@ -66,12 +81,24 @@
           
             </section>
 
-            
-            <div class="prev-next-button">
-              <a class="" href="">목록</a>
-              <a class="" href="">이전글</a>
-              <a class="" href="">다음글</a>
-            </div>
+            <div class="btn prev-next-btn">
+	                <a class="button searchBtn" href="list">목록</a>
+	                <input type=hidden value="${s.id}"/>
+	                 <a class="apply" href="">지원하기</a>
+	                
+	                <c:if test="${empty prev }">
+	                <a class="button searchBtn" >이전</a>
+	                </c:if>
+	                <c:if test="${not empty prev}">
+	                <a class="button searchBtn" href="${prev.id}">이전</a>
+	                </c:if>
+	                <c:if test="${empty next }">
+	                <a class="button searchBtn" >다음</a>
+	                </c:if>
+	                <c:if test="${not empty next }">
+	                <a class="button searchBtn" href="${next.id }">다음</a>
+	                </c:if>
+                </div>
 
         </div>
       </main>

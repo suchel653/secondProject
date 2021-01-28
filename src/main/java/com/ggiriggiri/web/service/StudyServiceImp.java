@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ggiriggiri.web.dao.StudyApplyDao;
 import com.ggiriggiri.web.dao.StudyDao;
 import com.ggiriggiri.web.dao.StudyLanguageDao;
 import com.ggiriggiri.web.dao.StudySkillDao;
 import com.ggiriggiri.web.entity.Study;
+import com.ggiriggiri.web.entity.StudyApply;
 import com.ggiriggiri.web.entity.StudyView;
 
 @Service
@@ -22,6 +24,10 @@ public class StudyServiceImp implements StudyService {
 
 	@Autowired
 	private StudyLanguageDao studyLanguageDao;
+	
+	@Autowired
+	private StudyApplyDao studyApplyDao;
+
 
 	@Override
 	public int insert(Study study) {
@@ -127,6 +133,12 @@ public class StudyServiceImp implements StudyService {
 	public StudyView getNext(int id) {
 		// TODO Auto-generated method stub
 		return studyDao.getNext(id);
+	}
+
+	@Override
+	public int insertStudyApply(StudyApply studyApply) {
+		// TODO Auto-generated method stub
+		return studyApplyDao.insertStudyApply(studyApply);
 	}
 
 }
