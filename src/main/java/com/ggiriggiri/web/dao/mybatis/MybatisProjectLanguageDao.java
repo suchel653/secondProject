@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ggiriggiri.web.dao.ProjectLanguageDao;
 import com.ggiriggiri.web.dao.StudyLanguageDao;
+import com.ggiriggiri.web.entity.ProjectLanguage;
 import com.ggiriggiri.web.entity.ProjectLanguageView;
 import com.ggiriggiri.web.entity.StudyLanguageView;
 
@@ -40,6 +41,13 @@ public class MybatisProjectLanguageDao implements ProjectLanguageDao{
 			language = null;
 		
 		return mapper.getByProjectIds(skProjectIds, language);
+	}
+
+
+	@Override
+	public int insert(ProjectLanguage projectLanguage) {
+		// TODO Auto-generated method stub
+		return mapper.insert(projectLanguage);
 	}
 
 	

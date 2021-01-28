@@ -10,6 +10,7 @@ import com.ggiriggiri.web.dao.StudyDao;
 import com.ggiriggiri.web.dao.StudyLanguageDao;
 import com.ggiriggiri.web.dao.StudySkillDao;
 import com.ggiriggiri.web.entity.Study;
+import com.ggiriggiri.web.entity.StudyApply;
 import com.ggiriggiri.web.entity.StudyView;
 
 @Service
@@ -26,6 +27,7 @@ public class StudyServiceImp implements StudyService {
 	
 	@Autowired
 	private StudyApplyDao studyApplyDao;
+
 
 	@Override
 	public int insert(Study study) {
@@ -128,6 +130,12 @@ public class StudyServiceImp implements StudyService {
 	}
 
 	@Override
+
+	public int insertStudyApply(StudyApply studyApply) {
+		// TODO Auto-generated method stub
+		return studyApplyDao.insertStudyApply(studyApply);
+	}
+	
 	public List<StudyView> getOngoingViewList(int memberId) {
 		
 		int[] studyIds = studyApplyDao.getByStudyIds(memberId,1);
@@ -157,6 +165,7 @@ public class StudyServiceImp implements StudyService {
 		List<StudyView> list = studyDao.getViewListByStatusId(studyIds,leaderId,statusId);
 		
 		return list;
+
 	}
 
 }

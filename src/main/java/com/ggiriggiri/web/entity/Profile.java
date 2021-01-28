@@ -15,8 +15,9 @@ public class Profile {
 	private Date editDate;
 	private List<ProfileSkillView> skillList;
 	private List<ProfileLanguageView> languageList;
-	private List<ProfileProject> projectList;
+	private List<ProfileProjectView> projectList;
 	private List<ProfileExperience> experienceList;
+	private List<ProfileStudyView> studyList;
 	
 	public Profile() {
 		
@@ -24,8 +25,8 @@ public class Profile {
 
 	public Profile(int id, int memberId, String title, String introduction, String repositoryLink, String address,
 			String image, Date regDate, Date editDate, List<ProfileSkillView> skillList,
-			List<ProfileLanguageView> languageList, List<ProfileProject> projectList,
-			List<ProfileExperience> experienceList) {
+			List<ProfileLanguageView> languageList, List<ProfileProjectView> projectList,
+			List<ProfileExperience> experienceList, List<ProfileStudyView> studyList) {
 		super();
 		this.id = id;
 		this.memberId = memberId;
@@ -40,6 +41,7 @@ public class Profile {
 		this.languageList = languageList;
 		this.projectList = projectList;
 		this.experienceList = experienceList;
+		this.studyList = studyList;
 	}
 
 	@Override
@@ -47,7 +49,8 @@ public class Profile {
 		return "Profile [id=" + id + ", memberId=" + memberId + ", title=" + title + ", introduction=" + introduction
 				+ ", repositoryLink=" + repositoryLink + ", address=" + address + ", image=" + image + ", regDate="
 				+ regDate + ", editDate=" + editDate + ", skillList=" + skillList + ", languageList=" + languageList
-				+ ", projectList=" + projectList + ", experienceList=" + experienceList + "]";
+				+ ", projectList=" + projectList + ", experienceList=" + experienceList + ", studyList=" + studyList
+				+ "]";
 	}
 
 	public List<ProfileSkillView> getSkillList() {
@@ -66,11 +69,11 @@ public class Profile {
 		this.languageList = languageList;
 	}
 
-	public List<ProfileProject> getProjectList() {
+	public List<ProfileProjectView> getProjectList() {
 		return projectList;
 	}
 
-	public void setProjectList(List<ProfileProject> projectList) {
+	public void setProjectList(List<ProfileProjectView> projectList) {
 		this.projectList = projectList;
 	}
 
@@ -153,6 +156,13 @@ public class Profile {
 	public void setEditDate(Date editDate) {
 		this.editDate = editDate;
 	}
-	
+
+	public List<ProfileStudyView> getStudyList() {
+		return studyList;
+	}
+
+	public void setStudyList(List<ProfileStudyView> studyList) {
+		this.studyList = studyList;
+	}
 	
 }

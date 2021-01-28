@@ -10,7 +10,7 @@ public class Project {
 	private int limitNumber;
 	private Date startDate;
 	private Date endDate;
-	private String leaderId;
+	private int leaderId;
 	private String requirement;
 	private Date regDate;
 	private int statusId;
@@ -18,12 +18,12 @@ public class Project {
 	private String image;
 	private List<ProjectLanguageView> languages;
 	private List<ProjectSkillView> skills;
+	private List<ProjectFile> files;
 	
 	public Project() {
-		this(0,null,null,0,null,null,null,null,null,0,0,null);
 	}
 
-	public Project(int id, String title, String content, int limitNumber, Date startDate, Date endDate, String leaderId,
+	public Project(int id, String title, String content, int limitNumber, Date startDate, Date endDate, int leaderId,
 			String requirement, Date regDate, int statusId, int fieldId,String image) {
 		this.id = id;
 		this.title = title;
@@ -40,7 +40,7 @@ public class Project {
 	}
 
 	public Project(int id, String title, String content, Date startDate, Date endDate, int limitNumber,
-			String image, String requirement, int fieldId) {
+			String image, String requirement, int fieldId,int leaderId) {
 		
 		this.id = id;
 		this.title = title;
@@ -51,6 +51,7 @@ public class Project {
 		this.requirement = requirement;
 		this.fieldId = fieldId;
 		this.image = image;
+		this.leaderId = leaderId;
 	}
 
 	public int getId() {
@@ -101,11 +102,11 @@ public class Project {
 		this.endDate = endDate;
 	}
 
-	public String getLeaderId() {
+	public int getLeaderId() {
 		return leaderId;
 	}
 
-	public void setLeaderId(String leaderId) {
+	public void setLeaderId(int leaderId) {
 		this.leaderId = leaderId;
 	}
 
@@ -163,15 +164,21 @@ public class Project {
 	public void setSkills(List<ProjectSkillView> skills) {
 		this.skills = skills;
 	}
+	
+	public List<ProjectFile> getFiles() {
+		return files;
+	}
+	
+	public void setFiles(List<ProjectFile> files) {
+		this.files = files;
+	}
 
 	@Override
 	public String toString() {
 		return "Project [id=" + id + ", title=" + title + ", content=" + content + ", limitNumber=" + limitNumber
 				+ ", startDate=" + startDate + ", endDate=" + endDate + ", leaderId=" + leaderId + ", requirement="
 				+ requirement + ", regDate=" + regDate + ", statusId=" + statusId + ", fieldId=" + fieldId + ", image="
-				+ image + ", languages=" + languages + ", skills=" + skills + "]";
+				+ image + ", languages=" + languages + ", skills=" + skills + ", files=" + files + "]";
 	}
-	
-	
-	
+
 }

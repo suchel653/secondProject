@@ -4,7 +4,8 @@ import java.util.Date;
 
 public class StudyApply {
 	private int id; 
-	private int StudyId;
+
+	private int studyId;
 	private int memberId; 
 	private Date regDate; 
 	private String comment; 
@@ -16,10 +17,12 @@ public class StudyApply {
 	
 	
 
+	
+	
 	public StudyApply(int id, int StudyId, int memberId, Date regDate, String comment, int resultStatus,
 			Date resultDate) {
 		this.id = id;
-		this.StudyId = StudyId;
+		this.studyId = StudyId;
 		this.memberId = memberId;
 		this.regDate = regDate;
 		this.comment = comment;
@@ -27,10 +30,19 @@ public class StudyApply {
 		this.resultDate = resultDate;
 	}
 
+	
+	public StudyApply(int memberId, int studyId, String comment) {
+		this.memberId=memberId;
+		this.studyId=studyId;
+		this.comment=comment;
+	}
 
+
+
+	
 	@Override
 	public String toString() {
-		return "StudyApply [id=" + id + ", StudyId=" + StudyId + ", memberId=" + memberId + ", regDate=" + regDate
+		return "StudyApply [id=" + id + ", studyId=" + studyId + ", memberId=" + memberId + ", regDate=" + regDate
 				+ ", comment=" + comment + ", resultStatus=" + resultStatus + ", resultDate=" + resultDate + "]";
 	}
 
@@ -45,11 +57,11 @@ public class StudyApply {
 	}
 
 	public int getStudyId() {
-		return StudyId;
+		return studyId;
 	}
 
 	public void setStudyId(int StudyId) {
-		this.StudyId = StudyId;
+		this.studyId = StudyId;
 	}
 
 	public int getMemberId() {

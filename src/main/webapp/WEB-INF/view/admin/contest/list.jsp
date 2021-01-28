@@ -70,9 +70,8 @@
 
                 </section>
                 <div>
-					<a href="reg"><input type="button" class="button" vlaue="글쓰기" ></a>	
-                </div>
-				<div>
+					<a class="button searchBtn" href="reg">글쓰기</a>	
+            
 					${page}/ ${pageCount} 페이지
 				</div>
                 <div class="pager">

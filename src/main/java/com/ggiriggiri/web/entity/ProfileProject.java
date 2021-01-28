@@ -3,22 +3,24 @@ package com.ggiriggiri.web.entity;
 public class ProfileProject {
 	private int id;
 	private int profileId;
-	private String name;
+	private String content;
+	private int projectId;
 	
 	public ProfileProject() {
 
 	}
 
-	public ProfileProject(int id, int profileId, String name) {
-		super();
+	public ProfileProject(int id, int profileId, String content, int projectId) {
 		this.id = id;
 		this.profileId = profileId;
-		this.name = name;
+		this.content = content;
+		this.projectId = projectId;
 	}
 
 	@Override
 	public String toString() {
-		return "ProfileProject [id=" + id + ", profileId=" + profileId + ", name=" + name + "]";
+		return "ProfileProject [id=" + id + ", profileId=" + profileId + ", content=" + content + ", projectId="
+				+ projectId + "]";
 	}
 
 	public int getId() {
@@ -37,12 +39,20 @@ public class ProfileProject {
 		this.profileId = profileId;
 	}
 
-	public String getName() {
-		return name;
+	public String getContent() {
+		return content;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public int getProjectId() {
+		return projectId;
+	}
+
+	public void setProjectId(int projectId) {
+		this.projectId = projectId;
 	}
 	
 }

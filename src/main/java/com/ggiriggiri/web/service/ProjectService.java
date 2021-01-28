@@ -4,7 +4,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.ggiriggiri.web.entity.ContestFile;
 import com.ggiriggiri.web.entity.Project;
+import com.ggiriggiri.web.entity.ProjectFile;
+import com.ggiriggiri.web.entity.ProjectLanguage;
+import com.ggiriggiri.web.entity.ProjectSkill;
 import com.ggiriggiri.web.entity.ProjectView;
 import com.ggiriggiri.web.entity.StudyView;
 
@@ -25,5 +29,10 @@ public interface ProjectService {
 	int getCount(String title, String query, String[] field, String[] skill, String[] language);
 	ProjectView getPrev(int id);
 	ProjectView getNext(int id);
+	
 	int getLastId();
+	int insertFile(ProjectFile projectFile);
+	
+	int insertSkill(ProjectSkill projectSkill);
+	int insertLanguage(ProjectLanguage projectLanguage);
 }

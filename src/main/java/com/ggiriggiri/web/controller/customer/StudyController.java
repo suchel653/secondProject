@@ -5,12 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ggiriggiri.web.entity.Field;
 import com.ggiriggiri.web.entity.Language;
 import com.ggiriggiri.web.entity.Skill;
+import com.ggiriggiri.web.entity.StudyApply;
 import com.ggiriggiri.web.entity.StudyView;
 import com.ggiriggiri.web.service.FieldService;
 import com.ggiriggiri.web.service.LanguageService;
@@ -62,9 +66,36 @@ public class StudyController {
 		
 	}
 
-	@RequestMapping("detail")
-	public String detail() {
+	@RequestMapping("{id}")
+	public String detail(Model model,@PathVariable("id")Integer id) {
+	    StudyView study = service.getView(id);
+	    StudyView prev = service.getPrev(id);
+	    StudyView next = service.getNext(id);
+		
+		model.addAttribute("prev",prev);
+		model.addAttribute("next",next);
+		model.addAttribute("s",study);
+		
 		return "customer.study.detail";
+		
+	}
+	
+	@GetMapping("apply/{id}")
+	public String apply(Model model,@PathVariable("id")Integer id) {
+
+		return "customer.study.popup.apply";
+		
+	}
+	
+	@PostMapping("apply/{id}")
+	public String apply(
+			@PathVariable("id") int id,
+			@RequestParam("comment") String comment
+			) {
+		StudyApply studyApply = new StudyApply(5,id,comment);
+		
+		service.insertStudyApply(studyApply);
+		return "customer.study.popup.apply";
 		
 	}
 

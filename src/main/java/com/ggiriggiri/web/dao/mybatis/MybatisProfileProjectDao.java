@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ggiriggiri.web.dao.ProfileProjectDao;
-import com.ggiriggiri.web.entity.ProfileProject;
+import com.ggiriggiri.web.entity.ProfileProjectView;
 
 @Repository
 public class MybatisProfileProjectDao implements ProfileProjectDao{
@@ -23,7 +23,7 @@ public class MybatisProfileProjectDao implements ProfileProjectDao{
 	}
 	
 	@Override
-	public List<ProfileProject> getListByProfileId(int profileId) {
+	public List<ProfileProjectView> getListByProfileId(int profileId) {
 
 		return mapper.getListByProfileId(profileId);
 	}

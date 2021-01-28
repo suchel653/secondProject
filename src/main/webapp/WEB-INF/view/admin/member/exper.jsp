@@ -10,6 +10,7 @@
 			<li><a href="../${m.id }" >기본정보</a></li>
 			<li><a href="../${m.id }/exper" >경력사항</a></li>
 			<li><a href="../${m.id }/project" >참여 프로젝트</a></li>
+			<li><a href="../${m.id }/study" >참여 스터디</a></li>
 		</ul>
 	</nav>
 	
@@ -17,25 +18,22 @@
     <table class="list-table table">
        <thead>
            <tr>
-               <td>회사명</td>
                <td>기간</td>
-               <td>업무사항</td>
+               <td>내용</td>
            </tr>
        </thead>
 
        <tbody class="tbody">
-           <tr>
-               <td>
-               	<a href="">sdf</a>
-               </td>
-               <td>
-               	<fmt:formatDate value="" pattern="yyyy-MM-dd"/>	sdf~
-               	<fmt:formatDate value="" pattern="yyyy-MM-dd"/>	sdf
-               </td>
-               <td>
-               		컴퓨터가 되도록 java하기
-               </td>
-           </tr>
+      		<c:forEach var="e" items="${p.experienceList }">
+	           <tr>
+	               <td>
+	               		${e.date}
+	               </td>
+	               <td>
+	               		${e.content}
+	               </td>
+	           </tr>
+          	</c:forEach>
        </tbody>
    </table>
 </main>
