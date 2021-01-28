@@ -31,25 +31,21 @@ public class StudyServiceImp implements StudyService {
 
 	@Override
 	public int insert(Study study) {
-		// TODO Auto-generated method stub
 		return studyDao.insert(study);
 	}
 
 	@Override
 	public int update(Study study) {
-		// TODO Auto-generated method stub
 		return studyDao.update(study);
 	}
 
 	@Override
 	public int delete(int id) {
-		// TODO Auto-generated method stub
 		return studyDao.delete(id);
 	}
 
 	@Override
 	public Study get(int id) {
-	
 		return studyDao.get(id);
 	}
 
@@ -125,20 +121,29 @@ public class StudyServiceImp implements StudyService {
 
 	@Override
 	public StudyView getPrev(int id) {
-		// TODO Auto-generated method stub
 		return studyDao.getPrev(id);
 	}
 
 	@Override
 	public StudyView getNext(int id) {
-		// TODO Auto-generated method stub
 		return studyDao.getNext(id);
 	}
 
 	@Override
+
 	public int insertStudyApply(StudyApply studyApply) {
 		// TODO Auto-generated method stub
 		return studyApplyDao.insertStudyApply(studyApply);
+	}
+	
+	public List<StudyView> getOngoingViewList(int memberId) {
+		
+		int[] studyIds = studyApplyDao.getByStudyIds(memberId,1);
+		
+		List<StudyView> list = studyDao.getViewList(studyIds,0,0,"title","");
+		
+		return list;
+
 	}
 
 }

@@ -25,6 +25,10 @@ public interface StudyService {
 	StudyView getView(int id);
 	StudyView getPrev(int id);
 	StudyView getNext(int id);
+
 	int insertStudyApply(StudyApply studyApply);
+
+	List<StudyView> getOngoingViewList(int memberId);
+
 
 }

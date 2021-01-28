@@ -24,7 +24,9 @@
 			(0)
 		</if>
 		order by regdate desc
+		<if test="size != 0">
 		limit #{size} offset #{offset}
+		</if>
 	</select>
 
 
