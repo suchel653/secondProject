@@ -94,6 +94,18 @@ public class MemberController {
 		return "admin.member.popup.project";
 	}
 	
+	@GetMapping("{id}/study")
+	public String detailStudy(@PathVariable("id") Integer id,Model model) {
+		
+		Member m = service.get(id);
+		Profile p = m.getProfile();
+		
+		model.addAttribute("m",m);
+		model.addAttribute("p",p);
+		
+		return "admin.member.popup.study";
+	}
+	
 	@GetMapping("{id}/exper")
 	public String detailExper(@PathVariable("id") Integer id,Model model) {
 		

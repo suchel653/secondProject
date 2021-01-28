@@ -11,6 +11,7 @@ import com.ggiriggiri.web.dao.ProfileExperienceDao;
 import com.ggiriggiri.web.dao.ProfileLanguageDao;
 import com.ggiriggiri.web.dao.ProfileProjectDao;
 import com.ggiriggiri.web.dao.ProfileSkillDao;
+import com.ggiriggiri.web.dao.ProfileStudyDao;
 import com.ggiriggiri.web.entity.Member;
 import com.ggiriggiri.web.entity.Profile;
 
@@ -29,6 +30,8 @@ public class MemberServiceImp implements MemberService{
 	private ProfileSkillDao skillDao;
 	@Autowired
 	private ProfileLanguageDao languageDao;
+	@Autowired
+	private ProfileStudyDao studyDao;
 	
 	@Override
 	public int insert(Member member) {
@@ -61,10 +64,11 @@ public class MemberServiceImp implements MemberService{
 		Member m = memberDao.get(id);
 		
 		Profile p = profileDao.get(id);
-		p.setExperienceList(experienceDao.getListByProfileId(id));
-		p.setProjectList(projectDao.getListByProfileId(id));
-		p.setSkillList(skillDao.getViewListByProfileId(id));
-		p.setLanguageList(languageDao.getViewListByProfileId(id));
+		p.setExperienceList(experienceDao.getListByProfileId(p.getId()));
+		p.setProjectList(projectDao.getListByProfileId(p.getId()));
+		p.setSkillList(skillDao.getViewListByProfileId(p.getId()));
+		p.setLanguageList(languageDao.getViewListByProfileId(p.getId()));
+		p.setStudyList(studyDao.getListByProfileId(p.getId()));
 		
 		m.setProfile(p);
 		

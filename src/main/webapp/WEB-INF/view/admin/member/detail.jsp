@@ -11,6 +11,7 @@
 						<li><a href="${m.id }" >기본정보</a></li>
 						<li><a href="${m.id }/exper" >경력사항</a></li>
 						<li><a href="${m.id }/project" >참여 프로젝트</a></li>
+						<li><a href="${m.id }/study" >참여 스터디</a></li>
 					</ul>
 				</nav>
 				<div class="detail-container">

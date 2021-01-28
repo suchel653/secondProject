@@ -2,9 +2,9 @@ package com.ggiriggiri.web.dao;
 
 import java.util.List;
 
-import com.ggiriggiri.web.entity.ProfileProject;
+import com.ggiriggiri.web.entity.ProfileProjectView;
 
 public interface ProfileProjectDao {
 
-	List<ProfileProject> getListByProfileId(int profileId);
+	List<ProfileProjectView> getListByProfileId(int profileId);
 }

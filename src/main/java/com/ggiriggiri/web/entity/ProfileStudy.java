@@ -1,58 +1,58 @@
 package com.ggiriggiri.web.entity;
 
-public class ProfileProject {
+public class ProfileStudy {
 	private int id;
 	private int profileId;
 	private String content;
-	private int projectId;
+	private int studyId;
 	
-	public ProfileProject() {
+	public ProfileStudy() {
 
 	}
-
-	public ProfileProject(int id, int profileId, String content, int projectId) {
+	
+	public ProfileStudy(int id, int profileId, String content, int studyId) {
 		this.id = id;
 		this.profileId = profileId;
 		this.content = content;
-		this.projectId = projectId;
+		this.studyId = studyId;
 	}
 
 	@Override
 	public String toString() {
-		return "ProfileProject [id=" + id + ", profileId=" + profileId + ", content=" + content + ", projectId="
-				+ projectId + "]";
+		return "ProfileStudy [id=" + id + ", profileId=" + profileId + ", content=" + content + ", studyId=" + studyId
+				+ "]";
 	}
 
 	public int getId() {
 		return id;
 	}
-
+	
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	
 	public int getProfileId() {
 		return profileId;
 	}
-
+	
 	public void setProfileId(int profileId) {
 		this.profileId = profileId;
 	}
-
+	
 	public String getContent() {
 		return content;
 	}
-
+	
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-	public int getProjectId() {
-		return projectId;
+	
+	public int getStudyId() {
+		return studyId;
 	}
-
-	public void setProjectId(int projectId) {
-		this.projectId = projectId;
+	
+	public void setStudyId(int studyId) {
+		this.studyId = studyId;
 	}
 	
 }
