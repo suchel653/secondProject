@@ -9,6 +9,7 @@ public class StudyController {
 	
 	@RequestMapping("index")
 	public String index() {
+		
 		return null;
 		
 	}

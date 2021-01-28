@@ -7,10 +7,11 @@ import com.ggiriggiri.web.dao.StudyApplyDao;
 @Repository
 public class MybatisStudyApplyDao implements StudyApplyDao{
 
+	private StudyApplyDao mapper;
+	
 	@Override
 	public int[] getByStudyIds(int memberId, int resultStatus) {
-		// TODO Auto-generated method stub
-		return null;
+		return mapper.getByStudyIds(memberId, resultStatus);
 	}
 
 }
