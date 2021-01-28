@@ -29,25 +29,21 @@ public class StudyServiceImp implements StudyService {
 
 	@Override
 	public int insert(Study study) {
-		// TODO Auto-generated method stub
 		return studyDao.insert(study);
 	}
 
 	@Override
 	public int update(Study study) {
-		// TODO Auto-generated method stub
 		return studyDao.update(study);
 	}
 
 	@Override
 	public int delete(int id) {
-		// TODO Auto-generated method stub
 		return studyDao.delete(id);
 	}
 
 	@Override
 	public Study get(int id) {
-	
 		return studyDao.get(id);
 	}
 
@@ -56,7 +52,7 @@ public class StudyServiceImp implements StudyService {
 	public List<StudyView> getViewList(int page, int size, String title, String query, String[] field, String[] skill,
 			String[] language) {
 
-		
+		// getStudyIdsByFieldNames
 		int[] fdStudyIds = studyDao.getByStudyIds(field);
 		if(fdStudyIds.length==0)
 			return null;
@@ -123,21 +119,42 @@ public class StudyServiceImp implements StudyService {
 
 	@Override
 	public StudyView getPrev(int id) {
-		// TODO Auto-generated method stub
 		return studyDao.getPrev(id);
 	}
 
 	@Override
 	public StudyView getNext(int id) {
-		// TODO Auto-generated method stub
 		return studyDao.getNext(id);
 	}
 
 	@Override
 	public List<StudyView> getOngoingViewList(int memberId) {
+		
+		int[] studyIds = studyApplyDao.getByStudyIds(memberId,1);
+		int leaderId = memberId;
+		int statusId = 2;
+		List<StudyView> list = studyDao.getViewListByStatusId(studyIds,leaderId,statusId);
+		
+		return list;
+	}
+
+	@Override
+	public List<StudyView> getWaitingViewList(int memberId) {
+		int[] studyIds = studyApplyDao.getByStudyIds(memberId,1);
+		int leaderId = memberId;
+		int statusId = 1;
+		List<StudyView> list = studyDao.getViewListByStatusId(studyIds,leaderId,statusId);
+		
+		return list;
+	}
+
+	@Override
+	public List<StudyView> getEndedViewList(int memberId) {
 		int[] studyIds = studyApplyDao.getByStudyIds(memberId,1);
 		
-		List<StudyView> list = studyDao.getViewList(studyIds,0,0,"title","");
+		int leaderId = memberId;
+		int statusId = 3;
+		List<StudyView> list = studyDao.getViewListByStatusId(studyIds,leaderId,statusId);
 		
 		return list;
 	}
