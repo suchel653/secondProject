@@ -136,4 +136,10 @@ public class ProjectServiceImp implements ProjectService{
 	public ProjectView getNext(int id) {
 		return projectDao.getNext(id);
 	}
+
+	@Override
+	public int getLastId() {
+		Project project = projectDao.getLast();
+		return project.getId();
+	} 
 }

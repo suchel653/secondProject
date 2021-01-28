@@ -39,6 +39,20 @@ public class Project {
 		this.image = image;
 	}
 
+	public Project(int id, String title, String content, Date startDate, Date endDate, int limitNumber,
+			String image, String requirement, int fieldId) {
+		
+		this.id = id;
+		this.title = title;
+		this.content = content;
+		this.limitNumber = limitNumber;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.requirement = requirement;
+		this.fieldId = fieldId;
+		this.image = image;
+	}
+
 	public int getId() {
 		return id;
 	}
