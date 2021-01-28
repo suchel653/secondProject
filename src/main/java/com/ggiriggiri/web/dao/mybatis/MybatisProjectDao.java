@@ -89,5 +89,11 @@ public class MybatisProjectDao implements ProjectDao {
 	public ProjectView getNext(int id) {
 		return mapper.getNext(id);
 	}
+
+	@Override
+	public Project getLast() {
+		// TODO Auto-generated method stub
+		return mapper.getLast();
+	}
 	
 }
