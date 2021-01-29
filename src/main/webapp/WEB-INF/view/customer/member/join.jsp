@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-			 <script src="/js/admin/member/reg.js"></script>
+			 <script src="/js/customer/member/join.js"></script>
 			<main id="main" class="main">
 				<h1 class="d-none">메인이다</h1>
 				<section>
@@ -11,7 +11,7 @@
 							<input type="button" value="인중">
 						</div>
 						<label>인증번호</label>
-						<div>
+						<div id="confirm">
 							<input type="text">
 							<input type="button" value="확인">
 						</div>

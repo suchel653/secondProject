@@ -3,10 +3,6 @@
 <aside class="aside">
 	<h1 class="d-none">페이지 목록</h1>
 	<ul>
-
 		<li><a href="/admin/member/list">목록</a></li>
-		<li><a href="/admin/member/reg">등록</a></li>
-
-
 	</ul>
 </aside>
