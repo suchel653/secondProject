@@ -11,7 +11,8 @@ public interface ProjectSkillDao {
 	int insert(ProjectSkill projectSkill);
 	
 	List<ProjectSkillView> getListByProjectId(int id);
-	
-	int[] getByProjectIds(int[] fdProjectIds, String[] skill);
+
+	int[] getProjectIdsBySkillNames(int[] projectIds, String[] skill);
+
 	
 }

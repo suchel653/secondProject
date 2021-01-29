@@ -79,16 +79,17 @@ public class ProjectServiceImp implements ProjectService{
 
 	@Override
 	public int getCount(String title, String query, String[] field, String[] skill, String[] language) {
-		int[] fdProjectIds = projectDao.getByProjectIds(field);
-		if(fdProjectIds.length==0)
+		int[] projectIds = projectDao.getIdsByFieldNames(field);
+		if(projectIds.length==0)
 			return 0;
-		int[] skProjectIds = projectSkilldao.getByProjectIds(fdProjectIds,skill);
-		if(skProjectIds.length==0)
+		projectIds = projectSkilldao.getProjectIdsBySkillNames(projectIds,skill);
+		if(projectIds.length==0)
 			return 0;
-		int[] ids = projectLanguageDao.getByProjectIds(skProjectIds, language);
-		if(ids.length==0)
+		projectIds = projectLanguageDao.getProjectIdsByLanguageNames(projectIds, language);
+		if(projectIds.length==0)
 			return 0;
 		
+		int[] ids = projectIds;
 		return projectDao.getCount(ids,title,query);
 	}
 
@@ -96,20 +97,21 @@ public class ProjectServiceImp implements ProjectService{
 	public List<ProjectView> getViewList(int page, int size, String title, String query, String[] field, String[] skill,
 			String[] language) {
 		
-		int[] fdProjectIds = projectDao.getByProjectIds(field);
-		if(fdProjectIds.length==0)
+		int[] projectIds = projectDao.getIdsByFieldNames(field);
+		if(projectIds.length==0)
 			return null;
 		
-		int[] skProjectIds = projectSkilldao.getByProjectIds(fdProjectIds,skill);
-		if(skProjectIds.length==0)
+		projectIds = projectSkilldao.getProjectIdsBySkillNames(projectIds, skill);
+		if(projectIds.length==0)
 			return null;
 		
-		int[] ids = projectLanguageDao.getByProjectIds(skProjectIds,language);
-		if(ids.length==0)
+		projectIds = projectLanguageDao.getProjectIdsByLanguageNames(projectIds,language);
+		if(projectIds.length==0)
 			return null;
 		
 		
 		int offset = (page-1) * size;
+		int[] ids = projectIds;
 		List<ProjectView> list = projectDao.getViewList(ids, offset, size, title, query);
 		
 		for(ProjectView p : list) {

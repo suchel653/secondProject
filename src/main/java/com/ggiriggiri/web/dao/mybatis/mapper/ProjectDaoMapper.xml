@@ -60,7 +60,7 @@
 		limit #{size} offset #{offset}
 	</select>
 	
-	<select id="getByProjectIds" resultType="int">
+	<select id="getIdsByFieldNames" resultType="int">
 	
 		select id from ProjectView
 		<if test="field != null">

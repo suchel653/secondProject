@@ -67,13 +67,6 @@ public class MybatisProjectDao implements ProjectDao {
 		return mapper.getViewList(ids, offset, size, title, query);
 	}
 
-	@Override
-	public int[] getByProjectIds(String[] field) {
-		if(field.length==0)
-			field=null;
-		
-		return mapper.getByProjectIds(field);
-	}
 
 	@Override
 	public ProjectView getView(int id) {
@@ -94,6 +87,14 @@ public class MybatisProjectDao implements ProjectDao {
 	public Project getLast() {
 		// TODO Auto-generated method stub
 		return mapper.getLast();
+	}
+
+	@Override
+	public int[] getIdsByFieldNames(String[] field) {
+		if(field.length==0)
+			field=null;
+		
+		return mapper.getIdsByFieldNames(field);
 	}
 	
 }
