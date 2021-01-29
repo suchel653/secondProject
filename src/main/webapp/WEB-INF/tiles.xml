@@ -8,12 +8,18 @@
 <!-- 루트로부터 시작되는 페이지이기 때문에 앞에 home을 붙여서 구분함. 
 	*.* = > 모든 경로 지정 되기때문
  -->
+  
   <definition name="customer.study.popup.*" template="/WEB-INF/view/customer/study/inc/layout.jsp">
    
     <put-attribute name="main" value="/WEB-INF/view/customer/study/{1}.jsp" />
   
   </definition>
- 
+  
+   <definition name="customer.project.popup.*" template="/WEB-INF/view/customer/project/inc/layout.jsp">
+   
+    <put-attribute name="main" value="/WEB-INF/view/customer/project/{1}.jsp" />
+  
+  </definition>
  
  
   <definition name="customer.*.*" template="/WEB-INF/view/inc/layout.jsp">

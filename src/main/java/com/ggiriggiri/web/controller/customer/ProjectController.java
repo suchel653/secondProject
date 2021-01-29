@@ -190,5 +190,11 @@ public class ProjectController {
 		return "redirect:list";
 	}
 	
+	@GetMapping("apply/{id}")
+	public String apply(@PathVariable("id") int id, Model model) {
+		
+		
+		return "customer.project.popup.apply.";
+	}
 	
 }
