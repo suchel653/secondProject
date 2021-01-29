@@ -13,6 +13,6 @@ public interface MemberDao {
 	List<Member> getList();
 	List<Member> getList(int offset, int size, String field, String query);
 	Member get(int id);
-	
+	int check(String field, String query);
 
 }

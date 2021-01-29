@@ -45,9 +45,9 @@ public class MemberController {
 	}
 	
 	@PostMapping("checkMail")
-	public String sendMail(String email) {
+	@ResponseBody
+	public Map<String, Object> sendMail(String email) {
 		Map<String, Object> map = new HashMap<>();
-		System.out.println();
 		Random ran = new Random();
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setTo(email);
@@ -56,8 +56,18 @@ public class MemberController {
 		message.setText("회원님의 인증번호는" + key + "입니다.");
 		mailSender.send(message);
 		map.put("key", key);
-		return "123";
+		return map;
 		
+	}
+	
+	@PostMapping("checkDuplicate")
+	@ResponseBody
+	public Map<String, Object> checkDublicate(String checkKey) {
+		Map<String, Object> map = new HashMap<>();
+		int checkResult = service.check("nickname", checkKey);
+		map.put("checkResult", checkResult);
+		
+		return map;
 	}
 
 }

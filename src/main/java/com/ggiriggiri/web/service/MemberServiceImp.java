@@ -75,4 +75,9 @@ public class MemberServiceImp implements MemberService{
 		return m;
 	}
 
+	@Override
+	public int check(String field, String query) {
+		return memberDao.check(field, query);
+	}
+
 }

@@ -4,7 +4,7 @@
 			<main id="main" class="main">
 				<h1 class="d-none">메인이다</h1>
 				<section>
-					<form id="reg" method="post">
+					<form id="reg" method="post" onsubmit="return submitCheck();">
 						<label>아이디</label>
 						<div id="email">
 							<input type="text" name="email">
@@ -16,11 +16,11 @@
 							<input type="button" value="확인">
 						</div>
 						<label>비밀번호</label>
-						<div>
+						<div id="password">
 							<input type="password" name="password">
 						</div>
 						<label>닉네임</label>
-						<div>
+						<div id="nickname">
 							<input type="text" name="nickname">
 							<input type="button" value="중복확인">
 						</div>
