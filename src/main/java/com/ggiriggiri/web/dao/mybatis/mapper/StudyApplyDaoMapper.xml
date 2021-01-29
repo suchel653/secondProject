@@ -12,7 +12,7 @@
     </insert>
     
   
-	<select id="getByStudyIds" resultType="int">
+	<select id="getStudyIdsByMemberId" resultType="int">
 		select studyId from StudyApply 
 		where memberId = #{memberId} and resultStatus = #{resultStatus}
 	</select>

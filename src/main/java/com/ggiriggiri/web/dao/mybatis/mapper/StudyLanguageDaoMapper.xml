@@ -9,10 +9,10 @@
 	</select>
 
 
-	<select id="getByStudyIds" resultType="int">
+	<select id="getStudyIdsByLanguageNames" resultType="int">
 		select studyId from StudyLanguageView
 		where studyId in
-		<foreach item="id" index="index" collection="skStudyIds"
+		<foreach item="id" index="index" collection="studyIds"
 			open="(" separator="," close=")">
 			#{id}
 		</foreach>

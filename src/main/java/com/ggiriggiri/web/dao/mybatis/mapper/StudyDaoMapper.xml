@@ -92,9 +92,6 @@
 		or leaderId = #{leaderId}) 
 		and statusId = #{statusId}
 
-		<if test="ids == null">
-			(0)
-		</if>
 		order by regdate desc
 	</select>
 

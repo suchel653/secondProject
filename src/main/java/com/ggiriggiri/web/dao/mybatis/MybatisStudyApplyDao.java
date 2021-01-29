@@ -26,10 +26,12 @@ public class MybatisStudyApplyDao implements StudyApplyDao {
 		// TODO Auto-generated method stub
 		return mapper.insertStudyApply(studyApply);
 	}
-	@Override
-	public int[] getByStudyIds(int memberId, int resultStatus) {
-		return mapper.getByStudyIds(memberId, resultStatus);
 
+
+	@Override
+	public int[] getStudyIdsByMemberId(int memberId, int resultStatus) {
+		// TODO Auto-generated method stub
+		return mapper.getStudyIdsByMemberId(memberId, resultStatus);
 	}
 
 }
