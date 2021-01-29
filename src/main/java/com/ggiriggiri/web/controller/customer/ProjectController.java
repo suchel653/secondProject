@@ -21,11 +21,13 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.ggiriggiri.web.entity.Field;
 import com.ggiriggiri.web.entity.Language;
 import com.ggiriggiri.web.entity.Project;
+import com.ggiriggiri.web.entity.ProjectApply;
 import com.ggiriggiri.web.entity.ProjectFile;
 import com.ggiriggiri.web.entity.ProjectLanguage;
 import com.ggiriggiri.web.entity.ProjectSkill;
 import com.ggiriggiri.web.entity.ProjectView;
 import com.ggiriggiri.web.entity.Skill;
+import com.ggiriggiri.web.entity.StudyApply;
 import com.ggiriggiri.web.service.FieldService;
 import com.ggiriggiri.web.service.LanguageService;
 import com.ggiriggiri.web.service.ProjectService;
@@ -197,4 +199,20 @@ public class ProjectController {
 		return "customer.project.popup.apply";
 	}
 	
+	@PostMapping("apply/{id}")
+	public String apply(
+			@PathVariable("id") int id,
+			@RequestParam("comment") String comment) {
+		
+		int projectId = id;
+		int memberId = 16;
+		
+		System.out.println(comment);
+		System.out.println(projectId);
+//		ProjectApply projectApply = new ProjectApply(memberId,projectId,comment);
+//		service.insertProjectApply(projectApply);
+		
+		return "customer.study.popup.apply";
+		
+	}
 }

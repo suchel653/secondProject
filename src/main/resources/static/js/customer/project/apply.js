@@ -1,6 +1,7 @@
 window.addEventListener("load",function(){
 	const applyBtn = document.querySelector(".apply-btn");
 	const pId = document.querySelector(".projectId");
+	const apply = document.querySelector(".submit");
 	
 	
 	let win;

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.ggiriggiri.web.entity.ContestFile;
 import com.ggiriggiri.web.entity.Project;
+import com.ggiriggiri.web.entity.ProjectApply;
 import com.ggiriggiri.web.entity.ProjectFile;
 import com.ggiriggiri.web.entity.ProjectLanguage;
 import com.ggiriggiri.web.entity.ProjectSkill;
@@ -35,4 +36,5 @@ public interface ProjectService {
 	
 	int insertSkill(ProjectSkill projectSkill);
 	int insertLanguage(ProjectLanguage projectLanguage);
+	int insertProjectApply(ProjectApply projectApply);
 }

@@ -28,6 +28,13 @@ public class ProjectApply {
 		this.resultChecked = resultChecked;
 	}
 
+	public ProjectApply(int memberId, int projectId, String comment) {
+		this.projectId = projectId;
+		this.memberId = memberId;
+		this.comment = comment;
+	}
+
+
 	@Override
 	public String toString() {
 		return "ProjectApply [id=" + id + ", projectId=" + projectId + ", memberId=" + memberId + ", regDate=" + regDate
