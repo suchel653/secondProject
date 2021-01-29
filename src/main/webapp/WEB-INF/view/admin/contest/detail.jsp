@@ -44,7 +44,7 @@
 	                        </td>
 	                    </tr>
 	                    <tr>
-	                        <th>이미지</th>
+	                        <th>이미지 :</th>
 	                        <td>
 	                       	<c:forEach var="img" items="${c.contestImages}">
 	                       		<img src="/images/contestImg/${c.id}/${img.name}" />

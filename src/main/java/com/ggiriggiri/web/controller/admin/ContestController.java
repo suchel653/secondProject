@@ -77,52 +77,48 @@ public class ContestController {
 		Contest contest = new Contest(newId,"aaa",title,content,startDate,endDate);
 		service.insert(contest);
 		
-//		List<ContestFile> contestFileList = null;
-//		List<ContestImage> contestimgList = null;
-		
 		List<MultipartFile> fileList = mtfRequest.getFiles("files");
 		List<MultipartFile> imgList = mtfRequest.getFiles("imgs");
 		
 		String url = "/images/";
-		String realPath = mtfRequest.getServletContext().getRealPath(url);
+	
+//		System.out.println(fileList.get(0).getOriginalFilename());
+//		System.out.println("img"+imgList.get(0).getOriginalFilename());
 		
-		String filePath = realPath + "contestFile/"+newId;
-		String imgPath = realPath + "contestImg/"+newId;
-		
-		File realPathFile = new File(filePath);
-		File realPathImgFile = new File(imgPath);
-		
-		if (!realPathFile.exists())
-			realPathFile.mkdir();
-
-		if (!realPathImgFile.exists())
-			realPathImgFile.mkdir();
-
-		
-		for(MultipartFile mf : fileList) {
-			String file = filePath + File.separator + mf.getOriginalFilename();
-			mf.transferTo(new File(file));
-
-			ContestFile contestFile = new ContestFile(newId,mf.getOriginalFilename());
-			service.insertFile(contestFile);
-//			contestFileList.add(contestFile);
+		if(!fileList.get(0).getOriginalFilename().equals("")) {
+			String realPath = mtfRequest.getServletContext().getRealPath(url);
 			
+			String filePath = realPath + "contestFile/"+newId;
+			File realPathFile = new File(filePath);
+			if (!realPathFile.exists())
+				realPathFile.mkdir();
+	
+			for(MultipartFile mf : fileList) {
+				String file = filePath + File.separator + mf.getOriginalFilename();
+				mf.transferTo(new File(file));
+	
+				ContestFile contestFile = new ContestFile(newId,mf.getOriginalFilename());
+				service.insertFile(contestFile);
+			}
 		}
 		
-		for(MultipartFile mf : imgList) {
-			String file = imgPath + File.separator + mf.getOriginalFilename();
-			mf.transferTo(new File(file));
+		if(!imgList.get(0).getOriginalFilename().equals("")) {
+			String realPath = mtfRequest.getServletContext().getRealPath(url);
 			
-			ContestImage contestImg = new ContestImage(newId,mf.getOriginalFilename());
-			service.insertImg(contestImg);
-//			contestimgList.add(contestImg);
+			String imgPath = realPath + "contestImg/"+newId;
+			File realPathImgFile = new File(imgPath);
+			if (!realPathImgFile.exists())
+				realPathImgFile.mkdir();
+			
+			for(MultipartFile mf : imgList) {
+				String file = imgPath + File.separator + mf.getOriginalFilename();
+				mf.transferTo(new File(file));
+				
+				ContestImage contestImg = new ContestImage(newId,mf.getOriginalFilename());
+				service.insertImg(contestImg);
+			}
 		}
 		
-//		contest.setContestFiles(contestFileList);
-//		contest.setContestImages(contestimgList);
-		
-		
-
 		return "redirect:list";
 	}
 
