@@ -21,15 +21,12 @@ import com.ggiriggiri.web.entity.Member;
 import com.ggiriggiri.web.entity.Profile;
 import com.ggiriggiri.web.service.MemberService;
 
-@Controller
+@Controller("adminMemberController")
 @RequestMapping("/admin/member/")
 public class MemberController {
 	
 	@Autowired
 	private MemberService service;
-	
-	@Autowired
-	private JavaMailSender mailSender;
 	
 	@RequestMapping("list")
 	public String list(Model model) {
@@ -38,36 +35,6 @@ public class MemberController {
 		model.addAttribute("list", list);
 		
 		return "admin.member.list";
-	}
-	
-	@GetMapping("reg")
-	public String reg() {
-		
-		return "admin.member.reg";
-	}
-	
-	@PostMapping("reg")
-	public String reg(String email, String password, String nickname) {
-		Member member = new Member();
-		member.setEmail(email);
-		member.setPassword(password);
-		member.setNickname(nickname);
-		System.out.println(member);
-		service.insert(member);
-		return "admin.member.reg";
-	}
-	
-	@PostMapping("checkMail")
-	@ResponseBody
-	public void mail(String email) {
-		Random ran = new Random();
-		SimpleMailMessage message = new SimpleMailMessage();
-		message.setTo(email);
-		int key = ran.nextInt(89999)+10000;
-		message.setSubject("끼리끼리 인증번호");
-		message.setText("회원님의 인증번호는" + key + "입니다.");
-		mailSender.send(message);
-		
 	}
 	
 	@GetMapping("{id}")
