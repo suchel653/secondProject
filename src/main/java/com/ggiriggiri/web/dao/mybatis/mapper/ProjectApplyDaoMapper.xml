@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ggiriggiri.web.dao.ProjectApplyDao">
+    
+    <insert id="insertProjectApply" parameterType="com.ggiriggiri.web.entity.ProjectApply">
+    insert into ProjectApply(memberId,projectId,comment)
+    values(#{memberId},#{projectId},#{comment})    
+    </insert>
+    
+  
+	<select id="getProjectIdsByMemberId" resultType="int">
+		select projectId from ProjectApply 
+		where memberId = #{memberId} and resultStatus = #{resultStatus}
+	</select>
+    
+</mapper>

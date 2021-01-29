@@ -5,11 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ggiriggiri.web.dao.ProjectApplyDao;
 import com.ggiriggiri.web.dao.ProjectDao;
 import com.ggiriggiri.web.dao.ProjectFileDao;
 import com.ggiriggiri.web.dao.ProjectLanguageDao;
 import com.ggiriggiri.web.dao.ProjectSkillDao;
 import com.ggiriggiri.web.entity.Project;
+import com.ggiriggiri.web.entity.ProjectApply;
 import com.ggiriggiri.web.entity.ProjectFile;
 import com.ggiriggiri.web.entity.ProjectLanguage;
 import com.ggiriggiri.web.entity.ProjectSkill;
@@ -29,6 +31,11 @@ public class ProjectServiceImp implements ProjectService{
 	
 	@Autowired
 	private ProjectFileDao projectFileDao;
+	
+	@Autowired
+	private ProjectApplyDao projectApplyDao;
+	
+	
 	
 	@Override
 	public int insert(Project project) {
@@ -166,5 +173,11 @@ public class ProjectServiceImp implements ProjectService{
 	public int insertFile(ProjectFile projectFile) {
 		
 		return projectFileDao.insert(projectFile);
+	}
+
+	@Override
+	public int insertProjectApply(ProjectApply projectApply) {
+		
+		return projectApplyDao.insertProjectApply(projectApply);
 	} 
 }
