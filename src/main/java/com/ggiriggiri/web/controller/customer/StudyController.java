@@ -82,7 +82,7 @@ public class StudyController {
 	
 	@GetMapping("apply/{id}")
 	public String apply(Model model,@PathVariable("id")Integer id) {
-
+		model.addAttribute("id",id);
 		return "customer.study.popup.apply";
 		
 	}
