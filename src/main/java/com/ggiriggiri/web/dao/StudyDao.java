@@ -27,6 +27,7 @@ public interface StudyDao {
 	int getCount(int[] ids, String title, String query);
 
 	List<StudyView> getViewListByStatusId(int[] ids, int leaderId, int statusId);
+	int[] getIdsByLeaderId(int leaderId, int statusId);
 
 
 	
