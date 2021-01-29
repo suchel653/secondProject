@@ -3,22 +3,18 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    <mapper namespace="com.ggiriggiri.web.dao.StudyApplyDao">
+
+<mapper namespace="com.ggiriggiri.web.dao.StudyApplyDao">
     
     <insert id="insertStudyApply" parameterType="com.ggiriggiri.web.entity.StudyApply">
     insert into StudyApply(memberId,studyId,comment)
     values(#{memberId},#{studyId},#{comment})    
     </insert>
     
-    <select id="getByStudyIds" resultType="int">
+  
+	<select id="getByStudyIds" resultType="int">
 		select studyId from StudyApply 
 		where memberId = #{memberId} and resultStatus = #{resultStatus}
 	</select>
     
-    
-    
-    
-    
- </mapper>
-
-
+</mapper>

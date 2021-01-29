@@ -7,16 +7,16 @@
 			<h1 class="d-none">메인이다</h1>
 			
 			<div class="container">
-				<div class="del-btn">
-					<a href="${pj.id }/del" class="button delBtn">삭제</a>
-				</div>
 				
 				<section>
+				<div class="del-btn" style="margin-left:30px;">
+					<a href="${pj.id }/del" class="button delBtn">삭제</a>
+				</div>
 				
 					<h1>${pj.title}</h1>
 	
 					<div class="detail-container">
-						<img src="/images/language/${pj.image }" style="width:300px; height:300px;"></img>
+						<img src="/images/projectImg/${pj.image }" style="width:300px; height:300px;"></img>
 						<table border="1">
 							<tbody>
 							<tr>
