@@ -3,24 +3,21 @@ package com.ggiriggiri.web.entity;
 import java.util.Date;
 
 public class StudyApply {
-	private int id; 
 
+	private int id;
 	private int studyId;
-	private int memberId; 
-	private Date regDate; 
-	private String comment; 
-	private int resultStatus; 
+	private int memberId;
+	private Date regDate;
+	private String comment;
+	private int resultStatus;
 	private Date resultDate;
-	
+	private int resultChecked;
+
 	public StudyApply() {
 	}
-	
-	
 
-	
-	
 	public StudyApply(int id, int StudyId, int memberId, Date regDate, String comment, int resultStatus,
-			Date resultDate) {
+			Date resultDate, int resultChecked) {
 		this.id = id;
 		this.studyId = StudyId;
 		this.memberId = memberId;
@@ -28,25 +25,21 @@ public class StudyApply {
 		this.comment = comment;
 		this.resultStatus = resultStatus;
 		this.resultDate = resultDate;
+		this.resultChecked = resultChecked;
 	}
 
-	
 	public StudyApply(int memberId, int studyId, String comment) {
-		this.memberId=memberId;
-		this.studyId=studyId;
-		this.comment=comment;
+		this.memberId = memberId;
+		this.studyId = studyId;
+		this.comment = comment;
 	}
 
-
-
-	
 	@Override
 	public String toString() {
 		return "StudyApply [id=" + id + ", studyId=" + studyId + ", memberId=" + memberId + ", regDate=" + regDate
-				+ ", comment=" + comment + ", resultStatus=" + resultStatus + ", resultDate=" + resultDate + "]";
+				+ ", comment=" + comment + ", resultStatus=" + resultStatus + ", resultDate=" + resultDate
+				+ ", resultChecked=" + resultChecked + "]";
 	}
-
-
 
 	public int getId() {
 		return id;
@@ -104,5 +97,12 @@ public class StudyApply {
 		this.resultDate = resultDate;
 	}
 
-	
+	public int getResultChecked() {
+		return resultChecked;
+	}
+
+	public void setResultChecked(int resultChecked) {
+		this.resultChecked = resultChecked;
+	}
+
 }
