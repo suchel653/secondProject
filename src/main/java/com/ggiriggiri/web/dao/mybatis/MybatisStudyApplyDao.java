@@ -1,5 +1,7 @@
 package com.ggiriggiri.web.dao.mybatis;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.ggiriggiri.web.dao.StudyApplyDao;
 
 import com.ggiriggiri.web.entity.StudyApply;
+import com.ggiriggiri.web.entity.StudyApplyView;
 
 
 
@@ -32,6 +35,18 @@ public class MybatisStudyApplyDao implements StudyApplyDao {
 	public int[] getStudyIdsByMemberId(int memberId, int resultStatus) {
 		// TODO Auto-generated method stub
 		return mapper.getStudyIdsByMemberId(memberId, resultStatus);
+	}
+
+	@Override
+	public List<StudyApplyView> getViewListByStudyIds(int[] studyIds, int resultStatus) {
+		// TODO Auto-generated method stub
+		return mapper.getViewListByStudyIds(studyIds, resultStatus);
+	}
+
+	@Override
+	public List<StudyApplyView> getResultViewListByMemberId(int memberId, int resultStatus, int resultChecked) {
+		// TODO Auto-generated method stub
+		return mapper.getResultViewListByMemberId(memberId,resultStatus,resultChecked);
 	}
 
 }

@@ -98,6 +98,13 @@ public class MyBatisStudyDao implements StudyDao{
 	}
 
 
+	@Override
+	public int[] getIdsByLeaderId(int leaderId, int statusId) {
+		// TODO Auto-generated method stub
+		return mapper.getIdsByLeaderId(leaderId, statusId);
+	}
+
+
 	
 
 	

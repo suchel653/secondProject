@@ -16,5 +16,23 @@
 		select studyId from StudyApply 
 		where memberId = #{memberId} and resultStatus = #{resultStatus}
 	</select>
+	
+	<select id="getViewListByStudyIds" resultType="com.ggiriggiri.web.entity.StudyApplyView">
+			select * from StudyApplyView
+			where studyId in
+				<foreach item="id" index="index" collection="studyIds" open="("
+					separator="," close=")">
+					#{id}
+				</foreach>
+			
+			order by regDate desc;
+	</select>
+	
+	<select id="getResultViewListByMemberId" resultType="com.ggiriggiri.web.entity.StudyApplyView">
+	
+			select * from StudyApplyView
+			where memberId = #{memberId} and resultStatus != #{resultStatus} and resultChecked=#{resultChecked}
+			order by regDate desc;
+	</select>
     
 </mapper>
