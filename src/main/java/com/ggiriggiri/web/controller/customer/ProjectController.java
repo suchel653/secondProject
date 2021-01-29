@@ -194,7 +194,7 @@ public class ProjectController {
 	public String apply(@PathVariable("id") int id, Model model) {
 		
 		
-		return "customer.project.popup.apply.";
+		return "customer.project.popup.apply";
 	}
 	
 }

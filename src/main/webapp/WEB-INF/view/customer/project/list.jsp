@@ -132,10 +132,8 @@
 				                    	 <th>언어:</th>
 				                    	 <td>
 				                    	 	<c:forEach var="l" items="${pj.languages}" varStatus="st"> 
-	                                		${l.languageName}
-	                                		<c:if test="${!st.last }">
-									 			/
-									 		</c:if>
+	                                		<img src="/images/language/${l.image}" style="width:40px; height:40px;"/>
+	                                		
 	                                		</c:forEach>
 				                    	 </td>
 				                    </tr>
