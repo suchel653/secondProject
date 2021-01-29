@@ -1,5 +1,10 @@
 package com.ggiriggiri.web.controller.customer;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +15,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.ggiriggiri.web.entity.Field;
 import com.ggiriggiri.web.entity.Language;
 import com.ggiriggiri.web.entity.Skill;
+import com.ggiriggiri.web.entity.Study;
 import com.ggiriggiri.web.entity.StudyApply;
+import com.ggiriggiri.web.entity.StudyFile;
+import com.ggiriggiri.web.entity.StudyLanguage;
+import com.ggiriggiri.web.entity.StudySkill;
 import com.ggiriggiri.web.entity.StudyView;
 import com.ggiriggiri.web.service.FieldService;
 import com.ggiriggiri.web.service.LanguageService;
@@ -99,10 +110,103 @@ public class StudyController {
 		
 	}
 
-	@RequestMapping("reg")
-	public String reg() {
-		return "customer.study.reg";
+	@GetMapping("reg")
+	public String reg(Model model,
+			@RequestParam(name="field", defaultValue = "") String[] field,
+			@RequestParam(name="skill", defaultValue = "") String[] skill,
+			@RequestParam(name="language", defaultValue = "") String[] language) {
 		
+		List<Field> fdList = fdService.getList(1, 100);
+		List<Skill> skList = skService.getList(1, 100);
+		List<Language> lgList = lgService.getList(1, 100);
+		
+		model.addAttribute("f", fdList);
+		model.addAttribute("s", skList);
+		model.addAttribute("l", lgList);
+		
+		return "customer.project.reg";
+		
+	}
+	
+	@PostMapping("reg")
+	public String reg(@RequestParam("limitNumber") int limitNumber,
+			@RequestParam("startDate") String oldStartDate,
+			@RequestParam("endDate") String oldEndDate,
+			@RequestParam("title") String title,
+			@RequestParam("content") String content,
+			@RequestParam("requirement") String requirement,
+			@RequestParam("field") int fieldId,
+			@RequestParam("skill") int[] skill,
+			@RequestParam("language") int[] language,
+			MultipartHttpServletRequest mtfRequest) throws ParseException, IllegalStateException, IOException {
+
+		
+		System.out.println(fieldId);
+		for(int s : skill)
+		System.out.println(s);
+		for(int l : language)
+			System.out.println(l);
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		Date startDate = sdf.parse(oldStartDate);
+		Date endDate = sdf.parse(oldEndDate);
+		
+		int newId = service.getLastId()+1;
+		
+		MultipartFile img = mtfRequest.getFile("image");
+		List<MultipartFile> fileList = mtfRequest.getFiles("files");
+
+		String url = "/images/";
+		String realPath = mtfRequest.getServletContext().getRealPath(url);
+		
+		String filePath = realPath + "studyFile/";
+		String imgPath = realPath + "studyImg/";
+		
+		File realPathFile = new File(filePath);
+		File realPathImgFile = new File(imgPath);
+		
+		if (!realPathFile.exists())
+			realPathFile.mkdir();
+		
+		if (!realPathImgFile.exists())
+			realPathImgFile.mkdir();
+		
+		String imgFile = imgPath + File.separator + img.getOriginalFilename();
+		img.transferTo(new File(imgFile));
+		String image = img.getOriginalFilename();
+		
+		System.out.println(image);
+		
+		int leaderId = 16;
+		
+		Study study = new Study(newId,title,content,startDate,endDate,limitNumber,image,requirement,fieldId,leaderId);
+		
+		service.insert(study);
+		
+		
+		
+		for(MultipartFile mf : fileList) {
+			String file = filePath + File.separator + mf.getOriginalFilename();
+			mf.transferTo(new File(file));
+
+			
+			StudyFile studyFile = new StudyFile(newId,mf.getOriginalFilename());
+			service.insertFile(studyFile);
+		}
+		
+		for(int skillId : skill) {
+			StudySkill sk = new StudySkill(newId,skillId);
+			service.insertSkill(sk);
+		}
+		
+		for(int languageId : language) {
+			StudyLanguage sl = new StudyLanguage(newId,languageId);
+			service.insertLanguage(sl);
+		}
+			
+		
+		return "redirect:list";
 	}
 	
 }

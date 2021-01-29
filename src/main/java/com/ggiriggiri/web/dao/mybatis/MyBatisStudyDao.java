@@ -98,6 +98,13 @@ public class MyBatisStudyDao implements StudyDao{
 	}
 
 
+	@Override
+	public Study getLast() {
+		// TODO Auto-generated method stub
+		return mapper.getLast();
+	}
+
+
 	
 
 	

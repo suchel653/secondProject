@@ -10,6 +10,10 @@ public class StudySkill {
 		this.studyId = studyId;
 		this.skillId = skillId;
 	}
+	public StudySkill(int studyId, int skillId) {
+		this.studyId = studyId;
+		this.skillId = skillId;
+	}
 	@Override
 	public String toString() {
 		return "StudySkill [id=" + id + ", studyId=" + studyId + ", skillId=" + skillId + "]";
