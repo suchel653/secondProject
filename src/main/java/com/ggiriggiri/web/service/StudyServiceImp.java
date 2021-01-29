@@ -55,7 +55,7 @@ public class StudyServiceImp implements StudyService {
 			String[] language) {
 
 		// getStudyIdsByFieldNames
-		int[] fdStudyIds = studyDao.getByStudyIds(field);
+		int[] fdStudyIds = studyDao.getIdsByFieldNames(field);
 		if(fdStudyIds.length==0)
 			return null;
 		
@@ -85,7 +85,7 @@ public class StudyServiceImp implements StudyService {
 
 	@Override
 	public int getCount(String title, String query, String[] field, String[] skill, String[] language) {
-		int[] fdStudyIds = studyDao.getByStudyIds(field);
+		int[] fdStudyIds = studyDao.getIdsByFieldNames(field);
 		if(fdStudyIds.length==0)
 			return 0;
 		

@@ -69,11 +69,12 @@ public class MyBatisStudyDao implements StudyDao{
 		return mapper.getViewList(ids,offset, size, title, query);
 	}
 
+	
 	@Override
-	public int[] getByStudyIds(String[] field) {
+	public int[] getIdsByFieldNames(String[] field) {
 		if(field.length==0)
 			field=null;
-		return mapper.getByStudyIds(field);
+		return mapper.getIdsByFieldNames(field);
 	}
 
 
@@ -95,6 +96,9 @@ public class MyBatisStudyDao implements StudyDao{
 		// TODO Auto-generated method stub
 		return mapper.getViewListByStatusId(ids,leaderId,statusId);
 	}
+
+
+	
 
 	
 }

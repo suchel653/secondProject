@@ -28,7 +28,7 @@
 	</select>
 
 
-	<select id="getByStudyIds" resultType="int">
+	<select id="getIdsByFieldNames" resultType="int">
 		select id from StudyView
 		<if test="field !=null">
 			where fieldName in

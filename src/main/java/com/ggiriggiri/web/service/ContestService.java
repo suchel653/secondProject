@@ -8,7 +8,7 @@ import com.ggiriggiri.web.entity.Contest;
 import com.ggiriggiri.web.entity.ContestFile;
 import com.ggiriggiri.web.entity.ContestImage;
 
-@Service
+
 public interface ContestService {
 	
 	int insert(Contest contest);

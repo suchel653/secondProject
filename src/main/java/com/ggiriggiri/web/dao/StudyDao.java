@@ -20,7 +20,7 @@ public interface StudyDao {
 
 
 
-	int[] getByStudyIds(String[] field);
+	int[] getIdsByFieldNames(String[] field);
 
 
 	List<StudyView> getViewList(int[] ids, int offset, int size, String title, String query);
