@@ -6,9 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ggiriggiri.web.dao.ProjectDao;
+import com.ggiriggiri.web.dao.ProjectFileDao;
 import com.ggiriggiri.web.dao.ProjectLanguageDao;
 import com.ggiriggiri.web.dao.ProjectSkillDao;
 import com.ggiriggiri.web.entity.Project;
+import com.ggiriggiri.web.entity.ProjectFile;
+import com.ggiriggiri.web.entity.ProjectLanguage;
+import com.ggiriggiri.web.entity.ProjectSkill;
 import com.ggiriggiri.web.entity.ProjectView;
 
 @Service
@@ -22,6 +26,9 @@ public class ProjectServiceImp implements ProjectService{
 	
 	@Autowired
 	private ProjectSkillDao projectSkilldao;
+	
+	@Autowired
+	private ProjectFileDao projectFileDao;
 	
 	@Override
 	public int insert(Project project) {
@@ -121,6 +128,7 @@ public class ProjectServiceImp implements ProjectService{
 		
 		pv.setLanguages(projectLanguageDao.getListByProjectId(pv.getId()));
 		pv.setSkills(projectSkilldao.getListByProjectId(pv.getId()));
+		pv.setFiles(projectFileDao.getList(pv.getId()));
 		
 		
 		return pv;
@@ -141,5 +149,22 @@ public class ProjectServiceImp implements ProjectService{
 	public int getLastId() {
 		Project project = projectDao.getLast();
 		return project.getId();
+	}
+
+	@Override
+	public int insertSkill(ProjectSkill projectSkill) {
+		// TODO Auto-generated method stub
+		return projectSkilldao.insert(projectSkill);
+	}
+
+	@Override
+	public int insertLanguage(ProjectLanguage projectLanguage) {
+		return projectLanguageDao.insert(projectLanguage);
+	}
+
+	@Override
+	public int insertFile(ProjectFile projectFile) {
+		
+		return projectFileDao.insert(projectFile);
 	} 
 }

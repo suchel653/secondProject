@@ -6,16 +6,18 @@ public class StudyView extends Study{
 	private String leaderName;
 	private String fieldName;
 	private String statusName;
+	private int memberCount;
 	public StudyView() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public StudyView(int id, String title, String content, int limitNumber, int leaderId, Date startDate, Date endDate,
-			String requirement, int statusId, Date regDate, String image, int filedId, String leaderName, String fieldName, String statusName) {
+			String requirement, int statusId, Date regDate, String image, int filedId, String leaderName, String fieldName, String statusName,int memberCount) {
 		super(id, title, content, limitNumber, leaderId, startDate, endDate, requirement, statusId, regDate, image, filedId);
 		this.leaderName = leaderName;
 		this.fieldName = fieldName;
 		this.statusName = statusName;
+		this.memberCount = memberCount;
 	}
 	public String getLeaderName() {
 		return leaderName;
@@ -34,6 +36,12 @@ public class StudyView extends Study{
 	}
 	public void setStatusName(String statusName) {
 		this.statusName = statusName;
+	}
+	public int getMemberCount() {
+		return memberCount;
+	}
+	public void setMemberCount(int memberCount) {
+		this.memberCount = memberCount;
 	}
 	
 	

@@ -34,14 +34,9 @@
 	                        	<input multiple="multiple" type="file"  name="imgs">
 	                        </td>
 	                    </tr>
-		                <tr>
-		                	<td colspan="2">
-			                    <textarea name="content">
-			                        
-			                    </textarea>
-		                    </td>
-		                </tr>
 	                </table>
+	                
+                    <textarea name="content"></textarea>
 	                
 	                <div>
                         <input type="submit" value="등록" />

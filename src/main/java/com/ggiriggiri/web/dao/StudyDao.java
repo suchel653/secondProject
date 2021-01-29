@@ -20,11 +20,15 @@ public interface StudyDao {
 
 
 
-	int[] getByStudyIds(String[] field);
+	int[] getIdsByFieldNames(String[] field);
 
 
 	List<StudyView> getViewList(int[] ids, int offset, int size, String title, String query);
 	int getCount(int[] ids, String title, String query);
+
+	List<StudyView> getViewListByStatusId(int[] ids, int leaderId, int statusId);
+
+
 	
 	
 	

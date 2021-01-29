@@ -9,6 +9,7 @@
 			<li><a href="../${m.id }" >기본정보</a></li>
 			<li><a href="../${m.id }/exper" >경력사항</a></li>
 			<li><a href="../${m.id }/project" >참여 프로젝트</a></li>
+			<li><a href="../${m.id }/study" >참여 스터디</a></li>
 		</ul>
 	</nav>
     <table class="list-table table">
@@ -23,17 +24,19 @@
         </thead>
 
         <tbody class="tbody">
+        	<c:forEach var="p" items="${p.projectList }">
             <tr>
-                <td>끼리끼리</td>
-                <td>웹페이지만들기</td>
+                <td>${p.title }</td>
+                <td>${p.content }</td>
                 <td>
-                	<fmt:formatDate value="" pattern="yyyy-MM-dd"/>	2020-01-02
+                	<fmt:formatDate value="${p.startDate }" pattern="yyyy-MM-dd"/>	
                 </td>
                 <td>
-                	<fmt:formatDate value="" pattern="yyyy-MM-dd"/>	2020-02-16
+                	<fmt:formatDate value="${p.endDate }" pattern="yyyy-MM-dd"/>
                 </td>
-                <td>진행중</td>
+                <td>${p.status }</td>
             </tr>
+            </c:forEach>
         </tbody>
     </table>
 </main>

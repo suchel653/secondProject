@@ -18,6 +18,7 @@ public class Study {
     private String image;
     private int filedId;
     
+   
     private List<StudyLanguageView> language;
     private List<StudySkillView> skill;
     

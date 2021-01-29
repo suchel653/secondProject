@@ -28,7 +28,7 @@
 	</select>
 
 
-	<select id="getByStudyIds" resultType="int">
+	<select id="getIdsByFieldNames" resultType="int">
 		select id from StudyView
 		<if test="field !=null">
 			where fieldName in
@@ -76,6 +76,23 @@
 			(select id from StudyView where id=#{id})
 			order by id asc
 			limit 1;
+	</select>
+	
+	<select id="getViewListByStatusId"
+		resultType="com.ggiriggiri.web.entity.StudyView">
+		select * from StudyView
+		
+			where (id in
+		<if test="ids != null">
+			<foreach item="id" index="index" collection="ids" open="("
+				separator="," close=")">
+				#{id}
+			</foreach>
+		</if>
+		or leaderId = #{leaderId}) 
+		and statusId = #{statusId}
+
+		order by regdate desc
 	</select>
 
 </mapper>

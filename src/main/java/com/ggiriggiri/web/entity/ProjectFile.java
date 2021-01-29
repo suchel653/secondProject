@@ -15,6 +15,11 @@ public class ProjectFile {
 		this.name = name;
 	}
 
+	public ProjectFile(int projectId, String name) {
+		this.projectId = projectId;
+		this.name = name;
+	}
+
 	@Override
 	public String toString() {
 		return "ProjectFile [id=" + id + ", projectId=" + projectId + ", name=" + name + "]";

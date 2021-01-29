@@ -16,6 +16,11 @@ public class ProjectLanguage {
 		this.languageId = languageId;
 	}
 
+	public ProjectLanguage(int projectId, int languageId) {
+		this.projectId = projectId;
+		this.languageId = languageId;
+	}
+
 	public int getId() {
 		return id;
 	}

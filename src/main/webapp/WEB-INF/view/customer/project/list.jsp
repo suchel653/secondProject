@@ -104,7 +104,7 @@
 			            <c:forEach var="pj" items="${list }">
 	                       <li>
 	                       <a href="${pj.id }">
-		                    <img class="p-image" src="/images/language/${pj.image }">
+		                    <img class="p-image" src="/images/projectImg/${pj.image }" style="width:300px; height:300px;">
 		                    <table border="1">
 			                    <tbody>
 				                    <tr>

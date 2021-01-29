@@ -5,6 +5,11 @@
     
     <mapper namespace="com.ggiriggiri.web.dao.ProjectSkillDao">
     
+    <insert id="insert" parameterType="com.ggiriggiri.web.entity.ProjectSkill">
+    	insert into ProjectSkill(projectId,skillId) value(${projectId},${skillId});
+    </insert>
+    
+    
   <select id="getListByProjectId" resultType="com.ggiriggiri.web.entity.ProjectSkillView">
   		select * from ProjectSkillView where projectId=#{id}
    </select>

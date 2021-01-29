@@ -34,12 +34,12 @@ public class MybatisStudyLanguageDao implements StudyLanguageDao{
 
 
 
+
 	@Override
-	public int[] getByStudyIds(int[] skStudyIds, String[] language) {
-		
+	public int[] getStudyIdsByLanguageNames(int[] studyIds, String[] language) {
 		if(language.length==0)
 			language=null;
-		return mapper.getByStudyIds(skStudyIds, language);
+		return mapper.getStudyIdsByLanguageNames(studyIds, language);
 	}
 
 
