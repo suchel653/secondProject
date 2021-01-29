@@ -90,7 +90,7 @@
           
             </section>
 
-			<input class="id" type="hidden" value="${pv.id }"/>
+			<input class="projectId" type="hidden" value="${pv.id }"/>
 			<a class="apply-btn" href="">지원하기</a>
             
             <div class="btn prev-next-btn">

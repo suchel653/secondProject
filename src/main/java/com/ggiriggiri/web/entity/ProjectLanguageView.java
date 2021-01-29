@@ -4,14 +4,17 @@ public class ProjectLanguageView {
 	private int id;
 	private int projectId;
 	private String languageName;
+	private String image;
 	
-	
-	public ProjectLanguageView(int id, int projectId, String languageName) {
-		
+
+	public ProjectLanguageView() {
+	}
+
+	public ProjectLanguageView(int id, int projectId, String languageName, String image) {
 		this.id = id;
 		this.projectId = projectId;
 		this.languageName = languageName;
-		
+		this.image = image;
 	}
 
 
@@ -44,9 +47,21 @@ public class ProjectLanguageView {
 		this.languageName = languageName;
 	}
 
+	public int getProjectId() {
+		return projectId;
+	}
 
+	public void setProjectId(int projectId) {
+		this.projectId = projectId;
+	}
 
+	public String getImage() {
+		return image;
+	}
 
+	public void setImage(String image) {
+		this.image = image;
+	}
 
 	@Override
 	public String toString() {
