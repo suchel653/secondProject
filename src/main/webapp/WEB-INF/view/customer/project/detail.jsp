@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+ <script src="/js/customer/project/apply.js"></script>
+ 
 	<main id="main" class="main">
         <h1 class="d-none">메인이다</h1>
         
@@ -89,6 +90,7 @@
           
             </section>
 
+			<a class="apply-btn" href="">지원하기</a>
             
             <div class="btn prev-next-btn">
                 <a class="button searchBtn" href="list">목록</a>
@@ -108,3 +110,5 @@
 
         </div>
       </main>
+      
+     

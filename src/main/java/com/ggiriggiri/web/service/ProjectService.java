@@ -12,7 +12,7 @@ import com.ggiriggiri.web.entity.ProjectSkill;
 import com.ggiriggiri.web.entity.ProjectView;
 import com.ggiriggiri.web.entity.StudyView;
 
-@Service
+
 public interface ProjectService {
 
 	int insert(Project project);
