@@ -7,8 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ggiriggiri.web.entity.ProjectApplyView;
+import com.ggiriggiri.web.entity.ProjectView;
 import com.ggiriggiri.web.entity.StudyApplyView;
 import com.ggiriggiri.web.entity.StudyView;
+import com.ggiriggiri.web.service.ProjectApplyService;
+import com.ggiriggiri.web.service.ProjectService;
 import com.ggiriggiri.web.service.StudyApplyService;
 import com.ggiriggiri.web.service.StudyService;
 
@@ -22,6 +26,12 @@ public class ActivityController {
 	@Autowired
 	private StudyApplyService studyApplyService;
 	
+	@Autowired
+	private ProjectService projectService;
+	
+	@Autowired
+	private ProjectApplyService projectApplyService;
+	
 	@RequestMapping("index")
 	public String index(Model model) {
 		
@@ -29,9 +39,16 @@ public class ActivityController {
 		List<StudyApplyView> studyApplyViewList = studyApplyService.getViewList(memberId);
 		List<StudyApplyView> studyApplyResultViewList = studyApplyService.getResultViewList(memberId);
 		
+		List<ProjectApplyView> projectApplyViewList = projectApplyService.getViewList(memberId);
+		List<ProjectApplyView> projectApplyResultViewList = projectApplyService.getResultViewList(memberId);
+		
 		List<StudyView> ongoingStudyViewList = studyService.getOngoingViewList(memberId);
 		List<StudyView> waitingStudyViewList = studyService.getWaitingViewList(memberId);
 		List<StudyView> endedStudyViewList = studyService.getEndedViewList(memberId);
+		
+//		List<ProjectView> ongoingProjectViewList = projectService.getOngoingViewList(memberId);
+//		List<ProjectView> waitingProjectViewList = projectService.getWaitingViewList(memberId);
+//		List<ProjectView> endedProjectViewList = projectService.getEndedViewList(memberId);
 		
 		model.addAttribute("sav",studyApplyViewList);
 		model.addAttribute("sarv",studyApplyResultViewList);

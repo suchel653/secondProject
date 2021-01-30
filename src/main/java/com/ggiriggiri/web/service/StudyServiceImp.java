@@ -24,10 +24,9 @@ public class StudyServiceImp implements StudyService {
 
 	@Autowired
 	private StudyLanguageDao studyLanguageDao;
-	
+
 	@Autowired
 	private StudyApplyDao studyApplyDao;
-
 
 	@Override
 	public int insert(Study study) {
@@ -49,35 +48,33 @@ public class StudyServiceImp implements StudyService {
 		return studyDao.get(id);
 	}
 
-
 	@Override
 	public List<StudyView> getViewList(int page, int size, String title, String query, String[] field, String[] skill,
 			String[] language) {
 
 		// getStudyIdsByFieldNames
 		int[] studyIds = studyDao.getIdsByFieldNames(field);
-		if(studyIds.length==0)
-			return null;
-		
-		studyIds = studySkillDao.getStudyIdsBySkillNames(studyIds,skill);
-		if(studyIds.length==0)
-			return null;
-		
-		studyIds = studyLanguageDao.getStudyIdsByLanguageNames(studyIds,language);
-		
-		if(studyIds.length==0)
+		if (studyIds.length == 0)
 			return null;
 
-		
+		studyIds = studySkillDao.getStudyIdsBySkillNames(studyIds, skill);
+		if (studyIds.length == 0)
+			return null;
+
+		studyIds = studyLanguageDao.getStudyIdsByLanguageNames(studyIds, language);
+
+		if (studyIds.length == 0)
+			return null;
+
 		int offset = (page - 1) * size;
 		int[] ids = studyIds;
-		List<StudyView> list = studyDao.getViewList(ids,offset, size, title, query);
+		List<StudyView> list = studyDao.getViewList(ids, offset, size, title, query);
 
 		for (StudyView s : list) {
 			s.setSkill(studySkillDao.getViewList(s.getId()));
 			s.setLanguage(studyLanguageDao.getViewList(s.getId()));
 
-		} 
+		}
 
 		return list;
 	}
@@ -85,16 +82,16 @@ public class StudyServiceImp implements StudyService {
 	@Override
 	public int getCount(String title, String query, String[] field, String[] skill, String[] language) {
 		int[] studyIds = studyDao.getIdsByFieldNames(field);
-		if(studyIds.length==0)
+		if (studyIds.length == 0)
 			return 0;
-		
-		studyIds = studySkillDao.getStudyIdsBySkillNames(studyIds,skill);
-		if(studyIds.length==0)
+
+		studyIds = studySkillDao.getStudyIdsBySkillNames(studyIds, skill);
+		if (studyIds.length == 0)
 			return 0;
-		
-		studyIds = studyLanguageDao.getStudyIdsByLanguageNames(studyIds,language);
-		
-		if(studyIds.length==0)
+
+		studyIds = studyLanguageDao.getStudyIdsByLanguageNames(studyIds, language);
+
+		if (studyIds.length == 0)
 			return 0;
 
 		int[] ids = studyIds;
@@ -104,16 +101,12 @@ public class StudyServiceImp implements StudyService {
 
 	@Override
 	public StudyView getView(int id) {
-		
+
 		StudyView study = studyDao.getView(id);
 
-		
-			study.setSkill(studySkillDao.getViewList(study.getId()));
-			study.setLanguage(studyLanguageDao.getViewList(study.getId()));
+		study.setSkill(studySkillDao.getViewList(study.getId()));
+		study.setLanguage(studyLanguageDao.getViewList(study.getId()));
 
-		
-
-		
 		return study;
 	}
 
@@ -130,50 +123,49 @@ public class StudyServiceImp implements StudyService {
 	@Override
 
 	public int insertStudyApply(StudyApply studyApply) {
-		// TODO Auto-generated method stub
 		return studyApplyDao.insertStudyApply(studyApply);
 	}
-	
+
 	public List<StudyView> getOngoingViewList(int memberId) {
-		
-		int[] studyIds = studyApplyDao.getStudyIdsByMemberId(memberId,1);
+
+		int[] studyIds = studyApplyDao.getStudyIdsByMemberId(memberId, 1);
 		int leaderId = memberId;
 		int statusId = 2;
-		if(studyIds.length==0)
+		if (studyIds.length == 0)
 			return null;
-		
+
 		int[] ids = studyIds;
-		List<StudyView> list = studyDao.getViewListByStatusId(ids,leaderId,statusId);
-		
+		List<StudyView> list = studyDao.getViewListByStatusId(ids, leaderId, statusId);
+
 		return list;
 	}
 
 	@Override
 	public List<StudyView> getWaitingViewList(int memberId) {
-		int[] studyIds = studyApplyDao.getStudyIdsByMemberId(memberId,1);
+		int[] studyIds = studyApplyDao.getStudyIdsByMemberId(memberId, 1);
 		int leaderId = memberId;
 		int statusId = 1;
-		if(studyIds.length==0)
+		if (studyIds.length == 0)
 			return null;
-		
+
 		int[] ids = studyIds;
-		List<StudyView> list = studyDao.getViewListByStatusId(ids,leaderId,statusId);
-		
+		List<StudyView> list = studyDao.getViewListByStatusId(ids, leaderId, statusId);
+
 		return list;
 	}
 
 	@Override
 	public List<StudyView> getEndedViewList(int memberId) {
-		int[] studyIds = studyApplyDao.getStudyIdsByMemberId(memberId,1);
-		
+		int[] studyIds = studyApplyDao.getStudyIdsByMemberId(memberId, 1);
+
 		int leaderId = memberId;
 		int statusId = 3;
-		if(studyIds.length==0)
+		if (studyIds.length == 0)
 			return null;
-		
+
 		int[] ids = studyIds;
-		List<StudyView> list = studyDao.getViewListByStatusId(ids,leaderId,statusId);
-		
+		List<StudyView> list = studyDao.getViewListByStatusId(ids, leaderId, statusId);
+
 		return list;
 
 	}

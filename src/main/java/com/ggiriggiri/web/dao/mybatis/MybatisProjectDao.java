@@ -85,7 +85,6 @@ public class MybatisProjectDao implements ProjectDao {
 
 	@Override
 	public Project getLast() {
-		// TODO Auto-generated method stub
 		return mapper.getLast();
 	}
 
@@ -95,6 +94,11 @@ public class MybatisProjectDao implements ProjectDao {
 			field=null;
 		
 		return mapper.getIdsByFieldNames(field);
+	}
+
+	@Override
+	public int[] getIdsByLeaderId(int leaderId, int statusId) {
+		return mapper.getIdsByLeaderId(leaderId, statusId);
 	}
 	
 }

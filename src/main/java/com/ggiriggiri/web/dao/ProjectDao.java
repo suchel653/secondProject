@@ -25,5 +25,8 @@ public interface ProjectDao {
 	ProjectView getPrev(int id);
 	ProjectView getNext(int id);
 	Project getLast();
+	
 	int[] getIdsByFieldNames(String[] field);
+	
+	int[] getIdsByLeaderId(int leaderId, int statusId);
 }

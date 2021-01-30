@@ -5,34 +5,34 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ggiriggiri.web.dao.StudyApplyDao">
-    
-    <insert id="insertStudyApply" parameterType="com.ggiriggiri.web.entity.StudyApply">
-    insert into StudyApply(memberId,studyId,comment)
-    values(#{memberId},#{studyId},#{comment})    
-    </insert>
-    
-  
+
+	<insert id="insertStudyApply" parameterType="com.ggiriggiri.web.entity.StudyApply">
+		insert into StudyApply(memberId,studyId,comment)
+		values(#{memberId}, #{studyId}, #{comment})
+	</insert>
+
+
 	<select id="getStudyIdsByMemberId" resultType="int">
-		select studyId from StudyApply 
+		select studyId
+		from StudyApply
 		where memberId = #{memberId} and resultStatus = #{resultStatus}
 	</select>
-	
+
 	<select id="getViewListByStudyIds" resultType="com.ggiriggiri.web.entity.StudyApplyView">
-			select * from StudyApplyView
-			where studyId in
-				<foreach item="id" index="index" collection="studyIds" open="("
-					separator="," close=")">
-					#{id}
-				</foreach>
-			
-			order by regDate desc;
+		select * from StudyApplyView
+		where studyId in
+		<foreach item="id" index="index" collection="studyIds"
+			open="(" separator="," close=")">
+			#{id}
+		</foreach>
+		order by regDate desc;
 	</select>
-	
+
 	<select id="getResultViewListByMemberId" resultType="com.ggiriggiri.web.entity.StudyApplyView">
-	
-			select * from StudyApplyView
-			where memberId = #{memberId} and resultStatus != #{resultStatus} and resultChecked=#{resultChecked}
-			order by resultDate desc;
+		select * from StudyApplyView
+		where memberId = #{memberId} and resultStatus != #{resultStatus} and
+		resultChecked=#{resultChecked}
+		order by resultDate desc;
 	</select>
-    
+
 </mapper>
