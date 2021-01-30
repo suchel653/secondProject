@@ -35,5 +35,7 @@ public interface ProjectService {
 	int insertProjectApply(ProjectApply projectApply);
 	
 	List<ProjectView> getOngoingViewList(int memberId);
+	List<ProjectView> getWaitingViewList(int memberId);
+	List<ProjectView> getEndedViewList(int memberId);
 	
 }

@@ -88,6 +88,7 @@
 		order by id asc
 		limit 1;
 	</select>
+	
 	<select id="getLast" resultType="com.ggiriggiri.web.entity.Project">
 		SELECT * FROM Project WHERE ID = (SELECT MAX(ID) FROM
 		Project)
@@ -97,4 +98,21 @@
 		select * from ProjectView
 		where leaderId = #{leaderId} and statusId = #{statusId};
 	</select>
+	
+	<select id="getViewListByStatusId" resultType="com.ggiriggiri.web.entity.ProjectView">
+		select * from ProjectView
+
+		where (id in
+		<if test="ids != null">
+			<foreach item="id" index="index" collection="ids" open="("
+				separator="," close=")">
+				#{id}
+			</foreach>
+		</if>
+		or leaderId = #{leaderId})
+		and statusId = #{statusId}
+
+		order by regdate desc
+	</select>
+	
 </mapper>

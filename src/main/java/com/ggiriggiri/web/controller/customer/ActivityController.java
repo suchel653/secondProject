@@ -47,18 +47,27 @@ public class ActivityController {
 		List<StudyView> endedStudyViewList = studyService.getEndedViewList(memberId);
 		
 		List<ProjectView> ongoingProjectViewList = projectService.getOngoingViewList(memberId);
-//		List<ProjectView> waitingProjectViewList = projectService.getWaitingViewList(memberId);
-//		List<ProjectView> endedProjectViewList = projectService.getEndedViewList(memberId);
+		List<ProjectView> waitingProjectViewList = projectService.getWaitingViewList(memberId);
+		List<ProjectView> endedProjectViewList = projectService.getEndedViewList(memberId);
 		
 		model.addAttribute("sav", studyApplyViewList);
 		model.addAttribute("sarv", studyApplyResultViewList);
 		model.addAttribute("pav", projectApplyViewList);
 		model.addAttribute("parv", projectApplyResultViewList);
 		
-		
 		model.addAttribute("osv", ongoingStudyViewList);
 		model.addAttribute("wsv", waitingStudyViewList);
 		model.addAttribute("esv", endedStudyViewList);
+		model.addAttribute("opv", ongoingProjectViewList);
+		model.addAttribute("wpv", waitingProjectViewList);
+		model.addAttribute("epv", endedProjectViewList);
+		
+		for(ProjectView a : ongoingProjectViewList)
+			System.out.println("진행중"+a.toString());
+		for(ProjectView a : waitingProjectViewList)
+			System.out.println("대기중"+a.toString());
+		for(ProjectView a : endedProjectViewList)
+			System.out.println("완료"+a.toString());
 		
 		return "customer.activity.index";
 	}

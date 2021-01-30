@@ -187,4 +187,32 @@ public class ProjectServiceImp implements ProjectService {
 
 		return list;
 	}
+
+	@Override
+	public List<ProjectView> getWaitingViewList(int memberId) {
+		int[] projectIds = projectApplyDao.getProjectIdsByMemberId(memberId, 1);
+		int leaderId = memberId;
+		int statusId = 1;
+		if (projectIds.length == 0)
+			return null;
+
+		int[] ids = projectIds;
+		List<ProjectView> list = projectDao.getViewListByStatusId(ids, leaderId, statusId);
+
+		return list;
+	}
+
+	@Override
+	public List<ProjectView> getEndedViewList(int memberId) {
+		int[] projectIds = projectApplyDao.getProjectIdsByMemberId(memberId, 1);
+		int leaderId = memberId;
+		int statusId = 3;
+		if (projectIds.length == 0)
+			return null;
+
+		int[] ids = projectIds;
+		List<ProjectView> list = projectDao.getViewListByStatusId(ids, leaderId, statusId);
+
+		return list;
+	}
 }
