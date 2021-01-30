@@ -32,7 +32,7 @@
 	
 			select * from StudyApplyView
 			where memberId = #{memberId} and resultStatus != #{resultStatus} and resultChecked=#{resultChecked}
-			order by regDate desc;
+			order by resultDate desc;
 	</select>
     
 </mapper>

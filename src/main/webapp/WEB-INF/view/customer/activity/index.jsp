@@ -14,7 +14,7 @@
 				<div style="width: 600px; height: 200px; border: 1px solid red; overflow: auto; align-items: center;">
 					<c:forEach var="s" items="${sav}">
 						<div>
-							<span>${s.memberNickname}님이 ${s.studyTitle}에 지원하였습니다.</span>
+							<span>${s.memberNickname}님이 ${s.studyTitle}에 지원하였습니다. ${s.regDate}</span>
 						</div>
 					</c:forEach>
 					<%-- <c:forEach var="s" items="${sav}">
@@ -31,7 +31,7 @@
 				<div style="width: 600px; height: 200px; border: 1px solid red; overflow: auto; align-items: center;">
 					<c:forEach var="s" items="${sarv}">
 						<div>
-							<span>${s.memberNickname}님이 ${s.studyTitle}에 지원하신 결과 ${s.resultStatus==1?"수락":"거절"}되었습니다.</span>
+							<span>${s.memberNickname}님이 ${s.studyTitle}에 지원하신 결과 ${s.resultStatus==1?"수락":"거절"}되었습니다. ${s.resultDate}</span>
 						</div>
 					</c:forEach>
 					<%-- <c:forEach var="s" items="${sarv}">
