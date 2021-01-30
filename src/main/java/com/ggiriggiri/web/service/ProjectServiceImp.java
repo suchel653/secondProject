@@ -16,6 +16,7 @@ import com.ggiriggiri.web.entity.ProjectFile;
 import com.ggiriggiri.web.entity.ProjectLanguage;
 import com.ggiriggiri.web.entity.ProjectSkill;
 import com.ggiriggiri.web.entity.ProjectView;
+import com.ggiriggiri.web.entity.StudyView;
 
 @Service
 public class ProjectServiceImp implements ProjectService {
@@ -175,6 +176,15 @@ public class ProjectServiceImp implements ProjectService {
 
 	@Override
 	public List<ProjectView> getOngoingViewList(int memberId) {
-		return null;
+		int[] projectIds = projectApplyDao.getProjectIdsByMemberId(memberId, 1);
+		int leaderId = memberId;
+		int statusId = 2;
+		if (projectIds.length == 0)
+			return null;
+
+		int[] ids = projectIds;
+		List<ProjectView> list = projectDao.getViewListByStatusId(ids, leaderId, statusId);
+
+		return list;
 	}
 }

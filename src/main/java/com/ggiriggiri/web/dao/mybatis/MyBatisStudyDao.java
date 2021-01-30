@@ -75,13 +75,13 @@ public class MyBatisStudyDao implements StudyDao {
 	}
 
 	@Override
-	public List<StudyView> getViewListByStatusId(int[] ids, int leaderId, int statusId) {
-		return mapper.getViewListByStatusId(ids, leaderId, statusId);
+	public int[] getIdsByLeaderId(int leaderId, int statusId) {
+		return mapper.getIdsByLeaderId(leaderId, statusId);
 	}
 
 	@Override
-	public int[] getIdsByLeaderId(int leaderId, int statusId) {
-		return mapper.getIdsByLeaderId(leaderId, statusId);
+	public List<StudyView> getViewListByStatusId(int[] ids, int leaderId, int statusId) {
+		return mapper.getViewListByStatusId(ids, leaderId, statusId);
 	}
 
 }

@@ -46,15 +46,19 @@ public class ActivityController {
 		List<StudyView> waitingStudyViewList = studyService.getWaitingViewList(memberId);
 		List<StudyView> endedStudyViewList = studyService.getEndedViewList(memberId);
 		
-//		List<ProjectView> ongoingProjectViewList = projectService.getOngoingViewList(memberId);
+		List<ProjectView> ongoingProjectViewList = projectService.getOngoingViewList(memberId);
 //		List<ProjectView> waitingProjectViewList = projectService.getWaitingViewList(memberId);
 //		List<ProjectView> endedProjectViewList = projectService.getEndedViewList(memberId);
 		
-		model.addAttribute("sav",studyApplyViewList);
-		model.addAttribute("sarv",studyApplyResultViewList);
-		model.addAttribute("osv",ongoingStudyViewList);
-		model.addAttribute("wsv",waitingStudyViewList);
-		model.addAttribute("esv",endedStudyViewList);
+		model.addAttribute("sav", studyApplyViewList);
+		model.addAttribute("sarv", studyApplyResultViewList);
+		model.addAttribute("pav", projectApplyViewList);
+		model.addAttribute("parv", projectApplyResultViewList);
+		
+		
+		model.addAttribute("osv", ongoingStudyViewList);
+		model.addAttribute("wsv", waitingStudyViewList);
+		model.addAttribute("esv", endedStudyViewList);
 		
 		return "customer.activity.index";
 	}

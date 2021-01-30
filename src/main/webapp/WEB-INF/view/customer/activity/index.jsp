@@ -17,12 +17,12 @@
 							<span>${s.memberNickname}님이 ${s.studyTitle}에 지원하였습니다. ${s.regDate}</span>
 						</div>
 					</c:forEach>
-					<%-- <c:forEach var="s" items="${sav}">
-						<div>
-							<span>${s.memberNickname}님이 ${s.studyTitle}에 지원하였습니다.</span>
-						</div>
-					</c:forEach> --%>
 					
+					<c:forEach var="p" items="${pav}">
+						<div>
+							<span>${p.memberNickname}님이 ${p.studyTitle}에 지원하였습니다.</span>
+						</div>
+					</c:forEach>
 				</div>
 			</div>
 			
@@ -34,11 +34,12 @@
 							<span>${s.memberNickname}님이 ${s.studyTitle}에 지원하신 결과 ${s.resultStatus==1?"수락":"거절"}되었습니다. ${s.resultDate}</span>
 						</div>
 					</c:forEach>
-					<%-- <c:forEach var="s" items="${sarv}">
+					
+					<c:forEach var="p" items="${parv}">
 						<div>
-							<span>${s.memberNickname}님이 ${s.studyTitle}에 지원하신 결과 ${s.resultStatus==1?"수락":"거절"}되었습니다.</span>
+							<span>${p.memberNickname}님이 ${p.studyTitle}에 지원하신 결과 ${p.resultStatus==1?"수락":"거절"}되었습니다. ${p.resultDate}</span>
 						</div>
-					</c:forEach> --%>
+					</c:forEach>
 				</div>
 			</div>
 		</section>
