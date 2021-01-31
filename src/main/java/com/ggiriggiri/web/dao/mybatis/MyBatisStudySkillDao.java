@@ -49,7 +49,7 @@ public class MyBatisStudySkillDao implements StudySkillDao{
 	@Override
 	public int insert(StudySkill sk) {
 		// TODO Auto-generated method stub
-		return 0;
+		return mapper.insert(sk);
 	}
 
 
