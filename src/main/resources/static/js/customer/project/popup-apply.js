@@ -16,12 +16,11 @@ window.addEventListener("load",function(){
 	});
 	
 	/*setInterval(()=>{
-		if(comment.value=="" && cnt==undefine){
+		if(comment.value=="" && cnt==undefined){
 			cnt=1;
 			return;
 			}
 			else if(comment.value!="" && cnt==1)
-			cnt=2;
 				//window.self.close();
 	},1000);*/
 });
