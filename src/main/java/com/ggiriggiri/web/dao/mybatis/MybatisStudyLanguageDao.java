@@ -47,7 +47,7 @@ public class MybatisStudyLanguageDao implements StudyLanguageDao{
 	@Override
 	public int insert(StudyLanguage sl) {
 		// TODO Auto-generated method stub
-		return 0;
+		return mapper.insert(sl);
 	}
 
 

@@ -124,7 +124,7 @@ public class StudyController {
 		model.addAttribute("s", skList);
 		model.addAttribute("l", lgList);
 		
-		return "customer.project.reg";
+		return "customer.study.reg";
 		
 	}
 	
