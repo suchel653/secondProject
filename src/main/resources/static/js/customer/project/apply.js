@@ -1,19 +1,26 @@
 window.addEventListener("load",function(){
 	const applyBtn = document.querySelector(".apply-btn");
 	const pId = document.querySelector(".projectId");
-	const apply = document.querySelector(".submit");
+	let commentValue = document.querySelector(".opener-comment").value;
 	
-	
-	let win;
+	let popup;
+	let id;
 	
 	applyBtn.addEventListener("click",(e)=>{
 		e.preventDefault();
 		if(e.target.classList.contains(applyBtn))
 				return;
 				
-				let id = pId.value;
+				id = pId.value;
 				console.log(id);
-		win = open("/customer/project/apply/"+id,"_blank","width=500px,height=500px");
+				
+		popup = open("/customer/project/apply/"+id,"_blank","width=500px,height=100px");
+
+
+		/*setTimeout(()=>{
+			if(typeof(popup)=='undefined' || popup.closed) 
+			console.log("closed");
+		},500);*/
 		
 	});
 	

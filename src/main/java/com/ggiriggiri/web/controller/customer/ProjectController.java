@@ -205,14 +205,15 @@ public class ProjectController {
 			@RequestParam("comment") String comment) {
 		
 		int projectId = id;
-		int memberId = 16;
+		int memberId = 4;
 		
 		System.out.println(comment);
 		System.out.println(projectId);
-//		ProjectApply projectApply = new ProjectApply(memberId,projectId,comment);
-//		service.insertProjectApply(projectApply);
 		
-		return "customer.study.popup.apply";
+		ProjectApply projectApply = new ProjectApply(memberId,projectId,comment);
+		service.insertProjectApply(projectApply);
+		
+		return "customer.project.popup.apply";
 		
 	}
 }
