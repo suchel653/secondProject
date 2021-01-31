@@ -5,8 +5,7 @@
 
 <mapper namespace="com.ggiriggiri.web.dao.StudyDao">
 
-	<select id="getViewList"
-		resultType="com.ggiriggiri.web.entity.StudyView">
+	<select id="getViewList" resultType="com.ggiriggiri.web.entity.StudyView">
 		select * from StudyView
 		<if test="title !=null">
 			where BINARY ${title} like '%${query}%'
@@ -47,8 +46,8 @@
 
 		and id in
 		<if test="ids != null">
-			<foreach item="id" index="index" collection="ids" 
-			open="(" separator="," close=")">
+			<foreach item="id" index="index" collection="ids" open="("
+				separator="," close=")">
 				#{id}
 			</foreach>
 		</if>
@@ -58,44 +57,43 @@
 		</if>
 	</select>
 
-	<select id="getView"
-		resultType="com.ggiriggiri.web.entity.StudyView">
+	<select id="getView" resultType="com.ggiriggiri.web.entity.StudyView">
 		select * from StudyView
 		where id = ${id}
 	</select>
-	
-		<select id="getPrev" resultType="com.ggiriggiri.web.entity.StudyView">
+
+	<select id="getPrev" resultType="com.ggiriggiri.web.entity.StudyView">
 		select * from StudyView where id &lt;
-			(select id from StudyView where id=#{id})
-			order by id desc
-			limit 1;
+		(select id from StudyView where id=#{id})
+		order by id desc
+		limit 1;
 	</select>
-	
+
 	<select id="getNext" resultType="com.ggiriggiri.web.entity.StudyView">
 		select * from StudyView where id &gt;
-			(select id from StudyView where id=#{id})
-			order by id asc
-			limit 1;
+		(select id from StudyView where id=#{id})
+		order by id asc
+		limit 1;
 	</select>
-	
-	<select id="getViewListByStatusId"
-		resultType="com.ggiriggiri.web.entity.StudyView">
+
+	<select id="getViewListByStatusId" resultType="com.ggiriggiri.web.entity.StudyView">
 		select * from StudyView
-		
-			where (id in
+
+		where (id in
 		<if test="ids != null">
 			<foreach item="id" index="index" collection="ids" open="("
 				separator="," close=")">
 				#{id}
 			</foreach>
 		</if>
-		or leaderId = #{leaderId}) 
+		or leaderId = #{leaderId})
 		and statusId = #{statusId}
 
 		order by regdate desc
 	</select>
 
 	<select id="getIdsByLeaderId" resultType="int">
-		select * from StudyView where leaderId = #{leaderId} and statusId = #{statusId};
+		select * from StudyView
+		where leaderId = #{leaderId} and statusId = #{statusId};
 	</select>
 </mapper>

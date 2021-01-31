@@ -7,6 +7,7 @@ import com.ggiriggiri.web.entity.ProjectView;
 
 
 public interface ProjectDao {
+	
 	int insert(Project project);
 	int update(Project project);
 	int delete(int id);
@@ -25,5 +26,10 @@ public interface ProjectDao {
 	ProjectView getPrev(int id);
 	ProjectView getNext(int id);
 	Project getLast();
+	
 	int[] getIdsByFieldNames(String[] field);
+	
+	int[] getIdsByLeaderId(int leaderId, int statusId);
+	List<ProjectView> getViewListByStatusId(int[] ids, int leaderId, int statusId);
+	
 }

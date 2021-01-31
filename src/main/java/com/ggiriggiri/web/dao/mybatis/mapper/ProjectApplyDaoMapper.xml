@@ -5,16 +5,34 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ggiriggiri.web.dao.ProjectApplyDao">
-    
-    <insert id="insertProjectApply" parameterType="com.ggiriggiri.web.entity.ProjectApply">
-    insert into ProjectApply(memberId,projectId,comment)
-    values(#{memberId},#{projectId},#{comment})    
-    </insert>
-    
-  
+
+	<insert id="insertProjectApply" parameterType="com.ggiriggiri.web.entity.ProjectApply">
+		insert into ProjectApply(memberId,projectId,comment)
+		values(#{memberId}, #{projectId}, #{comment})
+	</insert>
+
+
 	<select id="getProjectIdsByMemberId" resultType="int">
-		select projectId from ProjectApply 
+		select projectId
+		from ProjectApply
 		where memberId = #{memberId} and resultStatus = #{resultStatus}
 	</select>
-    
+	
+	<select id="getViewListByStudyIds" resultType="com.ggiriggiri.web.entity.ProjectApplyView">
+		select * from ProjectApplyView
+		where projectId in
+		<foreach item="id" index="index" collection="projectIds"
+			open="(" separator="," close=")">
+			#{id}
+		</foreach>
+		order by regDate desc;
+	</select>
+	
+	<select id="getResultViewListByMemberId" resultType="com.ggiriggiri.web.entity.ProjectApplyView">
+		select * from ProjectApplyView
+		where memberId = #{memberId} and resultStatus != #{resultStatus} and
+		resultChecked=#{resultChecked}
+		order by resultDate desc;
+	</select>
+
 </mapper>
