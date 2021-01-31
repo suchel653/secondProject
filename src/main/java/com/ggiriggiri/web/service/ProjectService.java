@@ -2,16 +2,12 @@ package com.ggiriggiri.web.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
-import com.ggiriggiri.web.entity.ContestFile;
 import com.ggiriggiri.web.entity.Project;
 import com.ggiriggiri.web.entity.ProjectApply;
 import com.ggiriggiri.web.entity.ProjectFile;
 import com.ggiriggiri.web.entity.ProjectLanguage;
 import com.ggiriggiri.web.entity.ProjectSkill;
 import com.ggiriggiri.web.entity.ProjectView;
-import com.ggiriggiri.web.entity.StudyView;
 
 
 public interface ProjectService {
@@ -37,4 +33,9 @@ public interface ProjectService {
 	int insertSkill(ProjectSkill projectSkill);
 	int insertLanguage(ProjectLanguage projectLanguage);
 	int insertProjectApply(ProjectApply projectApply);
+	
+	List<ProjectView> getOngoingViewList(int memberId);
+	List<ProjectView> getWaitingViewList(int memberId);
+	List<ProjectView> getEndedViewList(int memberId);
+	
 }

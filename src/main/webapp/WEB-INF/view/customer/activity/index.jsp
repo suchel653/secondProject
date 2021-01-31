@@ -14,15 +14,15 @@
 				<div style="width: 600px; height: 200px; border: 1px solid red; overflow: auto; align-items: center;">
 					<c:forEach var="s" items="${sav}">
 						<div>
-							<span>${s.memberNickname}님이 ${s.studyTitle}에 지원하였습니다.</span>
+							<span>${s.memberNickname}님이 ${s.studyTitle}에 지원하였습니다. ${s.regDate}</span>
 						</div>
 					</c:forEach>
-					<%-- <c:forEach var="s" items="${sav}">
-						<div>
-							<span>${s.memberNickname}님이 ${s.studyTitle}에 지원하였습니다.</span>
-						</div>
-					</c:forEach> --%>
 					
+					<c:forEach var="p" items="${pav}">
+						<div>
+							<span>${p.memberNickname}님이 ${p.projectTitle}에 지원하였습니다.</span>
+						</div>
+					</c:forEach>
 				</div>
 			</div>
 			
@@ -31,14 +31,15 @@
 				<div style="width: 600px; height: 200px; border: 1px solid red; overflow: auto; align-items: center;">
 					<c:forEach var="s" items="${sarv}">
 						<div>
-							<span>${s.memberNickname}님이 ${s.studyTitle}에 지원하신 결과 ${s.resultStatus==1?"수락":"거절"}되었습니다.</span>
+							<span>${s.memberNickname}님이 ${s.studyTitle}에 지원하신 결과 ${s.resultStatus==1?"수락":"거절"}되었습니다. ${s.resultDate}</span>
 						</div>
 					</c:forEach>
-					<%-- <c:forEach var="s" items="${sarv}">
+					
+					<c:forEach var="p" items="${parv}">
 						<div>
-							<span>${s.memberNickname}님이 ${s.studyTitle}에 지원하신 결과 ${s.resultStatus==1?"수락":"거절"}되었습니다.</span>
+							<span>${p.memberNickname}님이 ${p.projectTitle}에 지원하신 결과 ${p.resultStatus==1?"수락":"거절"}되었습니다. ${p.resultDate}</span>
 						</div>
-					</c:forEach> --%>
+					</c:forEach>
 				</div>
 			</div>
 		</section>
@@ -67,27 +68,29 @@
 					</c:forEach>
 				</div>
 			</div>
-	<%-- 	<div>
+	 	    <div>
 				<h1 style="padding: 30px;">진행중인 프로젝트</h1>
 				<div style="width: 600px; height: 200px; border: 1px solid red; display: flex; overflow: auto; align-items: center;">
-					<c:forEach var="" items="">
-						<div style="flex-basis: 33%; flex-shrink: 0; height: 160px; border: 1px solid black;">
-							<div style="display: flex;">
-								<img src="/images/language/${}" style="width: 100px; height: 100px;">
-								<div style="width: 100px; height: 100px;">
-									<span>인원 : ${}/${}</span><br> 
-									<span>기간<br>
-										<fmt:formatDate value="${}" pattern="yyyy-MM-dd"/><br>~<br><fmt:formatDate value="${}" pattern="yyyy-MM-dd"/>
-									</span>
+					<c:forEach var="opv" items="${opv}">
+						<a href="group/study/${opv.id}/index">
+							<div style="flex-basis: 33%; flex-shrink: 0; height: 160px; border: 1px solid black;">
+								<div style="display: flex;">
+									<img src="/images/language/${opv.image}" style="width: 100px; height: 100px;">
+									<div style="width: 100px; height: 100px;">
+										<span>인원 : ${opv.memberCount}/${opv.limitNumber}</span><br> 
+										<span>기간<br>
+											<fmt:formatDate value="${opv.startDate}" pattern="yyyy-MM-dd"/><br>~<br><fmt:formatDate value="${opv.endDate}" pattern="yyyy-MM-dd"/>
+										</span>
+									</div>
+								</div>
+								<div>
+									<span>제목 : ${opv.title}</span>
 								</div>
 							</div>
-							<div>
-								<span>제목 : ${}</span>
-							</div>
-						</div>
+						</a>
 					</c:forEach>
 				</div>
-			</div> --%>
+			</div>
 		</section>
 		
 		<section class="act-box" style="display:flex; justify-content:space-around;">
@@ -110,31 +113,29 @@
 							</div>
 						</div>
 					</c:forEach>
-					
 				</div>
 			</div>
-			<%-- <div>
+			<div>
 				<h1 style="padding: 30px;">대기중인 프로젝트</h1>
 				<div style="width: 600px; height: 200px; border: 1px solid red; display: flex; overflow: auto; align-items: center;">
-					<c:forEach var="wsv" items="${wsv}">
+					<c:forEach var="wpv" items="${wpv}">
 						<div style="flex-basis: 33%; flex-shrink: 0; height: 160px; border: 1px solid black;">
 							<div style="display: flex;">
-								<img src="/images/language/${wsv.image}" style="width: 100px; height: 100px;">
+								<img src="/images/language/${wpv.image}" style="width: 100px; height: 100px;">
 								<div style="width: 100px; height: 100px;">
-									<span>인원 : ${wsv.memberCount}/${wsv.limitNumber}</span><br> 
+									<span>인원 : ${wpv.memberCount}/${wpv.limitNumber}</span><br> 
 									<span>기간<br>
-										<fmt:formatDate value="${wsv.startDate}" pattern="yyyy-MM-dd"/><br>~<br><fmt:formatDate value="${wsv.endDate}" pattern="yyyy-MM-dd"/>
+										<fmt:formatDate value="${wpv.startDate}" pattern="yyyy-MM-dd"/><br>~<br><fmt:formatDate value="${wpv.endDate}" pattern="yyyy-MM-dd"/>
 									</span>
 								</div>
 							</div>
 							<div>
-								<span>제목 : ${wsv.title}</span>
+								<span>제목 : ${wpv.title}</span>
 							</div>
 						</div>
 					</c:forEach>
-					
 				</div>
-			</div> --%>
+			</div>
 		</section>
 
 		<section class="act-box" style="padding-bottom: 50px; display:flex; justify-content:space-around;">
@@ -159,27 +160,27 @@
 					</c:forEach>
 				</div>
 			</div>
-			<%-- <div>
+			<div>
 				<h1 style="padding: 30px;">완료 프로젝트</h1>
 				<div style="width: 600px; height: 200px; border: 1px solid red; display: flex; overflow: auto; align-items: center;">
-					<c:forEach var="esv" items="${esv}">
+					<c:forEach var="epv" items="${epv}">
 						<div style="flex-basis: 33%; flex-shrink: 0; height: 160px; border: 1px solid black;">
 							<div style="display: flex;">
-								<img src="/images/language/${esv.image}" style="width: 100px; height: 100px;">
+								<img src="/images/language/${epv.image}" style="width: 100px; height: 100px;">
 								<div style="width: 100px; height: 100px;">
-									<span>인원 : ${esv.memberCount}/${esv.limitNumber}</span><br> 
+									<span>인원 : ${epv.memberCount}/${epv.limitNumber}</span><br> 
 									<span>기간<br>
-										<fmt:formatDate value="${esv.startDate}" pattern="yyyy-MM-dd"/><br>~<br><fmt:formatDate value="${esv.endDate}" pattern="yyyy-MM-dd"/>
+										<fmt:formatDate value="${epv.startDate}" pattern="yyyy-MM-dd"/><br>~<br><fmt:formatDate value="${epv.endDate}" pattern="yyyy-MM-dd"/>
 									</span>
 								</div>
 							</div>
 							<div>
-								<span>제목 : ${esv.title}</span>
+								<span>제목 : ${epv.title}</span>
 							</div>
 						</div>
 					</c:forEach>
 				</div>
-			</div> --%>
+			</div>
 		</section>
 
 	</div>

@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
@@ -31,6 +32,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 			.csrf()
 				.disable();
 		
+		http
+			.formLogin()
+				.loginPage("/customer/member/login")
+				.loginProcessingUrl("/customer/member/login")
+				.defaultSuccessUrl("/index")
+				.and()
+			.csrf()
+				.disable();
 		
 	}
 	
@@ -43,9 +52,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 			.usersByUsernameQuery("select nickname,concat('{noop}',password),true from Admin where nickname=?")
 			.authoritiesByUsernameQuery("select nickname,'ROLE_ADMIN' from Admin where nickname=?");
 	
-		
-		
-			
+		auth
+			.jdbcAuthentication()
+			.dataSource(dataSource)
+			.usersByUsernameQuery("select email id, password, 1 enabled from Member where email=?")
+			.authoritiesByUsernameQuery("select email id, 'ROLE_MEMBER' from Member where email=?")
+			.passwordEncoder(new BCryptPasswordEncoder());
+
 	}
 
 }

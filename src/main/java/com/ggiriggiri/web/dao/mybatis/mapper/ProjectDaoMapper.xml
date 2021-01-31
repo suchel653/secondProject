@@ -5,39 +5,35 @@
 
 <mapper namespace="com.ggiriggiri.web.dao.ProjectDao">
 
-	<!-- list  -->
-	<!-- <select id="getList" resultType="com.ggiriggiri.web.entity.Project">
-		select * from Project
-      	<if test="param3 !=null and param3 !=''">
-      	where BINARY ${param3} like '%${param4}%'
-      	</if>
-		order by id desc
-		limit #{param2} offset #{param1};
-	</select> -->
-	
+	<!-- list -->
+	<!-- <select id="getList" resultType="com.ggiriggiri.web.entity.Project"> 
+		select * from Project <if test="param3 !=null and param3 !=''"> where BINARY 
+		${param3} like '%${param4}%' </if> order by id desc limit #{param2} offset 
+		#{param1}; </select> -->
+
 	<insert id="insert" parameterType="com.ggiriggiri.web.entity.Project">
-		insert into Project(id,title,content,startDate,endDate,limitNumber,image,requirement,fieldId,leaderId)
+		insert into
+		Project(id,title,content,startDate,endDate,limitNumber,image,requirement,fieldId,leaderId)
 		values(#{id},#{title},#{content},#{startDate},#{endDate},#{limitNumber},#{image},#{requirement},#{fieldId},#{leaderId})
-   	</insert>
-	
+	</insert>
+
 	<delete id="delete">
 		delete from Project where id=#{id};
 	</delete>
-	
+
 	<select id="get" resultType="com.ggiriggiri.web.entity.Project">
 		SELECT * FROM Project
-	      WHERE ID=${param1};
+		WHERE ID=${param1};
 	</select>
-	
-	
+
+
 	<select id="getView" resultType="com.ggiriggiri.web.entity.ProjectView">
 		select * from ProjectView
 		where id = #{param1}
 	</select>
-	
-	
-    <select id="getViewList"
-		resultType="com.ggiriggiri.web.entity.ProjectView">
+
+
+	<select id="getViewList" resultType="com.ggiriggiri.web.entity.ProjectView">
 		select * from ProjectView
 		<if test="title !=null">
 			where BINARY ${title} like '%${query}%'
@@ -50,49 +46,73 @@
 				#{id}
 			</foreach>
 		</if>
-		
+
 
 		<if test="ids == null">
 			(0)
 		</if>
-		
+
 		order by id desc
 		limit #{size} offset #{offset}
 	</select>
-	
-	<select id="getByProjectIds" resultType="int">
-	
+
+	<select id="getIdsByFieldNames" resultType="int">
+
 		select id from ProjectView
 		<if test="field != null">
 			where fieldName in
-		<foreach item="fd" index="index" collection="field" 
-			open="(" separator="," close=")">
-			#{fd}
-		</foreach>
+			<foreach item="fd" index="index" collection="field" open="("
+				separator="," close=")">
+				#{fd}
+			</foreach>
 		</if>
 	</select>
-	
+
 	<select id="getCount" resultType="int">
 		SELECT count(id) FROM ProjectView
 		<if test="title != null and title !=''">
-      	where BINARY ${title} like '%${query}%'
-      </if>
-	</select>  
-	
+			where BINARY ${title} like '%${query}%'
+		</if>
+	</select>
+
 	<select id="getPrev" resultType="com.ggiriggiri.web.entity.ProjectView">
 		select * from ProjectView where id &lt;
-			(select id from ProjectView where id=#{id})
-			order by id desc
-			limit 1;
+		(select id from ProjectView where id=#{id})
+		order by id desc
+		limit 1;
 	</select>
-	
+
 	<select id="getNext" resultType="com.ggiriggiri.web.entity.ProjectView">
 		select * from ProjectView where id &gt;
-			(select id from ProjectView where id=#{id})
-			order by id asc
-			limit 1;
+		(select id from ProjectView where id=#{id})
+		order by id asc
+		limit 1;
 	</select>
+	
 	<select id="getLast" resultType="com.ggiriggiri.web.entity.Project">
-		SELECT * FROM Project WHERE ID = (SELECT MAX(ID) FROM Project)
+		SELECT * FROM Project WHERE ID = (SELECT MAX(ID) FROM
+		Project)
 	</select>
+
+	<select id="getIdsByLeaderId" resultType="int">
+		select * from ProjectView
+		where leaderId = #{leaderId} and statusId = #{statusId};
+	</select>
+	
+	<select id="getViewListByStatusId" resultType="com.ggiriggiri.web.entity.ProjectView">
+		select * from ProjectView
+
+		where (id in
+		<if test="ids != null">
+			<foreach item="id" index="index" collection="ids" open="("
+				separator="," close=")">
+				#{id}
+			</foreach>
+		</if>
+		or leaderId = #{leaderId})
+		and statusId = #{statusId}
+
+		order by regdate desc
+	</select>
+	
 </mapper>
