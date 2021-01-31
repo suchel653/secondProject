@@ -14,15 +14,8 @@ window.addEventListener("load",function(){
 				return;
 				
 				id = pId.value;
-				console.log(id);
 				
 		popup = open("/customer/project/apply/"+id,"_blank",`left=${left}px,top=${top}px,width=500px,height=500px`);
-
-
-		/*setTimeout(()=>{
-			if(typeof(popup)=='undefined' || popup.closed) 
-			console.log("closed");
-		},500);*/
 		
 	});
 	
