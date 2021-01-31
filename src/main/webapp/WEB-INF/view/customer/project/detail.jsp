@@ -87,6 +87,7 @@
           
             </section>
 
+			<input class="opener-comment" type="hidden" value=""/>
 			<input class="projectId" type="hidden" value="${pv.id }"/>
 			<a class="apply-btn" href="">지원하기</a>
             
