@@ -4,15 +4,20 @@ window.addEventListener("load",function(){
 	
 	apply.addEventListener("click",(e)=>{
 		e.preventDefault();
-		popupForm.submit();
+		let submit = popupForm.submit();
 		
 		$.ajax(
 		{
 			success : function()
-					{									
+			{
 						window.close();
 					}
 		});
+		
+		/*Promise.resolve(submit)
+		.then(()=>{
+			window.close();
+		});*/
 	});
 	
 	/*setInterval(()=>{
