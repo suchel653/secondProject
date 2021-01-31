@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,11 +38,19 @@ public class MemberController {
 	@PostMapping("join")
 	public String join(String email, String password, String nickname) {
 		Member member = new Member();
+
+		BCryptPasswordEncoder pwdEncoder = new BCryptPasswordEncoder();
+		String encodePwd = pwdEncoder.encode(password);
 		member.setEmail(email);
-		member.setPassword(password);
+		member.setPassword(encodePwd);
 		member.setNickname(nickname);
 		service.insert(member);
 		return "customer.member.join";
+	}
+	
+	@RequestMapping("login")
+	public String login() {
+		return "customer.member.login";
 	}
 	
 	@PostMapping("checkMail")
