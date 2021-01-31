@@ -20,7 +20,7 @@
 					
 					<c:forEach var="p" items="${pav}">
 						<div>
-							<span>${p.memberNickname}님이 ${p.projectTitle}에 지원하였습니다.</span>
+							<span>${p.memberNickname}님이 ${p.projectTitle}에 지원하였습니다. ${p.regDate}</span>
 						</div>
 					</c:forEach>
 				</div>
