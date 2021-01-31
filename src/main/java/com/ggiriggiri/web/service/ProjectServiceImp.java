@@ -198,7 +198,6 @@ public class ProjectServiceImp implements ProjectService {
 
 		int[] ids = projectIds;
 		List<ProjectView> list = projectDao.getViewListByStatusId(ids, leaderId, statusId);
-
 		return list;
 	}
 
