@@ -10,6 +10,7 @@ public interface ProjectLanguageDao {
 	int insert(ProjectLanguage projectLanguage);
 	
 	List<ProjectLanguageView> getListByProjectId(int id);
-	int[] getByProjectIds(int[] skProjectIds, String[] language);
+
+	int[] getProjectIdsByLanguageNames(int[] projectIds, String[] language);
 
 }

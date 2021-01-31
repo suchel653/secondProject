@@ -14,10 +14,10 @@
   		select * from ProjectSkillView where projectId=#{id}
    </select>
     
-    <select id="getByProjectIds" resultType="int">
+    <select id="getProjectIdsBySkillNames" resultType="int">
 		select projectId from ProjectSkillView
 		where projectId in
-			<foreach item="id" index="index" collection="fdProjectIds"
+			<foreach item="id" index="index" collection="projectIds"
 				open="(" separator="," close=")">
 				#{id}
 			</foreach>

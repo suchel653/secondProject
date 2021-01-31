@@ -53,4 +53,15 @@ public class MybatisMemberDao implements MemberDao{
 		return mapper.get(id);
 	}
 
+	@Override
+	public int check(String field, String query) {
+		return mapper.check(field, query);
+	}
+
+	@Override
+	public Member login(String email, String password) {
+		// TODO Auto-generated method stub
+		return mapper.login(email, password);
+	}
+
 }

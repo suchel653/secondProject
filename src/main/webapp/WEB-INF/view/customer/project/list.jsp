@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+	<script src="https://kit.fontawesome.com/b280fc7aa7.js" crossorigin="anonymous"></script>
 <c:set var="fds" value="${paramValues.f }"></c:set>
 <c:set var="sks" value="${paramValues.s }"></c:set>
 <c:set var="lns" value="${paramValues.l }"></c:set>

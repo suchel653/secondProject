@@ -34,20 +34,21 @@ public class MyBatisProjectSkillDao implements ProjectSkillDao{
 
 	
 	
-	@Override
-	public int[] getByProjectIds(int[] fdProjectIds, String[] skill) {
-		
-		if(skill.length==0)
-			skill = null;
-		
-		return mapper.getByProjectIds(fdProjectIds, skill);
-	}
 
 
 	@Override
 	public int insert(ProjectSkill projectSkill) {
 		// TODO Auto-generated method stub
 		return mapper.insert(projectSkill);
+	}
+
+
+	@Override
+	public int[] getProjectIdsBySkillNames(int[] projectIds, String[] skill) {
+		if(skill.length==0)
+			skill = null;
+		
+		return mapper.getProjectIdsBySkillNames(projectIds, skill);
 	}
 
 

@@ -19,4 +19,10 @@
 	<select id="get" resultType="com.ggiriggiri.web.entity.Member">
 		select * from Member where id=#{id}
 	</select>
+	<select id="check" resultType="int">
+		select count(*) from Member where ${param1}=#{param2}
+	</select>
+	<select id="login" resultType="com.ggiriggiri.web.entity.Member">
+		select * from member where email=${param1} and password=${param2};
+	</select>
 </mapper>

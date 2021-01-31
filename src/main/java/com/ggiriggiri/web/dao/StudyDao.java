@@ -12,21 +12,22 @@ public interface StudyDao {
 	int insert(Study study);
 	int update(Study study);
 	int delete(int id);
-	StudyView getView(int id);
+	
 	Study get(int id);
+	StudyView getView(int id);
 	
 	StudyView getPrev(int id);
 	StudyView getNext(int id);
 
-
-
-	int[] getIdsByFieldNames(String[] field);
-
-
-	List<StudyView> getViewList(int[] ids, int offset, int size, String title, String query);
 	int getCount(int[] ids, String title, String query);
 
+	List<StudyView> getViewList(int[] ids, int offset, int size, String title, String query);
+
+	int[] getIdsByFieldNames(String[] field);
+	
+	int[] getIdsByLeaderId(int leaderId, int statusId);
 	List<StudyView> getViewListByStatusId(int[] ids, int leaderId, int statusId);
+
 	Study getLast();
 
 
@@ -40,5 +41,5 @@ public interface StudyDao {
 
 	
 
-	
+
 }

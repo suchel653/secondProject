@@ -37,10 +37,7 @@
                   <th>언어 : </th>
                   <td>
 					<c:forEach var="l" items="${pv.languages }" varStatus="st">
-					${l.languageName } 
-					<c:if test="${!st.last }">
-						/
-					</c:if>
+					<img src="/images/language/${l.image}" style="width:40px; height:40px;"/>
 					</c:forEach>
 				 </td>
                 </tr>
@@ -90,6 +87,7 @@
           
             </section>
 
+			<input class="opener-comment" type="hidden" value=""/>
 			<input class="projectId" type="hidden" value="${pv.id }"/>
 			<a class="apply-btn" href="">지원하기</a>
             

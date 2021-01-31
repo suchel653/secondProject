@@ -14,10 +14,10 @@
 	     
 	   </select>
 	   
-	   <select id="getByProjectIds" resultType="int">
+	   <select id="getProjectIdsByLanguageNames" resultType="int">
 		select projectId from ProjectLanguageView
 		where projectId in
-				<foreach item="id" index="index" collection="skProjectIds"
+				<foreach item="id" index="index" collection="projectIds"
 					open="(" separator="," close=")">
 					#{id}
 				</foreach>
