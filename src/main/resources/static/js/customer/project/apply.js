@@ -1,8 +1,10 @@
 window.addEventListener("load",function(){
 	const applyBtn = document.querySelector(".apply-btn");
 	const pId = document.querySelector(".projectId");
-	let commentValue = document.querySelector(".opener-comment").value;
 	
+	let left = Math.ceil(window.innerWidth/2);
+	let top = Math.ceil(window.innerHeight/4);
+
 	let popup;
 	let id;
 	
@@ -14,7 +16,7 @@ window.addEventListener("load",function(){
 				id = pId.value;
 				console.log(id);
 				
-		popup = open("/customer/project/apply/"+id,"_blank","width=500px,height=100px");
+		popup = open("/customer/project/apply/"+id,"_blank",`left=${left}px,top=${top}px,width=500px,height=500px`);
 
 
 		/*setTimeout(()=>{

@@ -2,8 +2,12 @@ package com.ggiriggiri.web.service;
 
 import java.util.List;
 
+
 import com.ggiriggiri.web.entity.Study;
 import com.ggiriggiri.web.entity.StudyApply;
+import com.ggiriggiri.web.entity.StudyFile;
+import com.ggiriggiri.web.entity.StudyLanguage;
+import com.ggiriggiri.web.entity.StudySkill;
 import com.ggiriggiri.web.entity.StudyView;
 
 
@@ -31,6 +35,9 @@ public interface StudyService {
 	List<StudyView> getOngoingViewList(int memberId);
 	List<StudyView> getWaitingViewList(int memberId);
 	List<StudyView> getEndedViewList(int memberId);
-
+	int getLastId();
+	int insertFile(StudyFile studyFile);
+	int insertSkill(StudySkill sk);
+	int insertLanguage(StudyLanguage sl);
 
 }

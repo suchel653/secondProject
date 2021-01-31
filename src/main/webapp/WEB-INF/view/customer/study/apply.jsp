@@ -17,11 +17,11 @@
           <div>
           <h1>comment</h1>
          
-          <textarea name="comment"></textarea>
+          <textarea class="comment" name="comment"></textarea>
 
         </div>
         <div>
-        
+        <input class="id" type="hidden" value="${id}">
         <input class="applyBtn" type="submit" value="지원" />
          
          

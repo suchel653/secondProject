@@ -8,8 +8,7 @@ import org.springframework.stereotype.Repository;
 
 
 import com.ggiriggiri.web.dao.StudySkillDao;
-
-
+import com.ggiriggiri.web.entity.StudySkill;
 import com.ggiriggiri.web.entity.StudySkillView;
 
 
@@ -43,6 +42,14 @@ public class MyBatisStudySkillDao implements StudySkillDao{
 		if(skill.length==0)
 			skill=null;
 		return mapper.getStudyIdsBySkillNames(studyIds,skill);
+	}
+
+
+
+	@Override
+	public int insert(StudySkill sk) {
+		// TODO Auto-generated method stub
+		return mapper.insert(sk);
 	}
 
 
