@@ -8,6 +8,13 @@
 <!-- 루트로부터 시작되는 페이지이기 때문에 앞에 home을 붙여서 구분함. 
 	*.* = > 모든 경로 지정 되기때문
  -->
+ 
+ <definition name="customer.activity.group.*.*.index" template="/WEB-INF/view/customer/activity/group/{1}/index.jsp">
+   
+  
+  </definition>
+  
+  
   <definition name="customer.*.popup.*" template="/WEB-INF/view/customer/{1}/inc/layout.jsp">
    
     <put-attribute name="main" value="/WEB-INF/view/customer/{1}/{2}.jsp" />

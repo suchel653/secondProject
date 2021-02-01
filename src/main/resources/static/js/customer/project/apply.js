@@ -2,8 +2,8 @@ window.addEventListener("load",function(){
 	const applyBtn = document.querySelector(".apply-btn");
 	const pId = document.querySelector(".projectId");
 	
-	let left = Math.ceil(window.innerWidth/2);
-	let top = Math.ceil(window.innerHeight/4);
+	let left = Math.ceil(window.innerWidth/3);
+	let top = Math.ceil(window.innerHeight/2);
 
 	let popup;
 	let id;
