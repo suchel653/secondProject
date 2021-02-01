@@ -64,4 +64,10 @@ public class MybatisMemberDao implements MemberDao{
 		return mapper.login(email, password);
 	}
 
+	@Override
+	public Member getByEmail(String email) {
+		// TODO Auto-generated method stub
+		return mapper.getByEmail(email);
+	}
+
 }

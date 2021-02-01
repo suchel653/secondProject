@@ -139,7 +139,7 @@ public class StudyServiceImp implements StudyService {
 		int leaderId = memberId;
 		int statusId = 2;
 		if (studyIds.length == 0)
-			return null;
+			studyIds= null;
 
 		int[] ids = studyIds;
 		List<StudyView> list = studyDao.getViewListByStatusId(ids, leaderId, statusId);
@@ -153,7 +153,7 @@ public class StudyServiceImp implements StudyService {
 		int leaderId = memberId;
 		int statusId = 1;
 		if (studyIds.length == 0)
-			return null;
+			studyIds= null;
 
 		int[] ids = studyIds;
 		List<StudyView> list = studyDao.getViewListByStatusId(ids, leaderId, statusId);
@@ -168,7 +168,7 @@ public class StudyServiceImp implements StudyService {
 		int leaderId = memberId;
 		int statusId = 3;
 		if (studyIds.length == 0)
-			return null;
+			studyIds= null;
 
 		int[] ids = studyIds;
 		List<StudyView> list = studyDao.getViewListByStatusId(ids, leaderId, statusId);

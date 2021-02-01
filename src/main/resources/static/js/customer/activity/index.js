@@ -1,17 +1,18 @@
 window.addEventListener("load",function(){
-	const groupPage = document.querySelector(".group-page");
-	
+	const groupPage = document.querySelectorAll(".group-page");
+	console.log(groupPage);
 	let win;
 	
-	groupPage.addEventListener("click",(e)=>{
-		e.preventDefault();
-		console.log(e.tagName);
-		e.stopPropagation();
-		
-		
-	
-		
-		win = open("group/study/3/index","_blank","width = 900px, height = 700px");
+	for(let i=0; i<groupPage.length; i++){
+		groupPage[i].addEventListener("click",(e)=>{
+			e.preventDefault();
+			console.log(e.currentTarget.href);
+			let hr = e.currentTarget.href.split("/");
+			let kind = hr[6];
+			id = parseInt(hr[7]);
+			win = open(`group/${kind}/${id}/index`,"_blank","width = 1500px, height = 900px");
 		
 	});
+	}
+	
 });
