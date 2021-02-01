@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -166,7 +167,30 @@ public class ContestController {
 	}
 	
 	@GetMapping("{id}/del")
-	public String del(@PathVariable("id") int id) {
+	public String del(
+			@PathVariable("id") int id,
+			HttpServletRequest request) {
+
+		Contest c =service.get(id);
+		
+		String fileurl = request.getServletContext().getRealPath("/images/contestFile/"+id);
+		String imgurl = request.getServletContext().getRealPath("/images/contestImg/"+id);
+		
+		for(ContestFile f : c.getContestFiles()) {
+			File file = new File(fileurl + File.separator + f.getName());
+			file.delete();
+		}
+		
+		for(ContestImage g : c.getContestImages()) {
+			File img = new File(imgurl + File.separator + g.getName());
+			img.delete();
+		}
+
+		File fileFolder = new File(fileurl);
+		File imgFolder = new File(imgurl);
+		
+		fileFolder.delete();
+		imgFolder.delete();
 		
 		service.delete(id);
 		
