@@ -45,4 +45,12 @@ public class MybatisStudyApplyDao implements StudyApplyDao {
 		return mapper.getResultViewListByMemberId(memberId,resultStatus,resultChecked);
 	}
 
+	@Override
+	public int check(int memberId, int studyId) {
+		// TODO Auto-generated method stub
+		return mapper.check(memberId, studyId);
+	}
+
+
+
 }

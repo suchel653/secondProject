@@ -201,4 +201,11 @@ public class StudyServiceImp implements StudyService {
 		return studyLanguageDao.insert(sl);
 	}
 
+
+
+	@Override
+	public int check(int i, int id) {
+		// TODO Auto-generated method stub
+		return studyApplyDao.check(i,id);	}
+
 }
