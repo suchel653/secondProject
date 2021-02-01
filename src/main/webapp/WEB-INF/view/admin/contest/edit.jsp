@@ -34,7 +34,6 @@
 	                        <th>첨부파일</th>
 	                        <td>
 	                        <c:forEach var="f" items="${c.contestFiles}">
-                        		<!--<a download href="">${f.name} </a>  -->
                         		${f.name }
                         	</c:forEach>
 	                        </td>

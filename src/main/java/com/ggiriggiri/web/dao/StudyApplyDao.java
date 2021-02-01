@@ -12,5 +12,8 @@ public interface StudyApplyDao {
 	int[] getStudyIdsByMemberId(int memberId, int resultStatus);
 	List<StudyApplyView> getViewListByStudyIds(int[] studyIds, int resultStatus);
 	List<StudyApplyView> getResultViewListByMemberId(int memberId, int resultStatus, int resultChecked);
+	
+	
+	int check(int memberId, int studyId);
 
 }
