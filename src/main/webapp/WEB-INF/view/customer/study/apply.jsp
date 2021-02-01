@@ -13,7 +13,7 @@
           <section>
           <h1 class="d-none">지원하기</h1>
           
-         <form action="" method="post">
+         <form action="" method="post" >
           <div>
           <h1>comment</h1>
          
@@ -22,6 +22,7 @@
         </div>
         <div>
         <input class="id" type="hidden" value="${id}">
+      
         <input class="applyBtn" type="submit" value="지원" />
          
          

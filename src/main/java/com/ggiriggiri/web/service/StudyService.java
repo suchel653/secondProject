@@ -40,4 +40,7 @@ public interface StudyService {
 	int insertSkill(StudySkill sk);
 	int insertLanguage(StudyLanguage sl);
 
+
+	int check(int i, int id);
+
 }
