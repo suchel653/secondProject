@@ -36,14 +36,11 @@ window.addEventListener("load",function(){
 });
 	*/
 	window.addEventListener("load",function(){
-		const check= document.querySelector(".applyBtn");
-		check=false;
-	check.addEventListener("click",(e)=>{
-		e.preventDefault();
-		let comment = document.querySelector(".comment").value;
-		let id = document.querySelector(".id").value;
+	let checkId = document.querySelector(".id");
+	let submitButton = document.querySelector(".applyBtn");
+	submitButton.onclick = function submitCheck(){
 		
-		fetch("/customer/study/apply/"+id+"?comment="+comment,{
+		fetch("check?id="+checkId.value,{
 			method:"POST"
 		})
 		.then((response)=>{
@@ -51,20 +48,17 @@ window.addEventListener("load",function(){
 		})
 		.then((data)=>{
 			let result = data.checkResult;
+			alert(result);
 			if(result ==0){
-				check =true;
 				alert("지원되었습니다.");
+				return true;
 			}
 			else{
 				alert("중복지원이불가능합니다");
+				return false;
 			}
 		})
-		.then(()=>{
-			window.close();
-		})
-	});
-	
-	
+	}
 });
 	
 	

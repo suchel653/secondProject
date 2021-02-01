@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
+<script src="/js/customer/activity/index.js"></script>
 <main id="main" class="main">
 
 	<h1 class="d-none">메인이다</h1>
@@ -49,7 +50,7 @@
 				<h1 style="padding: 30px;">진행중인 스터디</h1>
 				<div style="width: 600px; height: 200px; border: 1px solid red; display: flex; overflow: auto; align-items: center;">
 					<c:forEach var="osv" items="${osv}">
-						<a href="group/study/${osv.id}/index" target="_blank">
+						<a class="group-page" href="group/study/${osv.id}/index">
 							<div style="flex-basis: 33%; flex-shrink: 0; height: 160px; border: 1px solid black;">
 								<div style="display: flex;">
 									<img src="/images/language/${osv.image}" style="width: 100px; height: 100px;">
@@ -72,7 +73,7 @@
 				<h1 style="padding: 30px;">진행중인 프로젝트</h1>
 				<div style="width: 600px; height: 200px; border: 1px solid red; display: flex; overflow: auto; align-items: center;">
 					<c:forEach var="opv" items="${opv}">
-						<a href="group/study/${opv.id}/index">
+						<a class="group-page" href="group/project/${opv.id}/index">
 							<div style="flex-basis: 33%; flex-shrink: 0; height: 160px; border: 1px solid black;">
 								<div style="display: flex;">
 									<img src="/images/projectImg/${opv.image}" style="width: 100px; height: 100px;">

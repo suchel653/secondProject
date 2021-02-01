@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -100,14 +103,28 @@ public class StudyController {
 	
 	@PostMapping("apply/{id}")
 	public String apply(
+		
 			@PathVariable("id") int id,
 			@RequestParam("comment") String comment
 			) {
-		StudyApply studyApply = new StudyApply(5,id,comment);
-		
+		StudyApply studyApply = new StudyApply(2,id,comment);
 		service.insertStudyApply(studyApply);
+
+		
+		
 		return "customer.study.popup.apply";
 		
+	}
+	
+	@PostMapping("apply/check")
+	@ResponseBody
+	public Map<String, Object> check(int id) {
+		
+			System.out.println(id);
+	      Map<String, Object> map = new HashMap<>();
+	      int checkResult = service.check(2, id);
+	      map.put("checkResult", checkResult);
+	      return map;
 	}
 
 	@GetMapping("reg")

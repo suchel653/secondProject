@@ -25,7 +25,7 @@ public class WebSecurityConfig {
 			http
 				.antMatcher("/customer/**")
 				.authorizeRequests()
-					.antMatchers("/customer/login","/customer/study/list","/customer/project/list").permitAll()
+					.antMatchers("/customer/login","/customer/join","/customer/checkMail","/customer/checkDuplicate","/customer/study/list","/customer/project/list").permitAll()
 					.antMatchers("/customer/**").hasRole("MEMBER")
 				.and()
 				.formLogin()

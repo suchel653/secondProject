@@ -32,14 +32,8 @@
 	           
 	           <nav class="member-list">
 	               <h1 class="d-none">멤버</h1>
-	               <ul>
-	                   <li>
-	                   	   <a href="/admin/member/list">asd님</a>
-	                   </li>
-	                   <li>
-	                   	   <a href="/admin/member/list">회원가입</a>
-	                   </li>
-	        
+	               <ul name="member-info">
+	                   
 	               </ul>
 	           </nav>
 	       </div>
