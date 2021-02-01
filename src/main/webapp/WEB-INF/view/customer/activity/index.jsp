@@ -73,7 +73,7 @@
 				<h1 style="padding: 30px;">진행중인 프로젝트</h1>
 				<div style="width: 600px; height: 200px; border: 1px solid red; display: flex; overflow: auto; align-items: center;">
 					<c:forEach var="opv" items="${opv}">
-						<a href="group/project/${opv.id}/index">
+						<a class="group-page" href="group/project/${opv.id}/index">
 							<div style="flex-basis: 33%; flex-shrink: 0; height: 160px; border: 1px solid black;">
 								<div style="display: flex;">
 									<img src="/images/projectImg/${opv.image}" style="width: 100px; height: 100px;">

@@ -180,7 +180,7 @@ public class ProjectServiceImp implements ProjectService {
 		int leaderId = memberId;
 		int statusId = 2;
 		if (projectIds.length == 0)
-			return null;
+			projectIds=null;
 
 		int[] ids = projectIds;
 		List<ProjectView> list = projectDao.getViewListByStatusId(ids, leaderId, statusId);
@@ -194,7 +194,7 @@ public class ProjectServiceImp implements ProjectService {
 		int leaderId = memberId;
 		int statusId = 1;
 		if (projectIds.length == 0)
-			return null;
+			projectIds=null;
 
 		int[] ids = projectIds;
 		List<ProjectView> list = projectDao.getViewListByStatusId(ids, leaderId, statusId);
@@ -207,7 +207,7 @@ public class ProjectServiceImp implements ProjectService {
 		int leaderId = memberId;
 		int statusId = 3;
 		if (projectIds.length == 0)
-			return null;
+			projectIds=null;
 
 		int[] ids = projectIds;
 		List<ProjectView> list = projectDao.getViewListByStatusId(ids, leaderId, statusId);
