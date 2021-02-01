@@ -84,4 +84,14 @@ public class MyBatisStudyDao implements StudyDao {
 		return mapper.getViewListByStatusId(ids, leaderId, statusId);
 	}
 
+
+	@Override
+	public Study getLast() {
+		// TODO Auto-generated method stub
+		return mapper.getLast();
+	}
+
+
+	
+
 }

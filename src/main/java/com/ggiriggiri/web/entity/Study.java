@@ -14,6 +14,7 @@ public class Study {
     private Date endDate;
     private String requirement;
     private int statusId;
+    private int fieldId;
     private Date regDate;
     private String image;
     private int filedId;
@@ -44,6 +45,22 @@ public class Study {
 		this.filedId = filedId;
 	}
 
+
+
+	public Study(int id, String title, String content, Date startDate, Date endDate, int limitNumber,
+			String image, String requirement, int fieldId,int leaderId) {
+		
+		this.id = id;
+		this.title = title;
+		this.content = content;
+		this.limitNumber = limitNumber;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.requirement = requirement;
+		this.fieldId = fieldId;
+		this.image = image;
+		this.leaderId = leaderId;
+	}
 	public int getId() {
 		return id;
 	}
@@ -153,6 +170,14 @@ public class Study {
 	
 
 
+
+	public int getFieldId() {
+		return fieldId;
+	}
+
+	public void setFieldId(int fieldId) {
+		this.fieldId = fieldId;
+	}
 
 	public List<StudySkillView> getSkill() {
 		return skill;

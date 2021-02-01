@@ -12,6 +12,12 @@ public class StudyLanguage {
 		this.languageId = languageId;
 	}
 
+	public StudyLanguage(int studyId, int languageId) {
+		this.studyId = studyId;
+		this.languageId = languageId;
+	}
+
+
 	public int getId() {
 		return id;
 	}

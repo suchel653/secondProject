@@ -27,7 +27,7 @@
                 <h1 class="d-none">메인이다</h1>
                 <div class="container">
                 
-                 <section>
+                 <section class="project-serch-form">
 		              <h1 class="d-none">검색 폼</h1>
 		              
 	                <form action="list" method="get" class="search-form">
@@ -99,53 +99,52 @@
 						<a href="reg">등록하기</a>
 					</div>
 					
-                	<section>
+                	<section class="project">
                     <h1 class="d-none">리스트</h1>
-                    <ul class="list">
+                    <ul class="project-list tilesWrap">
 			            <c:forEach var="pj" items="${list }">
-	                       <li>
-	                       <a href="${pj.id }">
-		                    <img class="p-image" src="/images/projectImg/${pj.image }" style="width:300px; height:300px;">
-		                    <table border="1">
-			                    <tbody>
-				                    <tr>
-				                    	 <th>제목:</th>
-				                    	 <td>
-				                    	 ${pj.title }
-				                    	 </td>
-				                    </tr>
-				                    <tr>
-				                    	 <th>분야:</th>
-				                    	 <td>${pj.fieldName}</td>
-				                    </tr>
-				                    <tr>
-				                    	 <th>기술:</th>
-				                    	 <td>
-							                <c:forEach var="sk" items="${pj.skills}" varStatus="st"> 
-			                                ${sk.skillName}
-			                                <c:if test="${!st.last }">
-									 		/
-										 	</c:if>
-	                                		</c:forEach>
-				                    	 </td>
-				                    </tr>
-				                    <tr>
-				                    	 <th>언어:</th>
-				                    	 <td>
-				                    	 	<c:forEach var="l" items="${pj.languages}" varStatus="st"> 
-	                                		<img src="/images/language/${l.image}" style="width:40px; height:40px;"/>
-	                                		
-	                                		</c:forEach>
-				                    	 </td>
-				                    </tr>
-				                    <tr>
-				                    	 <th>인원수:</th>
-				                    	 <td> ${pj.limitNumber }</td>
-				                    </tr>
-			                    </tbody>
-		                    </table>
-	                    	</li>
-	                    	</a>
+	                       <li class="list-item">
+	                       
+		                       <a href="${pj.id }">
+				                    <img class="p-image" src="/images/projectImg/${pj.image }" >
+				                    
+				                    <div class="table">
+				                    
+				                    	<div class="table-column">
+				                    	
+					                    	<div class="field">
+						                    	 <span>${pj.fieldName}</span>
+						                    </div>
+						                    
+						                    <div class="language">
+						                    	 	<c:forEach var="l" items="${pj.languages}"> 
+			                                		<img class="l-icon" src="/images/language/${l.image}"/>
+			                                		</c:forEach>
+						                    </div>
+							                    
+					                   </div>
+					                    <div class="title">
+					                    	 ${pj.title }
+					                    </div>
+					                    
+					                    <div class="limit-number">
+					                    	 <span> 모집인원: ${pj.limitNumber }</span>
+					                    </div>
+					                    
+					                    
+						                    <div class="skill">
+									                <c:forEach var="sk" items="${pj.skills}" varStatus="st"> 
+					                                ${sk.skillName}
+					                                <c:if test="${!st.last }">
+											 		/
+												 	</c:if>
+			                                		</c:forEach>
+						                    </div>
+						                   
+				                    </div>
+				                    
+		                    		</a>
+			                   </li>
 				       </c:forEach>
                     </ul>
                 	</section>

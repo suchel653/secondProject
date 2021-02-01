@@ -9,33 +9,37 @@
  <section>
 
 <form action="reg" method="post" enctype="multipart/form-data">
+
     <table border="1">
       <tbody>
         <tr>
-	         <select style="width: 900px; height: 30px;">
-	            <option value=""  selected disabled hidden>필드선택</option>
-	            <option value="웹">웹</option>
-	            <option value="게임">게임</option>
+	         <select name="field">
+	         <c:forEach var="f" items="${f }">
+	           <option value="${f.id }">${f.name }</option>
+	         </c:forEach>
 	        </select> 
     	</tr>
     <tr>
         <th>스킬선택</th>
         <td>
-            <input type="checkbox">JSP
+        	<c:forEach var="s" items="${s }">
+            <input name="skill" type="checkbox" value="${s.id }">${s.name }
+            </c:forEach>
         </td>
 
     </tr>
     <tr>
         <th>언어선택</th>
         <td>
-            <input type="checkbox">자바
+            <c:forEach var="l" items="${l }">
+            <input name="language" type="checkbox" value="${l.id }">${l.name }
+            </c:forEach>
         </td>
 
     </tr>
     <tr>
        <th>제목</th>
-       <td><input type="text" naem="title"></td>
-   
+       <td><input type="text" name="title"></td>
 
     </tr>
     

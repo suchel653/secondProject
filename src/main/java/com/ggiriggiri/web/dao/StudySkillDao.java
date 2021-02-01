@@ -15,6 +15,9 @@ public interface StudySkillDao {
 
 	int[] getStudyIdsBySkillNames(int[] studyIds, String[] skill);
 
+
+	int insert(StudySkill sk);
+
 	
 
 	

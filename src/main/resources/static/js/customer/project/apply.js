@@ -1,8 +1,10 @@
 window.addEventListener("load",function(){
 	const applyBtn = document.querySelector(".apply-btn");
 	const pId = document.querySelector(".projectId");
-	let commentValue = document.querySelector(".opener-comment").value;
 	
+	let left = Math.ceil(window.innerWidth/3);
+	let top = Math.ceil(window.innerHeight/2);
+
 	let popup;
 	let id;
 	
@@ -12,15 +14,8 @@ window.addEventListener("load",function(){
 				return;
 				
 				id = pId.value;
-				console.log(id);
 				
-		popup = open("/customer/project/apply/"+id,"_blank","width=500px,height=100px");
-
-
-		/*setTimeout(()=>{
-			if(typeof(popup)=='undefined' || popup.closed) 
-			console.log("closed");
-		},500);*/
+		popup = open("/customer/project/apply/"+id,"_blank",`left=${left}px,top=${top}px,width=500px,height=500px`);
 		
 	});
 	

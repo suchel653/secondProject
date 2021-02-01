@@ -4,7 +4,7 @@
 	<header id="header" class="header">
 	       <div class="container">
 	           <div class="logo">
-	               <a href="/admin/index">
+	               <a href="/index">
 	                   <h1>끼리끼리</h1>
 	               </a>
 	           </div>
