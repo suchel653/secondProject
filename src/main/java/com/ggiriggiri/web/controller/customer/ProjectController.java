@@ -61,11 +61,13 @@ public class ProjectController {
 		
 		int count = service.getCount(title, query, field, skill, language);
 		int pageCount = (int)Math.ceil(count / (float)size);
+		if(pageCount==0)
+			pageCount=1;
 		
 		model.addAttribute("page", page);
 		model.addAttribute("pageCount", pageCount);
 		
-		List<Field> fdList = fdService.getList(1, 100);
+		List<Field> fdList = fdService.getList();
 		List<Skill> skList = skService.getList(1, 100);
 		List<Language> lgList = lgService.getList(1, 100);
 		
