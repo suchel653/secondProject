@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+
+.project-serch-form{
+	background:pink;
+}
+
+
+
+
+
+
+.project-list{
+	--background:beige;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+}
+.project-list .p-image{
+	width:250px; 
+	height:300px;
+}
+
+.project-list .list-item{
+	border:1px solid gray;
+	border-radius:5px;
+	overflow: hidden;
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-left:30px;
+}
+
+.project-list .table{
+	background:inherit;
+	width:100%;
+	background: white;
+}
+
+.project-list .l-icon{
+	width:30px; 
+	height:30px;
+	margin-right: 5px;
+}
+
+
+
+
+
+
+
+.table-column{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.field{
+	font-size: 13px;
+	margin-left: 5px;
+}
+
+.title{
+	font-size:18px;
+	font-weight: 600;
+	color:#262a2b;
+	margin-left: 5px;
+}
+
+.skill{
+	margin-left: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 14px;
+}
+.language{
+	margin-left: 5px;
+	margin-top: 3px;
+}
+.limit-number{
+	margin-left: 5px;
+	margin-top: 5px;
+	font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+.pager{
+	--background:yellow;
+	--padding-top: 20px;
+	display: flex;
+	justify-content: center;
+}
+.pager ul{
+	display: flex;
+	align-items: center;
+}
+.pager a,
+.pager i{
+	margin:0 4px;
+	padding: 3px 0;
+}
+
+
+
+
+
+
