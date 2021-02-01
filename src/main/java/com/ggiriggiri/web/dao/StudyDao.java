@@ -27,5 +27,19 @@ public interface StudyDao {
 	
 	int[] getIdsByLeaderId(int leaderId, int statusId);
 	List<StudyView> getViewListByStatusId(int[] ids, int leaderId, int statusId);
+
+	Study getLast();
+
+
 	
+	
+	
+
+
+
+	
+
+	
+
+
 }

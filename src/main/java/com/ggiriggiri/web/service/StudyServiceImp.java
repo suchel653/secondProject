@@ -7,10 +7,14 @@ import org.springframework.stereotype.Service;
 
 import com.ggiriggiri.web.dao.StudyApplyDao;
 import com.ggiriggiri.web.dao.StudyDao;
+import com.ggiriggiri.web.dao.StudyFileDao;
 import com.ggiriggiri.web.dao.StudyLanguageDao;
 import com.ggiriggiri.web.dao.StudySkillDao;
 import com.ggiriggiri.web.entity.Study;
 import com.ggiriggiri.web.entity.StudyApply;
+import com.ggiriggiri.web.entity.StudyFile;
+import com.ggiriggiri.web.entity.StudyLanguage;
+import com.ggiriggiri.web.entity.StudySkill;
 import com.ggiriggiri.web.entity.StudyView;
 
 @Service
@@ -27,6 +31,9 @@ public class StudyServiceImp implements StudyService {
 
 	@Autowired
 	private StudyApplyDao studyApplyDao;
+	
+	@Autowired
+	private StudyFileDao studyFileDao;
 
 	@Override
 	public int insert(Study study) {
@@ -168,6 +175,30 @@ public class StudyServiceImp implements StudyService {
 
 		return list;
 
+	}
+
+	@Override
+	public int getLastId() {
+		Study study = studyDao.getLast();
+		return study.getId();
+	}
+
+	@Override
+	public int insertFile(StudyFile studyFile) {
+		// TODO Auto-generated method stub
+		return studyFileDao.insert(studyFile);
+	}
+
+	@Override
+	public int insertSkill(StudySkill sk) {
+		// TODO Auto-generated method stub
+		return studySkillDao.insert(sk);
+	}
+
+	@Override
+	public int insertLanguage(StudyLanguage sl) {
+		// TODO Auto-generated method stub
+		return studyLanguageDao.insert(sl);
 	}
 
 }

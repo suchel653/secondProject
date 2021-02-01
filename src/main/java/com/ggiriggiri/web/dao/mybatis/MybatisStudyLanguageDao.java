@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ggiriggiri.web.dao.StudyLanguageDao;
-
+import com.ggiriggiri.web.entity.StudyLanguage;
 import com.ggiriggiri.web.entity.StudyLanguageView;
 
 @Repository
@@ -40,6 +40,14 @@ public class MybatisStudyLanguageDao implements StudyLanguageDao{
 		if(language.length==0)
 			language=null;
 		return mapper.getStudyIdsByLanguageNames(studyIds, language);
+	}
+
+
+
+	@Override
+	public int insert(StudyLanguage sl) {
+		// TODO Auto-generated method stub
+		return mapper.insert(sl);
 	}
 
 

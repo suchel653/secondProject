@@ -20,7 +20,7 @@
 					
 					<c:forEach var="p" items="${pav}">
 						<div>
-							<span>${p.memberNickname}님이 ${p.projectTitle}에 지원하였습니다.</span>
+							<span>${p.memberNickname}님이 ${p.projectTitle}에 지원하였습니다. ${p.regDate}</span>
 						</div>
 					</c:forEach>
 				</div>
@@ -75,7 +75,7 @@
 						<a href="group/study/${opv.id}/index">
 							<div style="flex-basis: 33%; flex-shrink: 0; height: 160px; border: 1px solid black;">
 								<div style="display: flex;">
-									<img src="/images/language/${opv.image}" style="width: 100px; height: 100px;">
+									<img src="/images/projectImg/${opv.image}" style="width: 100px; height: 100px;">
 									<div style="width: 100px; height: 100px;">
 										<span>인원 : ${opv.memberCount}/${opv.limitNumber}</span><br> 
 										<span>기간<br>
@@ -121,7 +121,7 @@
 					<c:forEach var="wpv" items="${wpv}">
 						<div style="flex-basis: 33%; flex-shrink: 0; height: 160px; border: 1px solid black;">
 							<div style="display: flex;">
-								<img src="/images/language/${wpv.image}" style="width: 100px; height: 100px;">
+								<img src="/images/projectImg/${wpv.image}" style="width: 100px; height: 100px;">
 								<div style="width: 100px; height: 100px;">
 									<span>인원 : ${wpv.memberCount}/${wpv.limitNumber}</span><br> 
 									<span>기간<br>
@@ -166,7 +166,7 @@
 					<c:forEach var="epv" items="${epv}">
 						<div style="flex-basis: 33%; flex-shrink: 0; height: 160px; border: 1px solid black;">
 							<div style="display: flex;">
-								<img src="/images/language/${epv.image}" style="width: 100px; height: 100px;">
+								<img src="/images/projectImg/${epv.image}" style="width: 100px; height: 100px;">
 								<div style="width: 100px; height: 100px;">
 									<span>인원 : ${epv.memberCount}/${epv.limitNumber}</span><br> 
 									<span>기간<br>

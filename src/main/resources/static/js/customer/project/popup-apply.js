@@ -8,20 +8,11 @@ window.addEventListener("load",function(){
 		
 		$.ajax(
 		{
-			success : function()
-					{									
-						window.close();
-					}
+			success : ()=>{ window.close(); }
 		});
+		
+		
 	});
 	
-	/*setInterval(()=>{
-		if(comment.value=="" && cnt==undefined){
-			cnt=1;
-			return;
-			}
-			else if(comment.value!="" && cnt==1)
-				//window.self.close();
-	},1000);*/
 });
 
