@@ -35,4 +35,9 @@
 		order by resultDate desc;
 	</select>
 
+	<select id="get" resultType="com.ggiriggiri.web.entity.ProjectApply">
+		SELECT * FROM ProjectApply
+		where memberId = #{memberId};
+	</select>
+	
 </mapper>

@@ -22,6 +22,7 @@ import com.ggiriggiri.web.entity.Field;
 import com.ggiriggiri.web.entity.Language;
 import com.ggiriggiri.web.entity.Project;
 import com.ggiriggiri.web.entity.ProjectApply;
+import com.ggiriggiri.web.entity.ProjectApplyView;
 import com.ggiriggiri.web.entity.ProjectFile;
 import com.ggiriggiri.web.entity.ProjectLanguage;
 import com.ggiriggiri.web.entity.ProjectSkill;
@@ -30,6 +31,7 @@ import com.ggiriggiri.web.entity.Skill;
 import com.ggiriggiri.web.entity.StudyApply;
 import com.ggiriggiri.web.service.FieldService;
 import com.ggiriggiri.web.service.LanguageService;
+import com.ggiriggiri.web.service.ProjectApplyService;
 import com.ggiriggiri.web.service.ProjectService;
 import com.ggiriggiri.web.service.SkillService;
 
@@ -45,7 +47,8 @@ public class ProjectController {
 	private SkillService skService;
 	@Autowired
 	private LanguageService lgService;
-	
+	@Autowired
+	private ProjectApplyService paService;
 	
 	@GetMapping("list")
 	public String list(@RequestParam(name="p", defaultValue = "1") int page,
@@ -208,12 +211,21 @@ public class ProjectController {
 		
 		int projectId = id;
 		int memberId = 4;
-		
-		System.out.println(comment);
+
 		System.out.println(projectId);
+		System.out.println(comment);
 		
-		ProjectApply projectApply = new ProjectApply(memberId,projectId,comment);
-		service.insertProjectApply(projectApply);
+		ProjectView pv = service.getView(memberId);
+		
+		ProjectApply pa = paService.get(memberId);
+		
+		
+		if(pv.getMemberCount() < pv.getLimitNumber() 
+		 && pa.getProjectId() != projectId) {
+			
+			ProjectApply projectApply = new ProjectApply(memberId,projectId,comment);
+			service.insertProjectApply(projectApply);
+		}
 		
 		return "customer.project.popup.apply";
 		

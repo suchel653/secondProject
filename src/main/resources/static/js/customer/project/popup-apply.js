@@ -4,6 +4,7 @@ window.addEventListener("load",function(){
 	
 	apply.addEventListener("click",(e)=>{
 		e.preventDefault();
+		
 		popupForm.submit();
 		
 		$.ajax(

@@ -41,4 +41,9 @@ public class MybatisProjectApplyDao implements ProjectApplyDao {
 		return mapper.getResultViewListByMemberId(memberId, resultStatus, resultChecked);
 	}
 
+	@Override
+	public ProjectApply get(int memberId) {
+		return mapper.get(memberId);
+	}
+
 }
