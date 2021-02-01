@@ -32,6 +32,7 @@ window.addEventListener("load", function() {
 		
 		e.preventDefault();
 		let mail = address.value;
+		console.log(mail);
 		fetch("checkMail?email="+mail, {
 			method: "POST"
 		})

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-			 <script src="/js/customer/member/join.js"></script>
+			 <script src="/js/customer/join.js"></script>
 			<main id="main" class="main">
 				<h1 class="d-none">메인이다</h1>
 				<section>
