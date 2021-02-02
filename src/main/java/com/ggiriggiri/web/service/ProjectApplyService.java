@@ -2,6 +2,7 @@ package com.ggiriggiri.web.service;
 
 import java.util.List;
 
+import com.ggiriggiri.web.entity.ProjectApply;
 import com.ggiriggiri.web.entity.ProjectApplyView;
 
 public interface ProjectApplyService {
@@ -11,5 +12,7 @@ public interface ProjectApplyService {
 	List<ProjectApplyView> getResultViewList(int memberId);
 
 	List<ProjectApplyView> getViewByProjectId(int projectId);
+
+	List<ProjectApply> get(int memberId);
 
 }

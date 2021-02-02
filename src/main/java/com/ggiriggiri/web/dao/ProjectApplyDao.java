@@ -14,4 +14,6 @@ public interface ProjectApplyDao {
 	List<ProjectApplyView> getResultViewListByMemberId(int memberId, int resultStatus, int resultChecked);
 	List<ProjectApplyView> getViewByProjectId(int projectId, int resultStatus);
 
+	List<ProjectApply> get(int memberId);
+	int check(int memberId , int projectId);
 }

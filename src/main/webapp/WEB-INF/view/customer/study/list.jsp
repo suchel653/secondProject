@@ -102,7 +102,7 @@
 			<h1 class="d-none">리스트</h1>
 			<ul class="list">
 			 <c:forEach var ="s" items="${list}">
-				<li><img class="p-image" src="/images/language/${s.image}"></img>
+				<li><a href="${s.id}"><img class="p-image" src="/images/studyImg/${s.image}"></img></a>
 
 					<table border="1">
 						<tbody>
@@ -126,12 +126,10 @@
 							</tr>
 							<tr>
 								<th>언어:</th>
-								<td><c:forEach var="l" items="${s.language}" varStatus="st"> 
-                                		${l.languageName}
-                                		<c:if test="${!st.last}">
-                        				,       
-                        			</c:if>
-                                	</c:forEach>
+								<td>
+							<c:forEach var="l" items="${s.language}"> 
+			                                		<img class="l-icon" src="/images/language/${l.image}"/>
+			                                		</c:forEach>
                                 	</td>
 							</tr>
 							<tr>

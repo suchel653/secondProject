@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ggiriggiri.web.dao.ProjectApplyDao;
 import com.ggiriggiri.web.dao.ProjectDao;
+import com.ggiriggiri.web.entity.ProjectApply;
 import com.ggiriggiri.web.entity.ProjectApplyView;
 
 @Service
@@ -42,6 +43,11 @@ public class ProjectApplyServiceImp implements ProjectApplyService {
 	public List<ProjectApplyView> getViewByProjectId(int projectId) {
 		int resultStatus = 1;
 		return projectApplyDao.getViewByProjectId(projectId, resultStatus);
+	}
+
+	@Override
+	public List<ProjectApply> get(int memberId) {
+		return projectApplyDao.get(memberId);
 	}
 
 }

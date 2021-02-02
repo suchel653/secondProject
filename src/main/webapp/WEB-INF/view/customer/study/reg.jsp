@@ -13,11 +13,14 @@
     <table border="1">
       <tbody>
         <tr>
+        <td>
 	         <select name="field">
 	         <c:forEach var="f" items="${f }">
 	           <option value="${f.id }">${f.name }</option>
 	         </c:forEach>
 	        </select> 
+	        </td>
+	        
     	</tr>
     <tr>
         <th>스킬선택</th>
