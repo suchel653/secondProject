@@ -38,5 +38,10 @@
 	<select id="check" resultType="int">
 		select count(*) from StudyApply where memberId =#{memberId} and studyId=#{studyId}
 	</select>
+	
+	<select id="getViewByStudyId" resultType="com.ggiriggiri.web.entity.StudyApplyView">
+		select * from StudyApplyView
+		where studyId = #{studyId} and resultStatus = #{resultStatus}
+	</select>
 
 </mapper>

@@ -41,6 +41,10 @@ public class MybatisProjectApplyDao implements ProjectApplyDao {
 		return mapper.getResultViewListByMemberId(memberId, resultStatus, resultChecked);
 	}
 
+	@Override
+	public List<ProjectApplyView> getViewByProjectId(int projectId, int resultStatus) {
+		return mapper.getViewByProjectId(projectId, resultStatus);
+	}
 
 	@Override
 	public int check(int memberId, int projectId) {
@@ -49,7 +53,6 @@ public class MybatisProjectApplyDao implements ProjectApplyDao {
 
 	@Override
 	public List<ProjectApply> get(int memberId) {
-		// TODO Auto-generated method stub
 		return mapper.get(memberId);
 	}
 

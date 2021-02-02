@@ -5,6 +5,11 @@
 
 <mapper namespace="com.ggiriggiri.web.dao.StudyDao">
 
+	<select id="get" resultType="com.ggiriggiri.web.entity.Study">
+		select * from Study
+		where id = #{id}
+	</select>
+
 	<select id="getViewList" resultType="com.ggiriggiri.web.entity.StudyView">
 		select * from StudyView
 		<if test="title !=null">
@@ -99,5 +104,15 @@
 	<select id="getIdsByLeaderId" resultType="int">
 		select * from StudyView
 		where leaderId = #{leaderId} and statusId = #{statusId};
+	</select>
+	
+	<insert id="insert" parameterType="com.ggiriggiri.web.entity.Study">
+		insert into
+		Study(id,title,content,startDate,endDate,limitNumber,image,requirement,fieldId,leaderId)
+		values(#{id},#{title},#{content},#{startDate},#{endDate},#{limitNumber},#{image},#{requirement},#{fieldId},#{leaderId})
+	</insert>
+		<select id="getLast" resultType="com.ggiriggiri.web.entity.Study">
+		SELECT * FROM Study WHERE ID = (SELECT MAX(ID) FROM
+		Study)
 	</select>
 </mapper>

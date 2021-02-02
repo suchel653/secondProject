@@ -221,12 +221,12 @@ public class ProjectController {
 		int paId = 0;
 		
 		for(ProjectApply pa : pas) {
-			if(pa.getProjectId()==projectId) 
+			if(pa.getProjectId() == projectId) 
 				 paId = pa.getProjectId();
 			System.out.println("중복 프로젝트 아이디 : "+paId);
 		}
 		
-		if(pv.getMemberCount() < pv.getLimitNumber()&& paId!=projectId) {
+		if(pv.getMemberCount() < pv.getLimitNumber() && paId!=projectId) {
 			
 		ProjectApply projectApply = new ProjectApply(memberId,projectId,comment);
 		service.insertProjectApply(projectApply);
@@ -247,4 +247,11 @@ public class ProjectController {
 	      
 	      return map;
 	}
+//	
+//	@GetMapping("{id}/edit")
+//	public String edit(@PathVariable("id") int id,) {
+//		
+//		
+//		return "redirect:../"+id;
+//	}
 }

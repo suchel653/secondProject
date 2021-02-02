@@ -17,11 +17,12 @@ public class Study {
     private int fieldId;
     private Date regDate;
     private String image;
-    private int filedId;
+    
     
    
     private List<StudyLanguageView> language;
     private List<StudySkillView> skill;
+    private List<ProjectFile> files;
     
 
     public Study() {
@@ -42,7 +43,7 @@ public class Study {
 		this.statusId = statusId;
 		this.regDate = regDate;
 		this.image = image;
-		this.filedId = filedId;
+		
 	}
 
 
@@ -149,14 +150,9 @@ public class Study {
 		this.image = image;
 	}
 
-	public int getFiledId() {
-		return filedId;
-	}
 
-	public void setFiledId(int filedId) {
-		this.filedId = filedId;
-	}
-	
+
+
 	
 
 	public List<StudyLanguageView> getLanguage() {
@@ -186,14 +182,27 @@ public class Study {
 	public void setSkill(List<StudySkillView> skill) {
 		this.skill = skill;
 	}
+	
+	
+
+	public List<ProjectFile> getFiles() {
+		return files;
+	}
+
+	public void setFiles(List<ProjectFile> files) {
+		this.files = files;
+	}
 
 	@Override
 	public String toString() {
 		return "Study [id=" + id + ", title=" + title + ", content=" + content + ", limitNumber=" + limitNumber
 				+ ", leaderId=" + leaderId + ", startDate=" + startDate + ", endDate=" + endDate + ", requirement="
-				+ requirement + ", statusId=" + statusId + ", regDate=" + regDate + ", image=" + image + ", filedId="
-				+ filedId + "]";
+				+ requirement + ", statusId=" + statusId + ", fieldId=" + fieldId + ", regDate=" + regDate + ", image="
+				+ image + ", language=" + language + ", skill=" + skill + ", files=" + files + "]";
 	}
+
+
+	
 	
 
 }
