@@ -40,7 +40,7 @@ window.addEventListener("load",function(){
 	let submitButton = document.querySelector(".applyBtn");
 	submitButton.onclick = function submitCheck(){
 		
-		fetch("check?id="+checkId.value,{
+		fetch("/customer/study/apply/check?id="+checkId.value,{
 			method:"POST"
 		})
 		.then((response)=>{
