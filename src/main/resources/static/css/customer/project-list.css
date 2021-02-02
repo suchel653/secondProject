@@ -1,11 +1,23 @@
 @charset "UTF-8";
+@import "../admin/components/search-form.css";
+@import "../admin/components/button.css";
 
-
-.project-serch-form{
-	background:pink;
+html,body{
+	--background:#0D1117;
 }
 
-
+.project-serch-form{
+	margin-top:30px;
+}
+.button-box{
+	display: flex;
+	justify-content: flex-end;
+	
+}
+.regBtn{
+	position:fixed;
+	width:15px;
+}
 
 
 
@@ -22,8 +34,9 @@
 }
 
 .project-list .list-item{
-	border:1px solid gray;
-	border-radius:5px;
+	border: 3px solid rgba(171,170,189,0.55);
+	border-radius: 40px 0px 40px 0px;
+	
 	overflow: hidden;
 	margin: 0 auto;
 	margin-top: 30px;
@@ -62,14 +75,17 @@
 .title{
 	font-size:18px;
 	font-weight: 600;
-	color:#262a2b;
 	margin-left: 5px;
+
+	color: #444444;
+	text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
 }
+
 
 .skill{
 	margin-left: 5px;
 	margin-top: 5px;
-	margin-bottom: 5px;
+	padding-bottom: 5px;
 	font-size: 14px;
 }
 .language{
@@ -78,7 +94,7 @@
 }
 .limit-number{
 	margin-left: 5px;
-	margin-top: 5px;
+	margin-top: 10px;
 	font-size: 14px;
 }
 
@@ -108,6 +124,23 @@
 
 
 
+.list-item:hover {
+	box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px 15px 5px #8CFF85, 12px -5px 15px 5px #80C7FF, 12px 10px 15px 7px #E488FF, -10px 10px 15px 7px #FF616B, -10px -7px 27px 1px #8E5CFF, 5px 5px 15px 5px rgba(0,0,0,0);
+	animation: itemAnimation 1.3s ease-in-out infinite;
+}
 
+
+@keyframes itemAnimation {
+  0% {
+    transform: none;
+  }
+  50% {
+    transform: translateY(-23px) ;
+    
+  }
+  100% {
+    transform: none;
+  }
+}
 
 

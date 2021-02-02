@@ -80,7 +80,7 @@
                        		<select name="t">
 								<option value="title">제목</option>
 							</select>
-							<input type="text" name="q" value="${param.q}" />
+							<input class="search-query" type="text" name="q" value="${param.q}" />
 							<select name="size">
 						
 								<option value="10" ${param.size==10?"selected":""}>10개</option>
@@ -95,8 +95,10 @@
 		                
 		            </section>
 
-					<div class="regBtn">
-						<a href="reg">등록하기</a>
+					<div class="button-box">
+						<div class="regBtn addBtn button">
+							<a href="reg">프로젝트 등록</a>
+						</div>
 					</div>
 					
                 	<section class="project">

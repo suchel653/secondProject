@@ -24,7 +24,7 @@
 						</tr>
 						<tr>
 							<th>기술 :</th>
-							<td><c:forEach var="s" items="${p.skills}" varStatus="st">
+							<td><c:forEach var="p" items="${p.skills}" varStatus="st">
 								${p.skillName } 
 								<c:if test="${!st.last }">
 									/
