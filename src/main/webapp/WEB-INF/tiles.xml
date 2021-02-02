@@ -12,6 +12,10 @@
    
   </definition>
   
+  <definition name="customer.activity.group.*.*.info" template="/WEB-INF/view/customer/activity/group/{1}/info.jsp">
+   
+  </definition>
+  
   
   <definition name="customer.*.popup.*" template="/WEB-INF/view/customer/{1}/inc/layout.jsp">
    

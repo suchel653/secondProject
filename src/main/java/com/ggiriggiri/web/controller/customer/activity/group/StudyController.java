@@ -45,6 +45,7 @@ public class StudyController {
 		StudyView studyView = studyService.getView(id);
 		
 		model.addAttribute("s", studyView);
+		
 		return "customer.activity.group.study." + id + ".info";
 	}
 
