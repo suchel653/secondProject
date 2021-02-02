@@ -83,7 +83,18 @@ public class MemberServiceImp implements MemberService{
 	@Override
 	public Member get(String email) {
 		
-		return memberDao.getByEmail(email);
+		Member m = memberDao.getByEmail(email);
+		
+		Profile p = profileDao.get(m.getId());
+		p.setExperienceList(experienceDao.getListByProfileId(p.getId()));
+		p.setProjectList(projectDao.getListByProfileId(p.getId()));
+		p.setSkillList(skillDao.getViewListByProfileId(p.getId()));
+		p.setLanguageList(languageDao.getViewListByProfileId(p.getId()));
+		p.setStudyList(studyDao.getListByProfileId(p.getId()));
+		
+		m.setProfile(p);
+		
+		return m;
 	}
 
 }
