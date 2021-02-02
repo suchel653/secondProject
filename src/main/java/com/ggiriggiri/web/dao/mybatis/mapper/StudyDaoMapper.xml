@@ -79,8 +79,12 @@
 	<select id="getViewListByStatusId" resultType="com.ggiriggiri.web.entity.StudyView">
 		select * from StudyView
 
-		where (id in
+		where 
+		<if test="ids == null">
+			(id in (0)
+		</if>
 		<if test="ids != null">
+			(id in
 			<foreach item="id" index="index" collection="ids" open="("
 				separator="," close=")">
 				#{id}

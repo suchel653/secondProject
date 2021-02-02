@@ -25,4 +25,8 @@
 	<select id="login" resultType="com.ggiriggiri.web.entity.Member">
 		select * from member where email=${param1} and password=${param2};
 	</select>
+	<select id="getByEmail" resultType="com.ggiriggiri.web.entity.Member">
+		select * from Member where email=#{email}
+	</select>
+	
 </mapper>

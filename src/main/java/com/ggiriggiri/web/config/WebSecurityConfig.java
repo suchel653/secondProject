@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 @Configuration
 public class WebSecurityConfig {
@@ -19,6 +20,9 @@ public class WebSecurityConfig {
 
 		@Autowired
 		private DataSource dataSource;
+		
+		@Autowired
+		private AuthenticationSuccessHandler successHandle;
 		
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
@@ -32,6 +36,7 @@ public class WebSecurityConfig {
 					.loginPage("/customer/login")
 					.loginProcessingUrl("/customer/login")
 					.defaultSuccessUrl("/index")
+					.successHandler(successHandle)
 				.and()
 				.csrf()
 					.disable();
