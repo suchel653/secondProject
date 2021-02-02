@@ -80,4 +80,10 @@ public class MemberServiceImp implements MemberService{
 		return memberDao.check(field, query);
 	}
 
+	@Override
+	public Member get(String email) {
+		
+		return memberDao.getByEmail(email);
+	}
+
 }

@@ -6,7 +6,7 @@
 
 </script>
 
-	<main id="main" class="main">
+	<main id="main" class="main" onsubmit="return submitCheck();">
         <h1 class="d-none">메인이다</h1>
         
         

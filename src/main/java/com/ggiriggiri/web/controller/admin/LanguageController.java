@@ -51,8 +51,21 @@ public class LanguageController {
 
 		switch (action) {
 		case "삭제":
+
+			for(int id : del) {
+				Language l = service.get(id);
+				String fileUrl = request.getServletContext().getRealPath("/images/language/");
+				System.out.println(fileUrl);
+				
+				File file = new File(fileUrl + File.separator + l.getImage());
+				file.delete();
+				System.out.println("파일삭제");
+			}
+			
 			service.deleteAll(del);
+			
 			break;
+			
 		case "저장":
 			// 새로운 레코드 저장시
 			if (newNames != null) {

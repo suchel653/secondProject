@@ -56,6 +56,7 @@ public class MemberController {
 	@PostMapping("checkMail")
 	@ResponseBody
 	public Map<String, Object> sendMail(String email) {
+		System.out.println(email);
 		Map<String, Object> map = new HashMap<>();
 		Random ran = new Random();
 		SimpleMailMessage message = new SimpleMailMessage();

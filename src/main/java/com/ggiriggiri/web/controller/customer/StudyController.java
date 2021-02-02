@@ -103,17 +103,27 @@ public class StudyController {
 	
 	@PostMapping("apply/{id}")
 	public String apply(
-			
+
 			@PathVariable("id") int id,
 			@RequestParam("comment") String comment
 			) {
-		StudyApply studyApply = new StudyApply(5,id,comment);
+		StudyApply studyApply = new StudyApply(2,id,comment);
 		service.insertStudyApply(studyApply);
-		
 
 
 		return "customer.study.popup.apply";
 		
+	}
+	
+	@PostMapping("apply/check")
+	@ResponseBody
+	public Map<String, Object> check(int id) {
+		
+			System.out.println(id);
+	      Map<String, Object> map = new HashMap<>();
+	      int checkResult = service.check(2, id);
+	      map.put("checkResult", checkResult);
+	      return map;
 	}
 
 	@GetMapping("reg")

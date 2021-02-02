@@ -62,12 +62,12 @@ public class ActivityController {
 		model.addAttribute("wpv", waitingProjectViewList);
 		model.addAttribute("epv", endedProjectViewList);
 		
-		for(ProjectView a : ongoingProjectViewList)
-			System.out.println("진행중"+a.toString());
-		for(ProjectView a : waitingProjectViewList)
-			System.out.println("대기중"+a.toString());
-		for(ProjectView a : endedProjectViewList)
-			System.out.println("완료"+a.toString());
+//		for(ProjectView a : ongoingProjectViewList)
+//			System.out.println("진행중"+a.toString());
+//		for(ProjectView a : waitingProjectViewList)
+//			System.out.println("대기중"+a.toString());
+//		for(ProjectView a : endedProjectViewList)
+//			System.out.println("완료"+a.toString());
 		
 		return "customer.activity.index";
 	}
