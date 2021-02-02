@@ -26,7 +26,7 @@ public class ProjectApplyServiceImp implements ProjectApplyService {
 
 		if (projectIds.length == 0)
 			return null;
-		
+
 		int resultStatus = 0; // - > 0, 결과 대기중
 		List<ProjectApplyView> list = projectApplyDao.getViewListByStudyIds(projectIds, resultStatus);
 		return list;
@@ -40,11 +40,14 @@ public class ProjectApplyServiceImp implements ProjectApplyService {
 	}
 
 	@Override
+	public List<ProjectApplyView> getViewByProjectId(int projectId) {
+		int resultStatus = 1;
+		return projectApplyDao.getViewByProjectId(projectId, resultStatus);
+	}
+
+	@Override
 	public List<ProjectApply> get(int memberId) {
 		return projectApplyDao.get(memberId);
 	}
-
-
-	
 
 }
