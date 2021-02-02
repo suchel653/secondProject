@@ -2,10 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<script src="/js/customer/activity/study/info.js"></script>
+<script src="/js/customer/activity/project/info.js"></script>
 
 <main id="main" class="main">
-	<h1 class="d-none">스터디 정보</h1>
+	<h1 class="d-none">프로젝트 정보</h1>
 
 	<div class="container">
 		<section>

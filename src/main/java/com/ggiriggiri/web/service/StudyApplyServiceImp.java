@@ -25,6 +25,7 @@ public class StudyApplyServiceImp implements StudyApplyService {
 
 		if (studyIds.length == 0)
 			return null;
+		
 		int resultStatus = 0; // - > 0, 결과 대기중
 		List<StudyApplyView> list = studyApplyDao.getViewListByStudyIds(studyIds, resultStatus);
 		return list;

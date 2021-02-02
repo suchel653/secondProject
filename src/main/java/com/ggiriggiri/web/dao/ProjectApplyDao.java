@@ -12,5 +12,6 @@ public interface ProjectApplyDao {
 	int[] getProjectIdsByMemberId(int memberId, int resultStatus);
 	List<ProjectApplyView> getViewListByStudyIds(int[] projectIds, int resultStatus);
 	List<ProjectApplyView> getResultViewListByMemberId(int memberId, int resultStatus, int resultChecked);
+	List<ProjectApplyView> getViewByProjectId(int projectId, int resultStatus);
 
 }
