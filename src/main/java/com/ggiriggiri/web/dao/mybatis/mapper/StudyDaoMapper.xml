@@ -5,6 +5,11 @@
 
 <mapper namespace="com.ggiriggiri.web.dao.StudyDao">
 
+	<select id="get" resultType="com.ggiriggiri.web.entity.Study">
+		select * from Study
+		where id = #{id}
+	</select>
+
 	<select id="getViewList" resultType="com.ggiriggiri.web.entity.StudyView">
 		select * from StudyView
 		<if test="title !=null">

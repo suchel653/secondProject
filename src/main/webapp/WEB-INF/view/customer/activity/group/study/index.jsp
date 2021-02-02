@@ -1,24 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="/js/customer/activity/study/index.js"></script>
 <link href="/css/reset.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 <div class="container" style="width:1500px; height:900px; border:1px solid black; display:flex;">
 	<div class="box1" style="width:500px; hegiht:900px; border:1px solid black;">
 		<div style="display:flex; flex-direction: column; align-items: center;">
-			<input type="button" value="정보"/>
+			<input hidden value="${sv.id}"/>
+			<input type="button" value="정보" class="info"/>
 		</div>
 		
 		<div style="display:flex; flex-direction: column; align-items: center;">
 			<h1>팀원 정보</h1>
 			<div>
-				<div style="width:100px; border: 1px solid black; text-align:center;">asdas님</div> 
+				<div style="width:100px; border: 1px solid black; text-align:center;">팀장 : ${sv.leaderName}</div> 
 			</div>
+			<c:forEach var="sav" items="${sav}">
+			<div>
+				<div style="width:100px; border: 1px solid black; text-align:center;">팀원 : ${sav.memberNickname}</div> 
+			</div>
+			</c:forEach>
 		</div>
 		<div style="display:flex; flex-direction: column; align-items: center;">
 			<input type="button" value="지원 관리"/>
