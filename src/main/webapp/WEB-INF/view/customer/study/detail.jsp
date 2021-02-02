@@ -80,7 +80,7 @@
 
             <div class="btn prev-next-btn">
 	                <a class="button searchBtn" href="list">목록</a>
-	                <input type=hidden value="${s.id}"/>
+	                <input class="checkId" type=hidden value="${s.id}"/>
 	                 <a class="apply" href="">지원하기</a>
 	                
 	                <c:if test="${empty prev }">

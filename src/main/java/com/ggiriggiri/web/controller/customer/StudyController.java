@@ -245,19 +245,6 @@ public class StudyController {
 		return "redirect:list";
 	}
 	
-	@PostMapping("check")
-	@ResponseBody
-	public Map<String, Object> checkDublicate(@RequestParam("comment") String comment,
-				@RequestParam("id") int id) {
-		Map<String, Object> map = new HashMap<>();
-		int checkResult = service.check(5, id);
-		map.put("checkResult", checkResult);
-		StudyApply studyApply = new StudyApply(5,id,comment);
-		service.insertStudyApply(studyApply);
-		
-		
-		return map;
-	}
 
 	
 }
