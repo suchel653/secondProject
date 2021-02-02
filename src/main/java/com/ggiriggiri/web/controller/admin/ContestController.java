@@ -85,9 +85,9 @@ public class ContestController {
 	
 //		System.out.println(fileList.get(0).getOriginalFilename());
 //		System.out.println("img"+imgList.get(0).getOriginalFilename());
+		String realPath = mtfRequest.getServletContext().getRealPath(url);
 		
 		if(!fileList.get(0).getOriginalFilename().equals("")) {
-			String realPath = mtfRequest.getServletContext().getRealPath(url);
 			
 			String filePath = realPath + "contestFile/"+newId;
 			File realPathFile = new File(filePath);
@@ -104,7 +104,6 @@ public class ContestController {
 		}
 		
 		if(!imgList.get(0).getOriginalFilename().equals("")) {
-			String realPath = mtfRequest.getServletContext().getRealPath(url);
 			
 			String imgPath = realPath + "contestImg/"+newId;
 			File realPathImgFile = new File(imgPath);

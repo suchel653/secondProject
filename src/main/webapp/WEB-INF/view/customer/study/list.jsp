@@ -102,7 +102,14 @@
 			<h1 class="d-none">리스트</h1>
 			<ul class="list">
 			 <c:forEach var ="s" items="${list}">
-				<li><a href="${s.id}"><img class="p-image" src="/images/studyImg/${s.image}"></img></a>
+				<li><a href="${s.id}">
+				<c:if test="${s.image != 'img1.jpg'}">
+					<img class="p-image" src="/images/studyImg/${s.id}/${s.image}"></img>
+				</c:if>
+				<c:if test="${s.image == 'img1.jpg'}">
+					<img class="p-image" src="/images/studyImg/${s.image}"></img>
+				</c:if>
+				</a>
 
 					<table border="1">
 						<tbody>

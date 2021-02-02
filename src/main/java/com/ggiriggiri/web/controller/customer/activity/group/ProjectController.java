@@ -43,6 +43,7 @@ public class ProjectController {
 	public String info(@PathVariable("id") int id, HttpSession session, Model model) {
 		
 		ProjectView projectView = projectService.getView(id);
+		System.out.println(projectView.toString());
 		
 		model.addAttribute("p", projectView);
 

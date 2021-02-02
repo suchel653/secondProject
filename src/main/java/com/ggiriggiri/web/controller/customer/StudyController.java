@@ -109,7 +109,7 @@ public class StudyController {
 			@PathVariable("id") int id,
 			@RequestParam("comment") String comment
 			) {
-		StudyApply studyApply = new StudyApply(2,id,comment);
+		StudyApply studyApply = new StudyApply(20,id,comment);
 		service.insertStudyApply(studyApply);
 
 
@@ -123,7 +123,7 @@ public class StudyController {
 		
 			System.out.println(id);
 	      Map<String, Object> map = new HashMap<>();
-	      int checkResult = service.check(2, id);
+	      int checkResult = service.check(20, id);
 	      map.put("checkResult", checkResult);
 	      System.out.println("check 결과"+checkResult);
 	      return map;
@@ -179,10 +179,32 @@ public class StudyController {
 		String url = "/images/";
 		String realPath = mtfRequest.getServletContext().getRealPath(url);
 		
+		String image="img1.jpg";
+		if(!img.getOriginalFilename().equals("")) {
+			
+			String imgPath = realPath + "studyImg/"+newId;
+			File realPathImgFile = new File(imgPath);
+			if (!realPathImgFile.exists())
+				realPathImgFile.mkdir();
+			
+			
+			
+			String imgFile = imgPath + File.separator + img.getOriginalFilename();
+			img.transferTo(new File(imgFile));
+			image = img.getOriginalFilename();
+		}
+		
+		
+		int leaderId = 16;
+		
+		Study study = new Study(newId,title,content,startDate,endDate,limitNumber,image,requirement,fieldId,leaderId);
+		
+		service.insert(study);
+		
 		if(!fileList.get(0).getOriginalFilename().equals("")) {
 			
 			
-			String filePath = realPath + "studyFile/";
+			String filePath = realPath + "studyFile/"+newId;
 			File realPathFile = new File(filePath);
 			if (!realPathFile.exists())
 				realPathFile.mkdir();
@@ -195,40 +217,6 @@ public class StudyController {
 				service.insertFile(studyFile);
 			}
 		}
-		
-		String image="img1.jpg";
-		if(!img.getOriginalFilename().equals("")) {
-		
-			String imgPath = realPath + "contestImg/"+newId;
-			File realPathImgFile = new File(imgPath);
-			if (!realPathImgFile.exists())
-				realPathImgFile.mkdir();
-			 
-		
-				
-				String imgFile = imgPath + File.separator + img.getOriginalFilename();
-				img.transferTo(new File(imgFile));
-			image = img.getOriginalFilename();
-		}
-		
-		
-		
-		
-		
-
-		
-	
-	
-
-		
-		int leaderId = 16;
-		
-		Study study = new Study(newId,title,content,startDate,endDate,limitNumber,image,requirement,fieldId,leaderId);
-		
-		service.insert(study);
-		
-		
-	
 		
 		
 		for(int skillId : skill) {
