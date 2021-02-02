@@ -2,10 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <link rel="stylesheet" href="/css/customer/apply.css"></link>
  <script src="/js/customer/project/popup-apply.js"></script>
 
-	<main id="main" class="main">
+	<main id="main" class="main apply-main">
         <h1 class="d-none">메인이다</h1>
         
         
@@ -22,6 +22,7 @@
         <div>
         <input class="id" type="hidden" value="${id}">
         
+        <div class="a-btn">apply</div>
         <input class="apply" type="submit" value="지원" />
    
         </div>

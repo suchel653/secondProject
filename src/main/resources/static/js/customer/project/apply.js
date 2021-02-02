@@ -3,8 +3,8 @@ window.addEventListener("load",function(){
 	const id = document.querySelector(".projectId").value;
 	
 	
-	let left = Math.ceil(window.innerWidth/3);
-	let top = Math.ceil(window.innerHeight/2);
+	let left = Math.floor(window.innerWidth/3);
+	let top = Math.floor(window.innerHeight/6);
 
 	let popup;
 	
@@ -13,7 +13,7 @@ window.addEventListener("load",function(){
 		if(e.target.classList.contains(applyBtn))
 				return;
 				
-		popup = open("/customer/project/apply/"+id,"_blank",`left=${left}px,top=${top}px,width=500px,height=500px`);
+		popup = open("/customer/project/apply/"+id,"_blank",`left=${left}px,top=${top}px,width=500px,height=400px`);
 		
 	});
 	

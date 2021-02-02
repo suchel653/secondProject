@@ -2,8 +2,20 @@ window.addEventListener("load",function(){
 	const apply = document.querySelector(".apply");
 	const popupForm = document.querySelector(".popup-form"); 
 	const id = document.querySelector(".id").value;
+	const aBtn = document.querySelector(".a-btn");
 	
+	
+		aBtn.addEventListener("click",(e)=>{
+			let event = new MouseEvent('click', {
+		    view: window,
+		    bubbles: true,
+		    cancelable: true
+	 		 });
+		apply.dispatchEvent(event);
+		})
+		
 	apply.addEventListener("click",(e)=>{
+		e.stopPropagation();
 		//e.preventDefault();
 		
 		//popupForm.submit();

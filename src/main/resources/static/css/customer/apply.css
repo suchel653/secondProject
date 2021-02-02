@@ -1,0 +1,55 @@
+@charset "UTF-8";
+/*  class 순서대로
+apply-main
+coment
+a-btn
+apply
+*/
+
+html,body{
+	background: #232323;
+}
+
+.apply-main{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+form h1{
+	color:white;
+}
+
+.comment{
+	position:relative;
+	width:400px;
+	height:280px;
+	border-radius:10px;
+	margin-top:10px;
+	padding:20px;
+  	font-style:oblique;
+    font-weight:bold;
+    font-size:20px;
+    color: #FFFFFF;
+	background: #232323;
+	text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;
+}
+
+.apply{
+	display: none;
+}
+.a-btn{
+	position:absolute;
+	right: 55px;
+    bottom: 65px;
+	width:70px;
+	height:20px;
+	font-size:30px;
+	cursor: pointer;
+	color: #FFFFFF;
+}
+.a-btn:hover{
+text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;
+	
+}
