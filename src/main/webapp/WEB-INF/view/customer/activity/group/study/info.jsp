@@ -15,7 +15,7 @@
 			</div>
 
 			<div>
-				<img src="/images/studyImg/${s.image }"></img>
+				<img src="/images/studyImg/${s.id}/${s.image }"></img>
 				<table border="1">
 					<tbody>
 						<tr>

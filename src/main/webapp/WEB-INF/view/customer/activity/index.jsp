@@ -63,7 +63,7 @@
 						<a class="group-page" href="group/study/${osv.id}/index">
 							<div class="sp-box2">
 								<div class="sp-content-box">
-									<img src="/images/studyImg/${osv.image}" class="img-size">
+									<img src="/images/studyImg/${osv.id}}/${osv.image}" class="img-size">
 									<div class="img-size">
 										<span>인원 : ${osv.memberCount}/${osv.limitNumber}</span><br />
 										<span>기간<br /> <fmt:formatDate value="${osv.startDate}"
@@ -115,7 +115,7 @@
 						<a class="group-page" href="group/study/${wsv.id}/index">
 							<div class="sp-box2">
 								<div class="sp-content-box">
-									<img src="/images/studyImg/${wsv.image}" class="img-size">
+									<img src="/images/studyImg/${wsv.id}}/${wsv.image}" class="img-size">
 									<div class="img-size">
 										<span>인원 : ${wsv.memberCount}/${wsv.limitNumber}</span><br />
 										<span>기간<br /> <fmt:formatDate value="${wsv.startDate}"
@@ -166,7 +166,7 @@
 						<a class="group-page" href="group/study/${esv.id}/index">
 							<div class="sp-box2">
 								<div class="sp-content-box">
-									<img src="/images/studyImg/${esv.image}" class="img-size">
+									<img src="/images/studyImg/${esv.id}}/${esv.image}" class="img-size">
 									<div class="img-size">
 										<span>인원 : ${esv.memberCount}/${esv.limitNumber}</span><br />
 										<span>기간<br /> <fmt:formatDate value="${esv.startDate}"
