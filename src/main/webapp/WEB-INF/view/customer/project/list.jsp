@@ -128,7 +128,7 @@
 					                    </div>
 					                    
 					                    <div class="limit-number">
-					                    	 <span> 모집인원: ${pj.limitNumber }</span>
+					                    	 <span> 인원: ${pj.memberCount}/${pj.limitNumber }</span>
 					                    </div>
 					                    
 					                    

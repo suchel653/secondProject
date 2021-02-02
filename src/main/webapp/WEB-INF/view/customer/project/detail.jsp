@@ -68,7 +68,7 @@
 					</td>
                 </tr>
                 <tr>
-                  <th>상태 : </th><td >${pv.statusName }</td>
+	                  <th>상태 : </th><td >${pv.statusName}</td>
                 </tr>
                 <tr>
                   <th>작성자 : </th><td >${pv.leaderName }</td>
@@ -87,9 +87,11 @@
           
             </section>
 
-			<input class="opener-comment" type="hidden" value=""/>
 			<input class="projectId" type="hidden" value="${pv.id }"/>
+			
+			<c:if test="${pv.memberCount < pv.limitNumber }">
 			<a class="apply-btn" href="">지원하기</a>
+			</c:if>
             
             <div class="btn prev-next-btn">
                 <a class="button searchBtn" href="list">목록</a>
