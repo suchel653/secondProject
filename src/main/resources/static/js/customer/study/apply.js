@@ -48,7 +48,7 @@ window.addEventListener("load",function(){
 		})
 		.then((data)=>{
 			let result = data.checkResult;
-			alert(result);
+			
 			if(result ==0){
 				alert("지원되었습니다.");
 				return true;

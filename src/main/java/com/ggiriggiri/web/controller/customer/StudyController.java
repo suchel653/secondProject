@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.ggiriggiri.web.entity.ContestFile;
+import com.ggiriggiri.web.entity.ContestImage;
 import com.ggiriggiri.web.entity.Field;
 import com.ggiriggiri.web.entity.Language;
 import com.ggiriggiri.web.entity.Skill;
@@ -176,23 +178,47 @@ public class StudyController {
 		String url = "/images/";
 		String realPath = mtfRequest.getServletContext().getRealPath(url);
 		
-		String filePath = realPath + "studyFile/";
-		String imgPath = realPath + "studyImg/";
+		if(!fileList.get(0).getOriginalFilename().equals("")) {
+			
+			
+			String filePath = realPath + "studyFile/";
+			File realPathFile = new File(filePath);
+			if (!realPathFile.exists())
+				realPathFile.mkdir();
+	
+			for(MultipartFile mf : fileList) {
+				String file = filePath + File.separator + mf.getOriginalFilename();
+				mf.transferTo(new File(file));
+	
+				StudyFile studyFile = new StudyFile(newId,mf.getOriginalFilename());
+				service.insertFile(studyFile);
+			}
+		}
 		
-		File realPathFile = new File(filePath);
-		File realPathImgFile = new File(imgPath);
+		String image="img1.jpg";
+		if(!img.getOriginalFilename().equals("")) {
 		
-		if (!realPathFile.exists())
-			realPathFile.mkdir();
+			String imgPath = realPath + "contestImg/"+newId;
+			File realPathImgFile = new File(imgPath);
+			if (!realPathImgFile.exists())
+				realPathImgFile.mkdir();
+			 
 		
-		if (!realPathImgFile.exists())
-			realPathImgFile.mkdir();
+				
+				String imgFile = imgPath + File.separator + img.getOriginalFilename();
+				img.transferTo(new File(imgFile));
+			image = img.getOriginalFilename();
+		}
 		
-		String imgFile = imgPath + File.separator + img.getOriginalFilename();
-		img.transferTo(new File(imgFile));
-		String image = img.getOriginalFilename();
 		
-		System.out.println(image);
+		
+		
+		
+
+		
+	
+	
+
 		
 		int leaderId = 16;
 		
@@ -201,15 +227,8 @@ public class StudyController {
 		service.insert(study);
 		
 		
+	
 		
-		for(MultipartFile mf : fileList) {
-			String file = filePath + File.separator + mf.getOriginalFilename();
-			mf.transferTo(new File(file));
-
-			
-			StudyFile studyFile = new StudyFile(newId,mf.getOriginalFilename());
-			service.insertFile(studyFile);
-		}
 		
 		for(int skillId : skill) {
 			StudySkill sk = new StudySkill(newId,skillId);

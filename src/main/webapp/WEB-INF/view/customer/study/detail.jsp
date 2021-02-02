@@ -16,7 +16,7 @@
             </div>
             
             <div>
-              <img src="/images/language/${s.image }" ></img>
+              <img src="/images/studyImg/${s.image }" ></img>
               <table border="1">
                 <tbody>
                 <tr>
@@ -36,12 +36,9 @@
                 <tr>
                   <th>언어 : </th>
                   	<td>
-								<c:forEach var="l" items="${s.language }" varStatus="st">
-								${l.languageName } 
-								<c:if test="${!st.last }">
-									/
-								</c:if>
-								</c:forEach>
+							<c:forEach var="l" items="${s.language}" varStatus="st">
+					<img src="/images/language/${l.image}" style="width:40px; height:40px;"/>
+					</c:forEach>
 							</td>
                 </tr>
                 <tr>
