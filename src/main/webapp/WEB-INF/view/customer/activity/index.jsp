@@ -54,7 +54,7 @@
 						<a class="group-page" href="group/study/${osv.id}/index">
 							<div style="flex-basis: 33%; flex-shrink: 0; height: 160px; border: 1px solid black;">
 								<div style="display: flex;">
-									<img src="/images/language/${osv.image}" style="width: 100px; height: 100px;">
+									<img src="/images/studyImg/${osv.image}" style="width: 100px; height: 100px;">
 									<div style="width: 100px; height: 100px;">
 										<span>인원 : ${osv.memberCount}/${osv.limitNumber}</span><br> 
 										<span>기간<br>
@@ -102,7 +102,7 @@
 					<c:forEach var="wsv" items="${wsv}">
 						<div style="flex-basis: 33%; flex-shrink: 0; height: 160px; border: 1px solid black;">
 							<div style="display: flex;">
-								<img src="/images/language/${wsv.image}" style="width: 100px; height: 100px;">
+								<img src="/images/studyImg/${wsv.image}" style="width: 100px; height: 100px;">
 								<div style="width: 100px; height: 100px;">
 									<span>인원 : ${wsv.memberCount}/${wsv.limitNumber}</span><br> 
 									<span>기간<br>
@@ -147,7 +147,7 @@
 					<c:forEach var="esv" items="${esv}">
 						<div style="flex-basis: 33%; flex-shrink: 0; height: 160px; border: 1px solid black;">
 							<div style="display: flex;">
-								<img src="/images/language/${esv.image}" style="width: 100px; height: 100px;">
+								<img src="/images/studyImg/${esv.image}" style="width: 100px; height: 100px;">
 								<div style="width: 100px; height: 100px;">
 									<span>인원 : ${esv.memberCount}/${esv.limitNumber}</span><br> 
 									<span>기간<br>
