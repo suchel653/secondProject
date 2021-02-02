@@ -11,21 +11,21 @@
 		<section>
 
 			<div class="title">
-				<h1>${s.title}</h1>
+				<h1>${p.title}</h1>
 			</div>
 
 			<div>
-				<img src="/images/language/${s.image }"></img>
+				<img src="/images/projectImg/${p.image }"></img>
 				<table border="1">
 					<tbody>
 						<tr>
 							<th>분야 :</th>
-							<td>${s.fieldName }</td>
+							<td>${p.fieldName }</td>
 						</tr>
 						<tr>
 							<th>기술 :</th>
-							<td><c:forEach var="s" items="${s.skill }" varStatus="st">
-								${s.skillName } 
+							<td><c:forEach var="p" items="${p.skills}" varStatus="st">
+								${p.skillName } 
 								<c:if test="${!st.last }">
 									/
 								</c:if>
@@ -33,7 +33,7 @@
 						</tr>
 						<tr>
 							<th>언어 :</th>
-							<td><c:forEach var="l" items="${s.language }" varStatus="st">
+							<td><c:forEach var="l" items="${p.languages}" varStatus="st">
 								${l.languageName } 
 								<c:if test="${!st.last }">
 									/
@@ -42,29 +42,29 @@
 						</tr>
 						<tr>
 							<th>인원 :</th>
-							<td>${s.limitNumber}</td>
+							<td>${p.limitNumber}</td>
 						</tr>
 						<tr>
 							<th>요구사항 :</th>
-							<td>${s.requirement }</td>
+							<td>${p.requirement }</td>
 						</tr>
 						<tr>
 							<th>진행일 :</th>
-							<td><fmt:formatDate value="${s.startDate}"
-									pattern="yyyy-MM-dd" />~ <fmt:formatDate value="${s.endDate }"
+							<td><fmt:formatDate value="${p.startDate}"
+									pattern="yyyy-MM-dd" />~ <fmt:formatDate value="${p.endDate }"
 									pattern="yyyy-MM-dd" /></td>
 						</tr>
 						<tr>
 							<th>상태 :</th>
-							<td>${s.statusName }</td>
+							<td>${p.statusName }</td>
 						</tr>
 						<tr>
 							<th>작성자 :</th>
-							<td>${s.leaderName }</td>
+							<td>${p.leaderName }</td>
 						</tr>
 						<tr>
 							<th>등록일 :</th>
-							<td><fmt:formatDate value="${s.regDate }"
+							<td><fmt:formatDate value="${p.regDate }"
 									pattern="yyyy-MM-dd" /></td>
 						</tr>
 					</tbody>

@@ -13,7 +13,7 @@
 				<h1>${s.title}</h1>
 
 				<div class="detail-container">
-					<img src="/images/language/${s.image }"></img>
+					<img src="/images/studyImg/${s.image }"></img>
 					<table border="1">
 						<tbody>
 						<tr>
