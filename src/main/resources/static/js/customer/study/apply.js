@@ -43,7 +43,7 @@ window.addEventListener("load",function(){
 		let comment = document.querySelector(".comment").value;
 		let id = document.querySelector(".id").value;
 		
-		fetch("/customer/study/apply/"+id+"?comment="+comment,{
+		fetch("/customer/study/check?id="+id+"?comment="+comment,{
 			method:"POST"
 		})
 		.then((response)=>{

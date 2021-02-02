@@ -102,21 +102,17 @@ public class StudyController {
 	}
 	
 	@PostMapping("apply/{id}")
-	@ResponseBody
-	public Map<String, Object>apply(
-		
+	public String apply(
+			
 			@PathVariable("id") int id,
 			@RequestParam("comment") String comment
 			) {
 		StudyApply studyApply = new StudyApply(5,id,comment);
 		service.insertStudyApply(studyApply);
 		
-		Map<String, Object> map = new HashMap<>();
-		int checkResult = service.check(5,id);
-		map.put("checkResult", checkResult);
-	//System.out.println(map);
-		
-		return map;
+
+
+		return "customer.study.popup.apply";
 		
 	}
 
@@ -218,5 +214,20 @@ public class StudyController {
 		
 		return "redirect:list";
 	}
+	
+	@PostMapping("check")
+	@ResponseBody
+	public Map<String, Object> checkDublicate(@RequestParam("comment") String comment,
+				@RequestParam("id") int id) {
+		Map<String, Object> map = new HashMap<>();
+		int checkResult = service.check(5, id);
+		map.put("checkResult", checkResult);
+		StudyApply studyApply = new StudyApply(5,id,comment);
+		service.insertStudyApply(studyApply);
+		
+		
+		return map;
+	}
+
 	
 }
