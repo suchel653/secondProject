@@ -2,6 +2,8 @@ package com.ggiriggiri.web.controller.customer;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,9 +35,10 @@ public class ActivityController {
 	private ProjectApplyService projectApplyService;
 	
 	@RequestMapping("index")
-	public String index(Model model) {
+	public String index(Model model, HttpSession request) {
+
+		int memberId = (Integer)(request.getAttribute("id"));
 		
-		int memberId = 2;
 		List<StudyApplyView> studyApplyViewList = studyApplyService.getViewList(memberId);
 		List<StudyApplyView> studyApplyResultViewList = studyApplyService.getResultViewList(memberId);
 		

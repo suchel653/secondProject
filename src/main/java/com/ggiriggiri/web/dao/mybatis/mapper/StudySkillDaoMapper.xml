@@ -29,6 +29,11 @@
 		group by studyId;
 
 	</select>
+	    
+    <insert id="insert" parameterType="com.ggiriggiri.web.entity.StudySkill">
+    	insert into StudySkill(studyId,skillId) value(${studyId},${skillId});
+    </insert>
+    
 
 
 </mapper>

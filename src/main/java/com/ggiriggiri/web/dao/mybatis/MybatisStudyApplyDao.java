@@ -47,8 +47,12 @@ public class MybatisStudyApplyDao implements StudyApplyDao {
 
 	@Override
 	public int check(int memberId, int studyId) {
-		// TODO Auto-generated method stub
 		return mapper.check(memberId, studyId);
+	}
+
+	@Override
+	public List<StudyApplyView> getViewByStudyId(int studyId, int resultStatus) {
+		return mapper.getViewByStudyId(studyId, resultStatus);
 	}
 
 

@@ -10,4 +10,6 @@ public interface StudyApplyService {
 
 	List<StudyApplyView> getResultViewList(int memberId);
 
+	List<StudyApplyView> getViewByStudyId(int studyId);
+
 }

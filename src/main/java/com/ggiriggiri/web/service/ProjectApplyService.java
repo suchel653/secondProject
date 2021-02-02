@@ -10,7 +10,9 @@ public interface ProjectApplyService {
 	List<ProjectApplyView> getViewList(int leaderId);
 
 	List<ProjectApplyView> getResultViewList(int memberId);
-	
+
+	List<ProjectApplyView> getViewByProjectId(int projectId);
+
 	List<ProjectApply> get(int memberId);
-	
+
 }

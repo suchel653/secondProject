@@ -13,7 +13,7 @@ public interface StudyApplyDao {
 	List<StudyApplyView> getViewListByStudyIds(int[] studyIds, int resultStatus);
 	List<StudyApplyView> getResultViewListByMemberId(int memberId, int resultStatus, int resultChecked);
 	
-	
 	int check(int memberId, int studyId);
+	List<StudyApplyView> getViewByStudyId(int studyId, int resultStatus);
 
 }

@@ -7,6 +7,7 @@
 
 	<main id="main" class="main detail">
                 <h1 class="d-none">메인이다</h1>
+                <div class="container">
                 
               <section>
 				<h1>${s.title}</h1>
@@ -91,7 +92,7 @@
                 </div>
 			</section>
                 
-               
+               </div>
                 
 
                 

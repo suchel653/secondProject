@@ -34,6 +34,11 @@
 		resultChecked=#{resultChecked}
 		order by resultDate desc;
 	</select>
+	
+	<select id="getViewByProjectId" resultType="com.ggiriggiri.web.entity.ProjectApplyView">
+		select * from ProjectApplyView
+		where projectId = #{projectId} and resultStatus = #{resultStatus}
+	</select>
 
 	<select id="get" resultType="com.ggiriggiri.web.entity.ProjectApply">
 		SELECT * FROM ProjectApply
