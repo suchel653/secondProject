@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <script src="/js/customer/activity/index.js"></script>
+<link href="/css/reset.css" type="text/css" rel="stylesheet" />
 <main id="main" class="main">
 
 	<h1 class="d-none">메인이다</h1>
