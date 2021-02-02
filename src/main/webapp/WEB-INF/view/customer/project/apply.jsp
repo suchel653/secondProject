@@ -20,8 +20,9 @@
 
         </div>
         <div>
+        <input class="id" type="hidden" value="${id}">
         
-        <input class="apply" type="button" value="지원" />
+        <input class="apply" type="submit" value="지원" />
    
         </div>
         </form> 

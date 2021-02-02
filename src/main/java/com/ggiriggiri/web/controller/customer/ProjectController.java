@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -22,6 +25,7 @@ import com.ggiriggiri.web.entity.Field;
 import com.ggiriggiri.web.entity.Language;
 import com.ggiriggiri.web.entity.Project;
 import com.ggiriggiri.web.entity.ProjectApply;
+import com.ggiriggiri.web.entity.ProjectApplyView;
 import com.ggiriggiri.web.entity.ProjectFile;
 import com.ggiriggiri.web.entity.ProjectLanguage;
 import com.ggiriggiri.web.entity.ProjectSkill;
@@ -30,6 +34,7 @@ import com.ggiriggiri.web.entity.Skill;
 import com.ggiriggiri.web.entity.StudyApply;
 import com.ggiriggiri.web.service.FieldService;
 import com.ggiriggiri.web.service.LanguageService;
+import com.ggiriggiri.web.service.ProjectApplyService;
 import com.ggiriggiri.web.service.ProjectService;
 import com.ggiriggiri.web.service.SkillService;
 
@@ -45,7 +50,8 @@ public class ProjectController {
 	private SkillService skService;
 	@Autowired
 	private LanguageService lgService;
-	
+	@Autowired
+	private ProjectApplyService paService;
 	
 	@GetMapping("list")
 	public String list(@RequestParam(name="p", defaultValue = "1") int page,
@@ -196,8 +202,7 @@ public class ProjectController {
 	
 	@GetMapping("apply/{id}")
 	public String apply(@PathVariable("id") int id, Model model) {
-		
-		
+		model.addAttribute("id",id);
 		return "customer.project.popup.apply";
 	}
 	
@@ -207,15 +212,39 @@ public class ProjectController {
 			@RequestParam("comment") String comment) {
 		
 		int projectId = id;
-		int memberId = 4;
+		int memberId = 5;
+
+		ProjectView pv = service.getView(projectId);
+			
+		List<ProjectApply> pas = paService.get(memberId);
 		
-		System.out.println(comment);
-		System.out.println(projectId);
+		int paId = 0;
 		
+		for(ProjectApply pa : pas) {
+			if(pa.getProjectId()==projectId) 
+				 paId = pa.getProjectId();
+			System.out.println("중복 프로젝트 아이디 : "+paId);
+		}
+		
+		if(pv.getMemberCount() < pv.getLimitNumber()&& paId!=projectId) {
+			
 		ProjectApply projectApply = new ProjectApply(memberId,projectId,comment);
 		service.insertProjectApply(projectApply);
+			
+		}		
 		
 		return "customer.project.popup.apply";
 		
+	}
+	
+	@PostMapping("apply/check/{id}")
+	@ResponseBody
+	public Map<String, Object> check(@PathVariable("id") int id) {
+		
+	      Map<String, Object> map = new HashMap<>();
+	      int checkResult = service.check(5, id);
+	      map.put("checkResult", checkResult);
+	      
+	      return map;
 	}
 }
