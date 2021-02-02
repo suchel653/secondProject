@@ -87,7 +87,6 @@
           
             </section>
 
-			<input class="opener-comment" type="hidden" value=""/>
 			<input class="projectId" type="hidden" value="${pv.id }"/>
 			
 			<c:if test="${pv.memberCount < pv.limitNumber }">

@@ -214,4 +214,9 @@ public class ProjectServiceImp implements ProjectService {
 
 		return list;
 	}
+
+	@Override
+	public int check(int memberId, int projectId) {
+		return projectApplyDao.check(memberId, projectId);
+	}
 }

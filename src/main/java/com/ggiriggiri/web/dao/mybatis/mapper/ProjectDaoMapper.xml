@@ -22,14 +22,12 @@
 	</delete>
 
 	<select id="get" resultType="com.ggiriggiri.web.entity.Project">
-		SELECT * FROM Project
-		WHERE ID=${param1};
+		SELECT * FROM Project WHERE ID=#{id};
 	</select>
 
 
 	<select id="getView" resultType="com.ggiriggiri.web.entity.ProjectView">
-		select * from ProjectView
-		where id = #{param1}
+		select * from ProjectView where id =#{id}
 	</select>
 
 

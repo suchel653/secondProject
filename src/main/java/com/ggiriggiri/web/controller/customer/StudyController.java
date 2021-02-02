@@ -124,6 +124,7 @@ public class StudyController {
 	      Map<String, Object> map = new HashMap<>();
 	      int checkResult = service.check(2, id);
 	      map.put("checkResult", checkResult);
+	      System.out.println("check 결과"+checkResult);
 	      return map;
 	}
 

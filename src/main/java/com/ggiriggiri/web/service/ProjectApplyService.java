@@ -11,6 +11,6 @@ public interface ProjectApplyService {
 
 	List<ProjectApplyView> getResultViewList(int memberId);
 	
-	ProjectApply get(int memberId);
-
+	List<ProjectApply> get(int memberId);
+	
 }

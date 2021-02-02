@@ -38,4 +38,5 @@ public interface ProjectService {
 	List<ProjectView> getWaitingViewList(int memberId);
 	List<ProjectView> getEndedViewList(int memberId);
 	
+	int check(int memberId, int projectId);
 }

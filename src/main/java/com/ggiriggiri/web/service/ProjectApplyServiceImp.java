@@ -40,9 +40,11 @@ public class ProjectApplyServiceImp implements ProjectApplyService {
 	}
 
 	@Override
-	public ProjectApply get(int memberId) {
-		
+	public List<ProjectApply> get(int memberId) {
 		return projectApplyDao.get(memberId);
 	}
+
+
+	
 
 }
