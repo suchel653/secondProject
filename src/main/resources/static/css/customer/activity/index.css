@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+.container-box {
+	display: flex;
+	justify-content: space-around;
+}
+
+.container-box h1 {
+	padding: 30px;
+}
+
+.container-box .container-box2 {
+	width: 600px;
+	height: 200px;
+	border: 1px solid red;
+	overflow: auto;
+	align-items: center;
+}
+
+.text-items .date-fmt {
+	font-size: 5px;
+	color: #c1c1c1;
+}
+
+.sp-box {
+	display: flex;
+}
+
+.last-box {
+	padding-bottom: 50px;
+}
+
+.sp-box2 {
+	flex-basis: 33%;
+	flex-shrink: 0;
+	height: 160px;
+	border: 1px solid black;
+}
+
+.sp-content-box {
+	display: flex;
+}
+
+.img-size {
+	width: 100px;
+	height: 100px;
+}
