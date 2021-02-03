@@ -44,4 +44,10 @@ public class StudyApplyServiceImp implements StudyApplyService {
 		return studyApplyDao.getViewByStudyId(studyId, resultStatus);
 	}
 
+	@Override
+	public List<StudyApplyView> getWaitingViewByStudyId(int studyId) {
+		int resultStatus = 0; // 대기중인 사람만
+		return studyApplyDao.getViewByStudyId(studyId, resultStatus);
+	}
+
 }

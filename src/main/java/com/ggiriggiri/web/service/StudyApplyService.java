@@ -12,4 +12,6 @@ public interface StudyApplyService {
 
 	List<StudyApplyView> getViewByStudyId(int studyId);
 
+	List<StudyApplyView> getWaitingViewByStudyId(int studyId);
+
 }

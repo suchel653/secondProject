@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,9 +33,24 @@
 					</div>
 				</c:forEach>
 			</div>
-			<div
-				style="display: flex; flex-direction: column; align-items: center;">
-				<input type="button" value="지원 관리" />
+			<div style="display: flex; flex-direction: column; align-items: center;">
+				<input type="button" value="지원 관리" class="apply-Btn"/>
+				<div class="panel">
+				  <table>
+				  	<tbody>
+				  		<c:forEach var="swv" items="${swv}">
+					  		<tr>
+						  		<td>
+						  			<span>${swv.memberNickname}님이 지원하였습니다.</span>
+									<span class="date-fmt"><fmt:formatDate value="${swv.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
+						  		</td>
+						  		<td><input type="button" value="승인"></td>
+						  		<td><input type="button" value="거절"></td>
+							</tr>
+						</c:forEach>
+				  	</tbody>
+				  </table>
+				</div>
 			</div>
 
 		</div>
