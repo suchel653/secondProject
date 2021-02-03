@@ -44,8 +44,14 @@
 						  			<span>${swv.memberNickname}님이 지원하였습니다.</span>
 									<span class="date-fmt"><fmt:formatDate value="${swv.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
 						  		</td>
-						  		<td><input type="button" value="승인"></td>
-						  		<td><input type="button" value="거절"></td>
+						  		<td>
+						  			<input hidden value="${swv.id}" />
+						  			<input type="button" value="승인" />
+						  		</td>
+						  		<td>
+						  			<input hidden value="${swv.id}" />
+						  			<input type="button" value="거절" />
+						  		</td>
 							</tr>
 						</c:forEach>
 				  	</tbody>
