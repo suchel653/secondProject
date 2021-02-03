@@ -3,13 +3,17 @@
 @import "../admin/components/button.css";
 
 /* class 순서대로
-project-serch-form
-project-list
-project-item
-table
-table-column
-p-image
-l-icon
+project-study-serch-form -> 검색폼 section
+
+p-s-regBtn-box -> div
+p-s-regBtn -> div
+
+project-study-list -> ul
+list-item -> li
+p-s-image -> 메인 img
+table -> <table> 대신 <div>로 대체
+table-column -> 클래스 table 내부 div(field+language 묶기)
+l-icon -> language img
 
 field
 title
@@ -18,19 +22,28 @@ language
 limit-number
  */
 
-html,body{
-	--background:#0E1116;
+/* pager class
+ current -> li
+ */
+
+
+html, body{
+	--background: #35363A;
+}
+/*-----------------------search-form-------------- */
+.project-study-serch-form{
+	--background:gray;
+	margin-top:50px;
 }
 
-.project-serch-form{
-	margin-top:30px;
-}
-.button-box{
+
+/*-----------------------button------------------  */
+.p-s-regBtn-box{
 	display: flex;
 	justify-content: flex-end;
 	
 }
-.regBtn{
+.p-s-regBtn{
 	position:fixed;
 	width:15px;
 	z-index:1;
@@ -39,35 +52,44 @@ html,body{
 
 
 
-
-.project-list{
-	--background:beige;
+/*-----------------------.project-study-list------------------  */
+.project-study-list{
+	--background:gray;
 	display: flex;
 	flex-wrap: wrap;
 	align-content: flex-start;
+	padding-right:30px;
+	padding-left:30px;
+	padding-bottom:20px;
+	--margin-top:20px;
 }
-.project-list .p-image{
-	width:250px; 
-	height:300px;
+.project-study-list .p-s-image{
+	width:230px; 
+	height:280px;
 }
 
-.project-list .list-item{
+.project-study-list .list-item{
 	border: 3px solid rgba(171,170,189,0.55);
 	border-radius: 40px 0px 40px 0px;
 	
 	overflow: hidden;
 	margin: 0 auto;
-	margin-top: 30px;
+	margin-top: 70px;
 	margin-left:30px;
 }
 
-.project-list .table{
+.project-study-list .table{
 	background:inherit;
 	width:100%;
 	background: white;
 }
 
-.project-list .l-icon{
+.project-study-list .table-column{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.project-study-list .l-icon{
 	width:30px; 
 	height:30px;
 	margin-right: 5px;
@@ -77,14 +99,7 @@ html,body{
 
 
 
-
-
-.table-column{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
+/*-------------------------------column----------------------------  */
 .field{
 	font-size: 13px;
 	margin-left: 5px;
@@ -98,7 +113,6 @@ html,body{
 	color: #444444;
 	text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
 }
-
 
 .skill{
 	margin-left: 5px;
@@ -120,15 +134,13 @@ html,body{
 
 
 
-
-
-
-
+/* -------------------------pager-------------------------- */
 .pager{
 	--background:yellow;
-	--padding-top: 20px;
+	padding: 20px 0;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 }
 .pager ul{
 	display: flex;
@@ -139,13 +151,41 @@ html,body{
 	margin:0 4px;
 	padding: 3px 0;
 }
+.pager i{
+	font-size: 23px;
+	color: gray;
+	margin:0 8px;
+}
+
+.pager li{
+	background: beige;
+	border-radius: 20%;
+	margin:0 8px;
+	padding: 10px;
+	font-size: 20px;
+}
 
 
+/* ------------------------- sub----------------------------- */
+.pager i:hover{
+	color:black;
+	text-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+}
 
 .list-item:hover {
 	box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px 15px 5px #8CFF85, 12px -5px 15px 5px #80C7FF, 12px 10px 15px 7px #E488FF, -10px 10px 15px 7px #FF616B, -10px -7px 27px 1px #8E5CFF, 5px 5px 15px 5px rgba(0,0,0,0);
 	animation: itemAnimation 1.3s ease-in-out infinite;
 }
+
+.pager li:hover{
+	background:blanchedalmond; 
+}
+
+.current{
+	color:orange;
+	font-weight:600;
+}
+
 
 
 @keyframes itemAnimation {

@@ -14,6 +14,7 @@ window.addEventListener("load",function(){
 		apply.dispatchEvent(event);
 		})
 		
+		
 	apply.addEventListener("click",(e)=>{
 		e.stopPropagation();
 		//e.preventDefault();
