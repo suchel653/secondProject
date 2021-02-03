@@ -2,6 +2,7 @@ package com.ggiriggiri.web.controller.customer;
 
 import java.io.File;
 import java.io.IOException;
+import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,6 +11,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,17 +27,17 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.ggiriggiri.web.entity.Field;
 import com.ggiriggiri.web.entity.Language;
+import com.ggiriggiri.web.entity.Member;
 import com.ggiriggiri.web.entity.Project;
 import com.ggiriggiri.web.entity.ProjectApply;
-import com.ggiriggiri.web.entity.ProjectApplyView;
 import com.ggiriggiri.web.entity.ProjectFile;
 import com.ggiriggiri.web.entity.ProjectLanguage;
 import com.ggiriggiri.web.entity.ProjectSkill;
 import com.ggiriggiri.web.entity.ProjectView;
 import com.ggiriggiri.web.entity.Skill;
-import com.ggiriggiri.web.entity.StudyApply;
 import com.ggiriggiri.web.service.FieldService;
 import com.ggiriggiri.web.service.LanguageService;
+import com.ggiriggiri.web.service.MemberService;
 import com.ggiriggiri.web.service.ProjectApplyService;
 import com.ggiriggiri.web.service.ProjectService;
 import com.ggiriggiri.web.service.SkillService;
@@ -52,6 +56,8 @@ public class ProjectController {
 	private LanguageService lgService;
 	@Autowired
 	private ProjectApplyService paService;
+	@Autowired
+	private MemberService mService;
 	
 	@GetMapping("list")
 	public String list(@RequestParam(name="p", defaultValue = "1") int page,
@@ -130,20 +136,19 @@ public class ProjectController {
 			@RequestParam("field") int fieldId,
 			@RequestParam("skill") int[] skill,
 			@RequestParam("language") int[] language,
+			Authentication authentication,
 			MultipartHttpServletRequest mtfRequest) throws ParseException, IllegalStateException, IOException {
 
 		
-		System.out.println(fieldId);
-		for(int s : skill)
-		System.out.println(s);
-		for(int l : language)
-			System.out.println(l);
-		
+		//---- date format
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
 		Date startDate = sdf.parse(oldStartDate);
 		Date endDate = sdf.parse(oldEndDate);
 		
+		
+		
+		//----- file, image 경로
 		int newId = service.getLastId()+1;
 		
 		MultipartFile img = mtfRequest.getFile("image");
@@ -166,16 +171,26 @@ public class ProjectController {
 		
 		String imgFile = imgPath + File.separator + img.getOriginalFilename();
 		img.transferTo(new File(imgFile));
+		
 		String image = img.getOriginalFilename();
 		
-		System.out.println(image);
 		
-		int leaderId = 16;
 		
+		
+		//----- login 유저
+		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+		String username = userDetails.getUsername(); 
+		
+		Member m = mService.get(username);
+		int leaderId = m.getId();
+		
+		
+		
+		
+
+		//----- insert
 		Project project = new Project(newId,title,content,startDate,endDate,limitNumber,image,requirement,fieldId,leaderId);
-		
 		service.insert(project);
-		
 		
 		
 		for(MultipartFile mf : fileList) {
@@ -200,26 +215,37 @@ public class ProjectController {
 		return "redirect:list";
 	}
 	
+	
+	
 	@GetMapping("apply/{id}")
 	public String apply(@PathVariable("id") int id, Model model) {
 		model.addAttribute("id",id);
 		return "customer.project.popup.apply";
 	}
 	
+	
 	@PostMapping("apply/{id}")
 	public String apply(
 			@PathVariable("id") int id,
-			@RequestParam("comment") String comment) {
+			@RequestParam("comment") String comment,
+			Authentication authentication) {
 		
 		int projectId = id;
-		int memberId = 5;
-
 		ProjectView pv = service.getView(projectId);
-			
+		
+		
+		//---login 유저
+		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+		String username = userDetails.getUsername();
+		
+		Member m = mService.get(username);
+		int memberId = m.getId();
+
 		List<ProjectApply> pas = paService.get(memberId);
 		
-		int paId = 0;
 		
+		//------ 중복 확인, insert
+		int paId = 0;
 		for(ProjectApply pa : pas) {
 			if(pa.getProjectId() == projectId) 
 				 paId = pa.getProjectId();
