@@ -50,4 +50,16 @@ public class StudyApplyServiceImp implements StudyApplyService {
 		return studyApplyDao.getViewByStudyId(studyId, resultStatus);
 	}
 
+	@Override
+	public int updateStatusToApprove(int memberId) {
+		int resultStatus = 1;
+		return studyApplyDao.updateStatus(memberId, resultStatus);
+	}
+
+	@Override
+	public int updateStatusToReject(int memberId) {
+		int resultStatus = 2;
+		return studyApplyDao.updateStatus(memberId, resultStatus);
+	}
+
 }

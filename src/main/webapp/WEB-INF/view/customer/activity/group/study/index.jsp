@@ -35,28 +35,31 @@
 			</div>
 			<div style="display: flex; flex-direction: column; align-items: center;">
 				<input type="button" value="지원 관리" class="apply-Btn"/>
-				<div class="panel">
-				  <table>
-				  	<tbody>
-				  		<c:forEach var="swv" items="${swv}">
-					  		<tr>
-						  		<td>
-						  			<span>${swv.memberNickname}님이 지원하였습니다.</span>
-									<span class="date-fmt"><fmt:formatDate value="${swv.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
-						  		</td>
-						  		<td>
-						  			<input hidden value="${swv.id}" />
-						  			<input type="button" value="승인" />
-						  		</td>
-						  		<td>
-						  			<input hidden value="${swv.id}" />
-						  			<input type="button" value="거절" />
-						  		</td>
-							</tr>
-						</c:forEach>
-				  	</tbody>
-				  </table>
-				</div>
+				
+				<form action="approve" method="post">
+					<div class="panel">
+					  <table>
+					  	<tbody>
+					  		<c:forEach var="swv" items="${swv}">
+						  		<tr>
+							  		<td>
+							  			<span>${swv.memberNickname}님이 지원하였습니다.</span>
+										<span class="date-fmt"><fmt:formatDate value="${swv.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
+							  		</td>
+							  		<td>
+							  			<input hidden name="id" value="${swv.memberId}" />
+							  			<input type="submit" name="action" value="승인"/>
+							  		</td>
+							  		<td>
+							  			<input hidden name="id" value="${swv.memberId}" />
+							  			<input type="submit" name="action" value="거절"/>
+							  		</td>
+								</tr>
+							</c:forEach>
+					  	</tbody>
+					  </table>
+					</div>
+				</form>
 			</div>
 
 		</div>

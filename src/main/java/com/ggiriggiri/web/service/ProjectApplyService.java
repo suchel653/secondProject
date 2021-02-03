@@ -17,4 +17,8 @@ public interface ProjectApplyService {
 
 	List<ProjectApplyView> getWaitingViewByProjectId(int projectId);
 
+	int updateStatusToApprove(int memberId);
+
+	int updateStatusToReject(int memberId);
+
 }

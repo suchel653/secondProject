@@ -14,4 +14,8 @@ public interface StudyApplyService {
 
 	List<StudyApplyView> getWaitingViewByStudyId(int studyId);
 
+	int updateStatusToApprove(int memberId);
+
+	int updateStatusToReject(int memberId);
+
 }
