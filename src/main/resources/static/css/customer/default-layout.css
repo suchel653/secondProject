@@ -2,6 +2,7 @@
 @import url("layout/default.css");
 @import url("content-layout/default.css");
 @import url("project-list.css");
+@import url("detail-list.css");
 
 .d-none{
     display:none;
