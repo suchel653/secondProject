@@ -39,7 +39,7 @@
 				<form action="approve" method="post">
 					<div class="panel">
 					  <table>
-					  	<tbody>
+					  	<tbody class="tbody">
 					  		<c:forEach var="pwv" items="${pwv}">
 						  		<tr>
 							  		<td>
@@ -47,12 +47,14 @@
 										<span class="date-fmt"><fmt:formatDate value="${pwv.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
 							  		</td>
 							  		<td>
+							  			<input hidden name="id" value="${pwv.projectId}" />
 							  			<input hidden name="id" value="${pwv.memberId}" />
-							  			<input type="submit" name="action" value="승인">
+							  			<input class="a" type="submit" name="action" value="승인">
 							  		</td>
 							  		<td>
+							  			<input hidden name="id" value="${pwv.projectId}" />
 							  			<input hidden name="id" value="${pwv.memberId}" />
-							  			<input type="submit" name="action" value="거절">
+							  			<input class="b" type="submit" name="action" value="거절">
 							  		</td>
 								</tr>
 							</c:forEach>

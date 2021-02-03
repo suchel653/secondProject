@@ -53,16 +53,14 @@ public class ProjectController {
 		return "customer.activity.group.project." + id + ".info";
 	}
 	
-	@PostMapping("approve")
+	@GetMapping("approve")
 	public String approve(String action, int id) {
 		
-		System.out.println(id);
-		
-//		if(action.equals("승인")) {
-//			projectApplyService.updateStatusToApprove(id);
-//		} else if(action.equals("거절")) {
-//			projectApplyService.updateStatusToReject(id);
-//		}
+		if(action.equals("승인")) {
+			projectApplyService.updateStatusToApprove(id);
+		} else if(action.equals("거절")) {
+			projectApplyService.updateStatusToReject(id);
+		}
 		
 		return "redirect:index";
 	}

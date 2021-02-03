@@ -47,10 +47,12 @@
 										<span class="date-fmt"><fmt:formatDate value="${swv.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
 							  		</td>
 							  		<td>
+							  			<input hidden name="id" value="${swv.projectId}" />
 							  			<input hidden name="id" value="${swv.memberId}" />
 							  			<input type="submit" name="action" value="승인"/>
 							  		</td>
 							  		<td>
+							  			<input hidden name="id" value="${swv.projectId}" />
 							  			<input hidden name="id" value="${swv.memberId}" />
 							  			<input type="submit" name="action" value="거절"/>
 							  		</td>
