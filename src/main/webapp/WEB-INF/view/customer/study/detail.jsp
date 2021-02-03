@@ -84,6 +84,18 @@
               <div class="content">${s.content}</div>
           
             </section>
+            
+           <%--  <div class="p-s-regBtn-box">
+            <div class="p-s-regBtn">
+	                <input class="checkId" type=hidden value="${s.id}"/>
+	                 <a class="apply neon-btn pink" href="">지원하기
+	                   <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+	                 </a>
+	                 </div>
+	                 </div> --%>
 
             <div class="btn prev-next-btn">
            
@@ -93,13 +105,15 @@
                         <span></span>
                         <span></span>
 	                </a>
-	                <input class="checkId" type=hidden value="${s.id}"/>
+	                
+	                 <input class="checkId" type=hidden value="${s.id}"/>
 	                 <a class="apply neon-btn pink" href="">지원하기
 	                   <span></span>
                         <span></span>
                         <span></span>
                         <span></span>
 	                 </a>
+	                
 	                
 	                <c:if test="${empty prev }">
 	                <a class="neon-btn blue">이전

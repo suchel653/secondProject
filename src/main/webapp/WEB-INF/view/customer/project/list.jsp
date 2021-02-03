@@ -27,7 +27,7 @@
                 <h1 class="d-none">메인이다</h1>
                 <div class="container">
                 
-                 <section class="project-serch-form">
+                 <section class="project-study-serch-form">
 		              <h1 class="d-none">검색 폼</h1>
 		              
 	                <form action="list" method="get" class="search-form">
@@ -95,20 +95,20 @@
 		                
 		            </section>
 
-					<div class="button-box">
-						<div class="regBtn addBtn button">
+					<div class="p-s-regBtn-box">
+						<div class="p-s-regBtn addBtn button">
 							<a href="reg">프로젝트 등록</a>
 						</div>
 					</div>
 					
                 	<section class="project">
                     <h1 class="d-none">리스트</h1>
-                    <ul class="project-list tilesWrap">
+                    <ul class="project-study-list">
 			            <c:forEach var="pj" items="${list }">
 	                       <li class="list-item">
 	                       
 		                       <a href="${pj.id }">
-				                    <img class="p-image" src="/images/projectImg/${pj.image }" >
+				                    <img class="p-s-image" src="/images/projectImg/${pj.image }" >
 				                    
 				                    <div class="table">
 				                    
@@ -153,6 +153,7 @@
                
                <c:set var="startNum" value="${page-(page-1)%5 }"></c:set>
                 
+                
                 <div class="pager">
                     <div>
                       <a href="?p=${1}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}"><i class="fas fa-angle-double-left"></i></a>
@@ -172,7 +173,7 @@
 	                    <c:forEach var="i" begin="0" end="4">
 	                    	
 	                    	<c:if test="${i+startNum <= pageCount}">
-	                      		<li><a class="${i+startNum==page?"current":""}" href="?p=${i+startNum}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}">${i+startNum}</a></li>
+	                      		<li class="${i+startNum==page?"current":""}"><a href="?p=${i+startNum}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}">${i+startNum}</a></li>
 	                    	</c:if>
 	                    </c:forEach>
                     </ul>

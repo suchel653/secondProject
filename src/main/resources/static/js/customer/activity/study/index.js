@@ -1,6 +1,7 @@
 window.addEventListener("load", (e) => {
 	
 	const info = document.querySelector(".info");
+	const applyBtn = document.querySelector(".apply-Btn");
 
 	//console.log(e.target);
 
@@ -13,6 +14,10 @@ window.addEventListener("load", (e) => {
 
 		win = open("/customer/activity/group/study/" + id + "/info", "_blank", "width=500px,height=500px");
 
+	});
+	
+	applyBtn.addEventListener("click", (e) => {
+		console.log("apply");
 	});
 
 });

@@ -11,8 +11,10 @@ public interface ProjectApplyService {
 
 	List<ProjectApplyView> getResultViewList(int memberId);
 
+	List<ProjectApply> get(int memberId);
+
 	List<ProjectApplyView> getViewByProjectId(int projectId);
 
-	List<ProjectApply> get(int memberId);
+	List<ProjectApplyView> getWaitingViewByProjectId(int projectId);
 
 }

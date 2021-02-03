@@ -16,9 +16,8 @@
 				<div class="container-box2">
 					<c:forEach var="s" items="${sav}">
 						<div class="text-items">
-							<span>${s.memberNickname}님이 ${s.studyTitle}에 지원하였습니다.</span><span
-								class="date-fmt"><fmt:formatDate value="${s.regDate}"
-									pattern="yyyy-MM-dd a hh:mm:ss" /></span>
+							<span>${s.memberNickname}님이 ${s.studyTitle}에 지원하였습니다.</span>
+							<span class="date-fmt"><fmt:formatDate value="${s.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
 						</div>
 					</c:forEach>
 
