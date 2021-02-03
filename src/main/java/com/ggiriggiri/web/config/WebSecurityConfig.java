@@ -14,7 +14,6 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 @Configuration
 public class WebSecurityConfig {
 
-	@Order(1)
 	@Configuration
 	public class CustomerSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -22,21 +21,22 @@ public class WebSecurityConfig {
 		private DataSource dataSource;
 		
 		@Autowired
-		private AuthenticationSuccessHandler successHandle;
+		private AuthenticationSuccessHandler successHandler;
 		
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 			http
-				.antMatcher("/customer/**")
+//				.antMatcher("/customer/**")
 				.authorizeRequests()
 					.antMatchers("/customer/login","/customer/join","/customer/checkMail","/customer/checkDuplicate","/customer/study/list","/customer/project/list").permitAll()
-					.antMatchers("/customer/**").hasRole("MEMBER")
+					.antMatchers("/admin/**").hasRole("ADMIN")
+					.antMatchers("/customer/**").hasAnyRole("MEMBER","ADMIN")
 				.and()
 				.formLogin()
 					.loginPage("/customer/login")
 					.loginProcessingUrl("/customer/login")
 					.defaultSuccessUrl("/index")
-					.successHandler(successHandle)
+					.successHandler(successHandler)
 				.and()
 				.csrf()
 					.disable();
@@ -49,44 +49,15 @@ public class WebSecurityConfig {
 				.jdbcAuthentication()
 				.dataSource(dataSource)
 					.usersByUsernameQuery("select email id, password, 1 enabled from Member where email=?")
-					.authoritiesByUsernameQuery("select email id, 'ROLE_MEMBER' from Member where email=?")
+					.authoritiesByUsernameQuery("select m.email id, r.name roleId "
+												+ "from Member m"
+												+ " join Role r on r.id = m.roleId"
+												+ " where email=?")
+					
 					.passwordEncoder(new BCryptPasswordEncoder());
 		}
 	}
 
 	
-	@Configuration	
-	public class AdminSecurityConfig extends WebSecurityConfigurerAdapter {
 
-		@Autowired
-		private DataSource dataSource;
-		
-		@Override
-		protected void configure(HttpSecurity http) throws Exception {
-			http
-				.antMatcher("/admin/**")
-				.authorizeRequests()
-					.antMatchers("/admin/login").permitAll()
-					.antMatchers("/admin/**").hasRole("ADMIN")
-					.and()
-				.formLogin()
-					.loginPage("/admin/login")
-					.loginProcessingUrl("/admin/login")
-					.defaultSuccessUrl("/admin/index")
-					.and()
-				.csrf()
-					.disable();
-		}
-
-		@Override
-		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-
-			auth
-				.jdbcAuthentication()
-				.dataSource(dataSource)
-					.usersByUsernameQuery("select nickname,concat('{noop}',password),true from Admin where nickname=?")
-					.authoritiesByUsernameQuery("select nickname,'ROLE_ADMIN' from Admin where nickname=?");
-
-		}
-	}
 }

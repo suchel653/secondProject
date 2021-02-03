@@ -31,9 +31,11 @@ public class ProjectController {
 
 		ProjectView projectView = projectService.getView(id);
 		List<ProjectApplyView> projectApplyViewList = projectApplyService.getViewByProjectId(id);
+		List<ProjectApplyView> projectWaitingViewList = projectApplyService.getWaitingViewByProjectId(id);
 		
 		model.addAttribute("pv", projectView);
 		model.addAttribute("pav", projectApplyViewList);
+		model.addAttribute("pwv",projectWaitingViewList);
 
 		return "customer.activity.group.project." + id + ".index";
 

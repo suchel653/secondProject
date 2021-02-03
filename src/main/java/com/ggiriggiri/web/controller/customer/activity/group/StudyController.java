@@ -31,9 +31,11 @@ public class StudyController {
 
 		StudyView studyView = studyService.getView(id);
 		List<StudyApplyView> studyApplyViewList = studyApplyService.getViewByStudyId(id);
+		List<StudyApplyView> studyWaitingViewLIst = studyApplyService.getWaitingViewByStudyId(id);
 
 		model.addAttribute("sv", studyView);
 		model.addAttribute("sav", studyApplyViewList);
+		model.addAttribute("swv", studyWaitingViewLIst);
 
 		return "customer.activity.group.study." + id + ".index";
 

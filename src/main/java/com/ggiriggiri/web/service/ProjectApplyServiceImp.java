@@ -40,14 +40,20 @@ public class ProjectApplyServiceImp implements ProjectApplyService {
 	}
 
 	@Override
+	public List<ProjectApply> get(int memberId) {
+		return projectApplyDao.get(memberId);
+	}
+	@Override
 	public List<ProjectApplyView> getViewByProjectId(int projectId) {
 		int resultStatus = 1;
 		return projectApplyDao.getViewByProjectId(projectId, resultStatus);
 	}
 
+
 	@Override
-	public List<ProjectApply> get(int memberId) {
-		return projectApplyDao.get(memberId);
+	public List<ProjectApplyView> getWaitingViewByProjectId(int projectId) {
+		int resultStatus = 0;
+		return projectApplyDao.getViewByProjectId(projectId, resultStatus);
 	}
 
 }
