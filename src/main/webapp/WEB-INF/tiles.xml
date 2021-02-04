@@ -47,9 +47,6 @@
     <put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
   </definition>
   
-  <definition name="home.admin.login" template="/WEB-INF/view/admin/login.jsp">
-    <put-attribute name="title" value="Tiles tutorial homepage" />
-  </definition>
   
   <definition name="home.admin.index" template="/WEB-INF/view/admin/index.jsp">
     <put-attribute name="title" value="Tiles tutorial homepage" />

@@ -62,7 +62,7 @@
 						<a class="group-page" href="group/study/${osv.id}/index">
 							<div class="sp-box2">
 								<div class="sp-content-box">
-									<img src="/images/studyImg/${osv.id}}/${osv.image}" class="img-size">
+									<img src="/images/studyImg/${osv.id}/${osv.image}" class="img-size">
 									<div class="img-size">
 										<span>인원 : ${osv.memberCount}/${osv.limitNumber}</span><br />
 										<span>기간<br /> <fmt:formatDate value="${osv.startDate}"
