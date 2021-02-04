@@ -7,7 +7,7 @@
 	<div class="container">
 		<div class="logo">
 			<a href="/index">
-				<h1>끼리끼리</h1>
+				<h1>B.E.O</h1>
 			</a>
 		</div>
 

@@ -9,7 +9,7 @@
     background-color: black;
 } */
  .dmain{
-    background-color: black;
+    --background-color: black;
 }
 
 .detail .detail-container {
