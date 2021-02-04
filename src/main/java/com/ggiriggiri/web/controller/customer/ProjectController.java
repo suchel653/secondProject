@@ -273,11 +273,5 @@ public class ProjectController {
 	      
 	      return map;
 	}
-//	
-//	@GetMapping("{id}/edit")
-//	public String edit(@PathVariable("id") int id,) {
-//		
-//		
-//		return "redirect:../"+id;
-//	}
+
 }
