@@ -7,7 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="/js/customer/activity/project/index.js"></script>
 <script src="/js/customer/activity/group/project/index.js"></script>
 <link href="/css/reset.css" type="text/css" rel="stylesheet" />
 </head>

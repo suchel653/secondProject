@@ -48,7 +48,7 @@
 		update StudyApply
 		set
 		resultStatus = #{resultStatus}
-		where memberId = #{memberId};
+		where memberId = #{memberId} and studyId = #{studyId};
 	</update>
 
 </mapper>
