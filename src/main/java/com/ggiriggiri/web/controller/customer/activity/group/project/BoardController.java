@@ -10,6 +10,6 @@ public class BoardController {
 
 	@GetMapping("reg")
 	public String reg() {
-		return "customer.activity.group.project";
+		return "customer.activity.group.project.board.reg";
 	}
 }
