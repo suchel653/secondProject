@@ -18,7 +18,7 @@ import com.ggiriggiri.web.service.StudyApplyService;
 import com.ggiriggiri.web.service.StudyService;
 
 @Controller("groupStudyController")
-@RequestMapping("/customer/activity/group/study/{id}/")
+@RequestMapping("/customer/activity/group/study/")
 public class StudyController {
 
 	@Autowired
@@ -27,7 +27,7 @@ public class StudyController {
 	@Autowired
 	StudyApplyService studyApplyService;
 
-	@GetMapping("index")
+	@GetMapping("{id}/index")
 	public String index(@PathVariable("id") int id, HttpSession session, Model model) {
 
 		StudyView studyView = studyService.getView(id);
@@ -38,21 +38,21 @@ public class StudyController {
 		model.addAttribute("sav", studyApplyViewList);
 		model.addAttribute("swv", studyWaitingViewLIst);
 
-		return "customer.activity.group.study." + id + ".index";
+		return "customer.activity.group.study.index";
 
 	}
 
-	@GetMapping("info")
+	@GetMapping("{id}/info")
 	public String info(@PathVariable("id") int id, HttpSession session, Model model) {
 		
 		StudyView studyView = studyService.getView(id);
 		
 		model.addAttribute("s", studyView);
 		
-		return "customer.activity.group.study." + id + ".info";
+		return "customer.activity.group.study.info";
 	}
 	
-	@PostMapping("approve")
+	@PostMapping("{id}/approve")
 	public String approve(String action, int id) {
 		
 		if(action.equals("승인")) {
