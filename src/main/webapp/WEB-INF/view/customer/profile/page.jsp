@@ -34,6 +34,9 @@
 							<td>
 								<div class="profile-items">
 									<img src="/images/language/c.png">
+									<div class="profile-level">
+									
+									</div>
 								</div>
 							</td>
 							<td>
