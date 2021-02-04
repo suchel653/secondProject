@@ -1,14 +1,17 @@
 package com.ggiriggiri.web.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class ProjectBoard {
 	private int id;
 	private int projectId;
 	private int writerId;
-	private Date regDate;
 	private String title;
 	private String content;
+	private Date regDate;
+	
+	private List<ProjectCommentView> comment;
 	
 	public ProjectBoard() {
 	}
@@ -78,6 +81,17 @@ public class ProjectBoard {
 	public void setContent(String content) {
 		this.content = content;
 	}
+
+
+	public List<ProjectCommentView> getComment() {
+		return comment;
+	}
+
+
+	public void setComment(List<ProjectCommentView> comment) {
+		this.comment = comment;
+	}
+	
 	
 	
 }

@@ -28,7 +28,10 @@ public class WebSecurityConfig {
 			http
 //				.antMatcher("/customer/**")
 				.authorizeRequests()
-					.antMatchers("/customer/login","/customer/join","/customer/checkMail","/customer/checkDuplicate","/customer/study/list","/customer/project/list").permitAll()
+					.antMatchers("/customer/login","/customer/join","/customer/checkMail",
+							"/customer/checkDuplicate","/customer/study/list","/customer/project/list",
+							"/customer/study/","/customer/project/")
+					.permitAll()
 					.antMatchers("/admin/**").hasRole("ADMIN")
 					.antMatchers("/customer/**").hasAnyRole("MEMBER","ADMIN")
 				.and()
@@ -38,6 +41,11 @@ public class WebSecurityConfig {
 					.defaultSuccessUrl("/index")
 					.successHandler(successHandler)
 				.and()
+				.logout()
+		            .logoutUrl("/customer/logout")
+		            .logoutSuccessUrl("/index")
+		            .invalidateHttpSession(true)
+	            .and()
 				.csrf()
 					.disable();
 		}

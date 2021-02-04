@@ -6,7 +6,7 @@ public class ProjectComment {
 	private int id;
 	private String content;
 	private Date regDate;
-	private int projectId;
+	private int boardId;
 	private int writerId;
 	
 	public ProjectComment() {
@@ -15,11 +15,11 @@ public class ProjectComment {
 	
 	
 
-	public ProjectComment(int id, String content, Date regDate, int projectId, int writerId) {
+	public ProjectComment(int id, String content, Date regDate, int boardId, int writerId) {
 		this.id = id;
 		this.content = content;
 		this.regDate = regDate;
-		this.projectId = projectId;
+		this.boardId = boardId;
 		this.writerId = writerId;
 	}
 
@@ -27,7 +27,7 @@ public class ProjectComment {
 
 	@Override
 	public String toString() {
-		return "ProjectComment [id=" + id + ", content=" + content + ", regDate=" + regDate + ", projectId=" + projectId
+		return "ProjectComment [id=" + id + ", content=" + content + ", regDate=" + regDate + ", boardId=" + boardId
 				+ ", writerId=" + writerId + "]";
 	}
 
@@ -55,12 +55,12 @@ public class ProjectComment {
 		this.regDate = regDate;
 	}
 
-	public int getProjectId() {
-		return projectId;
+	public int getboardId() {
+		return boardId;
 	}
 
-	public void setProjectId(int projectId) {
-		this.projectId = projectId;
+	public void setboardId(int boardId) {
+		this.boardId = boardId;
 	}
 
 	public int getWriterId() {
