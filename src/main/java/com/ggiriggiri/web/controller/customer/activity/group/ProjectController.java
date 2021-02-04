@@ -53,7 +53,7 @@ public class ProjectController {
 		return "customer.activity.group.project." + id + ".info";
 	}
 	
-	@GetMapping("approve")
+	@PostMapping("approve")
 	public String approve(String action, int id) {
 		
 		if(action.equals("승인")) {

@@ -22,10 +22,11 @@ window.addEventListener("load", (e) => {
 		console.log(e.target.previousElementSibling.value);
 		let id = e.target.previousElementSibling.value;
 		console.log(e.target.previousElementSibling.previousElementSibling.value);
-		let projectId = e.target.previousElementSibling.previousElementSibling.value;
+		let studyId = e.target.previousElementSibling.previousElementSibling.value;
 		
-		fetch(`/customer/activity/group/project/${projectId}/approve?action=${action}&id=${id}`
-		/*, { method: "POST" }*/);
+		fetch(`/customer/activity/group/project/${studyId}/approve?action=${action}&id=${id}`
+		, { method: "POST" })
+		.then(window.location.reload());
 
 	});
 
