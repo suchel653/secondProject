@@ -3,9 +3,12 @@
 @import url("content-layout/default.css");
 @import url("project-list.css");
 @import url("detail-list.css");
-@import url("project-study-list.css");
 
 
 .d-none{
     display:none;
+}
+
+body{
+	background:url("../../images/space.png");
 }
