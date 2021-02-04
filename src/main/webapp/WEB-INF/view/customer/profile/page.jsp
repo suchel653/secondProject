@@ -35,7 +35,7 @@
 								<div class="profile-items">
 									<img src="/images/language/c.png">
 									<div class="profile-level">
-									
+										<div cl></div>
 									</div>
 								</div>
 							</td>
