@@ -23,10 +23,6 @@
 	<c:set var="lnsList" value="${st.last ? (lnsList+=lns):(lnsList+=lns+='&l=')}"/>
 </c:forEach>
 	
-	<p><a>
-   	끼리끼리
-  </a></p>
-	
 	<main id="main" class="main">
 
                 <h1 class="d-none">메인이다</h1>

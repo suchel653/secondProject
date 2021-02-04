@@ -3,16 +3,6 @@
 @import "../admin/components/button.css";
 
 
-p {
-  text-align: center;
-  color:white;
-  animation: neon7 1.5s ease-in-out infinite alternate;
-}
-
-p a {
-  transition: all 0.5s;
-  font-size: 5em;
-}
 
 
 /* class 순서대로
@@ -38,9 +28,7 @@ limit-number
 /* pager class
  current -> li
  */
-.header{
-	color:white;
-}
+
 
 /*-----------------------search-form-------------- */
 .project-study-serch-form{
