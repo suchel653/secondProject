@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<link href="/css/admin/contest/reg.css" type="text/css" rel="stylesheet" />
 <main id="main" class="main">
                 <h1 class="d-none">메인이다</h1>
                 <form method="post" enctype="multipart/form-data">

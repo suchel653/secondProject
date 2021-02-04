@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="/js/customer/activity/study/index.js"></script>
+<script src="/js/customer/activity/group/study/index.js"></script>
 <link href="/css/reset.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
@@ -34,12 +34,13 @@
 				</c:forEach>
 			</div>
 			<div style="display: flex; flex-direction: column; align-items: center;">
+				<input hidden class="pageStatus" value="${pageStatus}" />
 				<input type="button" value="지원 관리" class="apply-Btn"/>
 				
 				<form action="approve" method="post">
-					<div class="panel">
-					  <table>
-					  	<tbody>
+					<div>
+					  <table class="table">
+					  	<tbody class="tbody">
 					  		<c:forEach var="swv" items="${swv}">
 						  		<tr>
 							  		<td>
@@ -47,13 +48,13 @@
 										<span class="date-fmt"><fmt:formatDate value="${swv.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
 							  		</td>
 							  		<td>
-							  			<input hidden name="id" value="${swv.projectId}" />
-							  			<input hidden name="id" value="${swv.memberId}" />
+							  			<input hidden name="studyId" value="${swv.studyId}" />
+							  			<input hidden name="memberId" value="${swv.memberId}" />
 							  			<input type="submit" name="action" value="승인"/>
 							  		</td>
 							  		<td>
-							  			<input hidden name="id" value="${swv.projectId}" />
-							  			<input hidden name="id" value="${swv.memberId}" />
+							  			<input hidden name="studyId" value="${swv.studyId}" />
+							  			<input hidden name="memberId" value="${swv.memberId}" />
 							  			<input type="submit" name="action" value="거절"/>
 							  		</td>
 								</tr>

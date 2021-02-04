@@ -43,6 +43,7 @@ public class GgiriGgiriAuthenticationSuccessHandler extends SavedRequestAwareAut
 			Member m = memberService.get(email);
 			session.setAttribute("id", m.getId());
 			session.setAttribute("nickname", m.getNickname());
+			session.setAttribute("image",m.getProfile().getImage());
 			
 			System.out.println(session.getAttribute("id"));
 			Set<String> authorities = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
@@ -54,6 +55,7 @@ public class GgiriGgiriAuthenticationSuccessHandler extends SavedRequestAwareAut
 			} else if (authorities.contains("ROLE_ADMIN")) {
 				redirectStrategy.sendRedirect(request, response, "/admin/index");
 			} else if (authorities.contains("ROLE_MEMBER")) {
+				
 				redirectStrategy.sendRedirect(request, response, "/index");
 			} else {
 

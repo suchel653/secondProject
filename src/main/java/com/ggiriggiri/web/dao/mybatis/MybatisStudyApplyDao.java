@@ -52,8 +52,10 @@ public class MybatisStudyApplyDao implements StudyApplyDao {
 	}
 
 	@Override
-	public int updateStatus(int memberId, int resultStatus) {
-		return mapper.updateStatus(memberId, resultStatus);
+	public int updateStatus(int memberId, int studyId, int resultStatus) {
+		return mapper.updateStatus(memberId, studyId, resultStatus);
 	}
+
+	
 
 }

@@ -25,7 +25,8 @@ window.addEventListener("load", (e) => {
 		let projectId = e.target.previousElementSibling.previousElementSibling.value;
 		
 		fetch(`/customer/activity/group/project/${projectId}/approve?action=${action}&id=${id}`
-		/*, { method: "POST" }*/);
+		, { method: "POST" })
+		.then(window.location.reload());
 
 	});
 

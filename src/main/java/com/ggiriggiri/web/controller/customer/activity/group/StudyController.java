@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ggiriggiri.web.entity.StudyApplyView;
 import com.ggiriggiri.web.entity.StudyView;
@@ -18,7 +19,7 @@ import com.ggiriggiri.web.service.StudyApplyService;
 import com.ggiriggiri.web.service.StudyService;
 
 @Controller("groupStudyController")
-@RequestMapping("/customer/activity/group/study/{id}/")
+@RequestMapping("/customer/activity/group/study/")
 public class StudyController {
 
 	@Autowired
@@ -27,8 +28,9 @@ public class StudyController {
 	@Autowired
 	StudyApplyService studyApplyService;
 
-	@GetMapping("index")
-	public String index(@PathVariable("id") int id, HttpSession session, Model model) {
+	@GetMapping("{id}/index")
+	public String index(@PathVariable("id") int id, HttpSession session, Model model
+			,@RequestParam(name="pageStatus", defaultValue="0") int pageStatus) {
 
 		StudyView studyView = studyService.getView(id);
 		List<StudyApplyView> studyApplyViewList = studyApplyService.getViewByStudyId(id);
@@ -37,30 +39,31 @@ public class StudyController {
 		model.addAttribute("sv", studyView);
 		model.addAttribute("sav", studyApplyViewList);
 		model.addAttribute("swv", studyWaitingViewLIst);
+		model.addAttribute("pageStatus", pageStatus);
 
-		return "customer.activity.group.study." + id + ".index";
+		return "customer.activity.group.study.index";
 
 	}
 
-	@GetMapping("info")
+	@GetMapping("{id}/info")
 	public String info(@PathVariable("id") int id, HttpSession session, Model model) {
-		
+
 		StudyView studyView = studyService.getView(id);
-		
+
 		model.addAttribute("s", studyView);
-		
-		return "customer.activity.group.study." + id + ".info";
+
+		return "customer.activity.group.study.info";
 	}
-	
-	@PostMapping("approve")
-	public String approve(String action, int id) {
-		
-		if(action.equals("승인")) {
-			studyApplyService.updateStatusToApprove(id);
-		} else if(action.equals("거절")) {
-			studyApplyService.updateStatusToReject(id);
+
+	@PostMapping("{id}/approve")
+	public String approve(String action, Integer memberId, @PathVariable("id") int studyId) {
+
+		if (action.equals("승인")) {
+			studyApplyService.updateStatusToApprove(memberId, studyId);
+		} else if (action.equals("거절")) {
+			studyApplyService.updateStatusToReject(memberId, studyId);
 		}
-		
+
 		return "redirect:index";
 	}
 
