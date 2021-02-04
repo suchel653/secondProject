@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ggiriggiri.web.entity.StudyApplyView;
@@ -49,6 +50,18 @@ public class StudyController {
 		model.addAttribute("s", studyView);
 		
 		return "customer.activity.group.study." + id + ".info";
+	}
+	
+	@PostMapping("approve")
+	public String approve(String action, int id) {
+		
+		if(action.equals("승인")) {
+			studyApplyService.updateStatusToApprove(id);
+		} else if(action.equals("거절")) {
+			studyApplyService.updateStatusToReject(id);
+		}
+		
+		return "redirect:index";
 	}
 
 }

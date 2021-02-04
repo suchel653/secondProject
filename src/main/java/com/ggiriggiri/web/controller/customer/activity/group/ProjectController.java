@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ggiriggiri.web.entity.ProjectApplyView;
@@ -50,6 +51,18 @@ public class ProjectController {
 		model.addAttribute("p", projectView);
 
 		return "customer.activity.group.project." + id + ".info";
+	}
+	
+	@GetMapping("approve")
+	public String approve(String action, int id) {
+		
+		if(action.equals("승인")) {
+			projectApplyService.updateStatusToApprove(id);
+		} else if(action.equals("거절")) {
+			projectApplyService.updateStatusToReject(id);
+		}
+		
+		return "redirect:index";
 	}
 
 }

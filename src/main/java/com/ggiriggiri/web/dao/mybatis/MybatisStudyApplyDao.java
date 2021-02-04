@@ -11,24 +11,20 @@ import com.ggiriggiri.web.dao.StudyApplyDao;
 import com.ggiriggiri.web.entity.StudyApply;
 import com.ggiriggiri.web.entity.StudyApplyView;
 
-
-
 @Repository
 public class MybatisStudyApplyDao implements StudyApplyDao {
 
-
 	private StudyApplyDao mapper;
-	
+
 	@Autowired
 	public MybatisStudyApplyDao(SqlSession session) {
 		mapper = session.getMapper(StudyApplyDao.class);
 	}
-	
+
 	@Override
 	public int insertStudyApply(StudyApply studyApply) {
 		return mapper.insertStudyApply(studyApply);
 	}
-
 
 	@Override
 	public int[] getStudyIdsByMemberId(int memberId, int resultStatus) {
@@ -42,7 +38,7 @@ public class MybatisStudyApplyDao implements StudyApplyDao {
 
 	@Override
 	public List<StudyApplyView> getResultViewListByMemberId(int memberId, int resultStatus, int resultChecked) {
-		return mapper.getResultViewListByMemberId(memberId,resultStatus,resultChecked);
+		return mapper.getResultViewListByMemberId(memberId, resultStatus, resultChecked);
 	}
 
 	@Override
@@ -55,6 +51,9 @@ public class MybatisStudyApplyDao implements StudyApplyDao {
 		return mapper.getViewByStudyId(studyId, resultStatus);
 	}
 
-
+	@Override
+	public int updateStatus(int memberId, int resultStatus) {
+		return mapper.updateStatus(memberId, resultStatus);
+	}
 
 }

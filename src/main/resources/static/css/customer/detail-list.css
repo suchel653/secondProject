@@ -1,0 +1,229 @@
+
+/*
+	--클래스 추가--
+	detail
+	detail-container
+	content 
+*/
+/* .main{
+    background-color: black;
+} */
+ .dmain{
+    background-color: black;
+}
+
+.detail .detail-container {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin-left:100px;
+    margin-top: 20px;
+    text-decoration:none;
+
+   
+  }
+  .detail section h1 {
+  	margin-top:50px;
+  	margin-bottom:50px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+
+    font-family: neon;
+    color: #426DFB;
+   
+    text-shadow: 0 0 3vw #2356FF;
+   
+  }
+
+  .flux {
+    animation: flux 2s linear infinite;
+    -moz-animation: flux 2s linear infinite;
+    -webkit-animation: flux 2s linear infinite;
+    -o-animation: flux 2s linear infinite;
+  }
+  @font-face {
+    font-family: neon;
+    src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+  }
+  
+  @keyframes flux {
+    0%,
+    100% {
+      text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+      color: #28D7FE;
+    }
+    50% {
+      text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+      color: #146C80;
+    }
+  }
+  .detail section img {
+    width:350px;
+    height: 350px;
+     border-radius: 30%;
+    overflow: hidden;
+  }
+  .detail section table {
+      margin-left:70px;
+  }
+  .detail section table tr{
+      display:flex;
+      align-items:center;
+      width:400px;
+      
+      border-radius:5px;
+      margin-top: 10px;
+      padding:3px;
+     
+  }
+  .detail table th{
+        --color: blanchedalmond;
+       font-size:23px;
+      font-weight: 600;
+      padding-left: 5px;
+      text-decoration: none;
+      font-family: neon;
+      color: #426DFB;
+
+      
+  }
+  .detail table td{
+      padding-left: 10px;
+      color: blanchedalmond;
+  }
+  .detail .content{
+   	display: flex;
+      width:700px;
+      height: 200px;
+      --border:2px solid #dcdcdc;
+     color: blanchedalmond;
+      border-radius: 5px;
+      margin-left: 405px;
+      margin-top:20px;
+      padding: 5px;
+     justify-content:center;
+      font-size:25px;
+   
+      
+   
+  }
+  
+  .prev-next-btn{
+      display:flex;
+      justify-content:flex-end;
+      margin-bottom:20px;
+      margin-top:20px;
+      margin-right: 60px;
+  }
+  .prev-next-btn a{
+      margin-left: 20px;
+      
+  }
+  .neon-btn {
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    margin: 40px 0;
+    color: #03e9f4;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    margin-right: 50px;
+   
+}
+.neon-btn:hover{
+    background: #03e9f4;
+    color: #050801;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 200px #03e9f4;
+     -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
+.green{
+    filter: hue-rotate(270deg);
+}
+.pink{
+    filter: hue-rotate(110deg);
+}
+.neon-btn span{
+    position: absolute;
+    display: block;
+}
+.neon-btn span:nth-child(1){
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,transparent,#03e9f4);
+    animation: animate1 1s linear infinite;
+}
+@keyframes animate1{
+    0%{
+        left: -100%;
+    }
+    50%,100%{
+        left: 100%;
+    }
+}
+.neon-btn span:nth-child(2){
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,#03e9f4);
+    animation: animate2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+@keyframes animate2{
+    0%{
+        top: -100%;
+    }
+    50%,100%{
+        top: 100%;
+    }
+}
+.neon-btn span:nth-child(3){
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg,transparent,#03e9f4);
+    animation: animate3 1s linear infinite;
+    animation-delay: 0.50s;
+}
+@keyframes animate3{
+    0%{
+        right: -100%;
+    }
+    50%,100%{
+        right: 100%;
+    }
+}
+
+
+.neon-btn span:nth-child(4){
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,#03e9f4);
+    animation: animate4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+@keyframes animate4{
+    0%{
+        bottom: -100%;
+    }
+    50%,100%{
+        bottom: 100%;
+    }
+}
+
+
+
+  
+ 
