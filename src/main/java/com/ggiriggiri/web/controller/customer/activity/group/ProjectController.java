@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ggiriggiri.web.entity.ProjectApplyView;
+import com.ggiriggiri.web.entity.ProjectBoardView;
 import com.ggiriggiri.web.entity.ProjectView;
 import com.ggiriggiri.web.service.ProjectApplyService;
+import com.ggiriggiri.web.service.ProjectBoardService;
 import com.ggiriggiri.web.service.ProjectService;
 
 @Controller("groupProjectController")
@@ -22,10 +24,13 @@ import com.ggiriggiri.web.service.ProjectService;
 public class ProjectController {
 
 	@Autowired
-	ProjectService projectService;
+	private ProjectService projectService;
 
 	@Autowired
-	ProjectApplyService projectApplyService;
+	private ProjectApplyService projectApplyService;
+	
+	@Autowired
+	private ProjectBoardService projectBoardService;
 
 	@RequestMapping("{id}/index")
 	public String index(@PathVariable("id") int id, HttpSession session, Model model) {
@@ -34,6 +39,10 @@ public class ProjectController {
 		List<ProjectApplyView> projectApplyViewList = projectApplyService.getViewByProjectId(id);
 		List<ProjectApplyView> projectWaitingViewList = projectApplyService.getWaitingViewByProjectId(id);
 		
+		List<ProjectBoardView> projectBoardViewList = projectBoardService.getViewList(id);
+		
+		for(ProjectBoardView p : projectBoardViewList )
+			System.out.println(p.getComment());
 		model.addAttribute("pv", projectView);
 		model.addAttribute("pav", projectApplyViewList);
 		model.addAttribute("pwv",projectWaitingViewList);
