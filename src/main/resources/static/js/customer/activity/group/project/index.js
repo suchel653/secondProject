@@ -6,20 +6,17 @@ window.addEventListener("load", (e) => {
 	let board = document.querySelector(".board");
 	let list = null;
 	let boardPlusBtn = document.querySelector(".board-plus-btn");
-	console.log(boardPlusBtn);
-	let asd = document.querySelector(".asd");
-	console.log(asd);
 
 	let projectId = document.querySelector("input").value;
 
-	console.log(projectId);
 
 	let boardCnt = 0;
 	let currentCnt = 0;
 	getBoardList();
 
 	let win;
-
+	let boardRegWin;
+	let boardRegBtn = document.querySelector(".board-reg");
 	info.addEventListener("click", (e) => {
 
 		let id = e.target.previousElementSibling.value;
@@ -32,11 +29,8 @@ window.addEventListener("load", (e) => {
 
 		e.preventDefault();
 
-		console.log(e.target.value);
 		let action = e.target.value;
-		console.log(e.target.previousElementSibling.value);
 		let id = e.target.previousElementSibling.value;
-		console.log(e.target.previousElementSibling.previousElementSibling.value);
 		let projectId = e.target.previousElementSibling.previousElementSibling.value;
 
 		fetch(`/customer/activity/group/project/${projectId}/approve?action=${action}&id=${id}`
@@ -118,6 +112,10 @@ window.addEventListener("load", (e) => {
 		}
 
 
+	})
+	
+	boardRegBtn.addEventListener("click",(e)=>{
+		boardRegWin = open("/customer/activity/group/project/" +projectId+ "/board/reg", "_blank", "width=500px,height=500px");
 	})
 
 

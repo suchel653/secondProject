@@ -73,7 +73,7 @@
 				style="display: flex; flex-direction: column; align-items: center;">
 				<div>
 					<h1 style="display: inline-block; margin-left: 50px;">게시판</h1>
-					<input type="button" value="등록" style="margin-left: 30px;" />
+					<input class="board-reg" type="button" value="등록" style="margin-left: 30px;" />
 				</div>
 				<div class="board">
 					<table>
