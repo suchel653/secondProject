@@ -45,6 +45,17 @@
 								</td>
 							</tr>
 							<tr>
+			                  <th>파일 : </th>
+			                  <td>
+								<c:forEach var="f" items="${pj.files }" varStatus="st">
+								<a download href="/images/projectFile/${f.name }">${f.name }</a> 
+								<c:if test="${!st.last }">
+									/
+								</c:if>
+								</c:forEach>
+							 </td>
+			                </tr>
+							<tr>
 								<th>인원 : </th>
 								<td >${pj.limitNumber }</td>
 							</tr>
