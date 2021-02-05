@@ -54,7 +54,7 @@
                 </tr>
                 <tr>
                   <th>recruitment : </th>
-                  <td>${pv.limitNumber }</td>
+                  <td>${pv.memberCount}/${pv.limitNumber }</td>
                 </tr>
                 <tr>
                   <th>requirement :</th>

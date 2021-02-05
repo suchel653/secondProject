@@ -9,6 +9,10 @@
 		values(#{projectId},#{name})
    	</insert>
    	
+   	<update id="update" parameterType="com.ggiriggiri.web.entity.ProjectFile">
+   	update ProjectFile(name) set(#{name}) where id=#{id} and projectId=#{projectId};
+   	</update>
+   	
    	<select id="get" resultType="com.ggiriggiri.web.entity.ProjectFile">
 		select * from ProjectFile where id=${id}
 	</select>

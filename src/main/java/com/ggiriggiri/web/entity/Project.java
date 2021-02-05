@@ -54,6 +54,17 @@ public class Project {
 		this.leaderId = leaderId;
 	}
 
+	public Project(String title,int limitNumber, String requirement, Date startDate, Date endDate, int statusId,
+			int fieldId,String image) {
+		this.title = title;
+		this.limitNumber = limitNumber;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.requirement = requirement;
+		this.fieldId = fieldId;
+		this.image = image;
+	}
+
 	public int getId() {
 		return id;
 	}

@@ -17,6 +17,11 @@
 		values(#{id},#{title},#{content},#{startDate},#{endDate},#{limitNumber},#{image},#{requirement},#{fieldId},#{leaderId})
 	</insert>
 
+	<update id="update" parameterType="com.ggiriggiri.web.entity.Project">
+		update Project(limitNumber,requirement,startDate,endDate,statusId,fieldId) 
+		set(#{limitNumber},#{requirement},#{startDate},#{endDate},#{statusId},#{fieldId})
+	</update>
+
 	<delete id="delete">
 		delete from Project where id=#{id};
 	</delete>
