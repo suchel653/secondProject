@@ -1,8 +1,8 @@
-package com.ggiriggiri.web.dao;
+package com.ggiriggiri.web.service;
 
 import com.ggiriggiri.web.entity.Profile;
 
-public interface ProfileDao {
+public interface ProfileService {
 	int insert(Profile profile);
 	int update(Profile profile);
 	int delete(int id);

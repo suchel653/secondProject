@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+	<link rel="stylesheet" href="/css/customer/project-study-list.css"></link>
 	<script src="https://kit.fontawesome.com/b280fc7aa7.js" crossorigin="anonymous"></script>
 <c:set var="fds" value="${paramValues.f }"></c:set>
 <c:set var="sks" value="${paramValues.s }"></c:set>
@@ -96,8 +97,8 @@
 		            </section>
 
 					<div class="p-s-regBtn-box">
-						<div class="p-s-regBtn addBtn button">
-							<a href="reg">프로젝트 등록</a>
+						<div class="p-s-regBtn">
+							<a href="reg">REG</a>
 						</div>
 					</div>
 					
