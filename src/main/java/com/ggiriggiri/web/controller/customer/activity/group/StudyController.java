@@ -29,8 +29,8 @@ public class StudyController {
 	StudyApplyService studyApplyService;
 
 	@GetMapping("{id}/index")
-	public String index(@PathVariable("id") int id, HttpSession session, Model model
-			,@RequestParam(name="pageStatus", defaultValue="0") int pageStatus) {
+	public String index(@PathVariable("id") int id, HttpSession session, Model model,
+			@RequestParam(name = "pageStatus", defaultValue = "0") int pageStatus) {
 
 		StudyView studyView = studyService.getView(id);
 		List<StudyApplyView> studyApplyViewList = studyApplyService.getViewByStudyId(id);

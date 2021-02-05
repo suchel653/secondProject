@@ -44,8 +44,9 @@
 					  		<c:forEach var="swv" items="${swv}">
 						  		<tr>
 							  		<td>
-							  			<span>${swv.memberNickname}님이 지원하였습니다.</span>
-										<span class="date-fmt"><fmt:formatDate value="${swv.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
+							  			<span>${swv.memberNickname}님이 지원하였습니다. <fmt:formatDate value="${swv.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
+							  			<li style="display:none;">${swv.comment}</li>
+							  			<input hidden class="commentValue" value="0" />
 							  		</td>
 							  		<td>
 							  			<input hidden name="studyId" value="${swv.studyId}" />
