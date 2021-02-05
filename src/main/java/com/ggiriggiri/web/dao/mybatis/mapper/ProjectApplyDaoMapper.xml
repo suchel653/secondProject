@@ -48,4 +48,12 @@
 	<select id="check" resultType="int">
 		select count(*) from ProjectApply where memberId =#{memberId} and projectId=#{projectId}
 	</select>
+	
+	<update id="updateStatus">
+		update ProjectApply
+		set
+		resultStatus = #{resultStatus}
+		where memberId = #{memberId};
+	</update>
+	
 </mapper>

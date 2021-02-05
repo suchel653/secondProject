@@ -56,4 +56,16 @@ public class ProjectApplyServiceImp implements ProjectApplyService {
 		return projectApplyDao.getViewByProjectId(projectId, resultStatus);
 	}
 
+	@Override
+	public int updateStatusToApprove(int memberId) {
+		int resultStatus = 1;
+		return projectApplyDao.updateStatus(memberId, resultStatus);
+	}
+
+	@Override
+	public int updateStatusToReject(int memberId) {
+		int resultStatus = 2;
+		return projectApplyDao.updateStatus(memberId, resultStatus);
+	}
+
 }

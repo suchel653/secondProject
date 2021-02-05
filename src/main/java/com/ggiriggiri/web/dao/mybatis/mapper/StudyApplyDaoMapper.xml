@@ -43,5 +43,12 @@
 		select * from StudyApplyView
 		where studyId = #{studyId} and resultStatus = #{resultStatus}
 	</select>
+	
+	<update id="updateStatus">
+		update StudyApply
+		set
+		resultStatus = #{resultStatus}
+		where memberId = #{memberId} and studyId = #{studyId};
+	</update>
 
 </mapper>

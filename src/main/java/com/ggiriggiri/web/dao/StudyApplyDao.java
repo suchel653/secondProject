@@ -15,5 +15,6 @@ public interface StudyApplyDao {
 	
 	int check(int memberId, int studyId);
 	List<StudyApplyView> getViewByStudyId(int studyId, int resultStatus);
+	int updateStatus(int memberId, int studyId, int resultStatus);
 
 }

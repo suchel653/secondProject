@@ -19,10 +19,25 @@ public class MybatisProfileDao implements ProfileDao{
 		
 		mapper = session.getMapper(ProfileDao.class);
 	}
+
+	@Override
+	public int insert(Profile profile) {
+		return mapper.insert(profile);
+	}
+
+	@Override
+	public int update(Profile profile) {
+		return mapper.update(profile);
+	}
+
+	@Override
+	public int delete(int id) {
+		return mapper.delete(id);
+	}
 	
+
 	@Override
 	public Profile get(int id) {
-		
 		return mapper.get(id);
 	}
 

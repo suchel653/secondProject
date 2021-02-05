@@ -25,7 +25,7 @@ public class StudyApplyServiceImp implements StudyApplyService {
 
 		if (studyIds.length == 0)
 			return null;
-		
+
 		int resultStatus = 0; // - > 0, 결과 대기중
 		List<StudyApplyView> list = studyApplyDao.getViewListByStudyIds(studyIds, resultStatus);
 		return list;
@@ -48,6 +48,18 @@ public class StudyApplyServiceImp implements StudyApplyService {
 	public List<StudyApplyView> getWaitingViewByStudyId(int studyId) {
 		int resultStatus = 0; // 대기중인 사람만
 		return studyApplyDao.getViewByStudyId(studyId, resultStatus);
+	}
+
+	@Override
+	public int updateStatusToApprove(int memberId, int studyId) {
+		int resultStatus = 1;
+		return studyApplyDao.updateStatus(memberId, studyId, resultStatus);
+	}
+
+	@Override
+	public int updateStatusToReject(int memberId, int studyId) {
+		int resultStatus = 2;
+		return studyApplyDao.updateStatus(memberId, studyId, resultStatus);
 	}
 
 }
