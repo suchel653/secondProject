@@ -8,9 +8,12 @@
 /* .main{
     background-color: black;
 } */
- .dmain{
-    background-color: black;
-}
+/*  .dmain{
+    background-color: #35363A;
+} */
+
+
+
 
 .detail .detail-container {
     display: flex;
