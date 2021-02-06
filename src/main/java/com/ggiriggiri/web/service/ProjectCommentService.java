@@ -1,13 +1,13 @@
-package com.ggiriggiri.web.dao;
+package com.ggiriggiri.web.service;
 
 import java.util.List;
 
 import com.ggiriggiri.web.entity.ProjectComment;
 import com.ggiriggiri.web.entity.ProjectCommentView;
 
-public interface ProjectCommentDao {
+public interface ProjectCommentService {
 
-	List<ProjectCommentView> getViewListByBoardId(int boardId);
+	List<ProjectCommentView> getViewList(int boardId);
 
 	int insert(ProjectComment projectComment);
 }

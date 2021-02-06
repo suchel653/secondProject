@@ -10,4 +10,6 @@ public interface ProjectBoardDao {
 	List<ProjectBoardView> getViewListByProjectId(int projectId);
 
 	int insert(ProjectBoard projectBoard);
+
+	int delete(int id);
 }

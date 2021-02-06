@@ -1,7 +1,5 @@
 package com.ggiriggiri.web.controller.api;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,10 +40,14 @@ public class ProjectBoardController {
 	@PostMapping("reg")
 	@ResponseBody
 	public String reg(@RequestBody ProjectBoard projectBoard) {
-		
-			
 		int result = service.insert(projectBoard);
-
+		return "ok";
+	}
+	
+	@GetMapping("delete")
+	public String delete(@RequestParam(name = "id") int id) {
+		
+		int result = service.delete(id);
 		return "ok";
 	}
 	

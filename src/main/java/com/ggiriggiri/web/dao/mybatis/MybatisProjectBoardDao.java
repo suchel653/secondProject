@@ -36,4 +36,10 @@ public class MybatisProjectBoardDao implements ProjectBoardDao{
 		return mapper.insert(projectBoard);
 	}
 
+	@Override
+	public int delete(int id) {
+		// TODO Auto-generated method stub
+		return mapper.delete(id);
+	}
+
 }

@@ -11,4 +11,6 @@ public interface ProjectBoardService {
 
 	int insert(ProjectBoard projectBoard);
 
+	int delete(int id);
+
 }

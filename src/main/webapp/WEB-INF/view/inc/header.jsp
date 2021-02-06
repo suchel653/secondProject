@@ -39,7 +39,6 @@
 							
 						</div>
 					</div>
-
 				</s:authorize>
 			</ul>
 		</nav>
