@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ggiriggiri.web.dao.ProjectBoardDao;
 import com.ggiriggiri.web.dao.ProjectCommentDao;
+import com.ggiriggiri.web.entity.ProjectBoard;
 import com.ggiriggiri.web.entity.ProjectBoardView;
 import com.ggiriggiri.web.entity.StudyView;
 
@@ -28,6 +29,12 @@ public class ProjectBoardServiceImp implements ProjectBoardService{
 		}
 
 		return list;
+	}
+
+	@Override
+	public int insert(ProjectBoard projectBoard) {
+		// TODO Auto-generated method stub
+		return projectBoardDao.insert(projectBoard);
 	}
 
 }
