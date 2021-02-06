@@ -45,7 +45,7 @@
 						  		<tr>
 							  		<td>
 							  			<span>${swv.memberNickname}님이 지원하였습니다. <fmt:formatDate value="${swv.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
-							  			<li style="display:none;">${swv.comment}</li>
+							  			<li style="display:none;">${swv.comment} <a href="/customer/profile/${swv.memberId} ">${swv.memberNickname}님 프로필 확인</a></li>
 							  			<input hidden class="commentValue" value="0" />
 							  		</td>
 							  		<td>

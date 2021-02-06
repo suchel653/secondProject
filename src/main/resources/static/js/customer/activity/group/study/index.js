@@ -26,7 +26,7 @@ window.addEventListener("load", (e) => {
 	});
 
 	tbody.addEventListener("click", (e) => {
-
+		console.log(e.target)
 		e.preventDefault();
 
 		if (e.target.tagName == "INPUT") {
@@ -44,6 +44,8 @@ window.addEventListener("load", (e) => {
 		} else if (e.target.tagName == "SPAN" && e.target.nextElementSibling.nextElementSibling.value == 1) {
 			e.target.nextElementSibling.style.display = "none";
 			e.target.nextElementSibling.nextElementSibling.value = 0;
+		} else if(e.target.tagName == "A"){
+			win = open (e.target.href, "_blank", "");
 		}
 		
 	});
