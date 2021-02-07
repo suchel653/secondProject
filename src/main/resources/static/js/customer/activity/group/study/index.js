@@ -4,19 +4,18 @@ window.addEventListener("load", (e) => {
 	let tbody = document.querySelector(".tbody");
 	let pageStatus = document.querySelector(".pageStatus");
 	let win;
-	
-	console.log(pageStatus.value);
 
 	let applyBtn = document.querySelector(".apply-Btn");
 	let table = document.querySelector(".table")
-	let clicked = false;
+	let clicked;
 
 	if (pageStatus.value == 0) {
 		table.style.display = "none";
+		clicked = false;
 	} else {
 		table.style.display = "block";
+		clicked = true;
 	}
-
 
 	info.addEventListener("click", (e) => {
 
@@ -27,22 +26,28 @@ window.addEventListener("load", (e) => {
 	});
 
 	tbody.addEventListener("click", (e) => {
-
+		console.log(e.target)
 		e.preventDefault();
 
-		console.log(e.target);
-		let action = e.target.value;
-		console.log(e.target.previousElementSibling.value);
-		let memberId = e.target.previousElementSibling.value;
-		console.log(e.target.previousElementSibling.previousElementSibling.value);
-		let studyId = e.target.previousElementSibling.previousElementSibling.value;
+		if (e.target.tagName == "INPUT") {
+			let action = e.target.value;
+			let memberId = e.target.previousElementSibling.value;
+			let studyId = e.target.previousElementSibling.previousElementSibling.value;
+
+			pageStatus.value = 1;
+
+			fetch(`/customer/activity/group/study/${studyId}/approve?action=${action}&memberId=${memberId}`, { method: "POST" })
+			.then(window.location = `index?pageStatus=${pageStatus.value}`);
+		} else if (e.target.tagName == "SPAN" && e.target.nextElementSibling.nextElementSibling.value == 0) {
+			e.target.nextElementSibling.style.display = "block";
+			e.target.nextElementSibling.nextElementSibling.value = 1;
+		} else if (e.target.tagName == "SPAN" && e.target.nextElementSibling.nextElementSibling.value == 1) {
+			e.target.nextElementSibling.style.display = "none";
+			e.target.nextElementSibling.nextElementSibling.value = 0;
+		} else if(e.target.tagName == "A"){
+			win = open (e.target.href, "_blank", "");
+		}
 		
-		pageStatus.value = 1;
-
-		fetch(`/customer/activity/group/study/${studyId}/approve?action=${action}&memberId=${memberId}`, { method: "POST" })
-			/*.then(fetch(`/customer/activity/group/study/${studyId}/index?pageStatus=${pageStatus.value}`))*/
-			.then(window.location=`index?pageStatus=${pageStatus.value}`);
-
 	});
 
 	applyBtn.addEventListener("click", (e) => {

@@ -9,5 +9,11 @@
 		order by regdate desc;
 	</select>
 
-	     
+	<insert id="insert"
+		parameterType="com.ggiriggiri.web.entity.ProjectBoard">
+		insert into ProjectBoard(projectId,title, content, writerId)
+		values(#{projectId},#{title}, #{content}, #{writerId});
+	</insert>
+
+
 </mapper>
