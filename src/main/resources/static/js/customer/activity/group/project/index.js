@@ -127,17 +127,14 @@ window.addEventListener("load", (e) => {
 								<span class="detail-content">
 									${list[index].content}
 								</span>
-								<div class="edit-box">
-									<input class="detail-edit-reg" type="button" value="등록"/>
-									<input class="detail-cancel" type="button" value="취소"/>
-								</div>
+							
 								</td>	
 						</tr>`;
 				e.target.parentElement.insertAdjacentHTML("afterend", detailTr);
 
 				let authId = writerId;
 				let boardWriterId = list[index].writerId;
-				let dynamicNodes = [".auth-box", ".detail-edit", ".detail-del", ".edit-box", ".detail-edit-reg", ".detail-cancel"];
+				let dynamicNodes = [".auth-box", ".detail-edit", ".detail-del"];
 				createDetailDynamicNode(authId, boardWriterId, ...dynamicNodes);
 
 
@@ -162,7 +159,11 @@ window.addEventListener("load", (e) => {
 				let commentList = "";
 				for (let comment of json) {
 					commentList += `<div>
-									 ${comment.writerNickname} : ${comment.content} ${comment.regDate}
+									 <span>${comment.writerNickname}</span> 
+									: <span>${comment.content}<span> 
+									<span>${comment.regDate}</span>
+									<input type="hidden" value="${comment.id}"/>
+									<span><span>수정</span><span>삭제</span></span>
 									 </div>`;
 				}
 				let commentTr = `<tr class="comment">
@@ -185,7 +186,7 @@ window.addEventListener("load", (e) => {
 				writerId,
 				content
 			};
-			console.log(comment);
+
 			fetch(`/api/projectCommentController/reg`,
 				{
 					method: "POST",
@@ -222,25 +223,13 @@ window.addEventListener("load", (e) => {
 		let detailEdit = document.querySelector(nodes[1]);
 		let detailDel = document.querySelector(nodes[2]);
 
-		let editBox = document.querySelector(nodes[3]);
-		let detailEditReg = document.querySelector(nodes[4]);
-		let detailCancel = document.querySelector(nodes[5]);
-		
-	
-		editBox.style.display = "none";
 		if (writerId != boardWriterId) 
 			authBox.style.display = "none";
 
 		detailEdit.addEventListener("click",(e)=>{
 			
-
-			let detailContent = document.querySelector(".detail-content");
-			let preText = detailContent.innerText;
-			let editText = `<textarea class="detail-edit-content">${preText}</textarea>`;
-			detailContent.insertAdjacentHTML("afterend",editText);
-			detailContent.style.display = "none";
-			authBox.style.display = "none";
-			editBox.style.display = "block";
+			let win =open("/customer/activity/group/project/" + projectId + "/board/edit?id="+boardId, "_blank", "width=500px,height=500px");
+			
 		});
 		
 		detailDel.addEventListener("click",(e)=>{
@@ -253,25 +242,7 @@ window.addEventListener("load", (e) => {
 				window.location.reload();
 			})
 		});
-		
-		detailEditReg.addEventListener("click",(e)=>{
-			let regContent = document.querySelector(".detail-edit-content").value;
-			let detailContent = document.querySelector(".detail-content");
-			detailContent.innerText = regContent;
-			
-			document.querySelector(".detail-edit-content").remove();
-			detailContent.style.display="inline";
-			authBox.style.display = "block";
-			editBox.style.display = "none";
-		});
-		
-		detailCancel.addEventListener("click",(e)=>{
-			let editContent = document.querySelector(".detail-edit-content");
-			editContent.remove();
-			document.querySelector(".detail-content").style.display="inline";
-			authBox.style.display = "block";
-			editBox.style.display = "none";
-		});
+
 		
 	}
 

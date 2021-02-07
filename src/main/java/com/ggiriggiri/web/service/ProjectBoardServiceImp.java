@@ -35,4 +35,22 @@ public class ProjectBoardServiceImp implements ProjectBoardService{
 		return projectBoardDao.delete(id);
 	}
 
+	@Override
+	public ProjectBoard get(int id) {
+		// TODO Auto-generated method stub
+		return projectBoardDao.get(id);
+	}
+
+	@Override
+	public int update(ProjectBoard projectBoard) {
+		// TODO Auto-generated method stub
+		return projectBoardDao.update(projectBoard);
+	}
+
+	@Override
+	public ProjectBoardView getView(int id) {
+		// TODO Auto-generated method stub
+		return projectBoardDao.getView(id);
+	}
+
 }

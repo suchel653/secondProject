@@ -18,5 +18,23 @@
 	<delete id="delete">
    		delete from ProjectBoard where id=#{id}
    </delete>
+   
+   <select id="get"
+		resultType="com.ggiriggiri.web.entity.ProjectBoard">
+		select * from ProjectBoard where id=#{id}
+	</select>
+	
+	<update id="update" parameterType="com.ggiriggiri.web.entity.ProjectBoard">
+   		update ProjectBoard
+   		set
+	   		title = #{title},
+	   		content = #{content}
+	   			where id = #{id}
+   </update>
+   
+   <select id="getView"
+		resultType="com.ggiriggiri.web.entity.ProjectBoardView">
+		select * from ProjectBoardView where id=#{id}
+	</select>
 
 </mapper>

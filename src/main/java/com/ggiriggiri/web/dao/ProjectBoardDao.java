@@ -12,4 +12,10 @@ public interface ProjectBoardDao {
 	int insert(ProjectBoard projectBoard);
 
 	int delete(int id);
+
+	ProjectBoard get(int id);
+
+	int update(ProjectBoard projectBoard);
+
+	ProjectBoardView getView(int id);
 }

@@ -45,10 +45,31 @@ public class ProjectBoardController {
 	}
 	
 	@GetMapping("delete")
+	@ResponseBody
 	public String delete(@RequestParam(name = "id") int id) {
 		
 		int result = service.delete(id);
 		return "ok";
+	}
+	
+	@PostMapping("edit")
+	@ResponseBody
+	public Map<Object,Integer> edit(@RequestBody ProjectBoard projectBoard) {
+		
+		
+		int id = projectBoard.getId();
+		String title = projectBoard.getTitle();
+		String content = projectBoard.getContent();
+		
+		int cmtCnt = service.getView(id).getCmtCnt();
+		ProjectBoard origin = service.get(id);
+		origin.setTitle(title);
+		origin.setContent(content);
+		
+		int result = service.update(origin);
+		Map<Object,Integer> map = new HashMap<>();
+		map.put("cmtCnt",cmtCnt);
+		return map;
 	}
 	
 	
