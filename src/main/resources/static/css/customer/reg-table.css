@@ -1,0 +1,136 @@
+@charset "EUC-KR";
+
+
+
+.reg .container{
+    width: 80%;
+    margin: auto;
+    --border: 1px solid blue;
+    position: relative;
+   
+}
+.reg .title{
+    text-align: center;
+    font-size: 40px;
+  	
+    font-weight: 700;
+  
+
+}
+
+@font-face {
+    font-family: neon;
+    src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+  }
+
+.reg table{
+    margin:50px auto;
+   
+    animation: neon1 1.5s ease-in-out infinite alternate,itemAnimation 1.3s ease-in-out infinite;
+    
+}
+
+.reg-table th{
+    width: 80px;
+   color: #426DFB;
+    font-weight: 600;
+    padding-left: 5px;
+    text-decoration: none;
+    
+   
+    
+}
+
+
+.reg-table td{
+    padding-top: 10px;
+    color: blanchedalmond;
+   
+}
+.reg-table .field{
+    width: 100%;
+    padding: .8em .5em;
+    border: 1px solid white;
+    font-family: inherit;
+    appearance: none;
+   background: rgb(6, 5, 48);
+    color: blanchedalmond;
+}
+
+
+
+.reg-table .flex{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    
+}
+
+.reg-table .flex span{
+    flex-basis: 130px;
+}
+
+.reg-table .reg-title{
+    height: 28px; 
+    width: 98%;
+      background: rgb(6, 5, 48);
+  color: blanchedalmond;
+}
+.reg-content{
+    
+    height: 500px;
+    width: 98%;
+    background: rgb(6, 5, 48);
+  color: blanchedalmond;
+    
+}
+.reg-req{
+    height: 200px;
+    width: 98%;
+      background: rgb(6, 5, 48);
+  color: blanchedalmond;
+}
+.neon-btn {
+	background-color:transparent;
+	border:none;
+	
+}
+
+
+
+.reg-btn{
+    display: flex;
+    justify-content: center;
+}
+@keyframes neon1 {
+  from {
+    box-shadow:  0 0 10px #fff, 0 0 20px #228DFF, 0 0 30px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 70px #228DFF;
+  }
+  to {
+    box-shadow:  0 0 5px #fff, 0 0 10px #228DFF, 0 0 20px #228DFF, 0 0 30px #228DFF, 0 0 30px #228DFF, 0 0 40px #228DFF;
+  }
+}
+
+  .reg .title {
+    animation: flux 2s linear infinite;
+    -moz-animation: flux 2s linear infinite;
+    -webkit-animation: flux 2s linear infinite;
+    -o-animation: flux 2s linear infinite;
+  }
+  @font-face {
+    font-family: neon;
+    src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+  }
+  
+  @keyframes flux {
+    0%,
+    100% {
+      text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+      color: #28D7FE;
+    }
+    50% {
+      text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+      color: #146C80;
+    }
+  }
+

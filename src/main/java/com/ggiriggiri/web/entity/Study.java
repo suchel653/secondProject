@@ -22,7 +22,7 @@ public class Study {
    
     private List<StudyLanguageView> language;
     private List<StudySkillView> skill;
-    private List<ProjectFile> files;
+    private List<StudyFile> files;
     
 
     public Study() {
@@ -185,11 +185,13 @@ public class Study {
 	
 	
 
-	public List<ProjectFile> getFiles() {
+
+
+	public List<StudyFile> getFiles() {
 		return files;
 	}
 
-	public void setFiles(List<ProjectFile> files) {
+	public void setFiles(List<StudyFile> files) {
 		this.files = files;
 	}
 

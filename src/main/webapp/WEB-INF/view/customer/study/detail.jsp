@@ -51,6 +51,17 @@
 					</c:forEach>
 							</td>
                 </tr>
+                      <tr>
+                  <th>file </th>
+                  <td>
+					<c:forEach var="f" items="${s.files}" varStatus="st">
+					<a download href="/images/studyFile/${s.id}/${f.name}">${f.name}</a> 
+					<c:if test="${!st.last }">
+						/
+					</c:if>
+					</c:forEach>
+				 </td>
+                </tr>
                 <tr>
                   <th>recruitment  </th>
                   <td >${s.limitNumber}</td>

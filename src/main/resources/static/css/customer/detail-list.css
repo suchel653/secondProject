@@ -21,8 +21,8 @@
    
   }
   .detail section h1 {
-  	margin-top:50px;
-  	margin-bottom:50px;
+  	margin-top:18px;
+  	margin-bottom:20px;
     text-align: center;
     font-size: 50px;
     font-weight: 700;
@@ -41,8 +41,8 @@
     -o-animation: flux 2s linear infinite;
   }
   @font-face {
-    font-family: neon;
-    src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+     font-family: moon;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/moon.ttf);
   }
   
   @keyframes flux {
@@ -81,7 +81,7 @@
       font-weight: 600;
       padding-left: 5px;
       text-decoration: none;
-      font-family: neon;
+      font-family: moon;
       color: #426DFB;
 
       
@@ -93,7 +93,7 @@
   .detail .content{
    	display: flex;
       width:700px;
-      height: 200px;
+      min-height: 150px;
       --border:2px solid #dcdcdc;
      color: blanchedalmond;
       border-radius: 5px;

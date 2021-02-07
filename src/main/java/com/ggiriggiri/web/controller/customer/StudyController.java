@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -109,10 +111,11 @@ public class StudyController {
 
 			@PathVariable("id") int id,
 			@RequestParam("comment") String comment
-			) {
-		StudyApply studyApply = new StudyApply(20,id,comment);
+			,HttpSession session) {
+		int memberId=(int) session.getAttribute("id");
+		StudyApply studyApply = new StudyApply(memberId,id,comment);
 		service.insertStudyApply(studyApply);
-
+		System.out.print(memberId);
 
 		return "customer.study.popup.apply";
 		
@@ -120,13 +123,15 @@ public class StudyController {
 	
 	@PostMapping("apply/check")
 	@ResponseBody
-	public Map<String, Object> check(int id) {
+	public Map<String, Object> check(int id,HttpSession session) {
 		
-			System.out.println(id);
+		
+			
+			int memberId=(int) session.getAttribute("id");
 	      Map<String, Object> map = new HashMap<>();
-	      int checkResult = service.check(20, id);
+	      int checkResult = service.check(memberId, id);
 	      map.put("checkResult", checkResult);
-	      System.out.println("check 결과"+checkResult);
+	     System.out.print(memberId);
 	      return map;
 	}
 
@@ -158,6 +163,7 @@ public class StudyController {
 			@RequestParam("field") int fieldId,
 			@RequestParam("skill") int[] skill,
 			@RequestParam("language") int[] language,
+			HttpSession session,
 		
 			MultipartHttpServletRequest mtfRequest) throws ParseException, IllegalStateException, IOException {
 
@@ -197,7 +203,7 @@ public class StudyController {
 		}
 		
 		
-		int leaderId = 16;
+		int leaderId =(int) session.getAttribute("id");;
 		
 		Study study = new Study(newId,title,content,startDate,endDate,limitNumber,image,requirement,fieldId,leaderId);
 		
