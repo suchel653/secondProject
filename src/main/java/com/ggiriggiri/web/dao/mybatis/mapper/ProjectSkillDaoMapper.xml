@@ -9,6 +9,9 @@
     	insert into ProjectSkill(projectId,skillId) value(${projectId},${skillId});
     </insert>
     
+    <update id="update" parameterType="com.ggiriggiri.web.entity.ProjectSkill">
+    update ProjectSkill set skillId=#{skillId} where id=#{id} and projectId=#{projectId};
+    </update>
     
   <select id="getListByProjectId" resultType="com.ggiriggiri.web.entity.ProjectSkillView">
   		select * from ProjectSkillView where projectId=#{id}
@@ -33,5 +36,9 @@
 		group by projectId;
 
 	</select>
+    
+    <select id="getId" resultType="int">
+	  		SELECT id FROM ProjectSkill where projectId=#{projectId} and skillId=#{skillId};
+	   </select>
     
     </mapper>

@@ -18,8 +18,18 @@
 	</insert>
 
 	<update id="update" parameterType="com.ggiriggiri.web.entity.Project">
-		update Project(limitNumber,requirement,startDate,endDate,statusId,fieldId) 
-		set(#{limitNumber},#{requirement},#{startDate},#{endDate},#{statusId},#{fieldId})
+		update Project 
+		set 
+			title=#{title},
+			content=#{content},
+			limitNumber=#{limitNumber},
+			requirement=#{requirement},
+			startDate=#{startDate},
+			endDate=#{endDate},
+			statusId=#{statusId},
+			fieldId=#{fieldId},
+			image=#{image}
+		where id=#{id}
 	</update>
 
 	<delete id="delete">

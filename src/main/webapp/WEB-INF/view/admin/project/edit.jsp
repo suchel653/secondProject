@@ -13,8 +13,8 @@
 				
 				<section class="edit-section">
 				
-				
-					<h1>제목:<input type="text" value="${pj.title}"/></h1>
+				<form method="post" enctype="multipart/form-data">
+					<h1>제목:<input type="text" name="title" value="${pj.title}"/></h1>
 					<div class="detail-container">
 					
 					
@@ -52,7 +52,7 @@
 	                                	<c:set var="checked" value="checked"></c:set>
 	                                </c:if>
                               	 	</c:forEach>
-									<input type="checkbox" ${checked } name="s" value="${si.name }">${si.name }
+									<input type="checkbox" ${checked } name="skill" value="${si.id }">${si.name }
 									</c:forEach>
 								
 								</td>
@@ -67,7 +67,7 @@
 	                                	<c:set var="checked" value="checked"></c:set>
 	                                </c:if>
                               	 	</c:forEach>
-									<input type="checkbox" ${checked } name="s" value="${li.name }">${li.name }
+									<input type="checkbox" ${checked } name="language" value="${li.id }">${li.name }
 									</c:forEach>
 								</td>
 							</tr>
@@ -122,13 +122,31 @@
 							</table>
 						</div>
 						
-						<textarea class="content" >${pj.content }</textarea>
+						<textarea name="content" class="content" >${pj.content }</textarea>
+						
+						<c:forEach var="f" items="${pj.files }" varStatus="st">
+							<input  name="oldFiles" type="text" value="${f.name }"/>
+						</c:forEach>
+						
+						<c:forEach var="l" items="${pj.languages }" varStatus="st">
+							<input hidden name="oldSLanguages" type="text" value="${l.languageId } "/>
+						</c:forEach>
+						
+						<c:forEach var="s" items="${pj.skills }" varStatus="st">
+							<input hidden name="oldSkills" type="text" value="${s.skillId }"/>
+						</c:forEach>
+									
+						<c:forEach var="l" items="${pj.languages }" varStatus="st">
+							<input hidden name="oldSLanguages" type="text" value="${l.languageId } "/>
+						</c:forEach>
+							
 				
 	              		<div style="display: flex; justify-content: flex-end; margin-right: 60px; margin-top: 20px">
 	              		 	<a class="button searchBtn" href="../list">목록</a>
-		                	<a class="button searchBtn" href="../${pj.id }" style="margin-left: 20px;">저장</a>
+		                	<input type="submit" class="button searchBtn" value="저장" style="margin-left: 20px;"/>
 		                	<a class="button searchBtn" href="../${pj.id }" style="margin-left: 20px;">뒤로가기</a>
 		                </div>
+		                </form>
 				</section>
                 </div>
             </main>

@@ -3,6 +3,7 @@ package com.ggiriggiri.web.entity;
 public class ProjectLanguageView {
 	private int id;
 	private int projectId;
+	private int languageId;
 	private String languageName;
 	private String image;
 	
@@ -17,6 +18,15 @@ public class ProjectLanguageView {
 		this.image = image;
 	}
 
+	
+
+	public ProjectLanguageView(int id, int projectId, int languageId, String languageName, String image) {
+		this.id = id;
+		this.projectId = projectId;
+		this.languageId = languageId;
+		this.languageName = languageName;
+		this.image = image;
+	}
 
 	public int getId() {
 		return id;
@@ -69,8 +79,13 @@ public class ProjectLanguageView {
 				+ "]";
 	}
 	
-	
-	
+	public int getLanguageId() {
+		return languageId;
+	}
+
+	public void setLanguageId(int languageId) {
+		this.languageId = languageId;
+	}
 	
 
 }
