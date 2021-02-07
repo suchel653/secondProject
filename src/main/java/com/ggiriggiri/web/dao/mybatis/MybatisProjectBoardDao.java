@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ggiriggiri.web.dao.ProjectBoardDao;
+import com.ggiriggiri.web.entity.ProjectBoard;
 import com.ggiriggiri.web.entity.ProjectBoardView;
 
 @Repository
@@ -27,6 +28,36 @@ public class MybatisProjectBoardDao implements ProjectBoardDao{
 	public List<ProjectBoardView> getViewListByProjectId(int projectId) {
 		// TODO Auto-generated method stub
 		return mapper.getViewListByProjectId(projectId);
+	}
+
+	@Override
+	public int insert(ProjectBoard projectBoard) {
+		// TODO Auto-generated method stub
+		return mapper.insert(projectBoard);
+	}
+
+	@Override
+	public int delete(int id) {
+		// TODO Auto-generated method stub
+		return mapper.delete(id);
+	}
+
+	@Override
+	public ProjectBoard get(int id) {
+		// TODO Auto-generated method stub
+		return mapper.get(id);
+	}
+
+	@Override
+	public int update(ProjectBoard projectBoard) {
+		// TODO Auto-generated method stub
+		return mapper.update(projectBoard);
+	}
+
+	@Override
+	public ProjectBoardView getView(int id) {
+		// TODO Auto-generated method stub
+		return mapper.getView(id);
 	}
 
 }

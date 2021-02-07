@@ -5,9 +5,10 @@ window.addEventListener("load",function(){
    let win;
    
    apply.addEventListener("click",(e)=>{
-      e.preventDefault();
+      
       if(!e.target.classList.contains("apply"))
             return;
+e.preventDefault();
       let id = e.target.previousElementSibling.value;
       console.log(id);
       

@@ -67,13 +67,14 @@
 
 		</div>
 
+		<input type="hidden" class="memberId" value="${id}">
 		<div class="box2"
 			style="width: 500px; hegiht: 900px; border: 1px solid black;">
 			<div class="table"
 				style="display: flex; flex-direction: column; align-items: center;">
 				<div>
 					<h1 style="display: inline-block; margin-left: 50px;">게시판</h1>
-					<input type="button" value="등록" style="margin-left: 30px;" />
+					<input class="board-reg" type="button" value="등록" style="margin-left: 30px;" />
 				</div>
 				<div class="board">
 					<table>
@@ -86,16 +87,6 @@
 						</tr>
 						</thead>
 						<tbody class="boardTbody">
-						
-						<!-- <tr>
-							<td colspan="4" style="border:1px solid black; height:100px;">asdasdasdasdas</td>
-						</tr>
-						<tr>
-							<td colspan="4" style="border:1px solid black;">
-								<div>댓글1</div>
-								<div>댓글2</div>
-							</td>
-						</tr> -->
 						</tbody>
 					</table>
 
