@@ -84,10 +84,17 @@ public class ProjectController {
 	
 	@PostMapping("check/{id}")
 	@ResponseBody
-	public Map<String, Object> check(@PathVariable("id") int id) {
+	public Map<String, Object> check(@PathVariable("id") int id,
+			Authentication authentication) {
+		
+		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+		String username = userDetails.getUsername();
+		
+		Member m = mService.get(username);
+		int memberId = m.getId();
 		
 	      Map<String, Object> map = new HashMap<>();
-	      int checkResult = service.check(5, id);
+	      int checkResult = service.check(memberId, id);
 	      map.put("checkResult", checkResult);
 	      
 	      return map;

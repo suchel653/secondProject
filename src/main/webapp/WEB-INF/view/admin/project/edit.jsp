@@ -125,7 +125,7 @@
 						<textarea name="content" class="content" >${pj.content }</textarea>
 						
 						<c:forEach var="f" items="${pj.files }" varStatus="st">
-							<input  name="oldFiles" type="text" value="${f.name }"/>
+							<input hidden name="oldFiles" type="text" value="${f.name }"/>
 						</c:forEach>
 						
 						<c:forEach var="l" items="${pj.languages }" varStatus="st">
