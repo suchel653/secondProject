@@ -9,27 +9,25 @@
 <title>Insert title here</title>
 <script src="/js/customer/activity/group/study/index.js"></script>
 <link href="/css/reset.css" type="text/css" rel="stylesheet" />
+<link href="/css/customer/activity/group/index.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-	<div class="container"
-		style="width: 1500px; height: 900px; border: 1px solid black; display: flex;">
-		<div class="box1"
-			style="width: 500px; hegiht: 900px; border: 1px solid black;">
-			<div
-				style="display: flex; flex-direction: column; align-items: center;">
+	<div class="container" style="width: 1500px; height: 900px; border: 1px solid black; display: flex;">
+		<div class="box1" style="width: 500px; hegiht: 900px; border: 1px solid black;">
+			<div class="info-div" style="display: flex; flex-direction: column; align-items: center;">
 				<input hidden value="${sv.id}" /> 
-				<input type="button" value="정보" class="info" />
+				<input type="button" value="정보" class="info-Btn" />
 			</div>
 
-			<div
-				style="display: flex; flex-direction: column; align-items: center;">
+			<div style="display: flex; flex-direction: column; align-items: center;">
+				<div class="main-img"><img src="/images/studyImg/${sv.id}/${sv.image}"/></div>
 				<h1>팀원 정보</h1>
 				<div>
-					<div style="width: 100px; border: 1px solid black; text-align: center;">팀장 : ${sv.leaderName}</div>
+					<div style="width: 100px; border: 1px solid black; text-align: center;">팀장 : ${sv.leaderName} <input type="button" onclick="location.href='/customer/profile/${sv.leaderId}'" value="프로필 보기"/></div>
 				</div>
 				<c:forEach var="sav" items="${sav}">
 					<div>
-						<div style="width: 100px; border: 1px solid black; text-align: center;">팀원 : ${sav.memberNickname}</div>
+						<div style="width: 100px; border: 1px solid black; text-align: center;">팀원 : ${sav.memberNickname} <input type="button" onclick="location.href='/customer/profile/${sav.memberId}'" value="프로필 보기"/></div>
 					</div>
 				</c:forEach>
 			</div>
@@ -42,10 +40,13 @@
 					  <table class="table">
 					  	<tbody class="tbody">
 					  		<c:forEach var="swv" items="${swv}">
-						  		<tr>
+						  		<tr class="tr">
 							  		<td>
-							  			<span>${swv.memberNickname}님이 지원하였습니다. <fmt:formatDate value="${swv.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
-							  			<li style="display:none;">${swv.comment} <a href="/customer/profile/${swv.memberId} ">${swv.memberNickname}님 프로필 확인</a></li>
+							  			<span class="apply-span">${swv.memberNickname}님이 지원하였습니다. <fmt:formatDate value="${swv.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
+							  			<%-- <li style="display:none;">${swv.comment} <a href="/customer/profile/${swv.memberId} ">${swv.memberNickname}님 프로필 확인</a></li> --%>
+							  			<div><li style="display:none;">${swv.comment} 
+							  			<a href="/customer/profile/${swv.memberId}"> ${swv.memberNickname}님 프로필 확인</a></li>
+							  			</div>
 							  			<input hidden class="commentValue" value="0" />
 							  		</td>
 							  		<td>

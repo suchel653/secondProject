@@ -17,24 +17,40 @@ public class ProjectBoardServiceImp implements ProjectBoardService{
 	@Autowired
 	private ProjectBoardDao projectBoardDao;
 	
-	@Autowired
-	private ProjectCommentDao projectCommentDao;
-
 	@Override
 	public List<ProjectBoardView> getViewList(int projectId) {
-		List<ProjectBoardView> list = projectBoardDao.getViewListByProjectId(projectId);
 
-		for (ProjectBoardView pb : list) {
-			pb.setComment(projectCommentDao.getViewListByBoardId(pb.getId()));
-		}
-
-		return list;
+		return projectBoardDao.getViewListByProjectId(projectId);
 	}
 
 	@Override
 	public int insert(ProjectBoard projectBoard) {
 		// TODO Auto-generated method stub
 		return projectBoardDao.insert(projectBoard);
+	}
+
+	@Override
+	public int delete(int id) {
+		// TODO Auto-generated method stub
+		return projectBoardDao.delete(id);
+	}
+
+	@Override
+	public ProjectBoard get(int id) {
+		// TODO Auto-generated method stub
+		return projectBoardDao.get(id);
+	}
+
+	@Override
+	public int update(ProjectBoard projectBoard) {
+		// TODO Auto-generated method stub
+		return projectBoardDao.update(projectBoard);
+	}
+
+	@Override
+	public ProjectBoardView getView(int id) {
+		// TODO Auto-generated method stub
+		return projectBoardDao.getView(id);
 	}
 
 }

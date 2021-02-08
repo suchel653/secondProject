@@ -35,6 +35,14 @@ public class MybatisProjectFileDao implements ProjectFileDao {
 	public List<ProjectFile> getList(int projectId) {
 		return mapper.getList(projectId);
 	}
+	@Override
+	public int update(ProjectFile projectFile) {
+		return mapper.update(projectFile);
+	}
+	@Override
+	public int getId(int projectId, String name) {
+		return mapper.getId(projectId, name);
+	}
 	
 	
 

@@ -219,4 +219,37 @@ public class ProjectServiceImp implements ProjectService {
 	public int check(int memberId, int projectId) {
 		return projectApplyDao.check(memberId, projectId);
 	}
+
+	@Override
+	public int updateSkill(ProjectSkill projectSkill) {
+		return projectSkilldao.update(projectSkill);
+	}
+
+	@Override
+	public int updateLanguage(ProjectLanguage projectLanguage) {
+		return projectLanguageDao.update(projectLanguage);
+	}
+
+	@Override
+	public int updateFile(ProjectFile projectFile) {
+		return projectFileDao.update(projectFile);
+	}
+
+	@Override
+	public int getSkillId(int projectId, int skillId) {
+		
+		return projectSkilldao.getId(projectId, skillId);
+	}
+
+	@Override
+	public int getLanguageId(int projectId, int languageId) {
+		// TODO Auto-generated method stub
+		return projectLanguageDao.getId(projectId, languageId);
+	}
+
+	@Override
+	public int getFileId(int projectId, String name) {
+		return projectFileDao.getId(projectId, name);
+	}
+
 }

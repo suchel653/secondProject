@@ -67,6 +67,7 @@
 
 		</div>
 
+		<input type="hidden" class="memberId" value="${id}">
 		<div class="box2"
 			style="width: 500px; hegiht: 900px; border: 1px solid black;">
 			<div class="table"
@@ -86,16 +87,6 @@
 						</tr>
 						</thead>
 						<tbody class="boardTbody">
-						
-						<!-- <tr>
-							<td colspan="4" style="border:1px solid black; height:100px;">asdasdasdasdas</td>
-						</tr>
-						<tr>
-							<td colspan="4" style="border:1px solid black;">
-								<div>댓글1</div>
-								<div>댓글2</div>
-							</td>
-						</tr> -->
 						</tbody>
 					</table>
 
