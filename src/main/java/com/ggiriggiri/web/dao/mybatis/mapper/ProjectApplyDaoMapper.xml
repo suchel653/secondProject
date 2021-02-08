@@ -54,7 +54,7 @@
 		set
 		resultStatus = #{resultStatus},
 		resultDate = sysdate()
-		where memberId = #{memberId};
+		where memberId = #{memberId} and projectId = #{projectId};
 	</update>
 	
 </mapper>

@@ -1,13 +1,24 @@
 window.addEventListener("load", (e) => {
 
-	const info = document.querySelector(".info");
+	let infoBtn = document.querySelector(".info-Btn");
 	let tbody = document.querySelector(".tbody");
-
-
+	let pageStatus = document.querySelector(".pageStatus");
 	let win;
 
-	info.addEventListener("click", (e) => {
+	let applyBtn = document.querySelector(".apply-Btn");
+	let table = document.querySelector(".table")
+	let clicked;
 
+	if (pageStatus.value == 0) {
+		table.style.display = "none";
+		clicked = false;
+	} else {
+		table.style.display = "block";
+		clicked = true;
+	}
+
+	infoBtn.addEventListener("click", (e) => {
+		console.log("인포");
 		let id = e.target.previousElementSibling.value;
 
 		win = open("/customer/activity/group/project/" + id + "/info", "_blank", "width=500px,height=500px");
@@ -15,19 +26,41 @@ window.addEventListener("load", (e) => {
 	});
 
 	tbody.addEventListener("click", (e) => {
-
 		e.preventDefault();
 
-		let action = e.target.value;
-		let id = e.target.previousElementSibling.value;
-		let projectId = e.target.previousElementSibling.previousElementSibling.value;
+		if (e.target.tagName == "INPUT") {
+			let action = e.target.value;
+			console.log(action)
+			let memberId = e.target.previousElementSibling.value;
+			console.log(memberId)
+			let projectId = e.target.previousElementSibling.previousElementSibling.value;
+			console.log(projectId)
+			pageStatus.value = 1;
 
-		fetch(`/customer/activity/group/project/${projectId}/approve?action=${action}&id=${id}`
+			fetch(`/customer/activity/group/project/${projectId}/approve?action=${action}&memberId=${memberId}`
 			, { method: "POST" })
-			.then(window.location.reload());
-
+			.then(window.location = `index?pageStatus=${pageStatus.value}`);
+		} else if (e.target.tagName == "SPAN" && e.target.nextElementSibling.nextElementSibling.value == 0) {
+			e.target.nextElementSibling.childNodes[0].style.display = "block";
+			e.target.nextElementSibling.nextElementSibling.value = 1;
+		} else if (e.target.tagName == "SPAN" && e.target.nextElementSibling.nextElementSibling.value == 1) {
+			e.target.nextElementSibling.childNodes[0].style.display = "none";
+			e.target.nextElementSibling.nextElementSibling.value = 0;
+		} else if(e.target.tagName == "A"){
+			win = open (e.target.href, "_blank", "");
+		}
+		
 	});
 
+	applyBtn.addEventListener("click", (e) => {
+		if (clicked) {
+			table.style.display = "none";
+			clicked = false;
+		} else {
+			table.style.display = "block";
+			clicked = true;
+		}
+	});
 
 });
 

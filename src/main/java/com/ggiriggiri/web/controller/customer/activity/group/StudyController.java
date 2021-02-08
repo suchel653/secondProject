@@ -35,9 +35,9 @@ public class StudyController {
 		StudyView studyView = studyService.getView(id);
 		List<StudyApplyView> studyApplyViewList = studyApplyService.getViewByStudyId(id);
 		List<StudyApplyView> studyWaitingViewLIst = studyApplyService.getWaitingViewByStudyId(id);
-		
-		System.out.println(session.getAttribute("id"));
-		model.addAttribute("sessionId", session.getAttribute("id"));
+		int memberId = (int) session.getAttribute("id");
+
+		model.addAttribute("id", memberId);
 		model.addAttribute("sv", studyView);
 		model.addAttribute("sav", studyApplyViewList);
 		model.addAttribute("swv", studyWaitingViewLIst);

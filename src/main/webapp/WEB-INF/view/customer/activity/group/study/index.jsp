@@ -31,9 +31,9 @@
 					</div>
 				</c:forEach>
 			</div>
-			<c:if test="${sessionId == sv.leaderId}">
+			<input hidden class="pageStatus" value="${pageStatus}" />
+			<c:if test="${sessionScope.id == sv.leaderId}">
 				<div style="display: flex; flex-direction: column; align-items: center;">
-					<input hidden class="pageStatus" value="${pageStatus}" />
 					<input type="button" value="지원 관리" class="apply-Btn"/>
 					
 					<form action="approve" method="post">

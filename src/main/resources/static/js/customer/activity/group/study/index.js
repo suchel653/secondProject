@@ -26,20 +26,16 @@ window.addEventListener("load", (e) => {
 	});
 
 	tbody.addEventListener("click", (e) => {
-		//console.log(e.target)
 		e.preventDefault();
-		//console.log(e.target.nextElementSibling.childNodes);
 
 		if (e.target.tagName == "INPUT") {
 			let action = e.target.value;
-			console.log(action);
 			let memberId = e.target.previousElementSibling.value;
-			console.log(memberId);
 			let studyId = e.target.previousElementSibling.previousElementSibling.value;
-			console.log(studyId);
 			pageStatus.value = 1;
 
-			fetch(`/customer/activity/group/study/${studyId}/approve?action=${action}&memberId=${memberId}`, { method: "POST" })
+			fetch(`/customer/activity/group/study/${studyId}/approve?action=${action}&memberId=${memberId}`
+			, { method: "POST" })
 			.then(window.location = `index?pageStatus=${pageStatus.value}`);
 		} else if (e.target.tagName == "SPAN" && e.target.nextElementSibling.nextElementSibling.value == 0) {
 			e.target.nextElementSibling.childNodes[0].style.display = "block";
