@@ -10,4 +10,6 @@ public interface ProjectCommentDao {
 	List<ProjectCommentView> getViewListByBoardId(int boardId);
 
 	int insert(ProjectComment projectComment);
+
+	int delete(int id);
 }

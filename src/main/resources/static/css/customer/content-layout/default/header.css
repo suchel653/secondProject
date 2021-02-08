@@ -99,6 +99,7 @@
 
 
 .detail-menu{
+	z-index : 1;
 	padding-top:15px;
 }
 

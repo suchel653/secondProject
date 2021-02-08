@@ -48,5 +48,13 @@ public class ProjectCommentController {
 		
 		return String.valueOf(list.size());
 	}
+	
+	@GetMapping("delete")
+	@ResponseBody
+	public String delete(@RequestParam(name = "id") int id) {
+		
+		int result = service.delete(id);
+		return "ok";
+	}
 
 }
