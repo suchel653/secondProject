@@ -7,4 +7,7 @@
 	<select id="get" resultType="com.ggiriggiri.web.entity.Profile">
 		select * from Profile where memberId=#{id}
 	</select>
+	<insert id="insert" parameterType="com.ggiriggiri.web.entity.Profile">
+		insert into Profile(memberId) values(#{memberId});
+	</insert>
 </mapper>

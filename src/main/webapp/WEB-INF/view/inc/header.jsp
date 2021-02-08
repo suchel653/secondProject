@@ -38,6 +38,7 @@
 							</div>
 							
 						</div>
+						<input type="hidden" class="id" value=${id }>
 					</div>
 
 				</s:authorize>

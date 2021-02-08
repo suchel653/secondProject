@@ -36,15 +36,12 @@ public class MemberController {
 	}
 	
 	@PostMapping("join")
-	public String join(String email, String password, String nickname) {
-		Member member = new Member();
-		
+	public String join(Member member) {
+		String password = member.getPassword();
 		BCryptPasswordEncoder pwdEncoder = new BCryptPasswordEncoder();
 		String encodePwd = pwdEncoder.encode(password);
-		member.setEmail(email);
 		member.setPassword(encodePwd);
-		member.setNickname(nickname);
-		service.insert(member);
+		service.insert(member);		
 		return "customer.join";
 	}
 	

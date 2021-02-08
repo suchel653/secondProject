@@ -31,12 +31,6 @@ public class MybatisProfileDao implements ProfileDao{
 	}
 
 	@Override
-	public int delete(int id) {
-		return mapper.delete(id);
-	}
-	
-
-	@Override
 	public Profile get(int id) {
 		return mapper.get(id);
 	}
