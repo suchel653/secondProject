@@ -70,4 +70,10 @@ public class MybatisMemberDao implements MemberDao{
 		return mapper.getByEmail(email);
 	}
 
+	@Override
+	public int getLast() {
+		// TODO Auto-generated method stub
+		return mapper.getLast();
+	}
+
 }
