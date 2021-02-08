@@ -82,6 +82,7 @@
     width: 98%;
     background: rgb(6, 5, 48);
   color: blanchedalmond;
+  resize: none;
     
 }
 .reg-req{
@@ -89,6 +90,7 @@
     width: 98%;
       background: rgb(6, 5, 48);
   color: blanchedalmond;
+  resize: none;
 }
 .neon-btn {
 	background-color:transparent;
