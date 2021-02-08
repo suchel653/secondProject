@@ -190,13 +190,23 @@ window.addEventListener("load", (e) => {
 			.then(response => response.json())
 			.then(json => {
 				let commentList = "";
+				let reged = false;
 				for (let comment of json) {
+					let cmtAuth = "";
+					if (writerId == comment.writerId) {
+						cmtAuth = `
+									<span>
+										<input class="cmt-del" type="button" value="삭제"/>
+									</span>
+								`;
+						reged = true;
+					}
 					commentList += `<div>
 									 <span>${comment.writerNickname}</span> 
 									: <span>${comment.content}<span> 
 									<span>${comment.regDate}</span>
 									<input type="hidden" value="${comment.id}"/>
-									<span><span>수정</span><span>삭제</span></span>
+									${cmtAuth}
 									 </div>`;
 				}
 				let commentTr = `<tr class="comment">
@@ -207,6 +217,10 @@ window.addEventListener("load", (e) => {
 										</tr>`;
 				detail.insertAdjacentHTML("afterend", commentTr);
 				createNode(detail, boardId);
+				if (reged) {
+					createCmtDynamicNode();
+				}
+
 			});
 	}
 
@@ -236,7 +250,7 @@ window.addEventListener("load", (e) => {
 				.then(() => {
 					fetch(`/api/projectCommentController/cnt?boardId=${boardId}`)
 						.then(response => response.json())
-						.then(cnt  => {
+						.then(cnt => {
 							let text = detail.previousElementSibling.children[0].childNodes[4].data.trim();
 							let subLen = text.lastIndexOf("(");
 							text = text.substring(0, subLen + 1);
@@ -256,27 +270,45 @@ window.addEventListener("load", (e) => {
 		let detailEdit = document.querySelector(nodes[1]);
 		let detailDel = document.querySelector(nodes[2]);
 
-		if (writerId != boardWriterId) 
+		if (writerId != boardWriterId)
 			authBox.style.display = "none";
 
-		detailEdit.addEventListener("click",(e)=>{
-			
-			let win =open("/customer/activity/group/project/" + projectId + "/board/edit?id="+boardId, "_blank", "width=500px,height=500px");
-			
+		detailEdit.addEventListener("click", (e) => {
+
+			let win = open("/customer/activity/group/project/" + projectId + "/board/edit?id=" + boardId, "_blank", "width=500px,height=500px");
+
 		});
-		
-		detailDel.addEventListener("click",(e)=>{
+
+		detailDel.addEventListener("click", (e) => {
 			let result = confirm("삭제하시겠습니까?");
-			if(!result)
+			if (!result)
 				return;
 			let id = boardId;
 			fetch(`/api/projectBoardController/delete?id=${id}`)
-			.then(()=>{
-				window.location.reload();
-			})
+				.then(() => {
+					window.location.reload();
+				})
 		});
 
-		
+
+	}
+
+	function createCmtDynamicNode() {
+		let commentTable = document.querySelector(".comment");
+
+		commentTable.addEventListener("click", (e) => {
+			let action = e.target.className;
+
+			if (action == "cmt-del") {
+				let id = e.target.parentElement.previousElementSibling.value;
+				fetch(`/api/projectCommentController/delete?id=${id}`)
+					.then(() => {
+						document.querySelector(".comment").innerText = "";
+						getCommentList(document.querySelector(".detail"), boardId)
+					})
+			}
+
+		})
 	}
 
 });

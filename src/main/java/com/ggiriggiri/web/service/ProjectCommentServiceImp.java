@@ -27,4 +27,10 @@ public class ProjectCommentServiceImp implements ProjectCommentService{
 		return projectCommentDao.insert(projectComment);
 	}
 
+	@Override
+	public int delete(int id) {
+		// TODO Auto-generated method stub
+		return projectCommentDao.delete(id);
+	}
+
 }

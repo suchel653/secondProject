@@ -54,7 +54,7 @@ public class ProjectBoardController {
 	
 	@PostMapping("edit")
 	@ResponseBody
-	public Map<Object,Integer> edit(@RequestBody ProjectBoard projectBoard) {
+	public int edit(@RequestBody ProjectBoard projectBoard) {
 		
 		
 		int id = projectBoard.getId();
@@ -67,9 +67,8 @@ public class ProjectBoardController {
 		origin.setContent(content);
 		
 		int result = service.update(origin);
-		Map<Object,Integer> map = new HashMap<>();
-		map.put("cmtCnt",cmtCnt);
-		return map;
+		
+		return cmtCnt;
 	}
 	
 	
