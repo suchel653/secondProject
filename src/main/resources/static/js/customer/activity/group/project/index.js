@@ -1,13 +1,24 @@
 window.addEventListener("load", (e) => {
 
-	const info = document.querySelector(".info");
+	let infoBtn = document.querySelector(".info-Btn");
 	let tbody = document.querySelector(".tbody");
-
-
+	let pageStatus = document.querySelector(".pageStatus");
 	let win;
 
-	info.addEventListener("click", (e) => {
+	let applyBtn = document.querySelector(".apply-Btn");
+	let table = document.querySelector(".table")
+	let clicked;
 
+	if (pageStatus.value == 0) {
+		table.style.display = "none";
+		clicked = false;
+	} else {
+		table.style.display = "block";
+		clicked = true;
+	}
+
+	infoBtn.addEventListener("click", (e) => {
+		console.log("인포");
 		let id = e.target.previousElementSibling.value;
 
 		win = open("/customer/activity/group/project/" + id + "/info", "_blank", "width=500px,height=500px");
@@ -15,19 +26,41 @@ window.addEventListener("load", (e) => {
 	});
 
 	tbody.addEventListener("click", (e) => {
-
 		e.preventDefault();
 
-		let action = e.target.value;
-		let id = e.target.previousElementSibling.value;
-		let projectId = e.target.previousElementSibling.previousElementSibling.value;
+		if (e.target.tagName == "INPUT") {
+			let action = e.target.value;
+			console.log(action)
+			let memberId = e.target.previousElementSibling.value;
+			console.log(memberId)
+			let projectId = e.target.previousElementSibling.previousElementSibling.value;
+			console.log(projectId)
+			pageStatus.value = 1;
 
-		fetch(`/customer/activity/group/project/${projectId}/approve?action=${action}&id=${id}`
+			fetch(`/customer/activity/group/project/${projectId}/approve?action=${action}&memberId=${memberId}`
 			, { method: "POST" })
-			.then(window.location.reload());
-
+			.then(window.location = `index?pageStatus=${pageStatus.value}`);
+		} else if (e.target.tagName == "SPAN" && e.target.nextElementSibling.nextElementSibling.value == 0) {
+			e.target.nextElementSibling.childNodes[0].style.display = "block";
+			e.target.nextElementSibling.nextElementSibling.value = 1;
+		} else if (e.target.tagName == "SPAN" && e.target.nextElementSibling.nextElementSibling.value == 1) {
+			e.target.nextElementSibling.childNodes[0].style.display = "none";
+			e.target.nextElementSibling.nextElementSibling.value = 0;
+		} else if(e.target.tagName == "A"){
+			win = open (e.target.href, "_blank", "");
+		}
+		
 	});
 
+	applyBtn.addEventListener("click", (e) => {
+		if (clicked) {
+			table.style.display = "none";
+			clicked = false;
+		} else {
+			table.style.display = "block";
+			clicked = true;
+		}
+	});
 
 });
 
@@ -157,13 +190,23 @@ window.addEventListener("load", (e) => {
 			.then(response => response.json())
 			.then(json => {
 				let commentList = "";
+				let reged = false;
 				for (let comment of json) {
+					let cmtAuth = "";
+					if (writerId == comment.writerId) {
+						cmtAuth = `
+									<span>
+										<input class="cmt-del" type="button" value="삭제"/>
+									</span>
+								`;
+						reged = true;
+					}
 					commentList += `<div>
 									 <span>${comment.writerNickname}</span> 
 									: <span>${comment.content}<span> 
 									<span>${comment.regDate}</span>
 									<input type="hidden" value="${comment.id}"/>
-									<span><span>수정</span><span>삭제</span></span>
+									${cmtAuth}
 									 </div>`;
 				}
 				let commentTr = `<tr class="comment">
@@ -174,6 +217,10 @@ window.addEventListener("load", (e) => {
 										</tr>`;
 				detail.insertAdjacentHTML("afterend", commentTr);
 				createNode(detail, boardId);
+				if (reged) {
+					createCmtDynamicNode();
+				}
+
 			});
 	}
 
@@ -203,7 +250,7 @@ window.addEventListener("load", (e) => {
 				.then(() => {
 					fetch(`/api/projectCommentController/cnt?boardId=${boardId}`)
 						.then(response => response.json())
-						.then(cnt  => {
+						.then(cnt => {
 							let text = detail.previousElementSibling.children[0].childNodes[4].data.trim();
 							let subLen = text.lastIndexOf("(");
 							text = text.substring(0, subLen + 1);
@@ -223,27 +270,45 @@ window.addEventListener("load", (e) => {
 		let detailEdit = document.querySelector(nodes[1]);
 		let detailDel = document.querySelector(nodes[2]);
 
-		if (writerId != boardWriterId) 
+		if (writerId != boardWriterId)
 			authBox.style.display = "none";
 
-		detailEdit.addEventListener("click",(e)=>{
-			
-			let win =open("/customer/activity/group/project/" + projectId + "/board/edit?id="+boardId, "_blank", "width=500px,height=500px");
-			
+		detailEdit.addEventListener("click", (e) => {
+
+			let win = open("/customer/activity/group/project/" + projectId + "/board/edit?id=" + boardId, "_blank", "width=500px,height=500px");
+
 		});
-		
-		detailDel.addEventListener("click",(e)=>{
+
+		detailDel.addEventListener("click", (e) => {
 			let result = confirm("삭제하시겠습니까?");
-			if(!result)
+			if (!result)
 				return;
 			let id = boardId;
 			fetch(`/api/projectBoardController/delete?id=${id}`)
-			.then(()=>{
-				window.location.reload();
-			})
+				.then(() => {
+					window.location.reload();
+				})
 		});
 
-		
+
+	}
+
+	function createCmtDynamicNode() {
+		let commentTable = document.querySelector(".comment");
+
+		commentTable.addEventListener("click", (e) => {
+			let action = e.target.className;
+
+			if (action == "cmt-del") {
+				let id = e.target.parentElement.previousElementSibling.value;
+				fetch(`/api/projectCommentController/delete?id=${id}`)
+					.then(() => {
+						document.querySelector(".comment").innerText = "";
+						getCommentList(document.querySelector(".detail"), boardId)
+					})
+			}
+
+		})
 	}
 
 });

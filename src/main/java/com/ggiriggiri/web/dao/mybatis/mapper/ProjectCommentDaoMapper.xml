@@ -14,5 +14,8 @@
 		insert into ProjectComment(boardId,writerId, content)
 		values(#{boardId}, #{writerId}, #{content});
 	</insert>
-	     
+	
+	<delete id="delete">
+   		delete from ProjectComment where id=#{id}
+   </delete>
 </mapper>

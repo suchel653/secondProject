@@ -31,41 +31,43 @@
 					</div>
 				</c:forEach>
 			</div>
-			<div style="display: flex; flex-direction: column; align-items: center;">
-				<input hidden class="pageStatus" value="${pageStatus}" />
-				<input type="button" value="지원 관리" class="apply-Btn"/>
-				
-				<form action="approve" method="post">
-					<div>
-					  <table class="table">
-					  	<tbody class="tbody">
-					  		<c:forEach var="swv" items="${swv}">
-						  		<tr class="tr">
-							  		<td>
-							  			<span class="apply-span">${swv.memberNickname}님이 지원하였습니다. <fmt:formatDate value="${swv.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
-							  			<%-- <li style="display:none;">${swv.comment} <a href="/customer/profile/${swv.memberId} ">${swv.memberNickname}님 프로필 확인</a></li> --%>
-							  			<div><li style="display:none;">${swv.comment} 
-							  			<a href="/customer/profile/${swv.memberId}"> ${swv.memberNickname}님 프로필 확인</a></li>
-							  			</div>
-							  			<input hidden class="commentValue" value="0" />
-							  		</td>
-							  		<td>
-							  			<input hidden name="studyId" value="${swv.studyId}" />
-							  			<input hidden name="memberId" value="${swv.memberId}" />
-							  			<input type="submit" name="action" value="승인"/>
-							  		</td>
-							  		<td>
-							  			<input hidden name="studyId" value="${swv.studyId}" />
-							  			<input hidden name="memberId" value="${swv.memberId}" />
-							  			<input type="submit" name="action" value="거절"/>
-							  		</td>
-								</tr>
-							</c:forEach>
-					  	</tbody>
-					  </table>
-					</div>
-				</form>
-			</div>
+			<input hidden class="pageStatus" value="${pageStatus}" />
+			<c:if test="${sessionScope.id == sv.leaderId}">
+				<div style="display: flex; flex-direction: column; align-items: center;">
+					<input type="button" value="지원 관리" class="apply-Btn"/>
+					
+					<form action="approve" method="post">
+						<div>
+						  <table class="table">
+						  	<tbody class="tbody">
+						  		<c:forEach var="swv" items="${swv}">
+							  		<tr class="tr">
+								  		<td>
+								  			<span class="apply-span">${swv.memberNickname}님이 지원하였습니다. <fmt:formatDate value="${swv.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
+								  			<%-- <li style="display:none;">${swv.comment} <a href="/customer/profile/${swv.memberId} ">${swv.memberNickname}님 프로필 확인</a></li> --%>
+								  			<div><li style="display:none;">${swv.comment} 
+								  			<a href="/customer/profile/${swv.memberId}"> ${swv.memberNickname}님 프로필 확인</a></li>
+								  			</div>
+								  			<input hidden class="commentValue" value="0" />
+								  		</td>
+								  		<td>
+								  			<input hidden name="studyId" value="${swv.studyId}" />
+								  			<input hidden name="memberId" value="${swv.memberId}" />
+								  			<input type="submit" name="action" value="승인"/>
+								  		</td>
+								  		<td>
+								  			<input hidden name="studyId" value="${swv.studyId}" />
+								  			<input hidden name="memberId" value="${swv.memberId}" />
+								  			<input type="submit" name="action" value="거절"/>
+								  		</td>
+									</tr>
+								</c:forEach>
+						  	</tbody>
+						  </table>
+						</div>
+					</form>
+				</div>
+			</c:if>
 
 		</div>
 

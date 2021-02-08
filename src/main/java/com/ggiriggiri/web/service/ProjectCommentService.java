@@ -10,4 +10,6 @@ public interface ProjectCommentService {
 	List<ProjectCommentView> getViewList(int boardId);
 
 	int insert(ProjectComment projectComment);
+
+	int delete(int id);
 }

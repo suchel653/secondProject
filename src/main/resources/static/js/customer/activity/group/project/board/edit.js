@@ -33,9 +33,7 @@ console.log(opener.document.querySelector(".detail-content"));
 				body: JSON.stringify(board)
 			})
 			.then(response=>response.json())
-			.then(json=>{
-				let cmtCnt = json.cmtCnt;
-				
+			.then(cmtCnt=>{
 				detailContent.innerText = board.content;
 				titleContent.data= `${board.title}(${cmtCnt})`;
 				self.close();

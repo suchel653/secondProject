@@ -16,5 +16,5 @@ public interface ProjectApplyDao {
 
 	List<ProjectApply> get(int memberId);
 	int check(int memberId , int projectId);
-	int updateStatus(int memberId, int resultStatus);
+	int updateStatus(int memberId, int projectId, int resultStatus);
 }

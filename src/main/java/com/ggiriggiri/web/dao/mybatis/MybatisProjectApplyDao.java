@@ -57,8 +57,8 @@ public class MybatisProjectApplyDao implements ProjectApplyDao {
 	}
 
 	@Override
-	public int updateStatus(int memberId, int resultStatus) {
-		return mapper.updateStatus(memberId, resultStatus);
+	public int updateStatus(int memberId, int projectId, int resultStatus) {
+		return mapper.updateStatus(memberId, projectId, resultStatus);
 	}
 
 }

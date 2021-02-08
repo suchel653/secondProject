@@ -43,12 +43,12 @@ public class ProjectApplyServiceImp implements ProjectApplyService {
 	public List<ProjectApply> get(int memberId) {
 		return projectApplyDao.get(memberId);
 	}
+
 	@Override
 	public List<ProjectApplyView> getViewByProjectId(int projectId) {
 		int resultStatus = 1;
 		return projectApplyDao.getViewByProjectId(projectId, resultStatus);
 	}
-
 
 	@Override
 	public List<ProjectApplyView> getWaitingViewByProjectId(int projectId) {
@@ -57,15 +57,15 @@ public class ProjectApplyServiceImp implements ProjectApplyService {
 	}
 
 	@Override
-	public int updateStatusToApprove(int memberId) {
+	public int updateStatusToApprove(int memberId, int projectId) {
 		int resultStatus = 1;
-		return projectApplyDao.updateStatus(memberId, resultStatus);
+		return projectApplyDao.updateStatus(memberId, projectId, resultStatus);
 	}
 
 	@Override
-	public int updateStatusToReject(int memberId) {
+	public int updateStatusToReject(int memberId, int projectId) {
 		int resultStatus = 2;
-		return projectApplyDao.updateStatus(memberId, resultStatus);
+		return projectApplyDao.updateStatus(memberId, projectId, resultStatus);
 	}
 
 }
