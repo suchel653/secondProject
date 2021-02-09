@@ -48,5 +48,17 @@ public class MybatisProjectLanguageDao implements ProjectLanguageDao{
 		
 		return mapper.getProjectIdsByLanguageNames(projectIds, language);
 	}
+
+
+	@Override
+	public int update(ProjectLanguage projectLanguage) {
+		return mapper.update(projectLanguage);
+	}
+
+
+	@Override
+	public int getId(int projectId, int languageId) {
+		return mapper.getId(projectId, languageId);
+	}
 	
 }

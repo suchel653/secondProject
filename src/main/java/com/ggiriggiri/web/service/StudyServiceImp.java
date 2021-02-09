@@ -113,6 +113,8 @@ public class StudyServiceImp implements StudyService {
 
 		study.setSkill(studySkillDao.getViewList(study.getId()));
 		study.setLanguage(studyLanguageDao.getViewList(study.getId()));
+		study.setFiles(studyFileDao.getList(study.getId()));
+		
 
 		return study;
 	}

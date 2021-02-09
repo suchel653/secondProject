@@ -92,4 +92,9 @@ public class MemberServiceImp implements MemberService{
 		return m;
 	}
 
+	@Override
+	public int getLast() {
+		return memberDao.getLast();
+	}
+
 }

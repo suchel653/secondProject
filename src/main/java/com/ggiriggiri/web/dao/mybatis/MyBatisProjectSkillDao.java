@@ -52,6 +52,18 @@ public class MyBatisProjectSkillDao implements ProjectSkillDao{
 	}
 
 
+	@Override
+	public int update(ProjectSkill projectSkill) {
+		return mapper.update(projectSkill);
+	}
+
+
+	@Override
+	public int getId(int projectId, int skillId) {
+		return mapper.getId(projectId, skillId);
+	}
+
+
 	
 
 }

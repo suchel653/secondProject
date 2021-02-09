@@ -1,83 +1,92 @@
 
-.profile-content {
+.profile-reg{
+	width:300px;
+	height: 200px;
+	position: absolute;
+	left: 250px;
+	top: 200px;
+	background: green;
+}
+
+.container {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	--background: #0D1117;
+	border: 1px solid red;
 }
 
-.profile-top {
-	width: 100%;
-	height: 420px;
-	color: white;
-	background-image: url("/images/profileImg/profileTop.jpg");
-	font-size: 60px;
-	text-align: center;
-	line-height: 420px;
+.menu{
+	width: 220px;
+	height: 500px;
+	border: 1px solid black;
 }
 
-.diamond {
-	width: 0;
-	height: 0;
-	border: 100px solid transparent;
-	border-bottom-color: red;
-	position: relative;
-	top: -200px;
-	margin: 0 auto;
-}
-	.diamond:after {
-		content: '';
-		position: absolute;
-		left: -100px;
-		top: 100px;
-		width: 0;
-		height: 0;
-		border: 100px solid transparent;
-		border-top-color: red;
-    }
-
-.profile-list {
-	display: flex;
-	width: 1520px;
-	justify-content: flex-end;
-	color: white;
-	font-size: 45px;
+.detail{
+	width: 680px;
+	height: 500px;
+	border: 1px solid blue;
 }
 
-.line-bar {
-	width: 1520px;
-	border-bottom: 1px solid white;
-	margin-top: 30px;
+.profile-img{
+	margin: 20px 35px 0px 35px;
 }
-
-.profile-image {
-	width: 300px;
-	height: 480px;
-	padding-top: 100px;
-	text-align: center;
-	color: white;
-	font-size: 40px;
-}
-
-	.profile-image>img {
-		margin-bottom: 30px;
+	.profile-img>img{
+		width: 150px;
+		height: 225px;	
+		border: 1px solid red;
 	}
-
-.introduce {
-	width: 800px;
-	margin-top: 40px;
-	color: white;
-	padding: 10px;
-	font-size: 25px;
+	
+.nickname{
+	width: 220px;
+	height: 40px;
+	border: 1px solid blue;
 	text-align: center;
-	letter-spacing: 1px;
 	line-height: 40px;
+	font-size : 25px;
 }
 
-.address {
-	width: 1520px;
+.menu-bar{
+	margin-top: 20px;
+}
+
+	.menu-bar>div{
+		width: 220px;
+		height: 45px;
+		border: 1px solid green;
+	}
+	
+.detail>div{
+	display: none;
+}
+
+.detail>.selected{
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	color: white;
-	margin: 50px 0 50px 0;
 }
+
+.menu-name{
+	width: 670px;
+	display: flex;
+	justify-content: flex-end;
+}
+/*------------------------------------------*/
+.content{
+	width: 400px;
+	height: 200px;
+	margin: 20px 135px 20px 135px;
+}
+
+/*------------------------------------------*/
+.language-table{
+	width: 650px;
+	height: 400px;
+	margin-top: 50px;
+	margin-left: 20px;
+}
+
+.language-table img{
+	width: 50px;
+	height: 50px;
+}
+
+
+

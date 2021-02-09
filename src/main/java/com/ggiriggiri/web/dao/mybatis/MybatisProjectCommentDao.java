@@ -7,13 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ggiriggiri.web.dao.ProjectCommentDao;
+import com.ggiriggiri.web.entity.ProjectComment;
 import com.ggiriggiri.web.entity.ProjectCommentView;
 @Repository
 public class MybatisProjectCommentDao implements ProjectCommentDao{
 
-	@Autowired
-	private SqlSession session;
-	
 	private ProjectCommentDao mapper;
 	
 	@Autowired
@@ -26,6 +24,18 @@ public class MybatisProjectCommentDao implements ProjectCommentDao{
 	public List<ProjectCommentView> getViewListByBoardId(int boardId) {
 		// TODO Auto-generated method stub
 		return mapper.getViewListByBoardId(boardId);
+	}
+
+	@Override
+	public int insert(ProjectComment projectComment) {
+		// TODO Auto-generated method stub
+		return mapper.insert(projectComment);
+	}
+
+	@Override
+	public int delete(int id) {
+		// TODO Auto-generated method stub
+		return mapper.delete(id);
 	}
 	
 }

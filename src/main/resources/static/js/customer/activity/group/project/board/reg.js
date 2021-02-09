@@ -23,7 +23,7 @@ window.addEventListener("load", (e) => {
 				headers: {
 					"Content-Type": "application/json",
 				},
-				data: JSON.stringify(board),
+				/*data: JSON.stringify(board),*/
 				body: JSON.stringify(board)
 			})
 			.then(() => {
