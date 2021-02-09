@@ -35,18 +35,18 @@ window.addEventListener("load", (e) => {
 			pageStatus.value = 1;
 
 			fetch(`/customer/activity/group/study/${studyId}/approve?action=${action}&memberId=${memberId}`
-			, { method: "POST" })
-			.then(window.location = `index?pageStatus=${pageStatus.value}`);
+				, { method: "POST" })
+				.then(window.location = `index?pageStatus=${pageStatus.value}`);
 		} else if (e.target.tagName == "SPAN" && e.target.nextElementSibling.nextElementSibling.value == 0) {
 			e.target.nextElementSibling.childNodes[0].style.display = "block";
 			e.target.nextElementSibling.nextElementSibling.value = 1;
 		} else if (e.target.tagName == "SPAN" && e.target.nextElementSibling.nextElementSibling.value == 1) {
 			e.target.nextElementSibling.childNodes[0].style.display = "none";
 			e.target.nextElementSibling.nextElementSibling.value = 0;
-		} else if(e.target.tagName == "A"){
-			win = open (e.target.href, "_blank", "");
+		} else if (e.target.tagName == "A") {
+			win = open(e.target.href, "win", "width=900, height=500");
 		}
-		
+
 	});
 
 	applyBtn.addEventListener("click", (e) => {
