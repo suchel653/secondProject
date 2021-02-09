@@ -2,20 +2,20 @@ package com.ggiriggiri.web.entity;
 
 import java.util.Date;
 
-public class ProjectComment {
+public class StudyComment {
 	private int id;
 	private String content;
 	private Date regDate;
 	private int boardId;
 	private int writerId;
 	
-	public ProjectComment() {
+	public StudyComment() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	
 
-	public ProjectComment(int id, String content, Date regDate, int boardId, int writerId) {
+	public StudyComment(int id, String content, Date regDate, int boardId, int writerId) {
 		this.id = id;
 		this.content = content;
 		this.regDate = regDate;
@@ -27,7 +27,7 @@ public class ProjectComment {
 
 	@Override
 	public String toString() {
-		return "ProjectComment [id=" + id + ", content=" + content + ", regDate=" + regDate + ", boardId=" + boardId
+		return "StudyComment [id=" + id + ", content=" + content + ", regDate=" + regDate + ", boardId=" + boardId
 				+ ", writerId=" + writerId + "]";
 	}
 

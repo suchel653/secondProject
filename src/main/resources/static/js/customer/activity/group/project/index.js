@@ -30,11 +30,8 @@ window.addEventListener("load", (e) => {
 
 		if (e.target.tagName == "INPUT") {
 			let action = e.target.value;
-			console.log(action)
 			let memberId = e.target.previousElementSibling.value;
-			console.log(memberId)
 			let projectId = e.target.previousElementSibling.previousElementSibling.value;
-			console.log(projectId)
 			pageStatus.value = 1;
 
 			fetch(`/customer/activity/group/project/${projectId}/approve?action=${action}&memberId=${memberId}`

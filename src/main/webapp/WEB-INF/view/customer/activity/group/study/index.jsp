@@ -71,32 +71,31 @@
 
 		</div>
 
+		<input type="hidden" class="memberId" value="${id}">
 		<div class="box2"
 			style="width: 500px; hegiht: 900px; border: 1px solid black;">
 			<div class="table"
 				style="display: flex; flex-direction: column; align-items: center;">
 				<div>
 					<h1 style="display: inline-block; margin-left: 50px;">게시판</h1>
-					<input type="button" value="등록" style="margin-left: 30px;" />
+					<input class="board-reg" type="button" value="등록" style="margin-left: 30px;" />
 				</div>
-				<div>
+				<div class="bodrd">
 					<table>
 						<thead>
-							<th>번호</th>
+						<tr>
+						
 							<th>제목</th>
 							<th>작성자</th>
 							<th>등록일</th>
+						</tr>
 						</thead>
-						<tbody>
-							<td>1</td>
-							<td>안녕하세요</td>
-							<td>성현</td>
-							<td>2010-03-02</td>
+						<tbody class="boardTbody">
 						</tbody>
 					</table>
 
 				</div>
-				<input type="button" value="+" />
+				<input class="board-plus-btn" type="button" value="+" />
 			</div>
 		</div>
 
