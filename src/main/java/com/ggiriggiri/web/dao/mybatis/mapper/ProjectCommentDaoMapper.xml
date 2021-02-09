@@ -6,8 +6,16 @@
 	<select id="getViewListByBoardId"
 		resultType="com.ggiriggiri.web.entity.ProjectCommentView">
 		select * from ProjectCommentView where boardId=#{boardId}
-		order by regdate desc;
+		order by regdate asc;
 	</select>
 
-	     
+	<insert id="insert"
+		parameterType="com.ggiriggiri.web.entity.ProjectComment">
+		insert into ProjectComment(boardId,writerId, content)
+		values(#{boardId}, #{writerId}, #{content});
+	</insert>
+	
+	<delete id="delete">
+   		delete from ProjectComment where id=#{id}
+   </delete>
 </mapper>

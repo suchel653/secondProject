@@ -8,11 +8,18 @@
       <insert id="insert" parameterType="com.ggiriggiri.web.entity.ProjectLanguage">
     	insert into ProjectLanguage(projectId,languageId) value(${projectId},${languageId});
     </insert>
+    
+     <update id="update" parameterType="com.ggiriggiri.web.entity.ProjectLanguage">
+   		 update ProjectLanguage set languageId=#{languageId} where id=#{id} and projectId=#{projectId};
+    </update>
+    
       
 	  <select id="getListByProjectId" resultType="com.ggiriggiri.web.entity.ProjectLanguageView">
 	  		select * from ProjectLanguageView where projectId=#{id}
 	     
 	   </select>
+	   
+	   
 	   
 	   <select id="getProjectIdsByLanguageNames" resultType="int">
 		select projectId from ProjectLanguageView
@@ -33,6 +40,10 @@
 		group by projectId;
 
 	</select>
+	
+	 <select id="getId" resultType="int">
+	  		SELECT id FROM ProjectLanguage where projectId=#{projectId} and languageId=#{languageId};
+	   </select>
 	   
     
     </mapper>

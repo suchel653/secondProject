@@ -52,8 +52,9 @@
 	<update id="updateStatus">
 		update ProjectApply
 		set
-		resultStatus = #{resultStatus}
-		where memberId = #{memberId};
+		resultStatus = #{resultStatus},
+		resultDate = sysdate()
+		where memberId = #{memberId} and projectId = #{projectId};
 	</update>
 	
 </mapper>

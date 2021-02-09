@@ -9,7 +9,8 @@
 			<div class="container">
 				
 				<section>
-				<div class="del-btn" style="margin-left:30px;">
+				<div class="edit-del-btn" style="margin-left:30px;">
+					<a href="${pj.id }/edit" class="button editBtn">수정</a>
 					<a href="${pj.id }/del" class="button delBtn">삭제</a>
 				</div>
 				
@@ -45,8 +46,19 @@
 								</td>
 							</tr>
 							<tr>
+			                  <th>파일 : </th>
+			                  <td>
+								<c:forEach var="f" items="${pj.files }" varStatus="st">
+								<a download href="/images/projectFile/${f.name }">${f.name }</a> 
+								<c:if test="${!st.last }">
+									/
+								</c:if>
+								</c:forEach>
+							 </td>
+			                </tr>
+							<tr>
 								<th>인원 : </th>
-								<td >${pj.limitNumber }</td>
+								<td >${pj.memberCount}/${pj.limitNumber }</td>
 							</tr>
 							<tr>
 								<th>요구사항 :</th>

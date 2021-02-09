@@ -4,6 +4,7 @@ public class ProjectSkillView {
 	private int id;
 	private int projectId;
 	private String skillName;
+	private int SkillId;
 	
 	public ProjectSkillView() {
 		// TODO Auto-generated constructor stub
@@ -16,6 +17,16 @@ public class ProjectSkillView {
 		this.projectId = projectId;
 		this.skillName = skillName;
 	}
+
+
+
+	public ProjectSkillView(int id, int projectId, String skillName, int skillId) {
+		this.id = id;
+		this.projectId = projectId;
+		this.skillName = skillName;
+		this.SkillId = skillId;
+	}
+
 
 	@Override
 	public String toString() {
@@ -45,5 +56,15 @@ public class ProjectSkillView {
 	public void setSkillName(String skillName) {
 		this.skillName = skillName;
 	}
+
+	public int getSkillId() {
+		return SkillId;
+	}
+
+	public void setSkillId(int skillId) {
+		this.SkillId = skillId;
+	}
+
+
 	
 }

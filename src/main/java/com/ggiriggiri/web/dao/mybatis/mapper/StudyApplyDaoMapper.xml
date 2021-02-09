@@ -47,7 +47,8 @@
 	<update id="updateStatus">
 		update StudyApply
 		set
-		resultStatus = #{resultStatus}
+		resultStatus = #{resultStatus},
+		resultDate = sysdate()
 		where memberId = #{memberId} and studyId = #{studyId};
 	</update>
 

@@ -16,4 +16,5 @@ public interface MemberDao {
 	int check(String field, String query);
 	Member login(String email, String password);
 	Member getByEmail(String email);
+	int getLast();
 }

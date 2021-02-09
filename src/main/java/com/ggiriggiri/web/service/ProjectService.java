@@ -28,15 +28,26 @@ public interface ProjectService {
 	ProjectView getNext(int id);
 	
 	int getLastId();
+	
 	int insertFile(ProjectFile projectFile);
+	int updateFile(ProjectFile projectFile);
 	
 	int insertSkill(ProjectSkill projectSkill);
 	int insertLanguage(ProjectLanguage projectLanguage);
 	int insertProjectApply(ProjectApply projectApply);
+	
+	int updateSkill(ProjectSkill projectSkill);
+	int updateLanguage(ProjectLanguage projectLanguage);
 	
 	List<ProjectView> getOngoingViewList(int memberId);
 	List<ProjectView> getWaitingViewList(int memberId);
 	List<ProjectView> getEndedViewList(int memberId);
 	
 	int check(int memberId, int projectId);
+	
+	int getFileId(int projectId, String name);
+	int getSkillId(int projectId, int skillId);
+	int getLanguageId(int projectId, int languageId);
 }
+
+

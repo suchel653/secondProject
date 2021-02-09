@@ -44,13 +44,14 @@ public class ProjectSkill {
 		this.projectId = projectId;
 	}
 
-	public int getLanguageId() {
+	public int getSkillId() {
 		return skillId;
 	}
 
-	public void setLanguageId(int languageId) {
-		this.skillId = languageId;
+	public void setSkillId(int skillId) {
+		this.skillId = skillId;
 	}
+
 	
 	
 }

@@ -55,11 +55,11 @@ public class ProjectComment {
 		this.regDate = regDate;
 	}
 
-	public int getboardId() {
+	public int getBoardId() {
 		return boardId;
 	}
 
-	public void setboardId(int boardId) {
+	public void setBoardId(int boardId) {
 		this.boardId = boardId;
 	}
 
