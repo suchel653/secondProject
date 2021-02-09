@@ -4,7 +4,7 @@ window.addEventListener('load',(e)=>{
 	
 	let stop = false;
 
-	audio.volume  = 0.008;
+	audio.volume  = 0.1;
 	audioBtn.addEventListener("click",(e)=>{
 		
 		if(stop==false){
