@@ -12,7 +12,7 @@
 	<div class="container">
 		<div class="container-box">
 			<section class="apply-list">
-				<h1>지원자 목록</h1>
+				<h1>스터디 지원자 목록</h1>
 				<div class="container-box2">
 					<c:forEach var="s" items="${sav}">
 						<div class="text-items">
@@ -20,40 +20,56 @@
 							<span class="date-fmt"><fmt:formatDate value="${s.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
 						</div>
 					</c:forEach>
-
+				</div>
+			</section>
+			
+			<section class="apply-list">
+				<h1>프로젝트 지원자 목록</h1>
+				<div class="container-box2">
 					<c:forEach var="p" items="${pav}">
 						<div class="text-items">
 							<span>${p.memberNickname}님이 ${p.projectTitle}에 지원하였습니다.</span><span
 								class="date-fmt"><fmt:formatDate value="${p.regDate}"
-									pattern="yyyy-MM-dd a hh:mm:ss" /></span>
+									pattern="yyyy-MM-dd a hh:mm" /></span>
 						</div>
 					</c:forEach>
 				</div>
 			</section>
 
-			<section class="apply-result-list">
-				<h1>신청 결과</h1>
-				<div class="container-box2">
-					<c:forEach var="s" items="${sarv}">
-						<div class="text-items">
-							<span>${s.memberNickname}님이 ${s.studyTitle}에 지원하신 결과
-								${s.resultStatus==1?"수락":"거절"}되었습니다.</span> <span class="date-fmt"><fmt:formatDate
-									value="${s.resultDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
-						</div>
-					</c:forEach>
-
-					<c:forEach var="p" items="${parv}">
-						<div class="text-items">
-							<span>${p.memberNickname}님이 ${p.projectTitle}에 지원하신 결과
-								${p.resultStatus==1?"수락":"거절"}되었습니다. ${p.resultDate}</span><span
-								class="date-fmt"><fmt:formatDate value="${p.resultDate}"
-									pattern="yyyy-MM-dd a hh:mm:ss" /></span>
-						</div>
-					</c:forEach>
-				</div>
-			</section>
+			
 		</div>
-
+		<div class="container-box">
+			<section class="apply-result-list">
+					<h1>스터디 신청 결과</h1>
+					<div class="container-box2">
+						<c:forEach var="s" items="${sarv}">
+							<div class="text-items">
+								<span>${s.memberNickname}님이 ${s.studyTitle}에 지원하신 결과
+									${s.resultStatus==1?"수락":"거절"}되었습니다.</span> <span class="date-fmt"><fmt:formatDate
+										value="${s.resultDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
+							</div>
+						</c:forEach>
+	
+					</div>
+				</section>
+				
+				<section class="apply-result-list">
+					<h1>프로젝트 신청 결과</h1>
+					<div class="container-box2">
+			
+	
+						<c:forEach var="p" items="${parv}">
+							<div class="text-items">
+								<span>${p.memberNickname}님이 ${p.projectTitle}에 지원하신 결과
+									${p.resultStatus==1?"수락":"거절"}되었습니다.</span><span
+									class="date-fmt"><fmt:formatDate value="${p.resultDate}"
+										pattern="yyyy-MM-dd a hh:mm:ss" /></span>
+							</div>
+						</c:forEach>
+					</div>
+				</section>
+		</div>
+			
 		<div class="container-box">
 			<section class="ongoing-study">
 				<h1>진행중인 스터디</h1>

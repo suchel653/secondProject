@@ -19,7 +19,7 @@ window.addEventListener("load", (e) => {
 		};
 		let detailContent = opener.document.querySelector(".detail-content");
 		let titleContent = opener.document.querySelector(".detail").previousElementSibling.children[0].childNodes[4];
-		fetch(`/api/projectBoardController/edit`,
+		fetch(`/api/studyBoardController/edit`,
 			{
 				method: "POST",
 				headers: {

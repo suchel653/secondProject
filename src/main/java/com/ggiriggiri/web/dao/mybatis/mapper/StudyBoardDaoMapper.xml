@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ggiriggiri.web.dao.StudyBoardDao">
+	<select id="getViewListByStudyId"
+		resultType="com.ggiriggiri.web.entity.StudyBoardView">
+		select * from StudyBoardView where studyId=#{studyId}
+		order by regdate desc;
+	</select>
+
+	<insert id="insert"
+		parameterType="com.ggiriggiri.web.entity.StudyBoard">
+		insert into StudyBoard(studyId,title, content, writerId)
+		values(#{studyId},#{title}, #{content}, #{writerId});
+	</insert>
+	
+	<delete id="delete">
+   		delete from StudyBoard where id=#{id}
+   </delete>
+   
+   <select id="get"
+		resultType="com.ggiriggiri.web.entity.StudyBoard">
+		select * from StudyBoard where id=#{id}
+	</select>
+	
+	<update id="update" parameterType="com.ggiriggiri.web.entity.StudyBoard">
+   		update StudyBoard
+   		set
+	   		title = #{title},
+	   		content = #{content}
+	   			where id = #{id}
+   </update>
+   
+   <select id="getView"
+		resultType="com.ggiriggiri.web.entity.StudyBoardView">
+		select * from StudyBoardView where id=#{id}
+	</select>
+
+</mapper>

@@ -3,22 +3,22 @@ package com.ggiriggiri.web.entity;
 import java.util.Date;
 import java.util.List;
 
-public class ProjectBoard {
+public class StudyBoard {
 	private int id;
-	private int projectId;
+	private int studyId;
 	private int writerId;
 	private String title;
 	private String content;
 	private Date regDate;
 	
 	
-	public ProjectBoard() {
+	public StudyBoard() {
 	}
 
 	
-	public ProjectBoard(int id, int projectId, int writerId, Date regDate, String title, String content) {
+	public StudyBoard(int id, int studyId, int writerId, Date regDate, String title, String content) {
 		this.id = id;
-		this.projectId = projectId;
+		this.studyId = studyId;
 		this.writerId = writerId;
 		this.regDate = regDate;
 		this.title = title;
@@ -28,7 +28,7 @@ public class ProjectBoard {
 
 	@Override
 	public String toString() {
-		return "ProjectBoard [id=" + id + ", projectId=" + projectId + ", writerId=" + writerId + ", regDate=" + regDate
+		return "StudyBoard [id=" + id + ", studyId=" + studyId + ", writerId=" + writerId + ", regDate=" + regDate
 				+ ", title=" + title + ", content=" + content + "]";
 	}
 
@@ -41,12 +41,12 @@ public class ProjectBoard {
 		this.id = id;
 	}
 
-	public int getProjectId() {
-		return projectId;
+	public int getStudyId() {
+		return studyId;
 	}
 
-	public void setProjectId(int projectId) {
-		this.projectId = projectId;
+	public void setStudyId(int studyId) {
+		this.studyId = studyId;
 	}
 
 	public int getWriterId() {
