@@ -1,9 +1,13 @@
 window.addEventListener("load",(e)=>{
-	const section = document.querySelector(".chat-container");
-	const sendButton = section.querySelector(".send-button");
+	const section = document.querySelector(".chat");
+	const chatInput = section.querySelector(".chat-input");
+	const sendButton = section.querySelector(".send-btn");
+	const nickname = section.querySelector(".nickname");
+	const chatId = section.querySelector(".chat-id").value;
 	
-	let username = "Su";
+	let username = nickname.value;
 	let message = {
+		chatId,
 		username,
 		chatData:""
 	};
@@ -18,22 +22,23 @@ window.addEventListener("load",(e)=>{
 	
 	socket.addEventListener('message',(e)=>{
 			let message = JSON.parse(e.data);
-			let {username,chatData} = message;
+			let {chatId,username,chatData} = message;
 			let chatItemTemplate = `<div>
-										<span>profile</span>
+										<span>${chatId}</span>
 										<span>${username}</span>
 										<span>${chatData}</span>		
 									</div>`;
 			
-			chatList.insertAdjacentHTML("beforeend",chatItemTemplate);
+			section.insertAdjacentHTML("beforeend",chatItemTemplate);
 		});
 	
 	sendButton.addEventListener("click",(e)=>{
 		let message ={
+					chatId,
 					username,
 					chatData:chatInput.value
 				};
-		
+		chatInput.value="";
 		if(socket != undefined)
 			socket.send(JSON.stringify(message));
 	});

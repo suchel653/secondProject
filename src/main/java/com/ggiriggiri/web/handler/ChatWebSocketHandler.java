@@ -5,25 +5,30 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
-import org.springframework.web.socket.WebSocketHandler;
-import org.springframework.web.socket.WebSocketMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
+
+import com.ggiriggiri.web.chat.Client;
 
 public class ChatWebSocketHandler extends TextWebSocketHandler {
 
 	private List<WebSocketSession> sessions = new CopyOnWriteArrayList<>();
+	private List<Client> clientList = new CopyOnWriteArrayList<>();
 	
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
+		session.getUri();
 		sessions.add(session);
-		System.out.println(sessions.size()+"명이 연결");
+		System.out.println(session.getUri());
 	}
 	
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-		for(WebSocketSession ws : sessions)
+		for(WebSocketSession ws : sessions) {
 			ws.sendMessage(message);
+			System.out.println(message.getPayload());
+			
+		}
 		
 	}
 	
