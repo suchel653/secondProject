@@ -6,58 +6,60 @@ window.addEventListener("load", (e) => {
 	let win;
 
 	let applyBtn = document.querySelector(".apply-Btn");
-	let table = document.querySelector(".table")
+	let applyTable = document.querySelector(".apply-table")
 	let clicked;
-
-	if (pageStatus.value == 0) {
-		table.style.display = "none";
-		clicked = false;
-	} else {
-		table.style.display = "block";
-		clicked = true;
-	}
 
 	infoBtn.addEventListener("click", (e) => {
 
 		let id = e.target.previousElementSibling.value;
-
-		win = open("/customer/activity/group/study/" + id + "/info", "_blank", "width=500px,height=500px");
-
-	});
-
-	tbody.addEventListener("click", (e) => {
-		e.preventDefault();
-
-		if (e.target.tagName == "INPUT") {
-			let action = e.target.value;
-			let memberId = e.target.previousElementSibling.value;
-			let studyId = e.target.previousElementSibling.previousElementSibling.value;
-			pageStatus.value = 1;
-
-			fetch(`/customer/activity/group/study/${studyId}/approve?action=${action}&memberId=${memberId}`
-				, { method: "POST" })
-				.then(window.location = `index?pageStatus=${pageStatus.value}`);
-		} else if (e.target.tagName == "SPAN" && e.target.nextElementSibling.nextElementSibling.value == 0) {
-			e.target.nextElementSibling.childNodes[0].style.display = "block";
-			e.target.nextElementSibling.nextElementSibling.value = 1;
-		} else if (e.target.tagName == "SPAN" && e.target.nextElementSibling.nextElementSibling.value == 1) {
-			e.target.nextElementSibling.childNodes[0].style.display = "none";
-			e.target.nextElementSibling.nextElementSibling.value = 0;
-		} else if (e.target.tagName == "A") {
-			win = open(e.target.href, "win", "width=900, height=500");
-		}
+		win = open("/customer/activity/group/study/" + id + "/info", "_blank", "width=1300px,height=700px");
 
 	});
 
-	applyBtn.addEventListener("click", (e) => {
-		if (clicked) {
-			table.style.display = "none";
+	if (tbody != null) {
+
+		if (pageStatus.value == 0) {
+			applyTable.style.display = "none";
 			clicked = false;
 		} else {
-			table.style.display = "block";
+			applyTable.style.display = "block";
 			clicked = true;
 		}
-	});
+
+		tbody.addEventListener("click", (e) => {
+			e.preventDefault();
+
+			if (e.target.tagName == "INPUT") {
+				let action = e.target.value;
+				let memberId = e.target.previousElementSibling.value;
+				let studyId = e.target.previousElementSibling.previousElementSibling.value;
+				pageStatus.value = 1;
+
+				fetch(`/customer/activity/group/study/${studyId}/approve?action=${action}&memberId=${memberId}`
+					, { method: "POST" })
+					.then(window.location = `index?pageStatus=${pageStatus.value}`);
+			} else if (e.target.tagName == "SPAN" && e.target.nextElementSibling.nextElementSibling.value == 0) {
+				e.target.nextElementSibling.childNodes[0].style.display = "block";
+				e.target.nextElementSibling.nextElementSibling.value = 1;
+			} else if (e.target.tagName == "SPAN" && e.target.nextElementSibling.nextElementSibling.value == 1) {
+				e.target.nextElementSibling.childNodes[0].style.display = "none";
+				e.target.nextElementSibling.nextElementSibling.value = 0;
+			} else if (e.target.tagName == "A") {
+				win = open(e.target.href, "win", "width=900, height=500");
+			}
+
+		});
+
+		applyBtn.addEventListener("click", (e) => {
+			if (clicked) {
+				applyTable.style.display = "none";
+				clicked = false;
+			} else {
+				applyTable.style.display = "block";
+				clicked = true;
+			}
+		});
+	}
 
 });
 

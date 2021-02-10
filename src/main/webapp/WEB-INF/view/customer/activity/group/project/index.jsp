@@ -40,7 +40,7 @@
 					
 					<form action="approve" method="post">
 						<div>
-						  <table class="table">
+						  <table class="apply-table">
 						  	<tbody class="tbody">
 						  		<c:forEach var="pwv" items="${pwv}">
 							  		<tr class="tr">
