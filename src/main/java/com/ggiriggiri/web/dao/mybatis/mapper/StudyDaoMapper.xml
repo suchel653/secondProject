@@ -13,7 +13,8 @@
 	<select id="getViewList" resultType="com.ggiriggiri.web.entity.StudyView">
 		select * from StudyView
 		<if test="title !=null">
-			where BINARY ${title} like '%${query}%'
+			where BINARY ${title} like '%${query}%' 
+			
 		</if>
 
 		and id in
@@ -27,6 +28,7 @@
 		<if test="ids == null">
 			(0)
 		</if>
+		and statusId = 1
 		order by regdate desc
 		limit #{size} offset #{offset}
 	</select>
