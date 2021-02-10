@@ -2,7 +2,7 @@
 		border:1px solid white;
 	}
 
-	.container{
+	.main .container{
 		overflow: hidden;
 		display: flex;
 		justify-content: center;
