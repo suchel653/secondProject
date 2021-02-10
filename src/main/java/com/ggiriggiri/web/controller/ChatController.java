@@ -12,7 +12,7 @@ import com.ggiriggiri.web.entity.ChatRoom;
 import com.ggiriggiri.web.service.ChatService;
 
 @Controller
-@RequestMapping("/chat")
+@RequestMapping("/study/chat")
 public class ChatController {
 
 	@Autowired

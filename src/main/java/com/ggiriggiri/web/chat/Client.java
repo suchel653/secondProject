@@ -4,15 +4,17 @@ import org.springframework.web.socket.WebSocketSession;
 
 public class Client {
 	private int type;
+	private int chatId;
 	private WebSocketSession session;
 	
 	public Client() {
 
 	}
 	
-	public Client(int type, WebSocketSession session) {
+	public Client(int type, int chatId, WebSocketSession session) {
 		super();
 		this.type = type;
+		this.chatId = chatId;
 		this.session = session;
 	}
 
@@ -30,6 +32,14 @@ public class Client {
 
 	public void setSession(WebSocketSession session) {
 		this.session = session;
+	}
+
+	public int getChatId() {
+		return chatId;
+	}
+
+	public void setChatId(int chatId) {
+		this.chatId = chatId;
 	}
 	
 	

@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 <%@ taglib prefix="s" uri="http://www.springframework.org/security/tags"%>
-=======
 <link rel="stylesheet" href="/css/customer/index.css"></link>
 <script src="/js/index.js"></script>
->>>>>>> refs/remotes/origin/master
+
 
 
 	

@@ -14,7 +14,8 @@ window.addEventListener("load",(e)=>{
 	let socket;
 	
 	if(socket == undefined)
-		socket = new WebSocket('ws://localhost:8080/chat');
+		socket = new WebSocket(`ws://localhost:8080/study/${chatId}/chat`);
+		
 		
 	socket.addEventListener('open',(e)=>{
 
