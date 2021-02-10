@@ -23,11 +23,13 @@
 				<div class="main-img"><img src="/images/projectImg/${pv.image}"/></div>
 				<h1>팀원 정보</h1>
 				<div>
-					<div style="width: 100px; border: 1px solid black; text-align: center;">팀장 : ${pv.leaderName} <input type="button" onclick="location.href='/customer/profile/${pv.leaderId}'" value="프로필 보기"/></div>
+					<div style="width: 100px; border: 1px solid black; text-align: center;">팀장 : ${pv.leaderName} 
+					<input type="button" onclick="window.open('/customer/profile/${pv.leaderId}','win','width=900,height=500')"'" value="프로필 보기"/></div>
 				</div>
 				<c:forEach var="pav" items="${pav}">
 					<div>
-						<div style="width: 100px; border: 1px solid black; text-align: center;">팀원 : ${pav.memberNickname} <input type="button" onclick="location.href='/customer/profile/${pav.memberId}'" value="프로필 보기"/></div>
+						<div style="width: 100px; border: 1px solid black; text-align: center;">팀원 : ${pav.memberNickname} 
+						<input type="button" onclick="window.open('/customer/profile/${pav.memberId}','win','width=900,height=500')" value="프로필 보기"/></div>
 					</div>
 				</c:forEach>
 			</div>
@@ -38,7 +40,7 @@
 					
 					<form action="approve" method="post">
 						<div>
-						  <table class="table">
+						  <table class="apply-table">
 						  	<tbody class="tbody">
 						  		<c:forEach var="pwv" items="${pwv}">
 							  		<tr class="tr">

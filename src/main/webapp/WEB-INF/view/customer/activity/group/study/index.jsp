@@ -23,11 +23,13 @@
 				<div class="main-img"><img src="/images/studyImg/${sv.id}/${sv.image}"/></div>
 				<h1>팀원 정보</h1>
 				<div>
-					<div style="width: 100px; border: 1px solid black; text-align: center;">팀장 : ${sv.leaderName} <input type="button" onclick="location.href='/customer/profile/${sv.leaderId}'" value="프로필 보기"/></div>
+					<div style="width: 100px; border: 1px solid black; text-align: center;">팀장 : ${sv.leaderName} 
+					<input type="button" onclick="window.open('/customer/profile/${sv.leaderId}','win','width=900,height=500')" value="프로필 보기"/></div>
 				</div>
 				<c:forEach var="sav" items="${sav}">
 					<div>
-						<div style="width: 100px; border: 1px solid black; text-align: center;">팀원 : ${sav.memberNickname} <input type="button" onclick="location.href='/customer/profile/${sav.memberId}'" value="프로필 보기"/></div>
+						<div style="width: 100px; border: 1px solid black; text-align: center;">팀원 : ${sav.memberNickname} 
+						<input type="button" onclick="window.open('/customer/profile/${sav.memberId}','win','width=900,height=500')" value="프로필 보기"/></div>
 					</div>
 				</c:forEach>
 			</div>
@@ -38,7 +40,7 @@
 					
 					<form action="approve" method="post">
 						<div>
-						  <table class="table">
+						  <table class="apply-table">
 						  	<tbody class="tbody">
 						  		<c:forEach var="swv" items="${swv}">
 							  		<tr class="tr">
