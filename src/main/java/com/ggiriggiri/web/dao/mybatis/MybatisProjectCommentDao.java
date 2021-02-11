@@ -31,5 +31,11 @@ public class MybatisProjectCommentDao implements ProjectCommentDao{
 		// TODO Auto-generated method stub
 		return mapper.insert(projectComment);
 	}
+
+	@Override
+	public int delete(int id) {
+		// TODO Auto-generated method stub
+		return mapper.delete(id);
+	}
 	
 }

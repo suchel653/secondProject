@@ -2,10 +2,6 @@ window.addEventListener("load", (e) => {
 
 	let id = document.querySelector(".boardId").value;
 
-	
-console.log(opener.document.querySelector(".detail"));
-console.log(opener.document.querySelector(".detail-content"));
-
 	let editBtn = document.querySelector(".edit-btn");
 	let cancelBtn = document.querySelector(".cancel-btn");
 	editBtn.addEventListener("click", (e) => {
@@ -33,9 +29,7 @@ console.log(opener.document.querySelector(".detail-content"));
 				body: JSON.stringify(board)
 			})
 			.then(response=>response.json())
-			.then(json=>{
-				let cmtCnt = json.cmtCnt;
-				
+			.then(cmtCnt=>{
 				detailContent.innerText = board.content;
 				titleContent.data= `${board.title}(${cmtCnt})`;
 				self.close();

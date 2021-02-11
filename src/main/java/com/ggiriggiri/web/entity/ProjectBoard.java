@@ -11,7 +11,6 @@ public class ProjectBoard {
 	private String content;
 	private Date regDate;
 	
-	private List<ProjectCommentView> comment;
 	
 	public ProjectBoard() {
 	}
@@ -83,14 +82,6 @@ public class ProjectBoard {
 	}
 
 
-	public List<ProjectCommentView> getComment() {
-		return comment;
-	}
-
-
-	public void setComment(List<ProjectCommentView> comment) {
-		this.comment = comment;
-	}
 	
 	
 	

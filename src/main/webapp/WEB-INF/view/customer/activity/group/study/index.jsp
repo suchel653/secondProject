@@ -23,78 +23,81 @@
 				<div class="main-img"><img src="/images/studyImg/${sv.id}/${sv.image}"/></div>
 				<h1>팀원 정보</h1>
 				<div>
-					<div style="width: 100px; border: 1px solid black; text-align: center;">팀장 : ${sv.leaderName} <input type="button" onclick="location.href='/customer/profile/${sv.leaderId}'" value="프로필 보기"/></div>
+					<div style="width: 100px; border: 1px solid black; text-align: center;">팀장 : ${sv.leaderName} 
+					<input type="button" onclick="window.open('/customer/profile/${sv.leaderId}','win','width=900,height=500')" value="프로필 보기"/></div>
 				</div>
 				<c:forEach var="sav" items="${sav}">
 					<div>
-						<div style="width: 100px; border: 1px solid black; text-align: center;">팀원 : ${sav.memberNickname} <input type="button" onclick="location.href='/customer/profile/${sav.memberId}'" value="프로필 보기"/></div>
+						<div style="width: 100px; border: 1px solid black; text-align: center;">팀원 : ${sav.memberNickname} 
+						<input type="button" onclick="window.open('/customer/profile/${sav.memberId}','win','width=900,height=500')" value="프로필 보기"/></div>
 					</div>
 				</c:forEach>
 			</div>
-			<div style="display: flex; flex-direction: column; align-items: center;">
-				<input hidden class="pageStatus" value="${pageStatus}" />
-				<input type="button" value="지원 관리" class="apply-Btn"/>
-				
-				<form action="approve" method="post">
-					<div>
-					  <table class="table">
-					  	<tbody class="tbody">
-					  		<c:forEach var="swv" items="${swv}">
-						  		<tr class="tr">
-							  		<td>
-							  			<span class="apply-span">${swv.memberNickname}님이 지원하였습니다. <fmt:formatDate value="${swv.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
-							  			<%-- <li style="display:none;">${swv.comment} <a href="/customer/profile/${swv.memberId} ">${swv.memberNickname}님 프로필 확인</a></li> --%>
-							  			<div><li style="display:none;">${swv.comment} 
-							  			<a href="/customer/profile/${swv.memberId}"> ${swv.memberNickname}님 프로필 확인</a></li>
-							  			</div>
-							  			<input hidden class="commentValue" value="0" />
-							  		</td>
-							  		<td>
-							  			<input hidden name="studyId" value="${swv.studyId}" />
-							  			<input hidden name="memberId" value="${swv.memberId}" />
-							  			<input type="submit" name="action" value="승인"/>
-							  		</td>
-							  		<td>
-							  			<input hidden name="studyId" value="${swv.studyId}" />
-							  			<input hidden name="memberId" value="${swv.memberId}" />
-							  			<input type="submit" name="action" value="거절"/>
-							  		</td>
-								</tr>
-							</c:forEach>
-					  	</tbody>
-					  </table>
-					</div>
-				</form>
-			</div>
+			<input hidden class="pageStatus" value="${pageStatus}" />
+			<c:if test="${sessionScope.id == sv.leaderId}">
+				<div style="display: flex; flex-direction: column; align-items: center;">
+					<input type="button" value="지원 관리" class="apply-Btn"/>
+					
+					<form action="approve" method="post">
+						<div>
+						  <table class="apply-table">
+						  	<tbody class="tbody">
+						  		<c:forEach var="swv" items="${swv}">
+							  		<tr class="tr">
+								  		<td>
+								  			<span class="apply-span">${swv.memberNickname}님이 지원하였습니다. <fmt:formatDate value="${swv.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
+								  			<%-- <li style="display:none;">${swv.comment} <a href="/customer/profile/${swv.memberId} ">${swv.memberNickname}님 프로필 확인</a></li> --%>
+								  			<div><li style="display:none;">${swv.comment} 
+								  			<a href="/customer/profile/${swv.memberId}"> ${swv.memberNickname}님 프로필 확인</a></li>
+								  			</div>
+								  			<input hidden class="commentValue" value="0" />
+								  		</td>
+								  		<td>
+								  			<input hidden name="studyId" value="${swv.studyId}" />
+								  			<input hidden name="memberId" value="${swv.memberId}" />
+								  			<input type="submit" name="action" value="승인"/>
+								  		</td>
+								  		<td>
+								  			<input hidden name="studyId" value="${swv.studyId}" />
+								  			<input hidden name="memberId" value="${swv.memberId}" />
+								  			<input type="submit" name="action" value="거절"/>
+								  		</td>
+									</tr>
+								</c:forEach>
+						  	</tbody>
+						  </table>
+						</div>
+					</form>
+				</div>
+			</c:if>
 
 		</div>
 
+		<input type="hidden" class="memberId" value="${id}">
 		<div class="box2"
 			style="width: 500px; hegiht: 900px; border: 1px solid black;">
 			<div class="table"
 				style="display: flex; flex-direction: column; align-items: center;">
 				<div>
 					<h1 style="display: inline-block; margin-left: 50px;">게시판</h1>
-					<input type="button" value="등록" style="margin-left: 30px;" />
+					<input class="board-reg" type="button" value="등록" style="margin-left: 30px;" />
 				</div>
-				<div>
+				<div class="bodrd">
 					<table>
 						<thead>
-							<th>번호</th>
+						<tr>
+						
 							<th>제목</th>
 							<th>작성자</th>
 							<th>등록일</th>
+						</tr>
 						</thead>
-						<tbody>
-							<td>1</td>
-							<td>안녕하세요</td>
-							<td>성현</td>
-							<td>2010-03-02</td>
+						<tbody class="boardTbody">
 						</tbody>
 					</table>
 
 				</div>
-				<input type="button" value="+" />
+				<input class="board-plus-btn" type="button" value="+" />
 			</div>
 		</div>
 

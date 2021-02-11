@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.info-div {
+	padding-top: 50px;
+}
+
+.main-img > img {
+	padding: 30px 0px;
+	max-width: 400px;
+	max-height: 400px;
+}
+
+.apply-span {
+	background-color: #eee;
+	display: block;
+	color: #444;
+	cursor: pointer;
+	height: 30px;
+	font-size: 15px;
+	transition: 0.4s;
+	--vertical-align: middle;
+	line-height:30px;
+}
+
+.tr li {
+	background: beige;
+	height: 30px;
+	line-height:30px;
+}
+
+.apply-Btn {
+	margin : 10px 0px;
+}

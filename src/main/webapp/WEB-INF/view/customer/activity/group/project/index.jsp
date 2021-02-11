@@ -9,61 +9,67 @@
 <title>Insert title here</title>
 <script src="/js/customer/activity/group/project/index.js"></script>
 <link href="/css/reset.css" type="text/css" rel="stylesheet" />
+<link href="/css/customer/activity/group/index.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-	<div class="container"
-		style="width: 1500px; height: 900px; border: 1px solid black; display: flex;">
-		<div class="box1"
-			style="width: 500px; hegiht: 900px; border: 1px solid black;">
-			<div
-				style="display: flex; flex-direction: column; align-items: center;">
+	<div class="container" style="width: 1500px; height: 900px; border: 1px solid black; display: flex;">
+		<div class="box1" style="width: 500px; hegiht: 900px; border: 1px solid black;">
+			<div class="info-div" style="display: flex; flex-direction: column; align-items: center;">
 				<input hidden value="${pv.id}" /> 
-				<input type="button" value="정보" class="info" />
+				<input type="button" value="정보" class="info-Btn" />
 			</div>
 
-			<div
-				style="display: flex; flex-direction: column; align-items: center;">
+			<div style="display: flex; flex-direction: column; align-items: center;">
+				<div class="main-img"><img src="/images/projectImg/${pv.image}"/></div>
 				<h1>팀원 정보</h1>
 				<div>
-					<div style="width: 100px; border: 1px solid black; text-align: center;">팀장 : ${pv.leaderName}</div>
+					<div style="width: 100px; border: 1px solid black; text-align: center;">팀장 : ${pv.leaderName} 
+					<input type="button" onclick="window.open('/customer/profile/${pv.leaderId}','win','width=900,height=500')"'" value="프로필 보기"/></div>
 				</div>
 				<c:forEach var="pav" items="${pav}">
 					<div>
-						<div style="width: 100px; border: 1px solid black; text-align: center;">팀원 : ${pav.memberNickname}</div>
+						<div style="width: 100px; border: 1px solid black; text-align: center;">팀원 : ${pav.memberNickname} 
+						<input type="button" onclick="window.open('/customer/profile/${pav.memberId}','win','width=900,height=500')" value="프로필 보기"/></div>
 					</div>
 				</c:forEach>
 			</div>
-			<div style="display: flex; flex-direction: column; align-items: center;">
-				<input type="button" value="지원 관리" class="apply-Btn"/>
-				
-				<form action="approve" method="post">
-					<div class="panel">
-					  <table>
-					  	<tbody class="tbody">
-					  		<c:forEach var="pwv" items="${pwv}">
-					  			
-						  		<tr>
-							  		<td>
-							  			<span>${pwv.memberNickname}님이 지원하였습니다.</span>
-										<span class="date-fmt"><fmt:formatDate value="${pwv.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
-							  		</td>
-							  		<td>
-							  			<input hidden name="id" value="${pwv.projectId}" />
-							  			<input hidden name="id" value="${pwv.memberId}" />
-							  			<input class="a" type="submit" name="action" value="승인">
-							  		</td>
-							  		<td>
-							  			<input hidden name="id" value="${pwv.projectId}" />
-							  			<input hidden name="id" value="${pwv.memberId}" />
-							  			<input class="b" type="submit" name="action" value="거절">
-							  		</td>
-								</tr>
-							</c:forEach>
-					  	</tbody>
-					  </table>
-					</div>
-				</form>
-			</div>
+			<input hidden class="pageStatus" value="${pageStatus}" />
+			<c:if test="${sessionScope.id == pv.leaderId}">
+				<div style="display: flex; flex-direction: column; align-items: center;">
+					<input type="button" value="지원 관리" class="apply-Btn"/>
+					
+					<form action="approve" method="post">
+						<div>
+						  <table class="apply-table">
+						  	<tbody class="tbody">
+						  		<c:forEach var="pwv" items="${pwv}">
+							  		<tr class="tr">
+								  		<td>
+								  			<span class="apply-span">${pwv.memberNickname}님이 지원하였습니다. <fmt:formatDate value="${pwv.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
+								  			<%-- <li style="display:none;">${pwv.comment} <a href="/customer/profile/${pwv.memberId} ">${pwv.memberNickname}님 프로필 확인</a></li> --%>
+								  			<div><li style="display:none;">${pwv.comment} 
+								  			<a href="/customer/profile/${pwv.memberId}"> ${pwv.memberNickname}님 프로필 확인</a></li>
+								  			</div>
+								  			<input hidden class="commentValue" value="0" />
+								  		</td>
+								  		<td>
+								  			<input hidden name="projectId" value="${pwv.projectId}" />
+								  			<input hidden name="memberId" value="${pwv.memberId}" />
+								  			<input type="submit" name="action" value="승인"/>
+								  		</td>
+								  		<td>
+								  			<input hidden name="projectId" value="${pwv.projectId}" />
+								  			<input hidden name="memberId" value="${pwv.memberId}" />
+								  			<input type="submit" name="action" value="거절"/>
+								  		</td>
+									</tr>
+								</c:forEach>
+						  	</tbody>
+						  </table>
+						</div>
+					</form>
+				</div>
+			</c:if>
 
 		</div>
 

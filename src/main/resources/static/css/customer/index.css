@@ -1,0 +1,82 @@
+.main{
+		border:1px solid white;
+	}
+
+	.main .container{
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+	}
+		
+	.audio-btn{
+		color:white;
+		cursor: pointer;
+		font-size: 30px;
+	}
+	
+		
+	.star-wars {
+	  display: flex;
+	  justify-content: center;
+	  position: relative;
+	  height: 800px;
+	  font-size: 500%;
+	  font-weight: 600;
+	  letter-spacing: 6px;
+	  line-height: 150%;
+	  perspective: 400px;
+	  text-align: justify;
+	}
+		
+		
+	.visual{
+		height:100%;
+		color:white;
+		font-size:200px;
+		position: relative;
+	    transform-origin: 50% 100%;
+	    animation: crawl 30s linear infinite;
+	}
+	
+		.visual div{
+			margin-top:200px;
+			transition: all 0.5s;
+		}
+		
+		.visual div:nth-child(1){
+			text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 100px #FF1177, 0 0 150px #FF1177;
+		}.visual div:nth-child(2){
+			text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #4169E1, 0 0 70px #4169E1, 0 0 80px #4169E1, 0 0 100px #4169E1, 0 0 150px #4169E1;
+		}.visual div:nth-child(3){
+			text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FFDD1B, 0 0 70px #FFDD1B, 0 0 80px #FFDD1B, 0 0 100px #FFDD1B, 0 0 150px #FFDD1B;
+		}.visual div:nth-child(4){
+			text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #B6FF00, 0 0 70px #B6FF00, 0 0 80px #B6FF00, 0 0 100px #B6FF00, 0 0 150px #B6FF00;
+		}.visual div:nth-child(5){
+			text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF9900, 0 0 70px #FF9900, 0 0 80px #FF9900, 0 0 100px #FF9900, 0 0 150px #FF9900;
+		}.visual div:nth-child(6){
+			text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+		}.visual div:nth-child(7){
+			text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #F08080, 0 0 70px #F08080, 0 0 80px #F08080, 0 0 100px #F08080, 0 0 150px #F08080;
+		}
+		
+		
+ @keyframes crawl {
+  0% {
+    top: 100%;
+    transform: rotateX(20deg)  translateZ(0);
+  }
+  100% { 
+    top: -5000px;
+    transform: rotateX(25deg) translateZ(-2500px);
+  }
+}
+
+
+
+ 
+
+
+
+
+
+

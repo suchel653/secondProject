@@ -30,7 +30,7 @@ public class WebSecurityConfig {
 				.authorizeRequests()
 					.antMatchers("/customer/login","/customer/join","/customer/checkMail",
 							"/customer/checkDuplicate","/customer/study/list","/customer/project/list",
-							"/customer/study/","/customer/project/{idasdasd}")
+							"/customer/study/{id}","/customer/project/{id}")
 					.permitAll()
 					.antMatchers("/admin/**").hasRole("ADMIN")
 					.antMatchers("/customer/**").hasAnyRole("MEMBER","ADMIN")
