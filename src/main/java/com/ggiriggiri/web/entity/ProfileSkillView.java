@@ -8,8 +8,8 @@ public class ProfileSkillView extends ProfileSkill{
 		// TODO Auto-generated constructor stub
 	}
 
-	public ProfileSkillView(int id, int profileId, int skillId,String skillName) {
-		super(id, profileId, skillId);
+	public ProfileSkillView(int id, int profileId, int skillId, int level, String skillName) {
+		super(id, profileId, skillId, level);
 		this.skillName = skillName;
 	}
 
