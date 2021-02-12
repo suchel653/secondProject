@@ -1,7 +1,24 @@
 @charset "UTF-8";
+
 .contest-detail .content{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
+
+.detail-container table th,
+.detail-container table td{
+	text-align: center;
+}
+
+.detail-container table th{
+	width: 120px;
+}
+
+
+.content img,
+.content span{
+	margin-top:50px;
+}
+
