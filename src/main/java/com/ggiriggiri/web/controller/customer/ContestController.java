@@ -45,6 +45,8 @@ public class ContestController {
 	public String detail( Model model,@PathVariable("id") Integer id ) {
 		
 		Contest c = service.get(id);
+		c.setHit(c.getHit()+1);
+		service.update(c);
 		Contest prev = service.getPrev(id);
 		Contest next = service.getNext(id);
 

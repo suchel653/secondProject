@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+.contest{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column; 
+}
+
+.contest .search-query{
+	width: 100%;
+}
+
+.contest .search-query input:nth-child(2){
+	width: 200px;
+}
+
+.contest .contest-list{
+	margin-top:50px;
+	width:70%;
+	height:500px;
+	border-radius: 20px;
+	text-align: center;
+	color:white;
+}
+
+.contest-list tr,
+.contest-list td{
+	vertical-align: middle;
+}
+
+.pager{
+	margin-top:50px;
+}
