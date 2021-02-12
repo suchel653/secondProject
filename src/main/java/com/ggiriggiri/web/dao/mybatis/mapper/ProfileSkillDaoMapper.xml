@@ -6,4 +6,8 @@
 	<select id="getViewListByProfileId" resultType="com.ggiriggiri.web.entity.ProfileSkillView">
 		select * from ProfileSkillView where profileId=#{profileId}
 	</select>
+	<insert id="insert" parameterType="com.ggiriggiri.web.entity.ProfileSkill">
+		insert into ProfileSkill (profileId, skillId)
+		values (#{profileId}, #{skillId});
+	</insert>
 </mapper>

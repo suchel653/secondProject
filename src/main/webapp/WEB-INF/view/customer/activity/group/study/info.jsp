@@ -2,81 +2,95 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<script src="/js/customer/activity/group/study/info.js"></script>
+<script src="/js/customer/study/apply.js"></script>
+<link href="/css/customer/detail-list.css" type="text/css" rel="stylesheet" />
 
-<main id="main" class="main">
+<main id="main" class="main detail dmain">
 	<h1 class="d-none">스터디 정보</h1>
 
 	<div class="container">
 		<section>
-
+		
 			<div class="title">
-				<h1>${s.title}</h1>
+				<h1 class="flux">${s.title}</h1>
 			</div>
 
-			<div>
-				<img src="/images/studyImg/${s.id}/${s.image }"></img>
-				<table border="1">
+			<div class="detail-container">
+
+				<c:if test="${s.image != 'img1.jpg'}">
+					<img class="p-image" src="/images/studyImg/${s.id}/${s.image}"></img>
+				</c:if>
+				<c:if test="${s.image == 'img1.jpg'}">
+					<img class="p-image" src="/images/studyImg/${s.image}"></img>
+				</c:if>
+
+				<table>
 					<tbody>
 						<tr>
-							<th>분야 :</th>
+							<th>field</th>
 							<td>${s.fieldName }</td>
 						</tr>
 						<tr>
-							<th>기술 :</th>
-							<td><c:forEach var="s" items="${s.skill }" varStatus="st">
-								${s.skillName } 
-								<c:if test="${!st.last }">
-									/
-								</c:if>
-								</c:forEach></td>
+							<th>skill</th>
+							<td>
+								<c:forEach var="s" items="${s.skill }" varStatus="st">
+									${s.skillName } 
+									<c:if test="${!st.last }">
+										/
+									</c:if>
+								</c:forEach>
+							</td>
 						</tr>
 						<tr>
-							<th>언어 :</th>
-							<td><c:forEach var="l" items="${s.language }" varStatus="st">
-								${l.languageName } 
-								<c:if test="${!st.last }">
-									/
-								</c:if>
-								</c:forEach></td>
+							<th>language</th>
+							<td><c:forEach var="l" items="${s.language}" varStatus="st">
+									<img src="/images/language/${l.image}" style="width: 40px; height: 40px;" />
+								</c:forEach>
+							</td>
 						</tr>
 						<tr>
-							<th>인원 :</th>
+							<th>file</th>
+							<td><c:forEach var="f" items="${s.files}" varStatus="st">
+									<a download href="/images/studyFile/${s.id}/${f.name}">${f.name}</a>
+									<c:if test="${!st.last }">
+										/
+									</c:if>
+								</c:forEach>
+							</td>
+						</tr>
+						<tr>
+							<th>recruitment</th>
 							<td>${s.limitNumber}</td>
 						</tr>
 						<tr>
-							<th>요구사항 :</th>
+							<th>requirement</th>
 							<td>${s.requirement }</td>
 						</tr>
 						<tr>
-							<th>진행일 :</th>
-							<td><fmt:formatDate value="${s.startDate}"
-									pattern="yyyy-MM-dd" />~ <fmt:formatDate value="${s.endDate }"
-									pattern="yyyy-MM-dd" /></td>
+							<th>Progress Date</th>
+							<td>
+								<fmt:formatDate value="${s.startDate}" pattern="yyyy-MM-dd" />
+								~ 
+								<fmt:formatDate value="${s.endDate }" pattern="yyyy-MM-dd" />
+							</td>
 						</tr>
+
 						<tr>
-							<th>상태 :</th>
-							<td>${s.statusName }</td>
-						</tr>
-						<tr>
-							<th>작성자 :</th>
+							<th>leader</th>
 							<td>${s.leaderName }</td>
 						</tr>
 						<tr>
-							<th>등록일 :</th>
+							<th>registration date</th>
 							<td><fmt:formatDate value="${s.regDate }"
-									pattern="yyyy-MM-dd" /></td>
+									pattern="yyyy-MM-dd" />
+							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 
-			<div class="content-box"></div>
-
-			<div>
-				<input type="button" value="창 닫기" class="close-Btn" />
-			</div>
+			<div class="content">${s.content}</div>
 
 		</section>
-	</div>
+
 </main>

@@ -12,6 +12,11 @@
 	           <nav>
 	               <h1 class="d-none">헤더 목록</h1>
 	               <ul>
+		               <li>
+		               		<a href="/index">
+		               		<i class="fas fa-book-open"></i> HOMEPAGE
+		               		</a>
+		               </li>
 	                   <li>
 	                   	   <a href="/admin/member/list">
 	                           <i class="fas fa-address-card"></i> MEMBER
