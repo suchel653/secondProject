@@ -21,7 +21,14 @@
 			</div>
 
 			<div style="display: flex; flex-direction: column; align-items: center;">
-				<div class="main-img"><img src="/images/studyImg/${sv.id}/${sv.image}"/></div>
+				<div class="main-img">
+					<c:if test="${sv.image != 'img1.jpg'}">
+						<img src="/images/studyImg/${sv.id}/${sv.image}"></img>
+					</c:if>
+					<c:if test="${sv.image == 'img1.jpg'}">
+						<img src="/images/studyImg/${sv.image}"></img>
+					</c:if>
+				</div>
 				<h1>팀원 정보</h1>
 				<div>
 					<div style="width: 100px; border: 1px solid black; text-align: center;">팀장 : ${sv.leaderName} 

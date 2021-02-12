@@ -67,6 +67,19 @@
 				<div class="menu-name">
 					<span>Skill</span>
 				</div>
+				<ul class="language-list">
+					<c:forEach var="ps" items="${p.skillList }" varStatus="status">
+						<li class="skill-items">
+							<div>
+								<img src="/images/profileImg/profileSkill/${status.index}.png">
+								<div>${ps.skillName}</div>
+							</div>
+							<input type="text" value="${ps.level}" class="skill-level"> 
+							<i class="fas fa-minus-circle"></i>
+							<i class="fas fa-plus-circle"></i>
+						</li>
+					</c:forEach>
+				</ul>
 			</div>
 			<div class="career">
 				<div class="menu-name">

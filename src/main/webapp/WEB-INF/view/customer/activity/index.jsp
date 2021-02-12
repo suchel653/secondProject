@@ -107,7 +107,12 @@
 							
 							<div class="sp-box2">
 							<div class="sp-content-box">
-								<img src="/images/studyImg/${osv.id}/${osv.image}" class="img-size">
+								<c:if test="${osv.image != 'img1.jpg'}">
+									<img src="/images/studyImg/${osv.id}/${osv.image}" class="img-size"></img>
+								</c:if>
+								<c:if test="${osv.image == 'img1.jpg'}">
+									<img src="/images/studyImg/${osv.image}" class="img-size"></img>
+								</c:if>
 								<div class="img-size sp-box3">
 									<span class="sp-title"> ${osv.title}</span>
 									<span>인원 : ${osv.memberCount}/${osv.limitNumber}</span>
@@ -165,7 +170,12 @@
 						<a class="group-page" href="group/study/${wsv.id}/index">
 							<div class="sp-box2">
 								<div class="sp-content-box">
-									<img src="/images/studyImg/${wsv.id}/${wsv.image}" class="img-size">
+									<c:if test="${wsv.image != 'img1.jpg'}">
+										<img src="/images/studyImg/${wsv.id}/${wsv.image}" class="img-size"></img>
+									</c:if>
+									<c:if test="${wsv.image == 'img1.jpg'}">
+										<img src="/images/studyImg/${wsv.image}" class="img-size"></img>
+									</c:if>
 									<div class="img-size sp-box3">
 										<span class="sp-title"> ${wsv.title}</span>
 										<span>인원 : ${wsv.memberCount}/${wsv.limitNumber}</span>
@@ -216,7 +226,12 @@
 						<a class="group-page" href="group/study/${esv.id}/index">
 							<div class="sp-box2 ">
 								<div class="sp-content-box">
-									<img src="/images/studyImg/${esv.id}/${esv.image}" class="img-size">
+									<c:if test="${esv.image != 'img1.jpg'}">
+										<img src="/images/studyImg/${esv.id}/${esv.image}" class="img-size"></img>
+									</c:if>
+									<c:if test="${esv.image == 'img1.jpg'}">
+										<img src="/images/studyImg/${esv.image}" class="img-size"></img>
+									</c:if>
 									<div class="img-size sp-box3">
 										<span class="sp-title"> ${esv.title}</span>
 										<span>인원 : ${esv.memberCount}/${esv.limitNumber}</span>

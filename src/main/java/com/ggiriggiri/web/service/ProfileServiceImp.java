@@ -57,12 +57,16 @@ public class ProfileServiceImp implements ProfileService{
 	@Override
 	public Profile get(int id) {
 		
-		Profile p = profileDao.get(id);
+		Profile p = new Profile();
+		if(profileDao.get(id) != null)
+			p = profileDao.get(id);
+		
 		p.setExperienceList(experienceDao.getListByProfileId(p.getId()));
 		p.setProjectList(projectDao.getListByProfileId(p.getId()));
 		p.setSkillList(profileSkillDao.getViewListByProfileId(p.getId()));
 		p.setLanguageList(profileLanguageDao.getViewListByProfileId(p.getId()));
 		p.setStudyList(studyDao.getListByProfileId(p.getId()));
+		
 		return p;
 	}
 

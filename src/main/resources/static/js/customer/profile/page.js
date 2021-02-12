@@ -2,7 +2,7 @@ window.addEventListener("load", function(){
 	let container = document.querySelector(".container");
 	let memberId = document.querySelector(".member-id");
 	console.log(memberId.value);
-	if(memberId.value==null || memberId.value==""){
+	if(memberId.value==null || memberId.value=="" || memberId.value == 0){
 		let div = `
 				<div class="profile-reg">
 					<span>프로필이 아직 없으시네요 프로필을 생성해주세요</span>
