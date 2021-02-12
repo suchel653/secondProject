@@ -63,8 +63,29 @@ window.addEventListener("load", function(){
 		}
 		
 		submitButton.addEventListener("click", (e)=>{
-			let languageLevel = document.querySelectorAll("language-level");
-			console.log(languageLevel.value);
+			let languageValue = document.querySelectorAll(".language-level");
+			let languageLevel = [];
+			
+			for(let i=0; i<languageValue.length; i++)
+				languageLevel.push(languageValue[i].value);
+			
+			
+			let data = {
+				
+				languageLevel
+				
+			}
+			
+			fetch(`/customer/profile/update`,
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(data)
+			})
+			
+			alert("123");
 		})
 		
 	}

@@ -29,16 +29,13 @@ public class MybatisProfileLanguageDao implements ProfileLanguageDao{
 	}
 
 	@Override
-	public List<ProfileLanguage> getByProfileId(int profileId) {
-		return mapper.getByProfileId(profileId);
+	public int update(int profileId, int languageId, int level) {
+		return mapper.update(profileId, languageId, level);
 	}
-	
+
 	@Override
 	public List<ProfileLanguageView> getViewListByProfileId(int profileId) {
 
 		return mapper.getViewListByProfileId(profileId);
 	}
-
-	
-
 }

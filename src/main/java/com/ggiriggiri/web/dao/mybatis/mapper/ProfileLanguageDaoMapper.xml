@@ -8,6 +8,13 @@
 		insert into ProfileLanguage (profileId, languageId)
 		values (#{profileId},#{languageId});
 	</insert>
+	<update id="update" parameterType="com.ggiriggiri.web.entity.ProfileLanguage">
+		update ProfileLanguage
+		set
+			level = #{level}
+		where profileId = #{profileId}
+		and languageId = #{languageId}
+	</update>
 	<select id="getViewListByProfileId" resultType="com.ggiriggiri.web.entity.ProfileLanguageView">
 		select * from ProfileLanguageView where profileId=#{profileId}
 	</select>

@@ -48,8 +48,10 @@ public class ProfileServiceImp implements ProfileService{
 
 	@Override
 	public int update(Profile profile) {
-		// TODO Auto-generated method stub
-		return profileDao.update(profile);
+		profileDao.update(profile);
+		for(int i=0; i<languageDao.getList().size(); i++)
+			profileLanguageDao.update(profileDao.get(profile.getMemberId()).getId(),i+1, profile.getLanguageList().get(i).getLevel());
+		return 0;
 	}
 
 	@Override

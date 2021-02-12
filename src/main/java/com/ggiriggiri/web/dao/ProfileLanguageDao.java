@@ -8,7 +8,6 @@ import com.ggiriggiri.web.entity.ProfileSkill;
 
 public interface ProfileLanguageDao {
 	int insert(int profileId, int languageId);
-
-	List<ProfileLanguage> getByProfileId(int profileId);
+	int update(int profileId, int languageId, int level);
 	List<ProfileLanguageView> getViewListByProfileId(int profileId);
 }
