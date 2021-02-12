@@ -1,6 +1,7 @@
 package com.ggiriggiri.web.chat;
 
 public class ChatMessage {
+	private int type;
 	private int chatId;
 	private String username;
 	private String chatData;
@@ -22,6 +23,12 @@ public class ChatMessage {
 	}
 	public void setChatData(String chatData) {
 		this.chatData = chatData;
+	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
 	}
 	
 }

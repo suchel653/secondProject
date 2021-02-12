@@ -4,9 +4,11 @@ window.addEventListener("load",(e)=>{
 	const sendButton = section.querySelector(".send-btn");
 	const nickname = section.querySelector(".nickname");
 	const chatId = section.querySelector(".chat-id").value;
+	const type = section.querySelector(".type").value;
 	
 	let username = nickname.value;
 	let message = {
+		type,
 		chatId,
 		username,
 		chatData:""
@@ -14,8 +16,7 @@ window.addEventListener("load",(e)=>{
 	let socket;
 	
 	if(socket == undefined)
-		socket = new WebSocket(`ws://localhost:8080/study/${chatId}/chat`);
-		
+		socket = new WebSocket(`ws://localhost:8080/chat/${type}/${chatId}`);
 		
 	socket.addEventListener('open',(e)=>{
 
