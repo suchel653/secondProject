@@ -8,6 +8,7 @@
 <script src="/js/customer/profile/page.js"></script>
 <link href="/css/reset.css" type="text/css" rel="stylesheet" />
 <link href="/css/customer/profile.css" type="text/css" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/b280fc7aa7.js" crossorigin="anonymous"></script>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -34,7 +35,7 @@
 			</div>
 		</div>
 		<div class="detail">
-			<div class="introduce">
+			<div class="introduce selected">
 				<div class="menu-name">
 					<span>Introduce</span>
 				</div>
@@ -44,54 +45,23 @@
 						웹 프로그래머가 되는 것이 목표입니다.</span>
 				</div>
 			</div>
-			<div class="language selected">
+			<div class="language">
 				<div class="menu-name">
 					<span>Language</span>
 				</div>
-				<table class="language-table">
-					<tr>
-						<td>
-							<img src="/images/language/c.png">
-							<div>c</div>
-						</td>
-						<td>
-							<img src="/images/language/c++.png">
-							<div>c++</div>
-						</td>
-						<td>
-							<img src="/images/language/cSharp.png">
-							<div>c#</div>
-						</td>
-					</tr>					
-					<tr>
-						<td>
-							<img src="/images/language/css.png">
-							<div>css</div>
-						</td>
-						<td>
-							<img src="/images/language/go.png">
-							<div>go</div>
-						</td>
-						<td>
-							<img src="/images/language/html.png">
-							<div>html</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<img src="/images/language/java.png">
-							<div>java</div>
-						</td>
-						<td>
-							<img src="/images/language/javaScript.png">
-							<div>js</div>
-						</td>
-						<td>
-							<img src="/images/language/swift.png">
-							<div>swift</div>
-						</td>
-					</tr>
-				</table>
+				<ul class="language-list">
+					<c:forEach var="pl" items="${p.languageList }">
+						<li class="language-items">
+							<div>
+								<img src="/images/language/${pl.image}">
+								<div>${pl.languageName}</div>
+							</div>
+							<input type="text" value="${pl.level}" class="language-level"> 
+							<i class="fas fa-minus-circle"></i>
+							<i class="fas fa-plus-circle"></i>
+						</li>
+					</c:forEach>
+				</ul>
 			</div>
 			<div class="skill">
 				<div class="menu-name">
@@ -103,6 +73,7 @@
 					<span>Career</span>
 				</div>
 			</div>
+			<input type="button" value="제출" id="submit">
 		</div>
 	</div>
 </body>

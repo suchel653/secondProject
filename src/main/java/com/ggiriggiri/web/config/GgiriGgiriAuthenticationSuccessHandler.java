@@ -43,7 +43,7 @@ public class GgiriGgiriAuthenticationSuccessHandler extends SavedRequestAwareAut
 			Member m = memberService.get(email);
 			session.setAttribute("id", m.getId());
 			session.setAttribute("nickname", m.getNickname());
-			session.setAttribute("image",m.getProfile().getImage());
+//			session.setAttribute("image",m.getProfile().getImage());
 			
 			System.out.println(session.getAttribute("id"));
 			Set<String> authorities = AuthorityUtils.authorityListToSet(authentication.getAuthorities());

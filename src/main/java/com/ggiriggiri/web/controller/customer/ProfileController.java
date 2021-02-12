@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ggiriggiri.web.entity.Profile;
 import com.ggiriggiri.web.service.ProfileService;
@@ -30,11 +32,17 @@ public class ProfileController {
 		return "customer.profile.page";
 	}
 	
+	@PostMapping("update")
+	public void update(HttpSession session, @RequestBody Profile profile) {
+		int memberId = (int) session.getAttribute("id");
+		System.out.println(profile.getLanguageList());
+		
+	}
+	
 	@PostMapping("reg")
 	public void reg(HttpSession session) {
 		int memberId = (int) session.getAttribute("id");
-		System.out.println(memberId);
-
+		System.out.println("멤버 아이디"+memberId);
 		Profile profile = new Profile();
 		profile.setMemberId(memberId);
 		service.insert(profile);		

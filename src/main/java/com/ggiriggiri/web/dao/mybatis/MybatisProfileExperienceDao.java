@@ -28,4 +28,10 @@ public class MybatisProfileExperienceDao implements ProfileExperienceDao{
 		return mapper.getListByProfileId(profileId);
 	}
 
+	@Override
+	public void insert(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

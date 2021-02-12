@@ -190,6 +190,7 @@ window.addEventListener("load", (e) => {
 			.then(json => {
 				let commentList = "";
 				let reged = false;
+				console.log(json);
 				for (let comment of json) {
 					let cmtAuth = "";
 					if (writerId == comment.writerId) {
@@ -203,7 +204,7 @@ window.addEventListener("load", (e) => {
 					commentList += `<div>
 									 <span>${comment.writerNickname}</span> 
 									: <span>${comment.content}<span> 
-									<span>${comment.regDate}</span>
+									<span>${new Date(comment.regDate).toLocaleString("ko-KR", { timeZone: "Asia/Seoul" })}</span>
 									<input type="hidden" value="${comment.id}"/>
 									${cmtAuth}
 									 </div>`;
