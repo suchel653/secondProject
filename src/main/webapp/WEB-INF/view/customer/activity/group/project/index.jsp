@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="/js/customer/activity/group/project/index.js"></script>
+<script src="/js/customer/activity/group/chat-client.js"></script>    
 <link href="/css/reset.css" type="text/css" rel="stylesheet" />
 <link href="/css/customer/activity/group/index.css" type="text/css" rel="stylesheet" />
 </head>
@@ -109,9 +110,14 @@
 				<div style="width: 300px; height: 300px; border: 1px solid black;"></div>
 			</div>
 
-			<div style="display: flex; flex-direction: column; align-items: center; justify-content: space-around;">
+			<div class="chat" style="width:300px;height:300px;border: 1px solid black;display: flex; flex-direction: column; align-items: center; justify-content: space-around">
 				<h1>팀 채팅</h1>
-				<input type="button" value="채팅" />
+				<input class="type" type="hidden" value="0" >
+				<input class="nickname" type="hidden" value="${nickname}" >
+		  		<input class="chat-id" type="hidden" value="${pv.id}" >
+		   		<input class="chat-input" autofocus="autofocus" type = "text" id = "message" style = "height : 30px; width : 340px" placeholder="내용을 입력하세요" autofocus>
+				<button class = "send-btn" id = "send">전송</button>
+				<!-- <input type="button" value="채팅" /> -->
 			</div>
 		</div>
 	</div>

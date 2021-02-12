@@ -10,4 +10,15 @@
 	<insert id="insert" parameterType="com.ggiriggiri.web.entity.Profile">
 		insert into Profile(memberId) values(#{memberId});
 	</insert>
+	<update id="update" parameterType="com.ggiriggiri.web.entity.Profile">
+		update Profile
+		set
+			title = #{title},
+			introduction = #{introduction},
+			repositoryLink = #{repositoryLink},
+			address = #{address},
+			image = #{image},
+			editDate = #{editDate}
+		where memberId = #{memberId}
+	</update>
 </mapper>

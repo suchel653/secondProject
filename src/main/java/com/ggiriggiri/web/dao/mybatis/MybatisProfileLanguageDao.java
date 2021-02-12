@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ggiriggiri.web.dao.ProfileLanguageDao;
+import com.ggiriggiri.web.entity.ProfileLanguage;
 import com.ggiriggiri.web.entity.ProfileLanguageView;
 
 @Repository
@@ -23,9 +24,18 @@ public class MybatisProfileLanguageDao implements ProfileLanguageDao{
 	}
 	
 	@Override
+	public int insert(int profileId, int languageId) {
+		return mapper.insert(profileId,languageId);
+	}
+
+	@Override
+	public int update(int profileId, int languageId, int level) {
+		return mapper.update(profileId, languageId, level);
+	}
+
+	@Override
 	public List<ProfileLanguageView> getViewListByProfileId(int profileId) {
 
 		return mapper.getViewListByProfileId(profileId);
 	}
-
 }

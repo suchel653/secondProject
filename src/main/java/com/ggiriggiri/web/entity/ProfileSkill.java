@@ -4,21 +4,24 @@ public class ProfileSkill {
 	private int id;
 	private int profileId;
 	private int skillId;
+	private int level;
 	
 	public ProfileSkill() {
 
 	}
 
-	public ProfileSkill(int id, int profileId, int skillId) {
+	public ProfileSkill(int id, int profileId, int skillId, int level) {
 		super();
 		this.id = id;
 		this.profileId = profileId;
 		this.skillId = skillId;
+		this.level = level;
 	}
 
 	@Override
 	public String toString() {
-		return "ProfileSkill [id=" + id + ", profileId=" + profileId + ", skillId=" + skillId + "]";
+		return "ProfileSkill [id=" + id + ", profileId=" + profileId + ", skillId=" + skillId + ", level=" + level
+				+ "]";
 	}
 
 	public int getId() {
@@ -44,5 +47,14 @@ public class ProfileSkill {
 	public void setSkillId(int skillId) {
 		this.skillId = skillId;
 	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	
 	
 }

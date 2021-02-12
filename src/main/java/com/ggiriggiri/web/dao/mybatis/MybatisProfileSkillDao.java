@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ggiriggiri.web.dao.ContestDao;
 import com.ggiriggiri.web.dao.ProfileSkillDao;
+import com.ggiriggiri.web.entity.ProfileSkill;
 import com.ggiriggiri.web.entity.ProfileSkillView;
 import com.ggiriggiri.web.entity.ProjectSkill;
 
@@ -28,6 +29,24 @@ public class MybatisProfileSkillDao implements ProfileSkillDao{
 	public List<ProfileSkillView> getViewListByProfileId(int profileId) {
 
 		return mapper.getViewListByProfileId(profileId);
+	}
+
+	@Override
+	public int insert(int profileId, int skillId) {
+		// TODO Auto-generated method stub
+		return mapper.insert(profileId, skillId);
+	}
+
+	@Override
+	public List<ProfileSkill> getByProfileId(int profileId) {
+		// TODO Auto-generated method stub
+		return mapper.getByProfileId(profileId);
+	}
+
+	@Override
+	public int update(int profileId, int skillId, int level) {
+		// TODO Auto-generated method stub
+		return mapper.update(profileId, skillId, level);
 	}
 
 	

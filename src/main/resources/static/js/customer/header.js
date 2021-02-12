@@ -1,10 +1,20 @@
 window.addEventListener("load", function() {
 	let profile = document.querySelector(".profile");
 	let id = document.querySelector(".id");
+	let nickname = document.querySelector(".profile-user-name").innerHTML;
 	
 	profile.addEventListener("click",(e)=>{
 		if(profile.nextElementSibling!= null)
 			profile.nextElementSibling.remove();
+		else if(nickname == "admin"){
+			let div = `
+				<div class="detail-menu">
+					<div></div>
+					<div><a href="/admin/index">어드민이시네요</a></div>
+					<div><a href="/customer/logout">로그아웃</a></div>
+				</div>`;
+				profile.insertAdjacentHTML('afterEnd',div);
+		}
 		else{
 			let div = `
 				<div class="detail-menu">
