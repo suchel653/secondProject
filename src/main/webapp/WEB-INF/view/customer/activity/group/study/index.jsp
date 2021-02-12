@@ -22,7 +22,6 @@
 
 			<div style="display: flex; flex-direction: column; align-items: center;">
 				<div class="main-img">
-					<%-- <img src="/images/studyImg/${sv.id}/${sv.image}"/> --%>
 					<c:if test="${sv.image != 'img1.jpg'}">
 						<img src="/images/studyImg/${sv.id}/${sv.image}"></img>
 					</c:if>
