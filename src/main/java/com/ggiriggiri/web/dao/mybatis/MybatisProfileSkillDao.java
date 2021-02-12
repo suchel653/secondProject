@@ -43,6 +43,12 @@ public class MybatisProfileSkillDao implements ProfileSkillDao{
 		return mapper.getByProfileId(profileId);
 	}
 
+	@Override
+	public int update(int profileId, int skillId, int level) {
+		// TODO Auto-generated method stub
+		return mapper.update(profileId, skillId, level);
+	}
+
 	
 
 }
