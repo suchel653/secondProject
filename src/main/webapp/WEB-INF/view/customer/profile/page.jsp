@@ -68,10 +68,10 @@
 					<span>Skill</span>
 				</div>
 				<ul class="language-list">
-					<c:forEach var="ps" items="${p.skillList }">
+					<c:forEach var="ps" items="${p.skillList }" varStatus="status">
 						<li class="skill-items">
 							<div>
-								<img src="/images/profileImg/${ps.id}.png">
+								<img src="/images/profileImg/profileSkill/${status.index}.png">
 								<div>${ps.skillName}</div>
 							</div>
 							<input type="text" value="${ps.level}" class="skill-level"> 
