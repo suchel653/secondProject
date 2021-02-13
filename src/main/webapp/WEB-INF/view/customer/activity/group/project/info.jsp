@@ -3,80 +3,92 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script src="/js/customer/activity/group/project/info.js"></script>
+<link href="/css/customer/activity/group/info/index.css" type="text/css" rel="stylesheet" />
 
-<main id="main" class="main">
-	<h1 class="d-none">프로젝트 정보</h1>
+<main id="main" class="main detail dmain">
+	<!-- <h1 class="d-none">프로젝트 정보</h1> -->
 
 	<div class="container">
 		<section>
 
 			<div class="title">
-				<h1>${p.title}</h1>
+				<h1 class="flux">${pv.title}</h1>
 			</div>
 
-			<div>
-				<img src="/images/projectImg/${p.image }"></img>
-				<table border="1">
+			<div class="detail-container">
+				<img class="p-image" src="/images/projectImg/${pv.image }"
+					style="width: 300px; height: 300px;"></img>
+				
+				<table>
 					<tbody>
 						<tr>
-							<th>분야 :</th>
-							<td>${p.fieldName }</td>
+							<th>Field :</th>
+							<td>${pv.fieldName }</td>
 						</tr>
 						<tr>
-							<th>기술 :</th>
-							<td><c:forEach var="p" items="${p.skills}" varStatus="st">
-								${p.skillName } 
-								<c:if test="${!st.last }">
-									/
-								</c:if>
+							<th>skill :</th>
+							<td><c:forEach var="s" items="${pv.skills }" varStatus="st">
+						${s.skillName } 
+						<c:if test="${!st.last }">
+							/
+						</c:if>
 								</c:forEach></td>
 						</tr>
 						<tr>
-							<th>언어 :</th>
-							<td><c:forEach var="l" items="${p.languages}" varStatus="st">
-								${l.languageName } 
-								<c:if test="${!st.last }">
-									/
-								</c:if>
+							<th>language :</th>
+							<td><c:forEach var="l" items="${pv.languages }"
+									varStatus="st">
+									<img src="/images/language/${l.image}"
+										style="width: 40px; height: 40px;" />
 								</c:forEach></td>
 						</tr>
 						<tr>
-							<th>인원 :</th>
-							<td>${p.limitNumber}</td>
+							<th>File :</th>
+							<td><c:forEach var="f" items="${pv.files }" varStatus="st">
+									<a download href="/images/projectFile/${f.name }">${f.name }</a>
+									<c:if test="${!st.last }">
+						/
+					</c:if>
+								</c:forEach></td>
 						</tr>
 						<tr>
-							<th>요구사항 :</th>
-							<td>${p.requirement }</td>
+							<th>recruitment :</th>
+							<td>${pv.memberCount}/${pv.limitNumber }</td>
 						</tr>
 						<tr>
-							<th>진행일 :</th>
-							<td><fmt:formatDate value="${p.startDate}"
-									pattern="yyyy-MM-dd" />~ <fmt:formatDate value="${p.endDate }"
+							<th>requirement :</th>
+							<td>${pv.requirement }</td>
+						</tr>
+						<tr>
+							<th>Progress Date :</th>
+							<td><fmt:formatDate value="${pv.startDate}"
+									pattern="yyyy-MM-dd" />~ <fmt:formatDate value="${pv.endDate }"
 									pattern="yyyy-MM-dd" /></td>
 						</tr>
 						<tr>
-							<th>상태 :</th>
-							<td>${p.statusName }</td>
+							<th>status :</th>
+							<td>${pv.statusName}</td>
 						</tr>
 						<tr>
-							<th>작성자 :</th>
-							<td>${p.leaderName }</td>
+							<th>leader :</th>
+							<td>${pv.leaderName }</td>
 						</tr>
 						<tr>
-							<th>등록일 :</th>
-							<td><fmt:formatDate value="${p.regDate }"
+							<th>registration date :</th>
+							<td><fmt:formatDate value="${pv.regDate }"
 									pattern="yyyy-MM-dd" /></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 
-			<div class="content-box"></div>
-
+			<div class="content-box content">${pv.content }</div>
+			
 			<div>
 				<input type="button" value="창 닫기" class="close-Btn" />
 			</div>
 
 		</section>
+
 	</div>
 </main>

@@ -2,11 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<script src="/js/customer/study/apply.js"></script>
-<link href="/css/customer/detail-list.css" type="text/css" rel="stylesheet" />
+<script src="/js/customer/activity/group/study/info.js"></script>
+<link href="/css/customer/activity/group/info/index.css" type="text/css" rel="stylesheet" />
 
 <main id="main" class="main detail dmain">
-	<h1 class="d-none">스터디 정보</h1>
+	<!-- <h1 class="d-none">스터디 정보</h1> -->
 
 	<div class="container">
 		<section>
@@ -16,7 +16,6 @@
 			</div>
 
 			<div class="detail-container">
-
 				<c:if test="${s.image != 'img1.jpg'}">
 					<img class="p-image" src="/images/studyImg/${s.id}/${s.image}"></img>
 				</c:if>
@@ -91,6 +90,10 @@
 
 			<div class="content">${s.content}</div>
 
+			<div>
+				<input type="button" value="창 닫기" class="close-Btn" />
+			</div>
+			
 		</section>
 
 </main>

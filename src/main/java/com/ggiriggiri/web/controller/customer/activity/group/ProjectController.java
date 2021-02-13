@@ -52,7 +52,7 @@ public class ProjectController {
 		
 		ProjectView projectView = projectService.getView(id);
 		
-		model.addAttribute("p", projectView);
+		model.addAttribute("pv", projectView);
 
 		return "customer.activity.group.project.info";
 	}
