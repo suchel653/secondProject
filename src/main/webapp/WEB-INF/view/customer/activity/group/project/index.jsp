@@ -17,28 +17,31 @@
 		<div class="box1" style="width: 500px; hegiht: 900px; border: 1px solid black;">
 			<div class="info-div" style="display: flex; flex-direction: column; align-items: center;">
 				<input hidden value="${pv.id}" /> 
-				<input type="button" value="정보" class="info-Btn" />
+				<Button class="info-Btn">Information</Button>
 			</div>
 
 			<div style="display: flex; flex-direction: column; align-items: center;">
 				<div class="main-img"><img src="/images/projectImg/${pv.image}"/></div>
-				<h1>팀원 정보</h1>
-				<div>
-					<div style="width: 100px; border: 1px solid black; text-align: center;">팀장 : ${pv.leaderName} 
-					<input type="button" onclick="window.open('/customer/profile/${pv.leaderId}','win','width=900,height=500')"'" value="프로필 보기"/></div>
-				</div>
-				<c:forEach var="pav" items="${pav}">
-					<div>
-						<div style="width: 100px; border: 1px solid black; text-align: center;">팀원 : ${pav.memberNickname} 
-						<input type="button" onclick="window.open('/customer/profile/${pav.memberId}','win','width=900,height=500')" value="프로필 보기"/></div>
+				<button class="snip1535">팀원 정보</button>
+				<div class="team-info">
+					<div class="member-info">
+						<div style="width: 250px; text-align: center;">팀장 : ${pv.leaderName} 
+						<input type="button" class="btn-two mini purple" onclick="window.open('/customer/profile/${pv.leaderId}','win','width=900,height=500')" value="프로필 보기"/></div>
 					</div>
-				</c:forEach>
+					<c:forEach var="pav" items="${pav}">
+						<div class="member-info">
+							<div style="width: 250px; text-align: center;">팀원 : ${pav.memberNickname} 
+							<input type="button" class="btn-two mini purple" onclick="window.open('/customer/profile/${pav.memberId}','win','width=900,height=500')" value="프로필 보기"/></div>
+						</div>
+					</c:forEach>
+				</div>
 			</div>
 			<input hidden class="pageStatus" value="${pageStatus}" />
 			<c:if test="${sessionScope.id == pv.leaderId}">
 				<div style="display: flex; flex-direction: column; align-items: center;">
-					<input type="button" value="지원 관리" class="apply-Btn"/>
-					
+					<div class="apply-btn-div">
+						<input type="button" value="지원 관리" class="apply-Btn btn-two small yellow"/>
+					</div>
 					<form action="approve" method="post">
 						<div>
 						  <table class="apply-table">
@@ -46,22 +49,25 @@
 						  		<c:forEach var="pwv" items="${pwv}">
 							  		<tr class="tr">
 								  		<td>
-								  			<span class="apply-span">${pwv.memberNickname}님이 지원하였습니다. <fmt:formatDate value="${pwv.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
-								  			<%-- <li style="display:none;">${pwv.comment} <a href="/customer/profile/${pwv.memberId} ">${pwv.memberNickname}님 프로필 확인</a></li> --%>
-								  			<div><li style="display:none;">${pwv.comment} 
-								  			<a href="/customer/profile/${pwv.memberId}"> ${pwv.memberNickname}님 프로필 확인</a></li>
+								  			<p class="apply-p">${pwv.memberNickname}님이 지원하였습니다. 
+								  				<span class="date-fmt"><fmt:formatDate value="${pwv.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
+								  			</p>
+								  			<div>
+									  			<li style="display:none;">${pwv.comment}
+									  			<input type="button" class="btn-two mini purple" onclick="window.open('/customer/profile/${pwv.memberId}','win','width=900,height=500')" value="프로필 보기"/>
+									  			</li>
 								  			</div>
 								  			<input hidden class="commentValue" value="0" />
 								  		</td>
 								  		<td>
 								  			<input hidden name="projectId" value="${pwv.projectId}" />
 								  			<input hidden name="memberId" value="${pwv.memberId}" />
-								  			<input type="submit" name="action" value="승인"/>
+								  			<input type="submit" name="action" class="btn-two mini cyan" value="승인"/>
 								  		</td>
 								  		<td>
 								  			<input hidden name="projectId" value="${pwv.projectId}" />
 								  			<input hidden name="memberId" value="${pwv.memberId}" />
-								  			<input type="submit" name="action" value="거절"/>
+								  			<input type="submit" name="action" class="btn-two mini red" value="거절"/>
 								  		</td>
 									</tr>
 								</c:forEach>
