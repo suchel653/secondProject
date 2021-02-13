@@ -56,8 +56,11 @@
 								<img src="/images/language/${pl.image}">
 								<div>${pl.languageName}</div>
 							</div>
-							<input type="text" value="${pl.level}" class="language-level"> 
+							<input type="hidden" value="${pl.level}" class="language-level"> 
 							<i class="fas fa-minus-circle language-minus"></i>
+							<i class="fas fa-square language-level-bar"></i>
+							<i class="fas fa-square language-level-bar"></i>
+							<i class="fas fa-square language-level-bar"></i>
 							<i class="fas fa-plus-circle language-plus"></i>
 						</li>
 					</c:forEach>

@@ -13,17 +13,30 @@
 }
 
 .menu{
+	position: fixed;
 	width: 220px;
 	height: 500px;
 	background: #35363A;
-	border: 1px solid blue;
+	border: 1px solid black;
 }
 
 .detail{
+	position: absolute;
 	width: 680px;
 	height: 500px;
+	left: 220px;
+	
 }
+			
+	.detail>div{
+		display: none;
+	}
 
+	.detail>.selected{
+		display: flex;
+		flex-direction: column;
+	}
+	
 .profile-img{
 	margin: 20px 35px 0px 35px;
 }
@@ -72,15 +85,6 @@
 	.menu-bar>div:hover{
 		background: #1e1e20;	
 	}
-	
-.detail>div{
-	display: none;
-}
-
-.detail>.selected{
-	display: flex;
-	flex-direction: column;
-}
 
 /*------------------------------------------*/
 
@@ -110,7 +114,53 @@
 	}
 
 /*------------------------------------------*/
+.language-list{
+	width: 600px;
+	height: 500px;
+	margin-left: 30px;
+	display: flex;
+	flex-flow: wrap;
+}
 
+.language-items{
+	width: 300px;
+	height: 130px;
+	display: flex;
+	margin-top: 10px;
+	border-bottom: 2px solid #1e1e20;
+}
 
+	.language-items img{
+		width: 100px;
+		height: 100px;
+		
+	}
+	
+	.language-items>div{
+		width: 100px;
+	}
+		
+		.language-items>div>div{
+			margin-top: 5px;
+			text-align: center;
+		}
+	
+	.language-items>i{
+		font-size: 30px;
+		margin-top: 45px;
+		margin-left: 3px;
+	}
+		.level-bright{
+			color: orange;
+		}
+	
+	.language-items>.fa-minus-circle{
+		margin-left: 15px;
+	}
 
+#submit{
+	position: fixed;
+	right: 50px;
+	bottom: 50px;
+}
 

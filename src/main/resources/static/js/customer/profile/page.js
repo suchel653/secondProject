@@ -30,7 +30,7 @@ window.addEventListener("load", function(){
 		let languagePlus = document.querySelectorAll(".language-plus");
 		let languageMinus = document.querySelectorAll(".language-minus");
 		let nick = nickname.firstElementChild.innerHTML;
-		
+		let languageLevelBar = document.querySelectorAll(".language-level-bar")
 		if(mypage.value == 1){
 			let div = `<input value="${nick}" class="nickname-input">`;
 				nickname.insertAdjacentHTML('beforeEnd',div);
@@ -47,7 +47,6 @@ window.addEventListener("load", function(){
 			},{once: true})
 		
 		}
-		
 		nickname.addEventListener("blur", (e)=>{
 			
 		})
@@ -58,13 +57,26 @@ window.addEventListener("load", function(){
 				detailList[i].classList.remove("selected");
 			selectMenu[1].classList.add("selected");
 		})
-
+		let languageValue = document.querySelectorAll(".language-level");		
+		for(let i=0; i<languageMinus.length; i++){
+			let levelLange = Number(languageValue[i].value);
+			for(let j=i*3; j<i*3+levelLange; j++)
+				languageLevelBar[j].classList.add("level-bright");
+		}
+		
 		for(let i=0; i<languageMinus.length; i++){
 			languageMinus[i].addEventListener("click", (e)=>{
 				languageMinus[i].previousElementSibling.value--;
 				if(languageMinus[i].previousElementSibling.value < 0)
 					languageMinus[i].previousElementSibling.value = 0;
-
+					
+				let levelLange = Number(languageMinus[i].previousElementSibling.value);
+				for(let j=i*3; j<i*3+3; j++)
+					languageLevelBar[j].classList.remove("level-bright");
+					
+				for(let k=i*3; k<i*3+levelLange; k++)
+					languageLevelBar[k].classList.add("level-bright");
+					
 			})
 		}
 		
@@ -73,6 +85,13 @@ window.addEventListener("load", function(){
 				languageMinus[i].previousElementSibling.value++;
 				if(languageMinus[i].previousElementSibling.value > 3)
 					languageMinus[i].previousElementSibling.value = 3;
+					
+				let levelLange = Number(languageMinus[i].previousElementSibling.value);	
+				for(let j=i*3; j<i*3+3; j++)
+					languageLevelBar[j].classList.remove("level-bright");
+					
+				for(let k=i*3; k<i*3+levelLange; k++)
+					languageLevelBar[k].classList.add("level-bright");
 			})
 		}
 		
@@ -105,7 +124,7 @@ window.addEventListener("load", function(){
 				body: JSON.stringify(data)
 			})
 			
-			alert("123");
+			alert("저장이 완료되었습니다.");
 		})
 		
 	}
