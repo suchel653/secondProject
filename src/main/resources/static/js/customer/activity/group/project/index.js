@@ -204,7 +204,9 @@ window.addEventListener("load", (e) => {
 					commentList += `<div>
 									 <span>${comment.writerNickname}</span> 
 									: <span>${comment.content}<span> 
-									<span>${new Date(comment.regDate).toLocaleString("ko-KR", { timeZone: "Asia/Seoul" })}</span>
+									<span>${new Date(comment.regDate).toLocaleString("default", {year: 'numeric', month: 'numeric', day: 'numeric',
+  hour: 'numeric', minute: 'numeric', second: 'numeric',
+  hour12: false  })}</span>
 									<input type="hidden" value="${comment.id}"/>
 									${cmtAuth}
 									 </div>`;
