@@ -16,6 +16,7 @@
 </head>
 <body>
 	<input type="hidden" class="member-id" value=${p.memberId }>
+	<input type="hidden" class="mypage" value=${mypage }>
 
 	<div class="container">
 		<div class="menu">
@@ -23,9 +24,7 @@
 				<img src="/images/profileImg/profileBasic.png">
 			</div>
 			<div class="nickname">
-				<s:authorize access="isAuthenticated()">
-				<span>${nickname }</span>
-				</s:authorize>
+				<span>${m.nickname }</span>
 			</div>
 			<div class="menu-bar">
 				<div class="introduce">Introduce</div>
@@ -40,9 +39,10 @@
 					<span>Introduce</span>
 				</div>
 				<div class="content">
-					<span>안녕하세요 서울에서 코딩공부를 하고 있는 김자바라고 합니다.
-						코딩공부를 시작한지는 이제 6개월정도 되었고 java, js, spring, mysql을 조금 알고 있습니다.
-						웹 프로그래머가 되는 것이 목표입니다.</span>
+					<div>${p.introduction}</div>
+				<c:if test="${p.introduction == null }">
+					자기소개글을 넣어주세요
+				</c:if>
 				</div>
 			</div>
 			<div class="language">
@@ -57,8 +57,8 @@
 								<div>${pl.languageName}</div>
 							</div>
 							<input type="text" value="${pl.level}" class="language-level"> 
-							<i class="fas fa-minus-circle"></i>
-							<i class="fas fa-plus-circle"></i>
+							<i class="fas fa-minus-circle language-minus"></i>
+							<i class="fas fa-plus-circle language-plus"></i>
 						</li>
 					</c:forEach>
 				</ul>
@@ -66,8 +66,8 @@
 			<div class="skill">
 				<div class="menu-name">
 					<span>Skill</span>
-				</div>
-				<ul class="language-list">
+				</div>	
+				<ul class="skill-list">
 					<c:forEach var="ps" items="${p.skillList }" varStatus="status">
 						<li class="skill-items">
 							<div>
@@ -75,8 +75,8 @@
 								<div>${ps.skillName}</div>
 							</div>
 							<input type="text" value="${ps.level}" class="skill-level"> 
-							<i class="fas fa-minus-circle"></i>
-							<i class="fas fa-plus-circle"></i>
+							<i class="fas fa-minus-circle skill-minus"></i>
+							<i class="fas fa-plus-circle skill-plus"></i>
 						</li>
 					</c:forEach>
 				</ul>
@@ -86,7 +86,6 @@
 					<span>Career</span>
 				</div>
 			</div>
-			<input type="button" value="제출" id="submit">
 		</div>
 	</div>
 </body>

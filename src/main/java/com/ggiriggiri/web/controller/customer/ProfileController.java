@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ggiriggiri.web.entity.Member;
 import com.ggiriggiri.web.entity.Profile;
 import com.ggiriggiri.web.entity.ProfileLanguage;
 import com.ggiriggiri.web.entity.ProfileLanguageView;
+import com.ggiriggiri.web.service.MemberService;
 import com.ggiriggiri.web.service.ProfileService;
 
 
@@ -28,21 +30,33 @@ import com.ggiriggiri.web.service.ProfileService;
 public class ProfileController {
 	
 	@Autowired
-	private ProfileService service;
+	private ProfileService profileService;
+	@Autowired
+	private MemberService memberService;
 	
 	
 	@RequestMapping("{id}")
 	public String profilePage (@PathVariable("id") int id, HttpSession session, Model model) {
 		int memberId = (int) session.getAttribute("id");
-		Profile profile = service.get(memberId);
+		int mypage = 0;
+		if(memberId == id) {
+			mypage = 1;
+		}
+		Profile profile = profileService.get(id);
+		Member member = memberService.get(id);
 		model.addAttribute("p", profile);
+		model.addAttribute("m", member);
+		model.addAttribute("mypage", mypage);
 		return "customer.profile.page";
 	}
 	
 	@PostMapping("update")
 	public void update(HttpSession session, @RequestBody Map<String,Object> payload) {
 		int memberId = (int) session.getAttribute("id");
-		Profile profile = service.get(memberId);
+		Member member = memberService.get(memberId);
+		Profile profile = profileService.get(memberId);
+		String nickname = (String) payload.get("nicknameValue");
+		String introduction = (String) payload.get("introduce");
 		List<String> language = (List<String>) payload.get("languageLevel");
 		List<ProfileLanguageView> languageLevelList = new ArrayList<>();
 		int languageId = 0;
@@ -53,9 +67,12 @@ public class ProfileController {
 			languageLevel.setLanguagerId(languageId);
 			languageLevelList.add(languageLevel);
 		}
-		
+		member.setNickname(nickname);
+		profile.setIntroduction(introduction);
 		profile.setLanguageList(languageLevelList);
-		service.update(profile);
+		memberService.update(member);
+		profileService.update(profile);
+		
 	}
 	
 	@PostMapping("reg")
@@ -64,6 +81,6 @@ public class ProfileController {
 		System.out.println("멤버 아이디"+memberId);
 		Profile profile = new Profile();
 		profile.setMemberId(memberId);
-		service.insert(profile);		
+		profileService.insert(profile);		
 	}
 }
