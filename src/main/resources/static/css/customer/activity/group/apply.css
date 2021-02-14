@@ -1,33 +1,254 @@
 @charset "UTF-8";
 
 .info-div {
-	padding-top: 50px;
+	padding-top: 40px;
 }
 
-.main-img > img {
-	padding: 30px 0px;
-	max-width: 400px;
+.main-img>img {
+	margin-top: 40px;
+	margin-bottom: 10px; max-width : 400px;
 	max-height: 400px;
+	max-width: 400px;
 }
 
-.apply-span {
+.team-info {
+	width: 270px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 5px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	background: #eee;
+	border-radius: 10px;
+}
+
+.member-info {
+	background: white;
+	margin: 2px;
+	border-radius: 10px;
+}
+
+.tr>td {
 	background-color: #eee;
+}
+
+.main-span {
+	width: 400px;
+}
+
+.apply-p {
 	display: block;
 	color: #444;
 	cursor: pointer;
 	height: 30px;
 	font-size: 15px;
 	transition: 0.4s;
-	--vertical-align: middle;
-	line-height:30px;
+	line-height: 30px;
+}
+
+.date-fmt {
+	font-size: 5px;
+	color: #c1c1c1;
+	margin-left: 10px;
+	font-style: italic;
 }
 
 .tr li {
-	background: beige;
 	height: 30px;
-	line-height:30px;
+	line-height: 30px;
+	overflow: visible;
+}
+
+.apply-btn-div {
+	padding-top: 15px;
+	padding-bottom: 10px;
 }
 
 .apply-Btn {
-	margin : 10px 0px;
+	margin: 10px 0px;
+}
+
+/* 팀원 정보 */
+@import url(https://fonts.googleapis.com/css?family=BenchNine:700);
+
+.snip1535 {
+	background-color: #cb99c5;
+	border: none;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-block;
+	font-family: 'BenchNine', Arial, sans-serif;
+	font-size: 15px;
+	line-height: 1em;
+	margin: 10px 40px;
+	outline: none;
+	padding: 12px 20px 10px;
+	position: relative;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.snip1535:before, .snip1535:after {
+	border-color: transparent;
+	-webkit-transition: all 0.25s;
+	transition: all 0.25s;
+	border-style: solid;
+	border-width: 0;
+	content: "";
+	height: 24px;
+	position: absolute;
+	width: 24px;
+}
+
+.snip1535:before {
+	border-color: #cb99c5;
+	border-right-width: 2px;
+	border-top-width: 2px;
+	right: -5px;
+	top: -5px;
+}
+
+.snip1535:after {
+	border-bottom-width: 2px;
+	border-color: #cb99c5;
+	border-left-width: 2px;
+	bottom: -5px;
+	left: -5px;
+}
+
+.snip1535:hover, .snip1535.hover {
+	background-color: #cb99c5;
+}
+
+.snip1535:hover:before, .snip1535.hover:before, .snip1535:hover:after,
+	.snip1535.hover:after {
+	height: 100%;
+	width: 100%;
+}
+
+/* info 버튼 */
+.info-Btn {
+	background: #cb99c5;
+	color: #fff;
+	border: none;
+	position: relative;
+	height: 45px;
+	font-size: 1.3em;
+	padding: 0 1.5em;
+	cursor: pointer;
+	transition: 800ms ease all;
+	outline: none;
+}
+
+.info-Btn:hover {
+	background: #fff;
+	color: #cb99c5;
+}
+
+.info-Btn:before, .info-Btn:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 2px;
+	width: 0;
+	background: #cb99c5;
+	transition: 400ms ease all;
+}
+
+.info-Btn:after {
+	right: inherit;
+	top: inherit;
+	left: 0;
+	bottom: 0;
+}
+
+.info-Btn:hover:before, .info-Btn:hover:after {
+	width: 100%;
+	transition: 800ms ease all;
+}
+
+/* 버튼 */
+.btn-two {
+	margin: 3px;
+}
+
+a[class*="btn"] {
+	text-decoration: none;
+}
+
+input[class*="btn"], button[class*="btn"] {
+	border: 0;
+}
+
+/* Here you can change the button sizes */
+.btn-two.large {
+	padding: 20px 40px;
+	font-size: 22px;
+}
+
+.btn-two.small {
+	padding: 8px 18px;
+	font-size: 14px;
+}
+
+.btn-two.mini {
+	padding: 4px 12px;
+	font-size: 12px;
+}
+
+.btn-two.block {
+	display: block;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+/* Colors for .btn-two */
+.btn-two.blue {
+	background-color: #7fb1bf;
+}
+
+.btn-two.green {
+	background-color: #9abf7f;
+}
+
+.btn-two.red {
+	background-color: #fa5a5a;
+}
+
+.btn-two.purple {
+	background-color: #cb99c5;
+}
+
+.btn-two.cyan {
+	background-color: #7fccde;
+}
+
+.btn-two.yellow {
+	background-color: #f0d264;
+}
+
+/* Button two */
+.btn-two {
+	color: white;
+	padding: 15px 25px;
+	display: inline-block;
+	border: 1px solid rgba(0, 0, 0, 0.21);
+	border-bottom-color: rgba(0, 0, 0, 0.34);
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.34) inset, 0 2px 0 -1px
+		rgba(0, 0, 0, 0.13), 0 3px 0 -1px rgba(0, 0, 0, 0.08), 0 3px 13px -1px
+		rgba(0, 0, 0, 0.21);
+}
+
+.btn-two:active {
+	top: 1px;
+	border-color: rgba(0, 0, 0, 0.34) rgba(0, 0, 0, 0.21)
+		rgba(0, 0, 0, 0.21);
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.89), 0 1px rgba(0, 0, 0, 0.05)
+		inset;
+	position: relative;
 }

@@ -62,8 +62,11 @@ public class MemberServiceImp implements MemberService{
 	public Member get(int id) {
 		
 		Member m = memberDao.get(id);
-		
-		Profile p = profileDao.get(id);
+
+		Profile p = new Profile();
+		if(profileDao.get(id) != null)
+			p = profileDao.get(id);
+
 		p.setExperienceList(experienceDao.getListByProfileId(p.getId()));
 		p.setProjectList(projectDao.getListByProfileId(p.getId()));
 		p.setSkillList(skillDao.getViewListByProfileId(p.getId()));

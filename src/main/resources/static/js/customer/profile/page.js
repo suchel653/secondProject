@@ -1,7 +1,8 @@
 window.addEventListener("load", function(){
 	let container = document.querySelector(".container");
 	let memberId = document.querySelector(".member-id");
-	console.log(memberId.value);
+	let mypage = document.querySelector(".mypage");
+	
 	if(memberId.value==null || memberId.value=="" || memberId.value == 0){
 		let div = `
 				<div class="profile-reg">
@@ -26,11 +27,29 @@ window.addEventListener("load", function(){
 		let detail = document.querySelector(".detail");
 		let detailList = document.querySelectorAll(".detail>div");
 		let content = document.querySelector(".content");
-		let languagePlus = document.querySelectorAll(".fa-plus-circle");
-		let languageMinus = document.querySelectorAll(".fa-minus-circle");
+		let languagePlus = document.querySelectorAll(".language-plus");
+		let languageMinus = document.querySelectorAll(".language-minus");
+		let nick = nickname.firstElementChild.innerHTML;
+		let languageLevelBar = document.querySelectorAll(".language-level-bar")
+		if(mypage.value == 1){
+			let div = `<input value="${nick}" class="nickname-input">`;
+				nickname.insertAdjacentHTML('beforeEnd',div);
+				
+			let div2 = `<input type="button" value="save" id="submit">`;
+				detail.insertAdjacentHTML("AfterEnd", div2);
+			
+			content.addEventListener("click", (e)=>{
+				let contentText = content.firstElementChild.innerHTML;		
+				let div = `
+						<textarea>${contentText}</textarea>`;
+					content.insertAdjacentHTML('afterBegin',div);
 		
+			},{once: true})
 		
-		let submitButton = document.querySelector("#submit")
+		}
+		nickname.addEventListener("blur", (e)=>{
+			
+		})
 		
 		menu.addEventListener("click", (e)=>{
 			let selectMenu = document.getElementsByClassName(e.target.className);
@@ -38,19 +57,26 @@ window.addEventListener("load", function(){
 				detailList[i].classList.remove("selected");
 			selectMenu[1].classList.add("selected");
 		})
+		let languageValue = document.querySelectorAll(".language-level");		
+		for(let i=0; i<languageMinus.length; i++){
+			let levelLange = Number(languageValue[i].value);
+			for(let j=i*3; j<i*3+levelLange; j++)
+				languageLevelBar[j].classList.add("level-bright");
+		}
 		
-		content.addEventListener("click", (e)=>{
-			let div = `
-					<textarea>123123</textarea>`;
-				content.insertAdjacentHTML('afterBegin',div);
-		},{once: true})
-
 		for(let i=0; i<languageMinus.length; i++){
 			languageMinus[i].addEventListener("click", (e)=>{
 				languageMinus[i].previousElementSibling.value--;
 				if(languageMinus[i].previousElementSibling.value < 0)
 					languageMinus[i].previousElementSibling.value = 0;
-
+					
+				let levelLange = Number(languageMinus[i].previousElementSibling.value);
+				for(let j=i*3; j<i*3+3; j++)
+					languageLevelBar[j].classList.remove("level-bright");
+					
+				for(let k=i*3; k<i*3+levelLange; k++)
+					languageLevelBar[k].classList.add("level-bright");
+					
 			})
 		}
 		
@@ -59,19 +85,32 @@ window.addEventListener("load", function(){
 				languageMinus[i].previousElementSibling.value++;
 				if(languageMinus[i].previousElementSibling.value > 3)
 					languageMinus[i].previousElementSibling.value = 3;
+					
+				let levelLange = Number(languageMinus[i].previousElementSibling.value);	
+				for(let j=i*3; j<i*3+3; j++)
+					languageLevelBar[j].classList.remove("level-bright");
+					
+				for(let k=i*3; k<i*3+levelLange; k++)
+					languageLevelBar[k].classList.add("level-bright");
 			})
 		}
 		
+		let submitButton = detail.nextElementSibling;
 		submitButton.addEventListener("click", (e)=>{
+			let introduce = content.firstElementChild.value;
+			if(introduce == undefined)
+				introduce = content.firstElementChild.innerHTML;
 			let languageValue = document.querySelectorAll(".language-level");
 			let languageLevel = [];
+			let nicknameValue = nickname.lastElementChild.value;
 			
 			for(let i=0; i<languageValue.length; i++)
 				languageLevel.push(languageValue[i].value);
 			
 			
 			let data = {
-				
+				introduce,
+				nicknameValue,
 				languageLevel
 				
 			}
@@ -85,7 +124,7 @@ window.addEventListener("load", function(){
 				body: JSON.stringify(data)
 			})
 			
-			alert("123");
+			alert("저장이 완료되었습니다.");
 		})
 		
 	}

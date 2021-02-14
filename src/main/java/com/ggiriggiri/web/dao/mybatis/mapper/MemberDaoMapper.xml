@@ -31,6 +31,14 @@
 	<select id="getLast" resultType="int">
 		select id from Member order by regdate desc limit 1;
 	</select>
+	<update id="update" parameterType="com.ggiriggiri.web.entity.Member">
+		update Member
+		set
+			email = #{email},
+			nickname = #{nickname},
+			password = #{password}
+		where id = #{id}
+	</update>
 	
 	
 </mapper>

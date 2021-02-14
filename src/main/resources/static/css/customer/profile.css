@@ -10,39 +10,64 @@
 
 .container {
 	display: flex;
-	--background: #0D1117;
-	border: 1px solid red;
 }
 
 .menu{
+	position: fixed;
 	width: 220px;
 	height: 500px;
+	background: #35363A;
 	border: 1px solid black;
 }
 
 .detail{
+	position: absolute;
 	width: 680px;
 	height: 500px;
-	border: 1px solid blue;
+	left: 220px;
+	
 }
+			
+	.detail>div{
+		display: none;
+	}
 
+	.detail>.selected{
+		display: flex;
+		flex-direction: column;
+	}
+	
 .profile-img{
 	margin: 20px 35px 0px 35px;
 }
 	.profile-img>img{
 		width: 150px;
 		height: 225px;	
-		border: 1px solid red;
 	}
 	
 .nickname{
 	width: 220px;
 	height: 40px;
-	border: 1px solid blue;
+	background: #2b2c2e;
 	text-align: center;
 	line-height: 40px;
 	font-size : 25px;
+	color: #cfd1da;
 }
+
+	.nickname-input{
+		position: absolute;
+		width: 200px;
+		height: 35px;
+		left: 5px;
+		background: #2b2c2e;
+		color: #cfd1da;
+		font-size: 25px;
+		text-align: center;
+		line-height: 40px;
+	}
+	
+
 
 .menu-bar{
 	margin-top: 20px;
@@ -51,17 +76,17 @@
 	.menu-bar>div{
 		width: 220px;
 		height: 45px;
-		border: 1px solid green;
+		color: white;
+		text-align: center;
+		line-height: 45px;
+		font-size: 20px;
 	}
 	
-.detail>div{
-	display: none;
-}
+	.menu-bar>div:hover{
+		background: #1e1e20;	
+	}
 
-.detail>.selected{
-	display: flex;
-	flex-direction: column;
-}
+/*------------------------------------------*/
 
 .menu-name{
 	width: 670px;
@@ -82,26 +107,60 @@
 		position: absolute;
 	}
 	
-	.content>span{
-	
+	.content>div{
+		width:400px;
+		height: 200px;
+		word-break: break-all;
 	}
 
 /*------------------------------------------*/
-.language-table{
-	width: 650px;
-	height: 400px;
-	margin-top: 50px;
-	margin-left: 20px;
+.language-list{
+	width: 600px;
+	height: 500px;
+	margin-left: 30px;
+	display: flex;
+	flex-flow: wrap;
 }
 
-	.language-table img{
-		width: 50px;
-		height: 50px;
+.language-items{
+	width: 300px;
+	height: 130px;
+	display: flex;
+	margin-top: 10px;
+	border-bottom: 2px solid #1e1e20;
+}
+
+	.language-items img{
+		width: 100px;
+		height: 100px;
+		
 	}
 	
-.language-items{
-	display: flex;
+	.language-items>div{
+		width: 100px;
+	}
+		
+		.language-items>div>div{
+			margin-top: 5px;
+			text-align: center;
+		}
+	
+	.language-items>i{
+		font-size: 30px;
+		margin-top: 45px;
+		margin-left: 3px;
+	}
+		.level-bright{
+			color: orange;
+		}
+	
+	.language-items>.fa-minus-circle{
+		margin-left: 15px;
+	}
+
+#submit{
+	position: fixed;
+	right: 50px;
+	bottom: 50px;
 }
-
-
 
