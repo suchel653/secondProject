@@ -154,7 +154,7 @@ window.addEventListener("load", (e) => {
 							<td colspan="4">
 								<div class="auth-box">
 									<input class="detail-edit" type="button" value="수정"/>
-									<input class="detail-del" type="button"/>
+									<input class="detail-del" type="button" value="삭제"/>
 								</div>
 								<span class="detail-content">
 									${list[index].content}
@@ -299,6 +299,9 @@ window.addEventListener("load", (e) => {
 			let action = e.target.className;
 
 			if (action == "cmt-del") {
+				let result = confirm("삭제하시겠습니까?");
+				if (!result)
+					return;
 				let id = e.target.parentElement.previousElementSibling.value;
 				fetch(`/api/studyCommentController/delete?id=${id}`)
 					.then(() => {

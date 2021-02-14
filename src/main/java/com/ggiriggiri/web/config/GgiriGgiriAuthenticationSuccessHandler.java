@@ -53,7 +53,7 @@ public class GgiriGgiriAuthenticationSuccessHandler extends SavedRequestAwareAut
 				String returnURL = savedRequest.getRedirectUrl();
 				redirectStrategy.sendRedirect(request, response, returnURL);
 			} else if (authorities.contains("ROLE_ADMIN")) {
-				redirectStrategy.sendRedirect(request, response, "/admin/index");
+				redirectStrategy.sendRedirect(request, response, "/admin/member/list");
 			} else if (authorities.contains("ROLE_MEMBER")) {
 				
 				redirectStrategy.sendRedirect(request, response, "/index");

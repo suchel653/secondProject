@@ -92,17 +92,17 @@
 		<div class="box2">
 			<div class="board-table">
 				<div>
-					<h1 class="board-h1">게시판</h1>
+					<h1 class="board-h1">BOARD</h1>
 					<input class="board-reg" type="button" value="등록"/>
 				</div>
 				<div class="bodrd">
-					<table>
+					<table class="board-table2">
 						<thead>
 						<tr>
 						
-							<th>제목</th>
-							<th>작성자</th>
-							<th>등록일</th>
+							<th class="large">제목</th>
+							<th class="small">작성자</th>
+							<th class="middle">등록일</th>
 						</tr>
 						</thead>
 						<tbody class="boardTbody">
