@@ -203,7 +203,7 @@ public class StudyController {
 		}
 		
 		
-		int leaderId =(int) session.getAttribute("id");;
+		int leaderId =(int) session.getAttribute("id");
 		
 		Study study = new Study(newId,title,content,startDate,endDate,limitNumber,image,requirement,fieldId,leaderId);
 		

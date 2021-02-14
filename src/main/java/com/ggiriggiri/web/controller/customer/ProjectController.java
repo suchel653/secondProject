@@ -157,25 +157,39 @@ public class ProjectController {
 		String url = "/images/";
 		String realPath = mtfRequest.getServletContext().getRealPath(url);
 		
-		String filePath = realPath + "projectFile/";
-		String imgPath = realPath + "projectImg/";
 		
-		File realPathFile = new File(filePath);
-		File realPathImgFile = new File(imgPath);
+		String image="img1.jpg";
+		if(!img.getOriginalFilename().equals("")) {
 		
-		if (!realPathFile.exists())
-			realPathFile.mkdir();
-		
-		if (!realPathImgFile.exists())
-			realPathImgFile.mkdir();
-		
-		String imgFile = imgPath + File.separator + img.getOriginalFilename();
-		img.transferTo(new File(imgFile));
-		
-		String image = img.getOriginalFilename();
-		
+			String imgPath = realPath + "projectImg/";
+			File realPathImgFile = new File(imgPath);
+			
+			if (!realPathImgFile.exists())
+				realPathImgFile.mkdir();
+			
+			String imgFile = imgPath + File.separator + img.getOriginalFilename();
+			img.transferTo(new File(imgFile));
+			
+			image = img.getOriginalFilename();
+		}
 		
 		
+		if(!fileList.get(0).getOriginalFilename().equals("")) {
+			String filePath = realPath + "projectFile/";
+			File realPathFile = new File(filePath);
+			
+			if (!realPathFile.exists())
+				realPathFile.mkdir();
+			
+			for(MultipartFile mf : fileList) {
+				String file = filePath + File.separator + mf.getOriginalFilename();
+				mf.transferTo(new File(file));
+
+				ProjectFile projectFile = new ProjectFile(newId,mf.getOriginalFilename());
+				service.insertFile(projectFile);
+			}
+			
+		}
 		
 		//----- login 유저
 		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
@@ -188,18 +202,10 @@ public class ProjectController {
 		
 		
 
-		//----- insert
+		//----- project, skill, language insert
 		Project project = new Project(newId,title,content,startDate,endDate,limitNumber,image,requirement,fieldId,leaderId);
 		service.insert(project);
 		
-		
-		for(MultipartFile mf : fileList) {
-			String file = filePath + File.separator + mf.getOriginalFilename();
-			mf.transferTo(new File(file));
-
-			ProjectFile projectFile = new ProjectFile(newId,mf.getOriginalFilename());
-			service.insertFile(projectFile);
-		}
 		
 		for(int skillId : skill) {
 			ProjectSkill pk = new ProjectSkill(newId,skillId);

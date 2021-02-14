@@ -41,7 +41,7 @@ body{
 
 .container .box2{
 	width: 500px; 
-	hegiht: 900px; 
+	height: 900px; 
 	
 }
 
@@ -66,6 +66,11 @@ body{
 	display: flex; 
 	flex-direction: column; 
 	align-items: center;
+	border : 1px solid black;
+}
+
+.date-div-box{
+	border : 1px solid black;
 }
 
 .box3 .date-div .date-div-box{

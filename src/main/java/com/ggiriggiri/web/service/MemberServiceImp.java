@@ -54,7 +54,10 @@ public class MemberServiceImp implements MemberService{
 	}
 
 	@Override
-	public List<Member> getList(int offset, int size, String field, String query) {
+	public List<Member> getList(int page, int size, String field, String query) {
+		
+		int offset = size*(page-1);
+		
 		return memberDao.getList(offset, size, field, query);
 	}
 
@@ -98,6 +101,12 @@ public class MemberServiceImp implements MemberService{
 	@Override
 	public int getLast() {
 		return memberDao.getLast();
+	}
+
+	@Override
+	public int getCount(String field,String query) {
+
+		return memberDao.getCount(field,query);
 	}
 
 }

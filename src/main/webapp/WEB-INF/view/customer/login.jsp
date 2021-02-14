@@ -20,7 +20,7 @@
         </div>
 
         <div class="form">
-        <form id="reg" method="post" class="join-form" onsubmit="return submitCheck();">
+        <form id="reg" method="post" class="join-form" onsubmit="return submitCheck();" action="join">
             
           <h4 class="bold title">Create Account</h4>
          

@@ -39,6 +39,11 @@
 			password = #{password}
 		where id = #{id}
 	</update>
-	
+	<select id="getCount" resultType="int">
+		select count(id) from Member
+		<if test="param1 != null">
+			where BINARY ${param1} like '%${param2}%'
+		</if>
+	</select>
 	
 </mapper>

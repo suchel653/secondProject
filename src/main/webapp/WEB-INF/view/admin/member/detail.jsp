@@ -27,7 +27,7 @@
 							<th>사용가능 기술 :</th>
 							<td>
 								<c:forEach var="s" items="${p.skillList }">
-										${s}
+										${s.skillName}
 								</c:forEach>
 							</td>
 						</tr>
@@ -35,7 +35,7 @@
 							<th>사용가능 언어 :</th>
 							<td>
 								<c:forEach var="l" items="${p.languageList }">
-										${s}
+										${l.languageName}
 								</c:forEach>
 							</td>
 						</tr>

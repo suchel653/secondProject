@@ -17,11 +17,9 @@ import com.ggiriggiri.web.chat.Client;
 
 public class ChatWebSocketHandler extends TextWebSocketHandler {
 
-	private List<WebSocketSession> sessions = new CopyOnWriteArrayList<>();
 	private List<Client> clientList = new CopyOnWriteArrayList<>();
 	private ObjectMapper odjectMapper = new ObjectMapper();
 	private Map<Integer, List<TextMessage>> map = new HashMap<>();
-	
 	
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
@@ -30,8 +28,6 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
 		int chatId = Integer.parseInt(tokkens[5]);
 		int type = Integer.parseInt(tokkens[4]);
 		
-		System.out.println(type);
-
 		Client client = new Client(type,chatId,session);
 		clientList.add(client);
 		
@@ -47,7 +43,7 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
 		String msg = message.getPayload();
 		ChatMessage chatmsg = odjectMapper.readValue(msg, ChatMessage.class);
 		int chatId = chatmsg.getChatId();
-		System.out.println(msg);
+		
 		for(Client client : clientList) {
 			if(chatId == client.getChatId() && chatmsg.getType() == client.getType()) {
 				client.getSession().sendMessage(message);
@@ -55,6 +51,7 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
 					List<TextMessage> list = new ArrayList<>();
 					map.put(chatId, list);
 				}
+				
 				List<TextMessage> list = map.get(chatId);
 				list.add(message);
 				map.put(chatId, list);

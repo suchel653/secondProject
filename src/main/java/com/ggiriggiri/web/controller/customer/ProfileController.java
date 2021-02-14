@@ -1,6 +1,7 @@
 package com.ggiriggiri.web.controller.customer;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -88,6 +89,15 @@ public class ProfileController {
 		memberService.update(member);
 		profileService.update(profile);
 		
+	}
+	
+	@PostMapping("getId")
+	@ResponseBody
+	public Map<String,Object> getId(HttpSession session){
+		int memberId = (int) session.getAttribute("id");
+		Map<String,Object> payload = new HashMap<String, Object>();
+		payload.put("memberId", memberId);
+		return payload;
 	}
 	
 	@PostMapping("reg")

@@ -10,7 +10,7 @@ window.addEventListener("load", (e) => {
 	let clicked;
 
 	infoBtn.addEventListener("click", (e) => {
-		
+
 		let id = e.target.previousElementSibling.value;
 		win = open("/customer/activity/group/project/" + id + "/info", "_blank", "width=1300px,height=700px");
 
@@ -107,7 +107,7 @@ window.addEventListener("load", (e) => {
 							</td>
 							<td>${list[i + currentCnt].writerNickname}</td>
 							<td>${moment(list[i + currentCnt].regDate).format("YYYY-MM-DD HH:mm")}</td>
-						</tr>`; 
+						</tr>`;
 				boardTableTbody.insertAdjacentHTML("beforeend", tr);
 			}
 			currentCnt += 5;
@@ -300,6 +300,9 @@ window.addEventListener("load", (e) => {
 			let action = e.target.className;
 
 			if (action == "cmt-del") {
+				let result = confirm("삭제하시겠습니까?");
+				if (!result)
+					return;
 				let id = e.target.parentElement.previousElementSibling.value;
 				fetch(`/api/projectCommentController/delete?id=${id}`)
 					.then(() => {
