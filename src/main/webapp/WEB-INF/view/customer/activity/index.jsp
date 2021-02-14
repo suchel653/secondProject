@@ -24,7 +24,7 @@
 						<c:forEach var="s" items="${sav}">
 							<div class="text-items">
 								<span><span class="user-name">${s.memberNickname}</span>님이 ${s.studyTitle}에 지원하였습니다.</span>
-								<span class="date-fmt"><fmt:formatDate value="${s.regDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
+								<span class="date-fmt"><fmt:formatDate value="${s.regDate}" pattern="yyyy-MM-dd" /></span>
 							</div>
 						</c:forEach>
 					</div>
@@ -42,7 +42,7 @@
 						<c:forEach var="p" items="${pav}">
 							<div class="text-items">
 								<span><span class="user-name">${p.memberNickname}</span>님이 ${p.projectTitle}에 지원하였습니다.</span>
-								<span class="date-fmt"><fmt:formatDate value="${p.regDate}" pattern="yyyy-MM-dd a hh:mm" /></span>
+								<span class="date-fmt"><fmt:formatDate value="${p.regDate}" pattern="yyyy-MM-dd" /></span>
 							</div>
 						</c:forEach>
 						
@@ -65,7 +65,7 @@
 							<div class="text-items result-items">
 								<span><span class="user-name">${s.memberNickname}</span>님이 ${s.studyTitle}에 지원하신 결과
 									${s.resultStatus==1?"수락":"거절"}되었습니다.</span> <span class="date-fmt result-date"><fmt:formatDate
-										value="${s.resultDate}" pattern="yyyy-MM-dd a hh:mm:ss" /></span>
+										value="${s.resultDate}" pattern="yyyy-MM-dd" /></span>
 							</div>
 						</c:forEach>
 	
@@ -86,7 +86,7 @@
 									<span><span class="user-name">${p.memberNickname}</span>님이 ${p.projectTitle}에 지원하신 결과
 										${p.resultStatus==1?"수락":"거절"}되었습니다.</span><span
 										class="date-fmt result-date"><fmt:formatDate value="${p.resultDate}"
-											pattern="yyyy-MM-dd a hh:mm:ss" /></span>
+											pattern="yyyy-MM-dd" /></span>
 								</div>
 							</c:forEach>
 						</div>
