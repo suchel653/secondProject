@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="/js/customer/activity/group/study/index.js"></script>
 <script src="/js/customer/activity/group/chat-client.js"></script>
 <link href="/css/reset.css" type="text/css" rel="stylesheet" />

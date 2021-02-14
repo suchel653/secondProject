@@ -106,8 +106,8 @@ window.addEventListener("load", (e) => {
 								${list[i + currentCnt].title}(${list[i + currentCnt].cmtCnt})
 							</td>
 							<td>${list[i + currentCnt].writerNickname}</td>
-							<td>${list[i + currentCnt].regDate}</td>
-						</tr>`;
+							<td>${moment(list[i + currentCnt].regDate).format("YY.MM.DD, HH:mm")}</td>
+						</tr>`; 
 				boardTableTbody.insertAdjacentHTML("beforeend", tr);
 			}
 			currentCnt += 5;
@@ -122,7 +122,7 @@ window.addEventListener("load", (e) => {
 								${list[i + currentCnt].title}(${list[i + currentCnt].cmtCnt})
 							</td>
 							<td>${list[i + currentCnt].writerNickname}</td>
-							<td>${list[i + currentCnt].regDate}</td>
+							<td>${moment(list[i + currentCnt].regDate).format("YY.MM.DD HH시mm분")}</td>
 						</tr>`;
 				boardTableTbody.insertAdjacentHTML("beforeend", tr);
 			}
@@ -204,9 +204,7 @@ window.addEventListener("load", (e) => {
 					commentList += `<div>
 									 <span>${comment.writerNickname}</span> 
 									: <span>${comment.content}<span> 
-									<span>${new Date(comment.regDate).toLocaleString("default", {year: 'numeric', month: 'numeric', day: 'numeric',
-  hour: 'numeric', minute: 'numeric', second: 'numeric',
-  hour12: false  })}</span>
+									<span>${moment(comment.regDate).format("YY.MM.DD, HH:mm")}</span>
 									<input type="hidden" value="${comment.id}"/>
 									${cmtAuth}
 									 </div>`;

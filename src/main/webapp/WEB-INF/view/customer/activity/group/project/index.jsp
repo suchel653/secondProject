@@ -7,10 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="/js/customer/activity/group/project/index.js"></script>
 <script src="/js/customer/activity/group/chat-client.js"></script>    
 <link href="/css/reset.css" type="text/css" rel="stylesheet" />
 <link href="/css/customer/activity/group/index.css" type="text/css" rel="stylesheet" />
+
 </head>
 <body>
 	<div class="container" style="width: 1500px; height: 900px; border: 1px solid black; display: flex;">
