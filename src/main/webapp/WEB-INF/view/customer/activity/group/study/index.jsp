@@ -7,20 +7,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="/js/customer/activity/group/study/index.js"></script>
 <script src="/js/customer/activity/group/chat-client.js"></script>
 <link href="/css/reset.css" type="text/css" rel="stylesheet" />
 <link href="/css/customer/activity/group/index.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-	<div class="container" style="width: 1500px; height: 900px; border: 1px solid black; display: flex;">
-		<div class="box1" style="width: 500px; hegiht: 900px; border: 1px solid black;">
-			<div class="info-div" style="display: flex; flex-direction: column; align-items: center;">
+	<div class="container">
+		<div class="box1">
+			<div class="info-div">
 				<input hidden value="${sv.id}" /> 
 				<Button class="info-Btn">Information</Button>
 			</div>
 
-			<div style="display: flex; flex-direction: column; align-items: center;">
+			<div class="img-div">
 				<div class="main-img">
 					<c:if test="${sv.image != 'img1.jpg'}">
 						<img src="/images/studyImg/${sv.id}/${sv.image}"></img>
@@ -32,12 +33,12 @@
 				<button class="snip1535">팀원 정보</button>
 				<div class="team-info">
 					<div class="member-info">
-						<div style="width: 250px; text-align: center;">팀장 : ${sv.leaderName} 
+						<div class="team-leader">팀장 : ${sv.leaderName} 
 						<input type="button" class="btn-two mini purple" onclick="window.open('/customer/profile/${sv.leaderId}','win','width=900,height=500')" value="프로필 보기"/></div>
 					</div>
 					<c:forEach var="sav" items="${sav}">
 						<div class="member-info">
-							<div style="width: 250px; text-align: center;">팀원 : ${sav.memberNickname} 
+							<div class="team-member">팀원 : ${sav.memberNickname} 
 							<input type="button" class="btn-two mini purple" onclick="window.open('/customer/profile/${sav.memberId}','win','width=900,height=500')" value="프로필 보기"/></div>
 						</div>
 					</c:forEach>
@@ -45,7 +46,7 @@
 			</div>
 			<input hidden class="pageStatus" value="${pageStatus}" />
 			<c:if test="${sessionScope.id == sv.leaderId}">
-				<div style="display: flex; flex-direction: column; align-items: center;">
+				<div class="apply-div">
 					<div class="apply-btn-div">
 						<input type="button" value="지원 관리" class="apply-Btn btn-two small yellow"/>
 					</div>
@@ -88,13 +89,11 @@
 		</div>
 
 		<input type="hidden" class="memberId" value="${id}">
-		<div class="box2"
-			style="width: 500px; hegiht: 900px; border: 1px solid black;">
-			<div class="table"
-				style="display: flex; flex-direction: column; align-items: center;">
+		<div class="box2">
+			<div class="board-table">
 				<div>
-					<h1 style="display: inline-block; margin-left: 50px;">게시판</h1>
-					<input class="board-reg" type="button" value="등록" style="margin-left: 30px;" />
+					<h1 class="board-h1">게시판</h1>
+					<input class="board-reg" type="button" value="등록"/>
 				</div>
 				<div class="bodrd">
 					<table>
@@ -115,12 +114,10 @@
 			</div>
 		</div>
 
-		<div class="box3"
-			style="width: 500px; hegiht: 900px; border: 1px solid black;">
-			<div
-				style="display: flex; flex-direction: column; align-items: center;">
+		<div class="box3">
+			<div class="date-div">
 				<h1>일정 공유</h1>
-				<div style="width: 300px; height: 300px; border: 1px solid black;"></div>
+				<div class="date-div-box"></div>
 			</div>
 
 			<div class="chat" style="display: flex; flex-direction: column; align-items: center; justify-content: space-around;width:300px;height:300px;border: 1px solid black">

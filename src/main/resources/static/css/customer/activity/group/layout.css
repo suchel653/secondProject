@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+body{
+	background : url("/images/group/pink.jpg");
+}
+.container{
+	width: 1500px;
+	height : 900px;
+	display : flex;
+}
+
+.container .box1{
+	width : 500px;
+	height : 900px;
+	
+}
+
+.box1 .info-div{
+	display:flex;
+	flex-direction : column;
+	align-items: center;
+}
+
+.box1 .img-div{
+	display:flex;
+	flex-direction : column;
+	align-items: center;
+}
+
+.box1 .team-info .team-leader,
+.box1 .team-info .team-member{
+	width:250px;
+	text-align:center;
+}
+
+.box1 .apply-div{
+	display: flex; 
+	flex-direction: column; 
+	align-items: center;
+}
+
+.container .box2{
+	width: 500px; 
+	hegiht: 900px; 
+	
+}
+
+.box2 .board-table{
+	display: flex; 
+	flex-direction: column; 
+	align-items: center;
+	margin-top : 50px;
+}
+
+.board-reg{
+	margin-left : 30px;
+}
+
+.container .box3{
+	width: 500px; 
+	height: 900px; 
+	
+}
+
+.box3 .date-div{
+	display: flex; 
+	flex-direction: column; 
+	align-items: center;
+}
+
+.box3 .date-div .date-div-box{
+	width: 300px; 
+	height: 300px; 
+	
+}
