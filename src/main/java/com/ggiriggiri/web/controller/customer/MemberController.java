@@ -32,7 +32,7 @@ public class MemberController {
 	@GetMapping("join")
 	public String join() {
 		
-		return "customer.join";
+		return "customer.login";
 	}
 	
 	@PostMapping("join")
@@ -45,7 +45,7 @@ public class MemberController {
 		member.setPassword(encodePwd);
 		System.out.println(member);
 		service.insert(member);
-		return "customer.join";
+		return "customer.login";
 	}
 	
 	@RequestMapping("login")

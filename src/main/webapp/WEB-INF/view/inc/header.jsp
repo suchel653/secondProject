@@ -38,7 +38,7 @@
 							</div>
 							
 						</div>
-						<input type="hidden" class="id" value=${id }>
+						<input type="hidden" class="id" value=${sessionScope.id }>
 					</div>
 				</s:authorize>
 			</ul>
