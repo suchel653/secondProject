@@ -5,6 +5,7 @@ import java.util.Random;
 
 import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 
+import org.apache.tiles.autotag.core.runtime.annotation.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ggiriggiri.web.entity.Member;
@@ -29,10 +31,20 @@ public class MemberController {
 	private MemberService service;
 	
 	@RequestMapping("list")
-	public String list(Model model) {
+	public String list(
+			@RequestParam(name = "p", defaultValue = "1") int page,
+			@RequestParam(name = "f", defaultValue = "nickname") String field,
+			@RequestParam(name = "q", defaultValue = "") String query,
+			Model model) {
 		
-		List<Member> list = service.getList();
+		int size = 10;
+		
+		List<Member> list = service.getList(page,size,field,query);
+		int count = service.getCount(field, query);
+		int pageCount = (int) Math.ceil(count / (float)size);
+		
 		model.addAttribute("list", list);
+		model.addAttribute("pageCount",pageCount);
 		
 		return "admin.member.list";
 	}

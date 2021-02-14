@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="/css/customer/project-study-list.css"></link>
 <script src="https://kit.fontawesome.com/b280fc7aa7.js"
 	crossorigin="anonymous"></script>
-	<
+	
 <c:set var="fns" value="${paramValues.f}" />
 <c:set var="sns" value="${paramValues.s}" />
 <c:set var="lns" value="${paramValues.l}" />
@@ -80,8 +80,8 @@
 									</c:if>
 								</c:forEach>
 								<input type="checkbox" ${checked} name="l" value="${l.name}">${l.name}
-                               </c:forEach> <input type="checkbox" name="l"
-							value="Javascript"></td>
+                               </c:forEach> 
+                               </td>
 					</tr>
 				</table>
 				<div class="search-query">

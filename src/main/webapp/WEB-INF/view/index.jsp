@@ -27,7 +27,6 @@
 	            <div>김건영</div>
 	            <div>이수철</div>
 	            <div>김성현</div>
-	            <div>김지훈</div>
 	            <div>김민영</div>
             </div> 
             </section>
