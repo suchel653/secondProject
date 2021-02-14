@@ -17,18 +17,7 @@ window.addEventListener("load", function() {
 	let check2 = false;
 	emailButton.onclick = function(e) {
 		e.preventDefault();
-		/*fetch("checkMail", {
-			headers { "Content-Type":}
-			method: "POST",
-			body: JSON.stringify({ "email": mail })
-			
-		})
-		.then((response)=>{
-			return response.json();
-		})
-		.then((data)=>{
-			console.log(data);
-		})*/
+		
 		
 		e.preventDefault();
 		let mail = address.value;
@@ -42,7 +31,7 @@ window.addEventListener("load", function() {
 		.then((data)=>{
 			emailKey = data.key;
 		})
-		
+		alert("인증 번호가 발송되었습니다. 이메일 도착까지 다소 시간이 소요될 수 있습니다.")
 		/*let request = new XMLHttpRequest();
       request.open("POST","checkMail?email="+address.value);
       request.send();*/
@@ -79,9 +68,15 @@ window.addEventListener("load", function() {
 	submitButton.onclick = function submitCheck(){
 		if(check1 && check2 && password.value != ""){
 			return true;
-			이창꺼;
+			alert("회원가입이 완료되었습니다.");
+		}else if(check1 && check2){
+			alert("비밀번호를 입력해주세요");
+			return false;
+		}else if(check1 && password.value != ""){
+			alert("닉네임 중복확인을 다시 해주세요");
+			return false;
 		}else{
-			alert("이메일 인증 혹은 닉네임이 중복됩니다.");
+			alert("이메일 인증에 오류가 있습니다. 인증번호를 다시 확인해주세요");
 			return false;
 		}
 	}

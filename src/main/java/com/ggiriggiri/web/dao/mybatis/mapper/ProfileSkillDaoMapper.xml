@@ -10,4 +10,11 @@
 		insert into ProfileSkill (profileId, skillId)
 		values (#{profileId}, #{skillId});
 	</insert>
+	<update id="update" parameterType="com.ggiriggiri.web.entity.ProfileSkill">
+		update ProfileSkill
+		set
+			level = #{level}
+		where profileId = #{profileId}
+		and skillId = #{skillId}
+	</update>
 </mapper>

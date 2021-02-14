@@ -51,6 +51,8 @@ public class ProfileServiceImp implements ProfileService{
 		profileDao.update(profile);
 		for(int i=0; i<languageDao.getList().size(); i++)
 			profileLanguageDao.update(profileDao.get(profile.getMemberId()).getId(),i+1, profile.getLanguageList().get(i).getLevel());
+		for(int i=0; i<skillDao.getList().size(); i++)
+			profileSkillDao.update(profileDao.get(profile.getMemberId()).getId(),i+1, profile.getSkillList().get(i).getLevel());
 		return 0;
 	}
 

@@ -19,6 +19,7 @@ import com.ggiriggiri.web.entity.Member;
 import com.ggiriggiri.web.entity.Profile;
 import com.ggiriggiri.web.entity.ProfileLanguage;
 import com.ggiriggiri.web.entity.ProfileLanguageView;
+import com.ggiriggiri.web.entity.ProfileSkillView;
 import com.ggiriggiri.web.service.MemberService;
 import com.ggiriggiri.web.service.ProfileService;
 
@@ -57,6 +58,7 @@ public class ProfileController {
 		Profile profile = profileService.get(memberId);
 		String nickname = (String) payload.get("nicknameValue");
 		String introduction = (String) payload.get("introduce");
+		
 		List<String> language = (List<String>) payload.get("languageLevel");
 		List<ProfileLanguageView> languageLevelList = new ArrayList<>();
 		int languageId = 0;
@@ -67,9 +69,22 @@ public class ProfileController {
 			languageLevel.setLanguagerId(languageId);
 			languageLevelList.add(languageLevel);
 		}
+		
+		List<String> skill = (List<String>) payload.get("skillLevel");
+		List<ProfileSkillView> skillLevelList = new ArrayList<>();
+		int skillId = 0;
+		for(String level:skill) {
+			skillId++;
+			ProfileSkillView skillLevel = new ProfileSkillView();
+			skillLevel.setLevel(Integer.parseInt(level));
+			skillLevel.setSkillId(skillId);
+			skillLevelList.add(skillLevel);
+		}
+		
 		member.setNickname(nickname);
 		profile.setIntroduction(introduction);
 		profile.setLanguageList(languageLevelList);
+		profile.setSkillList(skillLevelList);
 		memberService.update(member);
 		profileService.update(profile);
 		

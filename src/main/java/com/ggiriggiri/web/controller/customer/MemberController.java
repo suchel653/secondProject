@@ -43,7 +43,8 @@ public class MemberController {
 		member.setEmail(email);
 		member.setNickname(nickname);
 		member.setPassword(encodePwd);
-		service.insert(member);		
+		System.out.println(member);
+		service.insert(member);
 		return "customer.join";
 	}
 	
