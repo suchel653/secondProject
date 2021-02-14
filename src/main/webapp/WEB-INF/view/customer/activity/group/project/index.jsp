@@ -15,24 +15,25 @@
 
 </head>
 <body>
-	<div class="container" style="width: 1500px; height: 900px; border: 1px solid black; display: flex;">
-		<div class="box1" style="width: 500px; hegiht: 900px; border: 1px solid black;">
-			<div class="info-div" style="display: flex; flex-direction: column; align-items: center;">
+	<div class="container">
+		<div class="box1">
+			<div class="info-div">
 				<input hidden value="${pv.id}" /> 
 				<Button class="info-Btn">Information</Button>
 			</div>
 
-			<div style="display: flex; flex-direction: column; align-items: center;">
-				<div class="main-img"><img src="/images/projectImg/${pv.image}"/></div>
+			<div class="img-div">
+				<div class="main-img">
+					<img src="/images/projectImg/${pv.image}"/></div>
 				<button class="snip1535">팀원 정보</button>
 				<div class="team-info">
 					<div class="member-info">
-						<div style="width: 250px; text-align: center;">팀장 : ${pv.leaderName} 
+						<div class="team-leader">팀장 : ${pv.leaderName} 
 						<input type="button" class="btn-two mini purple" onclick="window.open('/customer/profile/${pv.leaderId}','win','width=900,height=500')" value="프로필 보기"/></div>
 					</div>
 					<c:forEach var="pav" items="${pav}">
 						<div class="member-info">
-							<div style="width: 250px; text-align: center;">팀원 : ${pav.memberNickname} 
+							<div class="team-member">팀원 : ${pav.memberNickname} 
 							<input type="button" class="btn-two mini purple" onclick="window.open('/customer/profile/${pav.memberId}','win','width=900,height=500')" value="프로필 보기"/></div>
 						</div>
 					</c:forEach>
@@ -40,7 +41,7 @@
 			</div>
 			<input hidden class="pageStatus" value="${pageStatus}" />
 			<c:if test="${sessionScope.id == pv.leaderId}">
-				<div style="display: flex; flex-direction: column; align-items: center;">
+				<div class="apply-div">
 					<div class="apply-btn-div">
 						<input type="button" value="지원 관리" class="apply-Btn btn-two small yellow"/>
 					</div>
@@ -83,22 +84,20 @@
 		</div>
 
 		<input type="hidden" class="memberId" value="${id}">
-		<div class="box2"
-			style="width: 500px; hegiht: 900px; border: 1px solid black;">
-			<div class="table"
-				style="display: flex; flex-direction: column; align-items: center;">
+		<div class="box2">
+			<div class="board-table">
 				<div>
-					<h1 style="display: inline-block; margin-left: 50px;">게시판</h1>
-					<input class="board-reg" type="button" value="등록" style="margin-left: 30px;" />
+					<h1 class="board-h1">BOARD</h1>
+					<input class="board-reg" type="button" value="등록"/>
 				</div>
 				<div class="board">
-					<table>
+					<table class="board-table2">
 						<thead>
 						<tr>
 							
-							<th>제목</th>
-							<th>작성자</th>
-							<th>등록일</th>
+							<th class="large">제목</th>
+							<th class="small">작성자</th>
+							<th class="middle">등록일</th>
 						</tr>
 						</thead>
 						<tbody class="boardTbody">
@@ -110,12 +109,10 @@
 			</div>
 		</div>
 
-		<div class="box3"
-			style="width: 500px; hegiht: 900px; border: 1px solid black;">
-			<div
-				style="display: flex; flex-direction: column; align-items: center;">
+		<div class="box3">
+			<div class="date-div">
 				<h1>일정 공유</h1>
-				<div style="width: 300px; height: 300px; border: 1px solid black;"></div>
+				<div class="date-div-box"></div>
 			</div>
 
 			<div class="chat" style="width:300px;height:300px;border: 1px solid black;display: flex; flex-direction: column; align-items: center; justify-content: space-around">

@@ -99,14 +99,14 @@ window.addEventListener("load", (e) => {
 	function addListView() {
 		if (boardCnt > currentCnt + 5) {
 			for (let i = 0; i < 5; i++) {
-				let tr = `<tr>
+				let tr = `<tr class="title-tr">
 							<td class="title">
 								<input type="hidden" value="${i + currentCnt}"/>
 								<input class="board-id" type="hidden" value="${list[i + currentCnt].id}"/>
 								${list[i + currentCnt].title}(${list[i + currentCnt].cmtCnt})
 							</td>
 							<td>${list[i + currentCnt].writerNickname}</td>
-							<td>${list[i + currentCnt].regDate}</td>
+							<td>${moment(list[i + currentCnt].regDate).format("YYYY-MM-DD HH:mm")}</td>
 						</tr>`;
 				boardTableTbody.insertAdjacentHTML("beforeend", tr);
 			}
@@ -115,14 +115,14 @@ window.addEventListener("load", (e) => {
 		}
 		else {
 			for (let i = 0; i < boardCnt - currentCnt; i++) {
-				let tr = `<tr>
+				let tr = `<tr class="title-tr">
 							<td class="title">
 								<input type="hidden" value="${i + currentCnt}"/>
 								<input class="board-id" type="hidden" value="${list[i + currentCnt].id}"/>
 								${list[i + currentCnt].title}(${list[i + currentCnt].cmtCnt})
 							</td>
 							<td>${list[i + currentCnt].writerNickname}</td>
-							<td>${list[i + currentCnt].regDate}</td>
+							<td>${moment(list[i + currentCnt].regDate).format("YYYY-MM-DD HH:mm")}</td>
 						</tr>`;
 				boardTableTbody.insertAdjacentHTML("beforeend", tr);
 			}
@@ -151,10 +151,10 @@ window.addEventListener("load", (e) => {
 				boardId = e.target.children[1].value;
 				console.log(boardId);
 				let detailTr = `<tr class="detail">
-							<td colspan="4" style="border:1px solid black; height:100px;">
+							<td colspan="4">
 								<div class="auth-box">
 									<input class="detail-edit" type="button" value="수정"/>
-									<input class="detail-del" type="button" value="삭제"/>
+									<input class="detail-del" type="button"/>
 								</div>
 								<span class="detail-content">
 									${list[index].content}
@@ -203,13 +203,13 @@ window.addEventListener("load", (e) => {
 					commentList += `<div>
 									 <span>${comment.writerNickname}</span> 
 									: <span>${comment.content}<span> 
-									<span>${comment.regDate}</span>
+									<span class="comment-regdate">${moment(comment.regDate).format("YYYY-MM-DD HH:mm")}</span>
 									<input type="hidden" value="${comment.id}"/>
 									${cmtAuth}
 									 </div>`;
 				}
 				let commentTr = `<tr class="comment">
-											<td colspan="4" style="border:1px solid black;">`
+											<td colspan="4">`
 					+ commentList +
 					`<div><input class="cmt-content" type="text"/><input class="cmt-reg" type="button" value="등록"/></div>
 											</td>

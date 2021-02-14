@@ -13,11 +13,11 @@
 	<table>
 		<tbody>
 			<tr>
-				<td>제목</td>
+				<td>Title</td>
 				<td><input class="title" type="text"/></td>
 			</tr>
 			<tr>
-				<td>내용</td>
+				<td>Content</td>
 				<td><textarea class="content"></textarea></td>
 			</tr>
 			

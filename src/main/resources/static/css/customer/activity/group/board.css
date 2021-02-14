@@ -1,1 +1,128 @@
 @charset "UTF-8";
+
+.board-table2{
+	width : 100%;
+	border-top: 1px solid #444444;
+	border-collapse: collapse;
+}
+
+.board-table2 .large{
+	width : 250px;
+}
+
+.board-table2 .middle{
+	width : 150px;
+}
+
+.board-table2 .small{
+	width : 50px;
+}
+
+
+.board-table2 thead{
+	background-color:#cb99c5;
+	color: #ffffff;
+	
+}
+
+.board-table2 thead tr{
+	height:40px;
+	
+}
+
+.board-table2 thead tr th{
+	 text-align: center;
+    vertical-align: middle;
+}
+
+.board-table2 .title-tr td{
+	border-bottom: 1px solid #444444;
+	  padding:10px; 
+	
+    text-align: center;
+    vertical-align: middle;
+}
+
+.boardTbody tr.title-tr:nth-child(2n){
+	background-color: #C8ABE3;
+}
+
+.boardTbody tr.title-tr:nth-child(2n+1){
+	 background-color: #E697D2;
+}
+
+.board-table .board-h1{
+	display: inline-block; 
+	margin-left: 170px;
+	font-size : 25px;
+	color : #cb99c5;
+	font-weight: bolder;
+	margin-bottom : 30px;
+	
+}
+
+.board-reg{
+	font-size:0px;
+	border : none;
+	width:30px;
+	height:30px;
+	background : url("/images/group/reg.png");
+	background-size : cover;
+	margin-left: 150px;
+	padding-bottom: 24px;
+}
+
+.detail td{
+	border:1px solid black; 
+	height:100px;
+}
+
+.detail .auth-box{
+	padding-left: 400px;
+}
+.detail .detail-edit{
+	font-size:0px;
+	border : none;
+	width:25px;
+	height:25px;
+	background : url("/images/group/edit.png");
+	background-size : contain;
+}
+
+.detail .detail-del{
+	font-size:0px;
+	border : none;
+	width:25px;
+	height:25px;
+	background : url("/images/group/del.png");
+	background-size : contain;
+}
+
+.comment td{
+	border:1px solid black; 
+}
+
+.comment .comment-regdate{
+	font-size : 3px;
+}
+
+.comment .cmt-reg{
+	font-size:0px;
+	border : none;
+	width:15px;
+	height:15px;
+	background : url("/images/group/reg.png");
+	background-size : contain;
+	padding-top : 10px;
+	margin-left: 5px;
+}
+
+.comment .cmt-del{
+	font-size:0px;
+	border : none;
+	width:15px;
+	height:15px;
+	background : url("/images/group/del.png");
+	background-size : contain;
+	padding-top : 10px;
+}
