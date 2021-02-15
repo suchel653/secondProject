@@ -6,12 +6,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="/js/customer/activity/group/study/board/reg.js"></script>
+<link href="/css/customer/activity/group/reg.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<input class="studyId" type="hidden" value="${studyId}"/>
 	<input class="writerId" type="hidden" value="${writerId}"/>
-	<table>
-		<tbody>
+ <h1 class="reg-title">게시글 등록</h1>
+    <table class="reg-table">
+        <tbody>
 			<tr>
 				<td>제목</td>
 				<td><input class="title" type="text"/></td>
@@ -23,9 +25,9 @@
 			
 		</tbody>
 	</table>
-	
+	<div class="btn">
 	<input class="reg-btn" type="button" value="등록"/> 
 	<input class="cancel-btn" type="button" value="취소"/> 
-	
+	</div>
 </body>
 </html>

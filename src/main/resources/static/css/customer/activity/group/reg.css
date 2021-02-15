@@ -1,0 +1,72 @@
+@charset "EUC-KR";
+
+.reg-table{
+    
+    margin:50px auto;
+
+    margin-top: 20px;
+}
+.reg-title{
+    text-align: center;
+    font-size: 35px;
+  	
+   
+  	margin-top: 20px;
+  	
+
+	color: #cb99c5;
+	font-weight: bolder;
+
+
+}
+.title{
+	
+    width: 200px;
+}
+
+.content{
+    
+    height: 200px;
+    width: 200px;
+    resize: none;
+    
+}
+.btn{
+	margin-left:170px;
+}
+.reg-btn{
+
+	background: #cb99c5;
+	color: #fff;
+	border: none;
+	position: relative;
+	height: 45px;
+	font-size: 1.0em;
+	padding: 0 1.5em;
+	cursor: pointer;
+	
+
+}
+.cancel-btn{
+	
+	background: #cb99c5;
+	color: #fff;
+	border: none;
+	position: relative;
+	height: 45px;
+	font-size: 1.0em;
+	padding: 0 1.5em;
+	cursor: pointer;
+	
+}
+.edit-btn{
+		background: #cb99c5;
+	color: #fff;
+	border: none;
+	position: relative;
+	height: 45px;
+	font-size: 1.0em;
+	padding: 0 1.5em;
+	cursor: pointer;
+	
+}
