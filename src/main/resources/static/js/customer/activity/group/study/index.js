@@ -126,7 +126,7 @@ window.addEventListener("load", (e) => {
 						</tr>`;
 				boardTableTbody.insertAdjacentHTML("beforeend", tr);
 			}
-			boardPlusBtn.type = "hidden";
+			boardPlusBtn.style.display = "none";
 		}
 	}
 
@@ -200,9 +200,9 @@ window.addEventListener("load", (e) => {
 								`;
 						reged = true;
 					}
-					commentList += `<div>
-									 <span>${comment.writerNickname}</span> 
-									: <span>${comment.content}<span> 
+					commentList += `<div class="cmt-div">
+									 <span class="comment-writer-nickname">${comment.writerNickname}</span> 
+									: <span>${comment.content}</span> 
 									<span class="comment-regdate">${moment(comment.regDate).format("YYYY-MM-DD HH:mm")}</span>
 									<input type="hidden" value="${comment.id}"/>
 									${cmtAuth}

@@ -23,38 +23,32 @@
 			</div>
 		</form>
 		
-		<table class="contest-list">
-			<thead>
-				<tr>
-					<th>번호</th>
-					<th>공모전 명</th>
-					<th>시작일</th>
-					<th>마감일</th>
-					<th>작성자</th>
-					<th>작성일</th>
-					<th>조회수</th>
-				</tr>
-			</thead>
-			<tbody>
-			<c:forEach var="c" items="${list}">
-				<tr>
-					<td>${c.id}</td>
-					<td><a href="${c.id}">${c.title}</a></td>
-					<td>
-						<fmt:formatDate value="${c.startDate}" pattern="yyyy-MM-dd"/>	
-					</td>
-					<td>
-						<fmt:formatDate value="${c.endDate}" pattern="yyyy-MM-dd"/>	
-					</td>
-					<td>${c.writerName}</td>
-					<td>
-						<fmt:formatDate value="${c.regDate}" pattern="yyyy-MM-dd"/>	
-					</td>
-					<td>${c.hit}</td>
-				</tr>
-			</c:forEach>
-			</tbody>
-		</table>
+		<section >
+			<ul class="contest-list">
+				<c:forEach var="c" items="${list}">
+				<a class="contest-item" href="${c.id}">
+				<li>
+					<img src="/images/contestImg/contest.jpg">
+					<table>
+						<tr>
+							<th>기간</th>
+							<td colspan="2">
+								<fmt:formatDate value="${c.startDate}" pattern="yyyy-MM-dd"/> ~
+								<fmt:formatDate value="${c.endDate}" pattern="yyyy-MM-dd"/>
+							</td>
+						</tr>
+						<tr>
+							<th>이름</th>
+							<td >${c.title }</td>
+							<th class="hit">조회수</th>
+							<td>${c.hit}</td>
+						</tr>
+					</table>
+				</li>
+				</a>
+				</c:forEach>
+			</ul>
+		</section>
 		
 		<c:set var="startNum" value="${page-(page-1)%5}" />
 
