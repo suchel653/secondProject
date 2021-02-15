@@ -3,7 +3,7 @@
 <link href="/css/customer/footer.css" type="text/css" rel="stylesheet" />
 <footer id="footer" class="footer">
 	<div class="container">
-		<div class="div1">
+		<div>
 			<ul class="footer-info">
 				<li class="phone">1111-2222</li>
 				<li>AM 10:00 ~ PM 05:00</li>

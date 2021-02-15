@@ -315,3 +315,43 @@ window.addEventListener("load", (e) => {
 	}
 
 });
+
+
+
+// =================================== 프로젝트 상태 변경 ====================
+
+window.addEventListener("load", (e) => {
+	let statusBox = document.querySelector(".status-box");
+	let id = document.querySelector("input").value;
+	if (statusBox != null) {
+		let statusId = statusBox.querySelector(".status-id").value;
+		if (statusId == 1) {
+			let startBtn = statusBox.querySelector(".status-box .start-btn");
+			startBtn.addEventListener("click", (e) => {
+				let result = confirm("프로젝트를 진행하시겠습니까?");
+				if (!result)
+					return;
+
+				fetch(`/api/projectController/updateStatus?id=${id}&statusId=2`)
+					.then(() => {
+						window.location.reload();
+					})
+
+			});
+		}
+		else if (statusId == 2) {
+			let endBtn = statusBox.querySelector(".status-box .end-btn");
+			endBtn.addEventListener("click", (e) => {
+				let result = confirm("프로젝트를 종료하시겠습니까?");
+				if (!result)
+					return;
+				
+				fetch(`/api/projectController/updateStatus?id=${id}&statusId=3`)
+					.then(() => {
+						window.location.reload();
+					})
+			})
+		}
+	}
+
+});

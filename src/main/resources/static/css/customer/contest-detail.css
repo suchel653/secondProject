@@ -1,24 +1,44 @@
 @charset "UTF-8";
 
-.contest-detail .content{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+.detail-container .contest-list{
+	margin:auto;	
 }
 
-.detail-container table th,
-.detail-container table td{
+.contest-list tbody{
+	width: 100%;
+}
+
+.contest-detail .content{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	width: 80%;
+	margin: auto;
+}
+
+.detail-container .contest-list tbody tr{
+	width:100%;
+}
+
+.contest-list th,
+.contest-list td{
 	text-align: center;
 }
 
-.detail-container table th{
+.contest-list th{
 	width: 120px;
 }
 
+.contest-list td{
+	width:500px;
+}
 
 .content img,
 .content span{
-	margin-top:50px;
+	margin:50px 30px;
 }
 
+.content span{
+	flex-basis: 100%;
+}

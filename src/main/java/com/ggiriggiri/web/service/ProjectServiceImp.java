@@ -252,4 +252,10 @@ public class ProjectServiceImp implements ProjectService {
 		return projectFileDao.getId(projectId, name);
 	}
 
+	@Override
+	public int updateStatus(int id, int statusId) {
+		
+		return projectDao.updateStatusById(id,statusId);
+	}
+
 }

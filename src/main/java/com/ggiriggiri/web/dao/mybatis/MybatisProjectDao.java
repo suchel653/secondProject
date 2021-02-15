@@ -105,4 +105,10 @@ public class MybatisProjectDao implements ProjectDao {
 		return mapper.getViewListByStatusId(ids, leaderId, statusId);
 	}
 
+	@Override
+	public int updateStatusById(int id, int statusId) {
+		// TODO Auto-generated method stub
+		return mapper.updateStatusById(id, statusId);
+	}
+
 }

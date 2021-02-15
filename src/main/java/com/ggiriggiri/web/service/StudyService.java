@@ -42,5 +42,6 @@ public interface StudyService {
 
 
 	int check(int i, int id);
+	int updateStatus(int id, int statusId);
 
 }

@@ -210,4 +210,10 @@ public class StudyServiceImp implements StudyService {
 		// TODO Auto-generated method stub
 		return studyApplyDao.check(i,id);	}
 
+	@Override
+	public int updateStatus(int id, int statusId) {
+		
+		return studyDao.updateStatusById(id,statusId);
+	}
+
 }
