@@ -1,128 +1,187 @@
 @charset "UTF-8";
 
-.board-table2{
-	width : 100%;
+.board-table2 {
+	width: 100%;
 	border-top: 1px solid #444444;
-	border-collapse: collapse;
+	border-collapse: separate;
 }
 
-.board-table2 .large{
-	width : 250px;
+.board-table2 .large {
+	width: 250px;
 }
 
-.board-table2 .middle{
-	width : 150px;
+.board-table2 .middle {
+	width: 150px;
 }
 
-.board-table2 .small{
-	width : 50px;
+.board-table2 .small {
+	width: 60px;
 }
 
-
-.board-table2 thead{
-	background-color:#cb99c5;
+.board-table2 thead {
+	background-color: #cb99c5;
 	color: #ffffff;
-	
 }
 
-.board-table2 thead tr{
-	height:40px;
-	
+.board-table2 thead tr {
+	height: 40px;
 }
 
-.board-table2 thead tr th{
-	 text-align: center;
-    vertical-align: middle;
+.board-table2 thead tr th {
+	text-align: center;
+	vertical-align: middle;
 }
 
-.board-table2 .title-tr td{
-	border-bottom: 1px solid #444444;
-	  padding:10px; 
-	
-    text-align: center;
-    vertical-align: middle;
+.board-table2 .title-tr td {
+	--border-bottom: 1px solid #444444;
+	--padding: 10px;
+	padding-bottom: 10px; 
+	padding-top : 10px;
+	text-align: center;
 }
 
-.boardTbody tr.title-tr:nth-child(2n){
-	background-color: #C8ABE3;
+.boardTbody tr.title-tr:nth-child(2n) {
+	-background-color: #F9ECFD;
+	background-color: #ededed;
 }
 
-.boardTbody tr.title-tr:nth-child(2n+1){
-	 background-color: #E697D2;
+.boardTbody tr.title-tr:nth-child(2n+1) {
+	-background-color: #ffe1fb;
+	background-color: white;
 }
 
-.board-table .board-h1{
-	display: inline-block; 
+.board-table .board-h1 {
+	display: inline-block;
 	margin-left: 170px;
-	font-size : 25px;
-	color : #cb99c5;
+	font-size: 25px;
+	color: #cb99c5;
 	font-weight: bolder;
-	margin-bottom : 30px;
-	
+	margin-bottom: 30px;
 }
 
-.board-reg{
-	font-size:0px;
-	border : none;
-	width:30px;
-	height:30px;
-	background : url("/images/group/reg.png");
-	background-size : cover;
+.board-reg {
+	font-size: 0px;
+	border: none;
+	width: 30px;
+	height: 30px;
+	background: url("/images/group/reg.png");
+	background-size: cover;
 	margin-left: 150px;
 	padding-bottom: 24px;
 }
 
-.detail td{
-	border:1px solid black; 
-	height:100px;
+.detail td {
+	height: 100px;
+	border: 3px solid gray;
+	padding: 5px;
+	border-radius: 10px 10px 0px 0px;
+	border-bottom: 2px solid gray;
+	width: 456px;
+	overflow-wrap: anywhere;
 }
 
-.detail .auth-box{
+.detail .auth-box {
 	padding-left: 400px;
 }
-.detail .detail-edit{
-	font-size:0px;
-	border : none;
-	width:25px;
-	height:25px;
-	background : url("/images/group/edit.png");
-	background-size : contain;
+
+.detail .detail-edit {
+	font-size: 0px;
+	border: none;
+	width: 25px;
+	height: 25px;
+	background: url("/images/group/edit.png");
+	background-size: contain;
 }
 
-.detail .detail-del{
-	font-size:0px;
-	border : none;
-	width:25px;
-	height:25px;
-	background : url("/images/group/del.png");
-	background-size : contain;
+.detail .detail-del {
+	font-size: 0px;
+	border: none;
+	width: 25px;
+	height: 25px;
+	background: url("/images/group/del.png");
+	background-size: contain;
 }
 
-.comment td{
-	border:1px solid black; 
+.comment td {
+	border: 3px solid gray;
+	padding: 5px;
+	border-top: none;
+	border-radius: 0px 0px 10px 10px;
+	width: 456px;
+	overflow-wrap: anywhere;
 }
 
-.comment .comment-regdate{
-	font-size : 3px;
+.comment .comment-writer-nickname {
+	font-weight: bold;
 }
 
-.comment .cmt-reg{
-	font-size:0px;
-	border : none;
-	width:15px;
-	height:15px;
-	background : url("/images/group/reg.png");
-	background-size : contain;
-	padding-top : 10px;
+.comment .comment-regdate {
+	font-size: 3px;
+	font-style: italic;
+	color: darkgray;
+}
+
+.comment .cmt-div {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.comment .cmt-reg {
+	font-size: 0px;
+	border: none;
+	width: 15px;
+	height: 15px;
+	background: url("/images/group/reg.png");
+	background-size: contain;
+	padding-top: 10px;
 	margin-left: 5px;
 }
 
-.comment .cmt-del{
-	font-size:0px;
-	border : none;
-	width:15px;
-	height:15px;
-	background : url("/images/group/del.png");
-	background-size : contain;
-	padding-top : 10px;
+.comment .cmt-del {
+	font-size: 0px;
+	border: none;
+	width: 15px;
+	height: 15px;
+	background: url("/images/group/del.png");
+	background-size: contain;
+	padding-top: 10px;
+}
+
+.board-plus-btn {
+	margin-top: 5px;
+	font-size: 30px;
+	border: 0px;
+}
+
+.board-plus-btn:hover {
+	font-size: 35px;
+}
+
+.board-reg:hover, .detail-edit:hover, .detail-del:hover, .cmt-del:hover,
+	.cmt-reg:hover, .board-plus-btn:hover {
+	cursor: pointer;
+}
+
+.board-reg:focus, .detail-edit:focus, .detail-del:focus, .cmt-del:focus,
+	.cmt-reg:focus {
+	outline: none;
+}
+
+.board-reg:active, .detail-edit:active, .detail-del:active, .cmt-del:active,
+	.cmt-reg:active {
+	outline: -webkit-focus-ring-color auto 1px;
+}
+
+.cmt-content {
+	width: 390px;
+	border: 1px solid darkgray;
+	background: inherit;
+	border-radius: 5px;
+	height: 20px;
+}
+
+.cmt-content:focus {
+	outline: none;
+	background: white;
+	border: 2px solid darkgray;
 }
