@@ -13,6 +13,7 @@
 <script src="/js/customer/activity/group/chat-client.js"></script>    
 <link href="/css/reset.css" type="text/css" rel="stylesheet" />
 <link href="/css/customer/activity/group/index.css" type="text/css" rel="stylesheet" />
+<link href="/css/customer/activity/group/Chat.css" type="text/css" rel="stylesheet" />
 
 </head>
 <body>
@@ -125,7 +126,7 @@
 			</div>
 		</div>
 
-		<div class="box3">
+
 	
 		<div class="box3">
 		
@@ -137,7 +138,7 @@
 				<input class="img" type="hidden" value="${image}">
 				<input class="nickname" type="hidden" value="${nickname}" >
 				<input class="id" type="hidden" value="${sessionScope.id}" >
-		  		<input class="chat-id" type="hidden" value="${sv.id}" >
+		  		<input class="chat-id" type="hidden" value="${pv.id}" >
 		  		</div>
 		  		<div class="chat-form">
 		   		<input class="chat-input" autofocus="autofocus" type = "text" id = "message"  placeholder="내용을 입력하세요" autofocus>
