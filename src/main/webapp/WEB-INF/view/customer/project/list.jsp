@@ -11,6 +11,7 @@
 <c:set var="snsList" value=""/>
 <c:set var="lnsList" value=""/>
 
+
 <c:forEach var="fns" items="${paramValues.f}" varStatus="st">
 	<c:set var="fnsList" value="${st.last ? (fnsList+=fns):(fnsList+=fns+='&f=')}"/>
 </c:forEach>
@@ -157,15 +158,15 @@
                 
                 <div class="pager">
                     <div>
-                      <a href="?p=${1}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}"><i class="fas fa-angle-double-left"></i></a>
+                      <a href="?p=${1}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}&size=${size}"><i class="fas fa-angle-double-left"></i></a>
                     </div>
                     <div>
                     <c:if test="${startNum>1}">
-                    	 <a href="?p=${startNum-5}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}"><i class="fas fa-angle-left"></i></a>
+                    	 <a href="?p=${startNum-5}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}&size=${size}"><i class="fas fa-angle-left"></i></a>
                     </c:if>
                     
                     <c:if test="${startNum<=1}">
-                    	<a href="?p=${1}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}"><i class="fas fa-angle-left"></i></a>
+                    	<a href="?p=${1}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}&size=${size}"><i class="fas fa-angle-left"></i></a>
                     </c:if>
                      
                     </div>
@@ -174,22 +175,22 @@
 	                    <c:forEach var="i" begin="0" end="4">
 	                    	
 	                    	<c:if test="${i+startNum <= pageCount}">
-	                      		<li class="${i+startNum==page?"current":""}"><a href="?p=${i+startNum}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}">${i+startNum}</a></li>
+	                      		<li class="${i+startNum==page?"current":""}"><a href="?p=${i+startNum}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}&size=${size}">${i+startNum}</a></li>
 	                    	</c:if>
 	                    </c:forEach>
                     </ul>
                     <div>
                     <c:if test="${startNum+5<=pageCount}">
-                    	<a href="?p=${startNum+5}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}"><i class="fas fa-angle-right"></i></a>
+                    	<a href="?p=${startNum+5}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}&size=${size}"><i class="fas fa-angle-right"></i></a>
                     </c:if>
                     
                     <c:if test="${startNum+5>pageCount}">
-                    	<a href="?p=${pageCount}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}"><i class="fas fa-angle-right"></i></a>
+                    	<a href="?p=${pageCount}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}&size=${size}"><i class="fas fa-angle-right"></i></a>
                     </c:if>
                     
                     </div>
                     <div>
-                      <a href="?p=${pageCount}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}"><i class="fas fa-angle-double-right"></i></a>
+                      <a href="?p=${pageCount}&f=${fnsList}&s=${snsList}&l=${lnsList}&t=${param.t}&q=${param.q}&size=${size}"><i class="fas fa-angle-double-right"></i></a>
                     </div>
                   </div>
                   </div>
