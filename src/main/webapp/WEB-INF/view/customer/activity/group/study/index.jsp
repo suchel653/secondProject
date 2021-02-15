@@ -133,7 +133,7 @@
 
 		<div class="box3">
 		
-			
+			<div>Chat</div>
 			<section class="chatbox">
 			<div class="chat-window">
 				
