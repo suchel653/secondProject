@@ -157,30 +157,31 @@
 	}
 	
 .intro-introduce{
-	height: 200px;
+	height: 180px;
 }
 
 	.intro-introduce>.content{
 		width: 400px;
-		height: 150px;
+		height: 130px;
 		margin-left: 100px;
 		margin-top: 15px;
 		word-break: break-all;
+		overflow: auto;
 	}
 
 	.intro-introduce>.content>textarea{
 		width: 400px;
-		height: 150px;
+		height: 130px;
 		position: absolute;
 	}
 	
-.intro-hangout>.content{
+.intro-hangout>.content>div{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 	
-.intro-hangout>.content>div{
+.intro-hangout>.content .edit{
 	width: 100px;
 	background: #35363A;
 	border: 1px solid black;
@@ -188,7 +189,43 @@
 	text-align: center;
 	margin-top: 10px;
 }
+
+.intro-hangout>.content .reg{
+	width: 400px;
+	background: #35363A;
+	border: 1px solid black;
+	color: white;
+	text-align: center;
+	margin-top: 10px;
+	font-family: Bazzi;
+}
+
+	.intro-hangout>.content .reg>button{
+		background: white;
+		font-family: Bazzi;
+	}
 	
+	.intro-hangout>.content .reg>option{
+		background: white;
+		font-family: Bazzi;
+	}
+	
+	.intro-hangout>.content>div{
+		margin-top: 10px;
+	}
+
+.git{
+	display: flex;
+}
+.gitLink{
+	background: #35363A;
+	border: 1px solid black;
+	color: white;
+	text-align: center;
+	margin-top: 5px;
+	max-width: 50px;
+}
+
 
 /*------------------------------------------*/
 .language-list, .skill-list{

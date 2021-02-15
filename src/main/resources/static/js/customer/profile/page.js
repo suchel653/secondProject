@@ -32,9 +32,10 @@ window.addEventListener("load", function(){
 		let detail = document.querySelector(".detail");
 		let detailList = document.querySelectorAll(".detail>div");
 		let introContent = document.querySelector(".intro-introduce>.content");
-		let hangoutContent = document.querySelector(".intro-hangout>.content");
+		let addressContent = document.querySelector(".intro-hangout>.content>.address");
+		let gitContent = document.querySelector(".intro-hangout>.content>.git")
 		let nick = nickname.firstElementChild.innerHTML;
-		
+
 		let languagePlus = document.querySelectorAll(".language-plus");
 		let languageMinus = document.querySelectorAll(".language-minus");
 		let languageLevelBar = document.querySelectorAll(".language-level-bar")
@@ -43,20 +44,121 @@ window.addEventListener("load", function(){
 		let skillMinus = document.querySelectorAll(".skill-minus");
 		let skillLevelBar = document.querySelectorAll(".skill-level-bar");
 		
+		let introContentReg = 0;
+		let address;
+		let git;
 		if(mypage.value == 1){
 			let div = `<input value="${nick}" class="nickname-input">`;
 				nickname.insertAdjacentHTML('beforeEnd',div);
 				
 			let div2 = `<div id="submit">save<i class="fas fa-save"></i></div>`;
 				detail.insertAdjacentHTML("afterEnd", div2);
+			addressValue = addressContent.innerHTML.trim();
 			
-			let div3 = `<div>집 주소 등록하기</div>
-						<div>깃 주소 등록하기</div>`;
-				hangoutContent.insertAdjacentHTML("afterBegin", div3);
-			
-			hangoutContent.firstElementChild.addEventListener("click", (e)=>{
+				let addressClick = 0;
+				addressContent.firstElementChild.addEventListener("click", (e)=>{
+					let div4 = `<div class="reg">주소:
+									<select class="metro">
+										<option value="서울특별시">서울특별시</option>
+										<option value="경기도">경기도</option>
+										<option value="인천광역시">인천광역시</option>
+										<option value="강원도">강원도</option>
+										<option value="충청남도">충청남도</option>
+										<option value="충청북도">충청북도</option>
+										<option value="대전광역시">대전광역시</option>
+										<option value="전라북도">전라북도</option>
+										<option value="전라남도">전라남도</option>
+										<option value="광주광역시">광주광역시</option>
+										<option value="경상북도">경상북도</option>
+										<option value="경상남도">경상남도</option>
+										<option value="울산광역시">울산광역시</option>
+										<option value="대구광역시">대구광역시</option>
+										<option value="부산광역시">부산광역시</option>
+										<option value="제주도">제주도</option>
+									</select>
+									<input type="text" class="local" placeholder="시/군/구 까지만">
+									<button>입력</button>
+								</div>`;
+					if(addressClick == 0){
+						addressContent.firstElementChild.insertAdjacentHTML('afterEnd',div4);
+						addressClick++;	
+						
+						let regAddress = addressContent.firstElementChild.nextElementSibling;
 				
-			})
+						
+						regAddress.lastElementChild.addEventListener("click", (e)=>{
+							let metro = regAddress.firstElementChild.value;
+							let detail = regAddress.firstElementChild.nextElementSibling.value;
+							address = metro + " " + detail;
+							
+							div5 = `<div class="address">${address}</div>`
+							addressContent.insertAdjacentHTML('afterBegin',div5);
+							addressContent.removeChild(addressContent.firstElementChild.nextElementSibling.nextElementSibling);
+							addressContent.removeChild(addressContent.firstElementChild.nextElementSibling);
+						})
+					}else{
+						addressContent.removeChild(addressContent.firstElementChild.nextElementSibling);
+						addressClick--;
+					}
+				
+				})
+			
+			
+				
+			
+				
+			gitValue = gitContent.firstElementChild.innerHTML.trim();
+				let alreadyGit = 1;
+				if (gitValue == "깃 주소 등록하기") {
+					alreadyGit = 0;
+				}
+				let gitClick = 0;
+				let sendButton;
+				gitContent.firstElementChild.addEventListener("click", (e) => {
+					let div4 = `<div class="reg">깃 프로필 주소
+									<input type="text" class="gitAdress" value="https://github.com/">
+									<button>입력</button>
+								</div>`;
+					if (gitClick == 0) {
+						gitContent.firstElementChild.insertAdjacentHTML('afterEnd', div4);
+						gitClick++;
+
+						sendButton = gitContent.lastElementChild.lastElementChild;
+						
+						if(alreadyGit == 1){
+								sendButton = gitContent.lastElementChild.previousElementSibling.lastElementChild;
+						}
+						console.log(sendButton);
+						console.log(alreadyGit);
+						sendButton.addEventListener("click", (e) => {
+
+							if(alreadyGit == 1){
+								git = gitContent.lastElementChild.previousElementSibling.firstElementChild.value;
+							
+								gitContent.removeChild(gitContent.firstElementChild);
+							}else{
+								git = gitContent.lastElementChild.firstElementChild.value;
+							}
+							
+							
+
+							div5 = `<div>${git}</div>
+									<div class="gitLink">바로가기</div>`
+							gitContent.insertAdjacentHTML('afterBegin', div5);
+							gitContent.removeChild(gitContent.lastElementChild.previousElementSibling);
+							gitContent.removeChild(gitContent.lastElementChild);
+							
+							
+							
+							
+							
+						})
+					} else {
+						gitContent.removeChild(gitContent.firstElementChild.nextElementSibling);
+						gitClick--;
+					}
+
+				})
 				
 			introContent.addEventListener("click", (e)=>{
 				let introContentText = introContent.innerHTML;
@@ -64,7 +166,8 @@ window.addEventListener("load", function(){
 				console.log(introContentText);	
 				let div = `<textarea>${introContentTextTrim}</textarea>`;
 					introContent.insertAdjacentHTML('afterBegin',div);
-		
+				
+				introContentReg = 1;
 			},{once: true})
 		
 			for(let i=0; i<languageMinus.length; i++){
@@ -132,6 +235,14 @@ window.addEventListener("load", function(){
 		nickname.addEventListener("blur", (e)=>{
 			
 		})
+		let edit = document.querySelectorAll(".edit");
+		
+		if(gitContent.lastElementChild != edit[1]){
+			
+			gitContent.lastElementChild.addEventListener("click", (e)=>{
+				win = open(gitContent.firstElementChild.innerHTML, "_blank", "width=900px,height=500px,top=200,left=400");
+			})
+		}	
 		
 		menu.addEventListener("click", (e)=>{
 			let selectMenu = document.getElementsByClassName(e.target.className);
@@ -162,9 +273,23 @@ window.addEventListener("load", function(){
 		/*----------------------------------------------------------*/
 		let submitButton = detail.nextElementSibling;
 		submitButton.addEventListener("click", (e)=>{
-			let introduce = introContent.firstElementChild.value;
-				if(introduce == null || introduce == "")
-					introduce = "이곳에 자기 소개글을 넣어주세요";
+			let introduce;
+			if(introContentReg == 0){
+				introduce = introContent.innerHTML;
+			}else{
+				introduce = introContent.firstElementChild.value;	
+			}
+			if(introduce == null || introduce == "")
+				introduce = "이곳에 자기 소개글을 넣어주세요";
+				
+			if(addressContent.firstElementChild != null)
+				address = addressContent.firstElementChild.innerHTML;
+			if(address== "집 주소 등록하기")	
+				address = null;
+			if(gitContent.firstElementChild != null)
+				repositoryLink = gitContent.firstElementChild.innerHTML;	
+			if(repositoryLink== "깃 주소 등록하기")	
+				repositoryLink = null;
 			let languageValue = document.querySelectorAll(".language-level");
 			let languageLevel = [];
 			
@@ -185,8 +310,9 @@ window.addEventListener("load", function(){
 				introduce,
 				nicknameValue,
 				languageLevel,
-				skillLevel
-				
+				skillLevel,
+				address,
+				repositoryLink
 			}
 			
 			fetch(`/customer/profile/update`,

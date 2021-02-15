@@ -59,6 +59,8 @@ public class ProfileController {
 		Profile profile = profileService.get(memberId);
 		String nickname = (String) payload.get("nicknameValue");
 		String introduction = (String) payload.get("introduce");
+		String address = (String) payload.get("address");
+		String repositoryLink = (String) payload.get("repositoryLink");
 		
 		List<String> language = (List<String>) payload.get("languageLevel");
 		List<ProfileLanguageView> languageLevelList = new ArrayList<>();
@@ -84,6 +86,8 @@ public class ProfileController {
 		
 		member.setNickname(nickname);
 		profile.setIntroduction(introduction);
+		profile.setAddress(address);
+		profile.setRepositoryLink(repositoryLink);
 		profile.setLanguageList(languageLevelList);
 		profile.setSkillList(skillLevelList);
 		memberService.update(member);
