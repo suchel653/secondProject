@@ -63,7 +63,36 @@ window.addEventListener("load",(e)=>{
 		chatWindow.insertAdjacentHTML("beforeend",chatItemTemplate);
 	});
 	
-	sendButton.addEventListener("click",(e)=>{
+	$(".chat-input").keypress(function (e) {
+        if (e.which == 13){
+			let today = new Date();
+			let hour = today.getHours();
+			let minutes = today.getMinutes();
+			
+			if(minutes<10)
+				minutes = "0"+minutes
+			
+			let time = "오전"+hour + ":" + minutes;
+			if(hour>12){
+				hour = hour-12;
+				time = "오후"+hour + ":" + minutes;
+			}
+			let message ={
+						id,
+						img,
+						type,
+						chatId,
+						username,
+						chatData:chatInput.value,
+						time
+					};
+			chatInput.value="";
+			if(socket != undefined)
+				socket.send(JSON.stringify(message));      
+		  }
+    });
+
+	sendButton.addEventListener("click",function click(e){
 		let today = new Date();
 		let hour = today.getHours();
 		let minutes = today.getMinutes();
