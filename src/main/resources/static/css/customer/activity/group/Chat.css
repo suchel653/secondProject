@@ -24,9 +24,9 @@
 .chat-form {
     flex: 0 0 auto;
     height: 60px;
-    background: #40434e;
-    border-top: 1px solid #2671ff;
-    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+    background:#ffe1fb;
+
+   /*  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28); */
 }
 .chat-form input {
     height: 59px;
@@ -38,7 +38,7 @@
     text-indent: 10px;
     font-size: 12pt;
     padding: 0;
-    background: #40434e;
+    background:#cb99c5;
 }
 .chat-form button {
     float: right;
@@ -53,13 +53,7 @@
     transition: all 0.15s ease-in-out;
 }
 
-.msg-container {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    margin: 0 0 10px 0;
-    padding: 0;
-}
+
 .msg-box {
     display: flex;
     background: #5b5e6c;
@@ -112,13 +106,14 @@
 
 .myMsg{
 
-	background:ivory;
+	background:#ededed;
 
 	justify-self:flex-end; 
 	align-self: flex-end;
 	
 }
 .Msg{
+	background:#ededed;
 	justify-self:flex-start; 
 	align-self: flex-start;
 	margin-bottom: 5px;
