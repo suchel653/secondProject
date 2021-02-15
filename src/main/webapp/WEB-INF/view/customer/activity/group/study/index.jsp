@@ -133,8 +133,8 @@
 
 		<div class="box3">
 		
-			<div>Chat</div>
 			<section class="chatbox">
+			<h1 class="board-h1">Chat</h1>
 			<div class="chat-window">
 				
 				<input class="type" type="hidden" value="1" >
