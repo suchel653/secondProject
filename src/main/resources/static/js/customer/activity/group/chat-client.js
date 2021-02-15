@@ -1,5 +1,6 @@
 window.addEventListener("load",(e)=>{
-	const section = document.querySelector(".chat");
+	const section = document.querySelector(".chatbox");
+	const chatWindow = document.querySelector(".chat-window")
 	const chatInput = section.querySelector(".chat-input");
 	const sendButton = section.querySelector(".send-btn");
 	const nickname = section.querySelector(".nickname");
@@ -31,10 +32,11 @@ window.addEventListener("load",(e)=>{
 		
 		let message = JSON.parse(e.data);
 		let {id,img,type,chatId,username,chatData,time} = message;
-		let myMsg = "black";
-		
+		let myMsg ="Msg";
+
+	
 		if(username === nickname.value)
-			myMsg = "blue";
+			myMsg = "myMsg";
 			
 		let src = `/images/profileImg/${id}/${img}`;
 		
@@ -43,14 +45,22 @@ window.addEventListener("load",(e)=>{
 			
 		
 		
-		let chatItemTemplate = `<div>
-									<img src="${src}" />
-									<span style="color:${myMsg}">${username} : </span>
-									<span style="color:${myMsg}">${chatData}</span>	
-									<span>${time}</span>	
+		let chatItemTemplate = `	
+									<div class="msg-box ${myMsg}">
+									
+									<img class="user-img" src="${src}" />
+									<span class="username">${username}</span>
+									
+									
+									<span class="msg">:${chatData}
+									</span>	
+									
+									
+									<span class="timestamp">${time}</span>	
+								
 								</div>`;
 		
-		section.insertAdjacentHTML("beforeend",chatItemTemplate);
+		chatWindow.insertAdjacentHTML("beforeend",chatItemTemplate);
 	});
 	
 	sendButton.addEventListener("click",(e)=>{
