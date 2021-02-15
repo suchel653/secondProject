@@ -1,0 +1,125 @@
+@charset "EUC-KR";
+
+
+.chatbox {
+	margin-left:100px;
+	margin-top:100px;
+    width: 400px;
+    height: 800px;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+}
+.chat-window {
+	display:flex;
+	flex-direction:column;
+    flex: auto;
+    max-height: calc(100% - 60px);
+    background: white;
+    overflow: auto;
+ 
+}
+.chat-form {
+    flex: 0 0 auto;
+    height: 60px;
+    background: #40434e;
+    border-top: 1px solid #2671ff;
+    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+}
+.chat-form input {
+    height: 59px;
+    line-height: 60px;
+    outline: 0 none;
+    border: none;
+    width: calc(100% - 60px);
+    color: white;
+    text-indent: 10px;
+    font-size: 12pt;
+    padding: 0;
+    background: #40434e;
+}
+.chat-form button {
+    float: right;
+    outline: 0 none;
+    border: none;
+    background: rgba(255,255,255,.25);
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    padding: 2px 0 0 0;
+    margin: 10px;
+    transition: all 0.15s ease-in-out;
+}
+
+.msg-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+.msg-box {
+    display: flex;
+    background: #5b5e6c;
+    padding: 10px 10px 0 10px;
+    border-radius: 6px 6px 6px 6px;
+    max-width: 80%;
+    width: auto;
+    float: left;
+    box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+    margin-top: 10px;
+}
+.user-img {
+    display: inline-block;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+   /*  background: #2671ff; */
+    margin: 0 10px 10px 0;
+}
+
+.messages {
+    flex: 1 0 auto;
+}
+.msg {
+    display: inline-block;
+    font-size: 11pt;
+    line-height: 13pt;
+  /*   color: rgba(255,255,255,.7); */
+  color:black;
+    margin: 0 0 4px 0;
+    
+}
+.msg:first-of-type {
+    margin-top: 8px;
+}
+.timestamp {
+    color: rgba(0,0,0,.38);
+    font-size: 8pt;
+    margin-bottom: 10px;
+    align-self:flex-end;
+	width:50px;
+
+
+}
+.username {
+	font-weight:bold;
+    margin-right: 3px;
+}
+
+
+.myMsg{
+
+	background:ivory;
+
+	justify-self:flex-end; 
+	align-self: flex-end;
+	
+}
+.Msg{
+	justify-self:flex-start; 
+	align-self: flex-start;
+	margin-bottom: 5px;
+} 

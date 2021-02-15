@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -65,7 +66,8 @@ public class ContestController {
 			@RequestParam("endDate") String oldEndDate,
 			@RequestParam("title") String title,
 			@RequestParam("content") String content,
-			MultipartHttpServletRequest mtfRequest
+			MultipartHttpServletRequest mtfRequest,
+			HttpSession session
 			) throws ParseException, IllegalStateException, IOException{
 	
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -74,8 +76,9 @@ public class ContestController {
 		Date endDate = sdf.parse(oldEndDate);
 		
 		int newId = service.getLastId()+1;
+		String writerName = (String) session.getAttribute("nickname");
 		
-		Contest contest = new Contest(newId,"aaa",title,content,startDate,endDate);
+		Contest contest = new Contest(newId,writerName,title,content,startDate,endDate);
 		service.insert(contest);
 		
 		List<MultipartFile> fileList = mtfRequest.getFiles("files");

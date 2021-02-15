@@ -91,6 +91,12 @@
 			
             
             <div class="btn prev-next-btn">
+                <a class="neon-btn green" href="list">목록
+                	<span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
             
 				<c:if test="${pv.memberCount < pv.limitNumber }">
 				<a class="apply-btn neon-btn pink" href="">지원하기
@@ -101,12 +107,6 @@
 				</a>
 				</c:if>
             
-                <a class="neon-btn green" href="list">목록
-                	<span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </a>
                 <c:if test="${empty prev }">
                 <a class="neon-btn blue">이전
                 	<span></span>

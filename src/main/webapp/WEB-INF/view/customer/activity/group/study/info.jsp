@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script src="/js/customer/activity/group/study/info.js"></script>
+<link href="/css/reset.css" type="text/css" rel="stylesheet" />
 <link href="/css/customer/activity/group/info/index.css" type="text/css" rel="stylesheet" />
 
 <main id="main" class="main detail dmain">
@@ -90,9 +91,12 @@
 
 			<div class="content">${s.content}</div>
 
-			<div>
-				<input type="button" value="창 닫기" class="close-Btn" />
-			</div>
+			<a value="창 닫기" class="close-Btn neon-btn blue" >창 닫기
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			</a>
 			
 		</section>
 

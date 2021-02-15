@@ -10,9 +10,10 @@ public interface MemberService {
 	int delete(int id);
 	
 	List<Member> getList();
-	List<Member> getList(int offset, int size, String field, String query);
+	List<Member> getList(int page, int size, String field, String query);
 	Member get(int id);
 	int check(String field, String query);
 	Member get(String email);
 	int getLast();
+	int getCount(String field,String query);
 }

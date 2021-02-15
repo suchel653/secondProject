@@ -12,7 +12,7 @@
 			</div>
 
 			<div class="detail-container">
-				<table>
+				<table class="contest-list">
 					<tbody>
 						<tr>
 							<th>시작일</th>

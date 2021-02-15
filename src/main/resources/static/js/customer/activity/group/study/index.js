@@ -12,7 +12,7 @@ window.addEventListener("load", (e) => {
 	infoBtn.addEventListener("click", (e) => {
 
 		let id = e.target.previousElementSibling.value;
-		win = open("/customer/activity/group/study/" + id + "/info", "_blank", "width=1300px,height=700px");
+		win = open("/customer/activity/group/study/" + id + "/info", "_blank", "width=1080px,height=650px");
 
 	});
 
@@ -126,7 +126,7 @@ window.addEventListener("load", (e) => {
 						</tr>`;
 				boardTableTbody.insertAdjacentHTML("beforeend", tr);
 			}
-			boardPlusBtn.type = "hidden";
+			boardPlusBtn.style.display = "none";
 		}
 	}
 
@@ -154,7 +154,7 @@ window.addEventListener("load", (e) => {
 							<td colspan="4">
 								<div class="auth-box">
 									<input class="detail-edit" type="button" value="수정"/>
-									<input class="detail-del" type="button"/>
+									<input class="detail-del" type="button" value="삭제"/>
 								</div>
 								<span class="detail-content">
 									${list[index].content}
@@ -200,9 +200,9 @@ window.addEventListener("load", (e) => {
 								`;
 						reged = true;
 					}
-					commentList += `<div>
-									 <span>${comment.writerNickname}</span> 
-									: <span>${comment.content}<span> 
+					commentList += `<div class="cmt-div">
+									 <span class="comment-writer-nickname">${comment.writerNickname}</span> 
+									: <span>${comment.content}</span> 
 									<span class="comment-regdate">${moment(comment.regDate).format("YYYY-MM-DD HH:mm")}</span>
 									<input type="hidden" value="${comment.id}"/>
 									${cmtAuth}
@@ -299,6 +299,9 @@ window.addEventListener("load", (e) => {
 			let action = e.target.className;
 
 			if (action == "cmt-del") {
+				let result = confirm("삭제하시겠습니까?");
+				if (!result)
+					return;
 				let id = e.target.parentElement.previousElementSibling.value;
 				fetch(`/api/studyCommentController/delete?id=${id}`)
 					.then(() => {
@@ -308,6 +311,47 @@ window.addEventListener("load", (e) => {
 			}
 
 		})
+	}
+
+});
+
+
+
+
+// =================================== 스터디 상태 변경 ====================
+
+window.addEventListener("load", (e) => {
+	let statusBox = document.querySelector(".status-box");
+	let id = document.querySelector("input").value;
+	if (statusBox != null) {
+		let statusId = statusBox.querySelector(".status-id").value;
+		if (statusId == 1) {
+			let startBtn = statusBox.querySelector(".status-box .start-btn");
+			startBtn.addEventListener("click", (e) => {
+				let result = confirm("스터디를 진행하시겠습니까?");
+				if (!result)
+					return;
+
+				fetch(`/api/studyController/updateStatus?id=${id}&statusId=2`)
+					.then(() => {
+						window.location.reload();
+					})
+
+			});
+		}
+		else if (statusId == 2) {
+			let endBtn = statusBox.querySelector(".status-box .end-btn");
+			endBtn.addEventListener("click", (e) => {
+				let result = confirm("스터디를 종료하시겠습니까?");
+				if (!result)
+					return;
+				
+				fetch(`/api/studyController/updateStatus?id=${id}&statusId=3`)
+					.then(() => {
+						window.location.reload();
+					})
+			})
+		}
 	}
 
 });

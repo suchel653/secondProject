@@ -64,7 +64,7 @@
 		<if test="ids == null">
 			(0)
 		</if>
-
+		and statusId = 1
 		order by id desc
 		limit #{size} offset #{offset}
 	</select>
@@ -98,6 +98,7 @@
 		<if test="ids == null">
 			(0)
 		</if>
+		and statusId=1;
 	</select>
 
 	<select id="getPrev" resultType="com.ggiriggiri.web.entity.ProjectView">
@@ -143,6 +144,13 @@
 
 		order by regdate desc
 	</select>
+	
+	<update id="updateStatusById" parameterType="com.ggiriggiri.web.entity.Project">
+		update Project 
+		set 
+			statusId=#{statusId}
+		where id=#{id}
+	</update>
 	
 	
 	

@@ -1,23 +1,23 @@
 
-window.addEventListener("load",function(){
-
+window.addEventListener("load", (e) => {
+	
 	const groupPage = document.querySelectorAll(".group-page");
 	console.log(groupPage);
 	let win;
 
-	
-/*	for(let i=0; i<groupPage.length; i++){
-		groupPage[i].addEventListener("click",(e)=>{
-			e.preventDefault();
-			console.log(e.currentTarget.href);
-			let hr = e.currentTarget.href.split("/");
-			let kind = hr[6];
-			id = parseInt(hr[7]);
-			win = open(`group/${kind}/${id}/index`,"_blank","width = 1500px, height = 900px");
-		
-	});
-	}*/
-	
+
+	/*	for(let i=0; i<groupPage.length; i++){
+			groupPage[i].addEventListener("click",(e)=>{
+				e.preventDefault();
+				console.log(e.currentTarget.href);
+				let hr = e.currentTarget.href.split("/");
+				let kind = hr[6];
+				id = parseInt(hr[7]);
+				win = open(`group/${kind}/${id}/index`,"_blank","width = 1500px, height = 900px");
+			
+		});
+		}*/
+
 
 
 	for (let i = 0; i < groupPage.length; i++) {
@@ -34,8 +34,8 @@ window.addEventListener("load",function(){
 			var yPos = (document.body.offsetHeight / 2) - (h / 2);
 			win = open(`group/${kind}/${id}/index`, "_blank", "width=" + w + "+px, height=" + h + "+px, left=" + xPos + ", top=" + yPos + ", menubar=yes, status=yes, titlebar=yes, resizable=yes");
 
-		});
-	}
+		})
+	};
 
-	
+
 });
