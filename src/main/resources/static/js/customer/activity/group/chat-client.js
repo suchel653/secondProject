@@ -8,7 +8,11 @@ window.addEventListener("load",(e)=>{
 	const type = section.querySelector(".type").value;
 	const img = section.querySelector(".img").value;
 	const id = section.querySelector(".id").value;
-	console.log(id);
+
+	let isScrollUp = false;
+	let lastScrollTop;
+	let unreadCnt = 0;
+
 	let username = nickname.value;
 	let message = {
 		id,
@@ -89,7 +93,13 @@ window.addEventListener("load",(e)=>{
 			chatInput.value="";
 			if(socket != undefined)
 				socket.send(JSON.stringify(message));      
-		  }
+	  	
+			if (!isScrollUp) {
+		      $('.chat-window').animate({
+		        scrollTop: chatWindow.scrollHeight
+		      }, 100);
+		    }
+		}
     });
 
 	sendButton.addEventListener("click",function click(e){
@@ -117,5 +127,12 @@ window.addEventListener("load",(e)=>{
 		chatInput.value="";
 		if(socket != undefined)
 			socket.send(JSON.stringify(message));
+		if (!isScrollUp) {
+	      $('.chat-window').animate({
+	        scrollTop: chatWindow.scrollHeight - chatWindow.clientHeight
+	      }, 100);
+	    }
 	});
+	
+
 });
