@@ -36,12 +36,12 @@
 				<div class="team-info">
 					<div class="member-info">
 						<div class="team-leader">팀장 : ${sv.leaderName} 
-						<input type="button" class="btn-two mini purple" onclick="window.open('/customer/profile/${sv.leaderId}','win','width=900,height=500')" value="프로필 보기"/></div>
+						<input type="button" class="btn-two mini purple" onclick="window.open('/customer/profile/${sv.leaderId}','_blank','width=900,height=500')" value="프로필 보기"/></div>
 					</div>
 					<c:forEach var="sav" items="${sav}">
 						<div class="member-info">
 							<div class="team-member">팀원 : ${sav.memberNickname} 
-							<input type="button" class="btn-two mini purple" onclick="window.open('/customer/profile/${sav.memberId}','win','width=900,height=500')" value="프로필 보기"/></div>
+							<input type="button" class="btn-two mini purple" onclick="window.open('/customer/profile/${sav.memberId}','_blank','width=900,height=500')" value="프로필 보기"/></div>
 						</div>
 					</c:forEach>
 				</div>
