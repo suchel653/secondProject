@@ -2,12 +2,13 @@
 
 @import url("/css/customer/detail-list.css");
 
-#main {
+html {
 	background: url("/images/space.png");
 }
 
-.flux {
-	margin-top : 0px;
+h1 .flux {
+	margin: 100px 0px 0px 0px;
+	border:2px solid white;
 }
 
 body{
@@ -16,5 +17,6 @@ body{
 
 .close-btn{
 	margin-top : -100px;
-	margin-left: 450px;
+	margin-left: 520px;
 }
+
