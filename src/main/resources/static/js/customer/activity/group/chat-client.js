@@ -38,6 +38,7 @@ window.addEventListener("load",(e)=>{
 	
 	sendButton.addEventListener("click",(e)=>{
 		let message ={
+					type,
 					chatId,
 					username,
 					chatData:chatInput.value
