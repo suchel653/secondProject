@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://kit.fontawesome.com/b280fc7aa7.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="/js/customer/activity/group/study/index.js"></script>
 <script src="/js/customer/activity/group/chat-client.js"></script>
@@ -126,7 +127,7 @@
 					</table>
 
 				</div>
-				<input class="board-plus-btn" type="button" value="+" />
+				<i class="fas fa-plus-square board-plus-btn"></i>
 			</div>
 		</div>
 

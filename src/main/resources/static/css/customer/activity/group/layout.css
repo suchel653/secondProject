@@ -1,17 +1,17 @@
 @charset "UTF-8";
 
 body{
-	background : url("/images/group/pink.jpg");
+	background : #f9f5f5;
 }
 .container{
-	width: 1500px;
-	height : 900px;
+	--width: 1500px;
+	--height : 900px;
 	display : flex;
 }
 
 .container .box1{
 	width : 500px;
-	height : 900px;
+	--height : 900px;
 	
 }
 
@@ -41,7 +41,7 @@ body{
 
 .container .box2{
 	width: 500px; 
-	height: 900px; 
+	--height: 900px; 
 	
 }
 
@@ -58,7 +58,7 @@ body{
 
 .container .box3{
 	width: 500px; 
-	height: 900px; 
+	--height: 900px; 
 	
 }
 

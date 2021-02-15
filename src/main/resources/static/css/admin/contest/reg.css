@@ -1,2 +1,70 @@
 @charset "UTF-8";
 
+.reg{
+	width:80%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.reg>h1{
+	align-self: flex-start;
+	margin-left: 30px;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.reg table{
+	margin-top:50px;
+	width: 80%;
+}
+
+.reg table th{
+	width: 70px;
+}
+
+.reg table tr{
+	height: 30px;
+}
+
+.reg table .title input{
+	width: 95%;
+}
+
+.reg table .date{
+	font-size: 10px;
+	color: blue;
+}
+
+.reg .content{
+	margin-top:30px;
+	width: 100%;
+}
+
+.reg .content textarea{
+	margin-left:80px;
+	width: 78%;
+	height: 500px;
+	resize: none;
+}
+
+.reg .submit-btn{
+	 align-self:flex-end;
+	 margin: 30px 0;
+}
+
+.reg .img-list{
+	width:80%;
+	margin:auto;
+}
+
+.reg .img{
+	
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.reg .img img{
+	margin:10px;
+}
