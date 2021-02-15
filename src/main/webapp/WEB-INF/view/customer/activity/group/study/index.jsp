@@ -138,7 +138,9 @@
 			<div class="chat" style="display: flex; flex-direction: column; align-items: center; justify-content: space-around;width:300px;height:300px;border: 1px solid black">
 				<h1>팀 채팅</h1>
 				<input class="type" type="hidden" value="1" >
+				<input class="img" type="hidden" value="${image}">
 				<input class="nickname" type="hidden" value="${nickname}" >
+				<input class="id" type="hidden" value="${sessionScope.id}" >
 		  		<input class="chat-id" type="hidden" value="${sv.id}" >
 		   		<input class="chat-input" autofocus="autofocus" type = "text" id = "message" style = "height : 30px; width : 340px" placeholder="내용을 입력하세요" autofocus>
 				<button class = "send-btn" id = "send">전송</button>
