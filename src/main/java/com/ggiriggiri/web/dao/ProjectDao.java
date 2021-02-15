@@ -31,5 +31,6 @@ public interface ProjectDao {
 	
 	int[] getIdsByLeaderId(int leaderId, int statusId);
 	List<ProjectView> getViewListByStatusId(int[] ids, int leaderId, int statusId);
+	int updateStatusById(int id, int statusId);
 	
 }

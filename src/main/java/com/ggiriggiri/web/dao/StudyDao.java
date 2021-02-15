@@ -29,6 +29,7 @@ public interface StudyDao {
 	List<StudyView> getViewListByStatusId(int[] ids, int leaderId, int statusId);
 
 	Study getLast();
+	int updateStatusById(int id, int statusId);
 
 
 	
