@@ -68,7 +68,6 @@ public class ProjectController {
 		for(ProjectApply pa : pas) {
 			if(pa.getProjectId() == projectId) 
 				 paId = pa.getProjectId();
-			System.out.println("중복 프로젝트 아이디 : "+paId);
 		}
 		
 		if(pv.getMemberCount() < pv.getLimitNumber() && paId!=projectId) {
