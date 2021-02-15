@@ -91,10 +91,10 @@
 				<div class="status-box">
 				<input type="hidden" class="status-id" value="${sv.statusId}"/>
 					<c:if test="${sv.statusId==1}">
-						<input class="start-btn" type="button" value="시작"/>
+						<input class="start-btn" type="button" value="START"/>
 					</c:if>
 					<c:if test="${sv.statusId==2}">
-						<input class="end-btn" type="button" value="종료"/>
+						<input class="end-btn" type="button" value="END"/>
 					</c:if>
 				</div>
 			</c:if>
@@ -133,8 +133,8 @@
 
 		<div class="box3">
 		
-			
 			<section class="chatbox">
+			<h1 class="board-h1">Chat</h1>
 			<div class="chat-window">
 				
 				<input class="type" type="hidden" value="1" >

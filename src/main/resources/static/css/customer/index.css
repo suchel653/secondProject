@@ -1,6 +1,6 @@
                                                                
 .main{
-		border:1px solid white;
+		--border:1px solid white;
 	}
 
 	.main .container{
@@ -70,6 +70,10 @@
     top: -5000px;
     transform: rotateX(25deg) translateZ(-2500px);
   }
+}
+
+#oldSkool{
+	padding-left: 600px;
 }
 
 
