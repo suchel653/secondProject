@@ -23,16 +23,14 @@
 					<div class="container-box2">
 						<c:forEach var="s" items="${sav}">
 							<div class="text-items">
-								<span><span class="user-name">${s.memberNickname}</span>님이 ${s.studyTitle}에 지원하였습니다.</span>
+								<span><a onclick="window.open('/customer/activity/group/study/${s.studyId}/index','win','width=1500,height=900')"><span class="user-name">${s.memberNickname}</span>님이 ${s.studyTitle}에 지원하였습니다.</a></span>
 								<span class="date-fmt"><fmt:formatDate value="${s.regDate}" pattern="yyyy-MM-dd" /></span>
 							</div>
 						</c:forEach>
 					</div>
 				</div>
-				
 				 
 			</section>
-			
 			
 			<section class="apply-list">
 				<div>
@@ -41,7 +39,7 @@
 					
 						<c:forEach var="p" items="${pav}">
 							<div class="text-items">
-								<span><span class="user-name">${p.memberNickname}</span>님이 ${p.projectTitle}에 지원하였습니다.</span>
+								<span><a onclick="window.open('/customer/activity/group/project/${p.projectId}/index','win','width=1500,height=900')"><span class="user-name">${p.memberNickname}</span>님이 ${p.projectTitle}에 지원하였습니다.</a></span>
 								<span class="date-fmt"><fmt:formatDate value="${p.regDate}" pattern="yyyy-MM-dd" /></span>
 							</div>
 						</c:forEach>
@@ -49,13 +47,11 @@
 					</div>
 				</div>
 				
-			 
 			</section>
 
 		</div>
 		
 		<div class="container-box">
-		
 		
 			<section class="apply-result-list">
 				<div>
@@ -71,7 +67,6 @@
 	
 					</div>
 				</div>
-				
 				
 				</section>
 				
@@ -91,7 +86,6 @@
 							</c:forEach>
 						</div>
 					</div>
-					
 					
 				</section>
 		</div>
@@ -162,7 +156,6 @@
 
 		<div class="container-box">
 		
-		
 			<section class="watting-study">
 				<h1>대기중인 스터디</h1>
 				<div class="container-box2 sp-box">
@@ -191,7 +184,6 @@
 				</div>
 			</section>
 			
-			
 			<section class="watting-project">
 				<h1>대기중인 프로젝트</h1>
 				<div class="container-box2 sp-box">
@@ -214,7 +206,6 @@
 					</c:forEach>
 				</div>
 			</section>
-			
 			
 		</div>
 
@@ -247,7 +238,6 @@
 				</div>
 			</section>
 			
-			
 			<section class="ended-project">
 				<h1>완료 프로젝트</h1>
 				<div class="container-box2 sp-box">
@@ -270,7 +260,6 @@
 					</c:forEach>
 				</div>
 			</section>
-			
 			
 		</div>
 

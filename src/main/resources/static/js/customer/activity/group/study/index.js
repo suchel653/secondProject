@@ -12,7 +12,7 @@ window.addEventListener("load", (e) => {
 	infoBtn.addEventListener("click", (e) => {
 
 		let id = e.target.previousElementSibling.value;
-		win = open("/customer/activity/group/study/" + id + "/info", "_blank", "width=1300px,height=700px");
+		win = open("/customer/activity/group/study/" + id + "/info", "_blank", "width=1000px,height=700px");
 
 	});
 
