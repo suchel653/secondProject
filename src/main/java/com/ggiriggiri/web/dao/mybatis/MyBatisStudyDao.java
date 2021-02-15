@@ -91,6 +91,12 @@ public class MyBatisStudyDao implements StudyDao {
 		return mapper.getLast();
 	}
 
+	@Override
+	public int updateStatusById(int id, int statusId) {
+		// TODO Auto-generated method stub
+		return mapper.updateStatusById(id, statusId);
+	}
+
 
 	
 

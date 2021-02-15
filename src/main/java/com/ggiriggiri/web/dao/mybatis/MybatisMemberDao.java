@@ -76,4 +76,10 @@ public class MybatisMemberDao implements MemberDao{
 		return mapper.getLast();
 	}
 
+	@Override
+	public int getCount(String field,String query) {
+		// TODO Auto-generated method stub
+		return mapper.getCount(field,query);
+	}
+
 }

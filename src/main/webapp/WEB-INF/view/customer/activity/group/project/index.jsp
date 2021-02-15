@@ -80,7 +80,22 @@
 					</form>
 				</div>
 			</c:if>
-
+			<c:if test="${sessionScope.id == pv.leaderId}">
+				<div class="status-box">
+				<input type="hidden" class="status-id" value="${pv.statusId}"/>
+					<c:if test="${pv.statusId==1}">
+						<input class="start-btn" type="button" value="시작"/>
+					</c:if>
+					<c:if test="${pv.statusId==2}">
+						<input class="end-btn" type="button" value="종료"/>
+					</c:if>
+				</div>
+			</c:if>
+			<c:if test="${pv.statusId==3}">
+				<div class="status-box">
+					<span>종료된 프로젝트입니다.</span>
+				</div>
+			</c:if>
 		</div>
 
 		<input type="hidden" class="memberId" value="${id}">
@@ -118,6 +133,8 @@
 			<div class="chat" style="width:300px;height:300px;border: 1px solid black;display: flex; flex-direction: column; align-items: center; justify-content: space-around">
 				<h1>팀 채팅</h1>
 				<input class="type" type="hidden" value="0" >
+				<input class="img" type="hidden" value="${image}">
+				<input class="id" type="hidden" value="${sessionScope.id}" >
 				<input class="nickname" type="hidden" value="${nickname}" >
 		  		<input class="chat-id" type="hidden" value="${pv.id}" >
 		   		<input class="chat-input" autofocus="autofocus" type = "text" id = "message" style = "height : 30px; width : 340px" placeholder="내용을 입력하세요" autofocus>

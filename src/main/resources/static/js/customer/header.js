@@ -1,6 +1,6 @@
 window.addEventListener("load", function() {
 	let profile = document.querySelector(".profile");
-	let id = document.querySelector(".id");
+	let memberId = document.querySelector(".id");
 	let nickname = document.querySelector(".profile-user-name").innerHTML;
 	
 	profile.addEventListener("click",(e)=>{
@@ -25,10 +25,16 @@ window.addEventListener("load", function() {
 			profile.insertAdjacentHTML('afterEnd',div);
 		}
 		let win;
+		
+		
 		profilePage = profile.nextElementSibling.firstElementChild;
 		profilePage.addEventListener("click", (e)=>{
-			win = open("/customer/profile/" + id.value, "_blank", "width=900px,height=500px,top=200,left=400");
+			
+			
+			win = open("/customer/profile/" + memberId.value, "_blank", "width=900px,height=500px,top=200,left=400");
 		})
+		
+		console.log(id.value);
 	})
 	
 	

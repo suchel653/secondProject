@@ -67,8 +67,8 @@ window.addEventListener("load", function() {
 	
 	submitButton.onclick = function submitCheck(){
 		if(check1 && check2 && password.value != ""){
-			return true;
 			alert("회원가입이 완료되었습니다.");
+			return true;
 		}else if(check1 && check2){
 			alert("비밀번호를 입력해주세요");
 			return false;

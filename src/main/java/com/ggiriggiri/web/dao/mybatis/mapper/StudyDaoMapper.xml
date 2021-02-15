@@ -117,4 +117,11 @@
 		SELECT * FROM Study WHERE ID = (SELECT MAX(ID) FROM
 		Study)
 	</select>
+	
+	<update id="updateStatusById" parameterType="com.ggiriggiri.web.entity.Study">
+		update Study 
+		set 
+			statusId=#{statusId}
+		where id=#{id}
+	</update>
 </mapper>

@@ -144,6 +144,13 @@
 		order by regdate desc
 	</select>
 	
+	<update id="updateStatusById" parameterType="com.ggiriggiri.web.entity.Project">
+		update Project 
+		set 
+			statusId=#{statusId}
+		where id=#{id}
+	</update>
+	
 	
 	
 </mapper>

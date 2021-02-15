@@ -10,7 +10,7 @@ window.addEventListener("load", (e) => {
 	let clicked;
 
 	infoBtn.addEventListener("click", (e) => {
-		
+
 		let id = e.target.previousElementSibling.value;
 		win = open("/customer/activity/group/project/" + id + "/info", "_blank", "width=1300px,height=700px");
 
@@ -107,7 +107,7 @@ window.addEventListener("load", (e) => {
 							</td>
 							<td>${list[i + currentCnt].writerNickname}</td>
 							<td>${moment(list[i + currentCnt].regDate).format("YYYY-MM-DD HH:mm")}</td>
-						</tr>`; 
+						</tr>`;
 				boardTableTbody.insertAdjacentHTML("beforeend", tr);
 			}
 			currentCnt += 5;
@@ -300,6 +300,9 @@ window.addEventListener("load", (e) => {
 			let action = e.target.className;
 
 			if (action == "cmt-del") {
+				let result = confirm("삭제하시겠습니까?");
+				if (!result)
+					return;
 				let id = e.target.parentElement.previousElementSibling.value;
 				fetch(`/api/projectCommentController/delete?id=${id}`)
 					.then(() => {
@@ -309,6 +312,46 @@ window.addEventListener("load", (e) => {
 			}
 
 		})
+	}
+
+});
+
+
+
+// =================================== 프로젝트 상태 변경 ====================
+
+window.addEventListener("load", (e) => {
+	let statusBox = document.querySelector(".status-box");
+	let id = document.querySelector("input").value;
+	if (statusBox != null) {
+		let statusId = statusBox.querySelector(".status-id").value;
+		if (statusId == 1) {
+			let startBtn = statusBox.querySelector(".status-box .start-btn");
+			startBtn.addEventListener("click", (e) => {
+				let result = confirm("프로젝트를 진행하시겠습니까?");
+				if (!result)
+					return;
+
+				fetch(`/api/projectController/updateStatus?id=${id}&statusId=2`)
+					.then(() => {
+						window.location.reload();
+					})
+
+			});
+		}
+		else if (statusId == 2) {
+			let endBtn = statusBox.querySelector(".status-box .end-btn");
+			endBtn.addEventListener("click", (e) => {
+				let result = confirm("프로젝트를 종료하시겠습니까?");
+				if (!result)
+					return;
+				
+				fetch(`/api/projectController/updateStatus?id=${id}&statusId=3`)
+					.then(() => {
+						window.location.reload();
+					})
+			})
+		}
 	}
 
 });

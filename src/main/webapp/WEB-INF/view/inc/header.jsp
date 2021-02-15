@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/security/tags"%>
+<<<<<<< HEAD
 <script src="https://kit.fontawesome.com/b280fc7aa7.js" crossorigin="anonymous"></script>
+=======
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+>>>>>>> refs/remotes/origin/master
 <script src="/js/customer/header.js"></script>
 
 <header id="header" class="header">
@@ -35,12 +39,20 @@
 						<div class="profile-box2">
 						
 							<div class="profile">
-								<img class="profile-img" src="/images/language/c.png" /> 
+
+								<c:if test="${sessionScope.image =='profileBasic.png'}">
+									<img class="profile-img" src="/images/profileImg/profileBasic.png" /> 
+								</c:if>
+								
+								<c:if test="${sessionScope.image !='profileBasic.png'}">
+									<img class="profile-img" src="/images/profileImg/${sessionScope.id}/${sessionScope.image}"/> 
+								</c:if>
+								
 								<span class="profile-user-name">${nickname}</span>
 							</div>
 							
 						</div>
-						<input type="hidden" class="id" value=${id }>
+						<input type="hidden" class="id" value=${sessionScope.id }>
 					</div>
 				</s:authorize>
 			</ul>

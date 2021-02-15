@@ -90,9 +90,7 @@
 
 			<div class="content">${s.content}</div>
 
-			<div>
-				<input type="button" value="창 닫기" class="close-Btn" />
-			</div>
+			<a value="창 닫기" class="close-Btn neon-btn blue" > 창 닫기</a>
 			
 		</section>
 
