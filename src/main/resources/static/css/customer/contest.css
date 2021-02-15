@@ -16,19 +16,52 @@
 }
 
 .contest .contest-list{
-	margin-top:50px;
-	width:70%;
-	height:500px;
+	margin:50px auto;
 	border-radius: 20px;
 	text-align: center;
-	color:white;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
-.contest-list tr,
-.contest-list td{
-	vertical-align: middle;
+.contest-item{
+	margin:30px;
+	border-radius: 20px;
+	background: white;
+	height: 290px;
+}
+
+.contest-item table{
+	width: 97%;
+}
+
+.contest-item th{
+	font-weight: bold;
+}
+
+.contest-item td{
+	text-align: right;
+}
+
+.contest-item img{
+	border-radius: 20px;
+	width: 240px;
+	height: 250px;
+}
+
+.contest .contest-list .contest-item:hover{
+	animation: contestneon 1.5s ease-in-out infinite alternate;
 }
 
 .pager{
 	margin-top:50px;
+}
+
+@keyframes contestneon {
+  from {
+    box-shadow:  0 0 10px #fff, 0 0 20px #ff85fb, 0 0 30px #ff85fb, 0 0 40px #ff85fb, 0 0 50px #ff85fb, 0 0 70px #ff85fb;
+  }
+  to {
+    box-shadow:  0 0 5px #fff, 0 0 10px #ff85fb, 0 0 20px #ff85fb, 0 0 30px #ff85fb, 0 0 30px #ff85fb, 0 0 40px #ff85fb;
+  }
 }
