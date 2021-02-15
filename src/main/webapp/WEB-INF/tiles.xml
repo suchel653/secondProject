@@ -37,6 +37,11 @@
     <put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
   </definition>
   
+  <definition name="customer.login" template="/WEB-INF/view/customer/login.jsp">
+  	<put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
+  </definition>
+  
   <definition name="customer.*" template="/WEB-INF/view/inc/layout.jsp">
     <put-attribute name="title" value="Tiles tutorial homepage" />
     <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
