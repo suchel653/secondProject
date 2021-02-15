@@ -33,8 +33,7 @@ window.addEventListener("load", function() {
 			
 			win = open("/customer/profile/" + memberId.value, "_blank", "width=900px,height=500px,top=200,left=400");
 		})
-		
-		console.log(id.value);
+	
 	})
 	
 	
