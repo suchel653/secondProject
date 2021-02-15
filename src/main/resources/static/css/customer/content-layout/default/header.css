@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300&display=swap');
 
 .header {
-	border-bottom: 3px solid #0fffff90;
 	padding : 20px;
 }
 
@@ -154,7 +153,7 @@
     cursor: pointer;
 }
 .header .member-info .profile .profile-user-name{
-	width: 100%;
+	width: 100px;
 	margin-left: 5px;
 	font-family: 'Overpass', sans-serif;
 }
@@ -209,7 +208,6 @@
 	padding:10px 0;
 	text-align: center;
 	
-	font-style: italic;
 	font-family: sans-serif;
 }
 .detail-menu .menu-item:hover{
