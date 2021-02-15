@@ -113,8 +113,8 @@
 		
 		
 		.header nav.member-list ul.member-info li:first-child a{
-			width: 80%;
-   		    height: 100%;
+			width: 60%;
+   		    height: 70%;
    		    background:#4A59DF;
    		    
 			display: flex;
