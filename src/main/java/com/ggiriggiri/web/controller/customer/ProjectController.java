@@ -77,6 +77,7 @@ public class ProjectController {
 			pageCount=1;
 		
 		model.addAttribute("page", page);
+		model.addAttribute("size", size);
 		model.addAttribute("pageCount", pageCount);
 		
 		List<Field> fdList = fdService.getList();

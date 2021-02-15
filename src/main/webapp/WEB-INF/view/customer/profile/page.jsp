@@ -82,6 +82,18 @@
 					<div class="intro-hangout">
 						<div class="title">Hang-out</div>
 						<div class="content">
+							<div class="address">
+								<c:choose>
+									<c:when test="${empty p.address || p.address == null}"><div class="edit">집 주소 등록하기</div></c:when>
+									<c:otherwise><div>${p.address}</div></c:otherwise>
+								</c:choose>
+							</div>
+							<div class="git">
+								<c:choose>
+									<c:when test="${empty p.repositoryLink || p.repositoryLink == null}"><div class="edit">깃 주소 등록하기</div></c:when>
+									<c:otherwise><div>${p.repositoryLink}</div><div class="gitLink">바로가기</div></c:otherwise>
+								</c:choose>
+							</div>
 						</div>
 					</div>
 				</div>

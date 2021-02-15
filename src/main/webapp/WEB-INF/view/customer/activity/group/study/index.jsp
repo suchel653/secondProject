@@ -7,11 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://kit.fontawesome.com/b280fc7aa7.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="/js/customer/activity/group/study/index.js"></script>
 <script src="/js/customer/activity/group/chat-client.js"></script>
 <link href="/css/reset.css" type="text/css" rel="stylesheet" />
 <link href="/css/customer/activity/group/index.css" type="text/css" rel="stylesheet" />
+<link href="/css/customer/activity/group/Chat.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<div class="container">
@@ -125,28 +127,30 @@
 					</table>
 
 				</div>
-				<input class="board-plus-btn" type="button" value="+" />
+				<i class="fas fa-plus-square board-plus-btn"></i>
 			</div>
 		</div>
 
 		<div class="box3">
-			<div class="date-div">
-				<h1>일정 공유</h1>
-				<div class="date-div-box"></div>
-			</div>
-
-			<div class="chat" style="display: flex; flex-direction: column; align-items: center; justify-content: space-around;width:300px;height:300px;border: 1px solid black">
-				<h1>팀 채팅</h1>
+		
+			
+			<section class="chatbox">
+			<div class="chat-window">
+				
 				<input class="type" type="hidden" value="1" >
 				<input class="img" type="hidden" value="${image}">
 				<input class="nickname" type="hidden" value="${nickname}" >
 				<input class="id" type="hidden" value="${sessionScope.id}" >
 		  		<input class="chat-id" type="hidden" value="${sv.id}" >
-		   		<input class="chat-input" autofocus="autofocus" type = "text" id = "message" style = "height : 30px; width : 340px" placeholder="내용을 입력하세요" autofocus>
+		  		</div>
+		  		<div class="chat-form">
+		   		<input class="chat-input" autofocus="autofocus" type = "text" id = "message"  placeholder="내용을 입력하세요" autofocus>
 				<button class = "send-btn" id = "send">전송</button>
 				<!-- <input type="button" value="채팅" /> -->
 			</div>
+			</section>
+			</div>
 		</div>
-	</div>
+
 </body>
 </html>
