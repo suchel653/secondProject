@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/security/tags"%>
-<<<<<<< HEAD
-<script src="https://kit.fontawesome.com/b280fc7aa7.js" crossorigin="anonymous"></script>
-=======
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
->>>>>>> refs/remotes/origin/master
+<script src="https://kit.fontawesome.com/b280fc7aa7.js" crossorigin="anonymous"></script>
 <script src="/js/customer/header.js"></script>
 
 <header id="header" class="header">

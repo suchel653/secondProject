@@ -252,3 +252,27 @@ input[class*="btn"], button[class*="btn"] {
 		inset;
 	position: relative;
 }
+
+.start-btn,
+.end-btn{
+	font-weight : bold;
+	font-size : 50px;
+	background : none;
+}
+
+.start-btn:hover,
+.end-btn:hover{
+	cursor:pointer;
+	color : darkgray;
+}
+
+.start-btn:focus,
+.end-btn:focus{
+	outline: none;
+}
+
+.status-box span{
+	font-size : 30px;
+	font-weight : bold;
+	color : darkgray;
+}

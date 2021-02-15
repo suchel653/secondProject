@@ -85,10 +85,10 @@
 				<div class="status-box">
 				<input type="hidden" class="status-id" value="${pv.statusId}"/>
 					<c:if test="${pv.statusId==1}">
-						<input class="start-btn" type="button" value="시작"/>
+						<input class="start-btn" type="button" value="START"/>
 					</c:if>
 					<c:if test="${pv.statusId==2}">
-						<input class="end-btn" type="button" value="종료"/>
+						<input class="end-btn" type="button" value="END"/>
 					</c:if>
 				</div>
 			</c:if>
