@@ -9,9 +9,9 @@
 	
         <main id="main" class="main">
   
-  		<div>
+  		<!-- <div>
   			<div class="audio-btn">stop</div>
-  		</div>
+  		</div> -->
         <h1 class="d-none">메인이다</h1>
         
    	<!-- <div class = "container" style="border:1px solid white;">

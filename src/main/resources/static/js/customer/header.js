@@ -18,9 +18,9 @@ window.addEventListener("load", function() {
 		else{
 			let div = `
 				<div class="detail-menu">
-					<div>마이페이지</div>
-					<div><a href="/customer/activity/index">나의 활동</a></div>
-					<div><a href="/customer/logout">로그아웃</a></div>
+					<div class="menu-item">마이페이지</div>
+					<div class="menu-item"><a href="/customer/activity/index">나의 활동</a></div>
+					<div class="menu-item"><a href="/customer/logout">logout</a></div>
 				</div>`;
 			profile.insertAdjacentHTML('afterEnd',div);
 		}
