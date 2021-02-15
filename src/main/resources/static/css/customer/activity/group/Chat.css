@@ -53,13 +53,7 @@
     transition: all 0.15s ease-in-out;
 }
 
-.msg-container {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    margin: 0 0 10px 0;
-    padding: 0;
-}
+
 .msg-box {
     display: flex;
     background: #5b5e6c;
