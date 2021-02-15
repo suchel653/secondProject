@@ -34,7 +34,7 @@ public class GgiriGgiriAuthenticationSuccessHandler extends SavedRequestAwareAut
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		System.out.println("실행되라");
+
 		if (session != null) {
 
 			User authUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -43,7 +43,10 @@ public class GgiriGgiriAuthenticationSuccessHandler extends SavedRequestAwareAut
 			Member m = memberService.get(email);
 			session.setAttribute("id", m.getId());
 			session.setAttribute("nickname", m.getNickname());
-//			session.setAttribute("image",m.getProfile().getImage());
+			if(m.getProfile()==null)
+				session.setAttribute("image","profileBasic.png");
+			else
+				session.setAttribute("image",m.getProfile().getImage());
 			
 			System.out.println(session.getAttribute("id"));
 			Set<String> authorities = AuthorityUtils.authorityListToSet(authentication.getAuthorities());

@@ -78,3 +78,8 @@ body{
 	height: 300px; 
 	
 }
+
+.status-box{
+	text-align : center;
+	margin-top : 50px;
+}

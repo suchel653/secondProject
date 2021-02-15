@@ -48,6 +48,7 @@ public interface ProjectService {
 	int getFileId(int projectId, String name);
 	int getSkillId(int projectId, int skillId);
 	int getLanguageId(int projectId, int languageId);
+	int updateStatus(int id, int statusId);
 }
 
 

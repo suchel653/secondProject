@@ -91,10 +91,10 @@ public class MemberServiceImp implements MemberService{
 		
 		Member m = memberDao.getByEmail(email);
 		
+		
 		Profile p = profileDao.get(m.getId());
-		
-		m.setProfile(p);
-		
+		if(p != null) 
+			m.setProfile(p);
 		return m;
 	}
 

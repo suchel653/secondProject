@@ -85,7 +85,22 @@
 					</form>
 				</div>
 			</c:if>
-
+			<c:if test="${sessionScope.id == sv.leaderId}">
+				<div class="status-box">
+				<input type="hidden" class="status-id" value="${sv.statusId}"/>
+					<c:if test="${sv.statusId==1}">
+						<input class="start-btn" type="button" value="시작"/>
+					</c:if>
+					<c:if test="${sv.statusId==2}">
+						<input class="end-btn" type="button" value="종료"/>
+					</c:if>
+				</div>
+			</c:if>
+			<c:if test="${sv.statusId==3}">
+				<div class="status-box">
+					<span>종료된 스터디입니다.</span>
+				</div>
+			</c:if>
 		</div>
 
 		<input type="hidden" class="memberId" value="${id}">
