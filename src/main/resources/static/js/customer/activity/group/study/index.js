@@ -28,7 +28,6 @@ window.addEventListener("load", (e) => {
 
 		tbody.addEventListener("click", (e) => {
 			e.preventDefault();
-			console.log(e.target);
 			if (e.target.tagName == "INPUT") {
 				let action = e.target.value;
 				let memberId = e.target.previousElementSibling.value;

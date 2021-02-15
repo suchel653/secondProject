@@ -14,6 +14,7 @@
 <link href="/css/reset.css" type="text/css" rel="stylesheet" />
 <link href="/css/customer/activity/group/index.css" type="text/css" rel="stylesheet" />
 <link href="/css/customer/activity/group/Chat.css" type="text/css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -36,12 +37,12 @@
 				<div class="team-info">
 					<div class="member-info">
 						<div class="team-leader">팀장 : ${sv.leaderName} 
-						<input type="button" class="btn-two mini purple" onclick="window.open('/customer/profile/${sv.leaderId}','win','width=900,height=500')" value="프로필 보기"/></div>
+						<input type="button" class="btn-two mini purple" onclick="window.open('/customer/profile/${sv.leaderId}','_blank','width=900,height=500')" value="프로필 보기"/></div>
 					</div>
 					<c:forEach var="sav" items="${sav}">
 						<div class="member-info">
 							<div class="team-member">팀원 : ${sav.memberNickname} 
-							<input type="button" class="btn-two mini purple" onclick="window.open('/customer/profile/${sav.memberId}','win','width=900,height=500')" value="프로필 보기"/></div>
+							<input type="button" class="btn-two mini purple" onclick="window.open('/customer/profile/${sav.memberId}','_blank','width=900,height=500')" value="프로필 보기"/></div>
 						</div>
 					</c:forEach>
 				</div>
