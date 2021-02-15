@@ -14,6 +14,7 @@
 <link href="/css/reset.css" type="text/css" rel="stylesheet" />
 <link href="/css/customer/activity/group/index.css" type="text/css" rel="stylesheet" />
 <link href="/css/customer/activity/group/Chat.css" type="text/css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 <body>
