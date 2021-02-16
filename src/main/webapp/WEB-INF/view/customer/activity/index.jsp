@@ -23,7 +23,7 @@
 					<div class="container-box2">
 						<c:forEach var="s" items="${sav}">
 							<div class="text-items">
-								<span><a onclick="window.open('/customer/activity/group/study/${s.studyId}/index','win','width=1500,height=900')"><span class="user-name">${s.memberNickname}</span>님이 ${s.studyTitle}에 지원하였습니다.</a></span>
+								<span><a onclick="window.open('/customer/activity/group/study/${s.studyId}/index','_blank','width=1500,height=900')"><span class="user-name">${s.memberNickname}</span>님이 ${s.studyTitle}에 지원하였습니다.</a></span>
 								<span class="date-fmt"><fmt:formatDate value="${s.regDate}" pattern="yyyy-MM-dd" /></span>
 							</div>
 						</c:forEach>
@@ -39,7 +39,7 @@
 					
 						<c:forEach var="p" items="${pav}">
 							<div class="text-items">
-								<span><a onclick="window.open('/customer/activity/group/project/${p.projectId}/index','win','width=1500,height=900')"><span class="user-name">${p.memberNickname}</span>님이 ${p.projectTitle}에 지원하였습니다.</a></span>
+								<span><a onclick="window.open('/customer/activity/group/project/${p.projectId}/index','_blank','width=1500,height=900')"><span class="user-name">${p.memberNickname}</span>님이 ${p.projectTitle}에 지원하였습니다.</a></span>
 								<span class="date-fmt"><fmt:formatDate value="${p.regDate}" pattern="yyyy-MM-dd" /></span>
 							</div>
 						</c:forEach>
