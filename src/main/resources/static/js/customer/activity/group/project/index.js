@@ -225,6 +225,18 @@ window.addEventListener("load", (e) => {
 
 	function createNode(detail, boardId) {
 		let cmtRegBtn = document.querySelector(".cmt-reg");
+		let cmtContent = document.querySelector(".cmt-content");
+		cmtContent.addEventListener("keydown", (e) => {
+			if (e.key == "Enter") {
+				var event = new MouseEvent("click", {
+					'view': window,
+					'bubbles': true,
+					'cancelable': true
+				});
+				cmtRegBtn.dispatchEvent(event);
+			}
+
+		});
 		cmtRegBtn.addEventListener("click", (e) => {
 			let content = document.querySelector(".cmt-content").value;
 			let comment = {

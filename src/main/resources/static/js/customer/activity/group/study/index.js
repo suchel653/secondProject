@@ -224,6 +224,19 @@ window.addEventListener("load", (e) => {
 
 	function createNode(detail, boardId) {
 		let cmtRegBtn = document.querySelector(".cmt-reg");
+
+		let cmtContent = document.querySelector(".cmt-content");
+		cmtContent.addEventListener("keydown", (e) => {
+			if (e.key == "Enter") {
+				var event = new MouseEvent("click", {
+					'view': window,
+					'bubbles': true,
+					'cancelable': true
+				});
+				cmtRegBtn.dispatchEvent(event);
+			}
+
+		});
 		cmtRegBtn.addEventListener("click", (e) => {
 			let content = document.querySelector(".cmt-content").value;
 			let comment = {
@@ -344,7 +357,7 @@ window.addEventListener("load", (e) => {
 				let result = confirm("스터디를 종료하시겠습니까?");
 				if (!result)
 					return;
-				
+
 				fetch(`/api/studyController/updateStatus?id=${id}&statusId=3`)
 					.then(() => {
 						window.location.reload();
