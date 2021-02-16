@@ -9,7 +9,7 @@
 	<div class="container">
 		<div class="logo">
 			<a href="/index">
-				<h1>B.E.O</h1>
+				<h1>GGIRIGGIRI</h1>
 			</a>
 		</div>
 
