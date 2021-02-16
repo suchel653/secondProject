@@ -12,6 +12,7 @@
 	<input class="boardId" type="hidden" value="${sb.id}"/>
 	
 	 <h1 class="reg-title">게시글 수정</h1>
+	 <div class="flex">
 	<table class="reg-table">
 		<tbody>
 			<tr>
@@ -28,6 +29,7 @@
 	<div class="btn">
 	<input class="edit-btn" type="button" value="수정"/> 
 	<input class="cancel-btn" type="button" value="취소"/> 
+	</div>
 	</div>
 </body>
 </html>

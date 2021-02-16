@@ -1,5 +1,12 @@
 @charset "EUC-KR";
 
+.flex{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 .reg-table{
     
     margin:50px auto;
@@ -32,10 +39,11 @@
     
 }
 .btn{
-	margin-left:170px;
+	display: flex;
+	justify-content: center;
 }
 .reg-btn{
-
+	
 	background: #cb99c5;
 	color: #fff;
 	border: none;
@@ -44,11 +52,11 @@
 	font-size: 1.0em;
 	padding: 0 1.5em;
 	cursor: pointer;
-	
+	margin-left:20px;
 
 }
 .cancel-btn{
-	
+	margin-left:20px;
 	background: #cb99c5;
 	color: #fff;
 	border: none;
@@ -68,5 +76,4 @@
 	font-size: 1.0em;
 	padding: 0 1.5em;
 	cursor: pointer;
-	
 }
