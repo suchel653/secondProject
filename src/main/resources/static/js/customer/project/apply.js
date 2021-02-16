@@ -12,7 +12,6 @@ window.addEventListener("load",function(){
 		e.preventDefault();
 		if(e.target.classList.contains(applyBtn))
 				return;
-				
 		popup = open("/customer/project/apply/"+id,"_blank",`left=${left}px,top=${top}px,width=500px,height=400px`);
 		
 	});
