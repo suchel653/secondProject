@@ -12,6 +12,7 @@
 	<input class="projectId" type="hidden" value="${projectId}"/>
 	<input class="writerId" type="hidden" value="${writerId}"/>
 	 <h1 class="reg-title">게시글 등록</h1>
+	 <div class="flex">
     <table class="reg-table">
         <tbody>
 			<tr>
@@ -28,6 +29,7 @@
 	<div class="btn">
 	<input class="reg-btn" type="button" value="등록"/> 
 	<input class="cancel-btn" type="button" value="취소"/> 
+	</div>
 	</div>
 </body>
 </html>
