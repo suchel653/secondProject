@@ -44,7 +44,7 @@ window.addEventListener("load", (e) => {
 				e.target.nextElementSibling.childNodes[1].style.display = "none";
 				e.target.nextElementSibling.nextElementSibling.value = 0;
 			} else if (e.target.tagName == "A") {
-				win = open(e.target.href, "win", "width=900, height=500");
+				win = open(e.target.href, "_blank", "width=900, height=500");
 			}
 
 		});
