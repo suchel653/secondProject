@@ -11,23 +11,25 @@
 <body>
 	<input class="studyId" type="hidden" value="${studyId}"/>
 	<input class="writerId" type="hidden" value="${writerId}"/>
- <h1 class="reg-title">게시글 등록</h1>
-    <table class="reg-table">
-        <tbody>
-			<tr>
-				<td>제목</td>
-				<td><input class="title" type="text"/></td>
-			</tr>
-			<tr>
-				<td>내용</td>
-				<td><textarea class="content"></textarea></td>
-			</tr>
-			
-		</tbody>
-	</table>
-	<div class="btn">
-	<input class="reg-btn" type="button" value="등록"/> 
-	<input class="cancel-btn" type="button" value="취소"/> 
+ 	<h1 class="reg-title">게시글 등록</h1>
+ 	<div class="flex">
+	    <table class="reg-table">
+	        <tbody>
+				<tr>
+					<td>제목</td>
+					<td><input class="title" type="text"/></td>
+				</tr>
+				<tr>
+					<td>내용</td>
+					<td><textarea class="content"></textarea></td>
+				</tr>
+				
+			</tbody>
+		</table>
+		<div class="btn">
+			<input class="reg-btn" type="button" value="등록"/> 
+			<input class="cancel-btn" type="button" value="취소"/> 
+		</div>
 	</div>
 </body>
 </html>
